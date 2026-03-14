@@ -27,6 +27,7 @@ export default function Footer() {
       />
 
       <div
+        className="footer-wrapper"
         style={{
           maxWidth: 1240,
           margin: "0 auto",
@@ -51,6 +52,7 @@ export default function Footer() {
 
         {/* Main grid */}
         <div
+          className="footer-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "2fr 1fr 1fr 2fr",
@@ -369,6 +371,17 @@ export default function Footer() {
         </div>
       </div>
       <style>{`
+        @media (max-width: 900px) {
+          .footer-wrapper { padding: 0 24px !important; }
+          .footer-grid {
+            grid-template-columns: 1fr !important;
+            gap: 40px !important;
+            padding: 40px 0 !important;
+          }
+        }
+        @media (max-width: 600px) {
+          .footer-wrapper { padding: 0 16px !important; }
+        }
         .footer-btn:hover {
           background: #e6bd6a !important; /* Lighter gold */
         }

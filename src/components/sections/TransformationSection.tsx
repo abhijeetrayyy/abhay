@@ -97,6 +97,7 @@ export default function TransformationSection() {
       </motion.div>
 
       <div
+        className="transform-wrapper"
         style={{
           width: "100%",
           maxWidth: 1440,
@@ -107,6 +108,7 @@ export default function TransformationSection() {
         }}
       >
         <div
+          className="transform-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
@@ -155,7 +157,7 @@ export default function TransformationSection() {
                 style={{
                   fontFamily: "'Playfair Display', serif",
                   fontStyle: "italic",
-                  fontSize: "clamp(2rem, 3.5vw, 3.5rem)",
+                  fontSize: "clamp(1.8rem, 6vw, 3.5rem)",
                   lineHeight: 1.2,
                   letterSpacing: "-0.02em",
                   margin: "0 0 24px 0",
@@ -335,6 +337,19 @@ export default function TransformationSection() {
           </motion.div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 1024px) {
+          .transform-wrapper { padding: 80px 40px !important; }
+          .transform-grid {
+            grid-template-columns: 1fr !important;
+            gap: 60px !important;
+          }
+        }
+        @media (max-width: 768px) {
+          .transform-wrapper { padding: 60px 16px !important; }
+        }
+      `}</style>
     </section>
   );
 }

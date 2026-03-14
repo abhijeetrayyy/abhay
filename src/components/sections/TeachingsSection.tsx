@@ -34,6 +34,7 @@ export default function TeachingsSection() {
   return (
     <section
       id="teachings"
+      className="teachings-section"
       style={{
         backgroundColor: "var(--soft-sand)",
         padding: "120px 4vw",
@@ -228,7 +229,7 @@ export default function TeachingsSection() {
                         style={{
                           margin: 0,
                           fontFamily: "'Playfair Display', serif",
-                          fontSize: "clamp(1.8rem, 2.5vw, 2.5rem)",
+                          fontSize: "clamp(1.4rem, 6vw, 2.5rem)",
                           color: isActive ? "#0d1117" : "rgba(13,17,23,0.4)",
                           transition: "color 0.4s ease",
                           fontWeight: 400,
@@ -371,12 +372,15 @@ export default function TeachingsSection() {
 
       <style>{`
         @media (max-width: 1024px) {
+          .teachings-section {
+            padding: 80px 4vw !important;
+          }
           .editorial-container {
             flex-direction: column !important;
           }
           .editorial-image-col {
             width: 100% !important;
-            height: 60vh !important;
+            height: 50vh !important;
             min-height: auto !important;
             position: relative !important;
             top: 0 !important;
@@ -384,6 +388,11 @@ export default function TeachingsSection() {
           }
           .editorial-content-col {
             padding-top: 0 !important;
+          }
+        }
+        @media (max-width: 768px) {
+          .teachings-section {
+            padding: 60px 20px !important;
           }
         }
       `}</style>

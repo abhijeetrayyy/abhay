@@ -90,7 +90,7 @@ export default function EventsShowcaseSection() {
         }}
       />
 
-      <div style={{ maxWidth: 1440, margin: "0 auto", padding: "140px 7vw" }}>
+      <div className="events-wrapper" style={{ maxWidth: 1440, margin: "0 auto", padding: "140px 7vw" }}>
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 28 }}
@@ -134,7 +134,7 @@ export default function EventsShowcaseSection() {
                 margin: 0,
                 fontFamily: "'Playfair Display', serif",
                 fontWeight: 700,
-                fontSize: "clamp(2.6rem,4.5vw,5rem)",
+                fontSize: "clamp(2rem, 8vw, 5rem)",
                 letterSpacing: "-0.04em",
                 color: "#0d1117",
                 lineHeight: 0.92,
@@ -186,6 +186,7 @@ export default function EventsShowcaseSection() {
               }}
             >
               <div
+                className="event-card-grid"
                 style={{
                   display: "grid",
                   gridTemplateColumns: i % 2 === 0 ? "1fr 420px" : "420px 1fr",
@@ -193,6 +194,7 @@ export default function EventsShowcaseSection() {
               >
                 {/* Content side */}
                 <div
+                  className="event-card-content"
                   style={{
                     padding: "56px 64px",
                     display: "flex",
@@ -405,6 +407,7 @@ export default function EventsShowcaseSection() {
 
                 {/* Image side */}
                 <div
+                  className="event-card-image"
                   style={{
                     position: "relative",
                     overflow: "hidden",
@@ -451,6 +454,26 @@ export default function EventsShowcaseSection() {
       </div>
 
       <style>{`
+        @media (max-width: 1024px) {
+          .events-wrapper { padding: 80px 5vw !important; }
+          .event-card-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .event-card-image {
+            order: 1 !important;
+            min-height: 280px !important;
+          }
+          .event-card-content {
+            order: 2 !important;
+            padding: 40px 32px !important;
+          }
+        }
+        @media (max-width: 768px) {
+          .events-wrapper { padding: 60px 20px !important; }
+          .event-card-content {
+            padding: 32px 20px !important;
+          }
+        }
         .event-btn:hover {
           transform: translateY(-2px);
           box-shadow: 0 15px 40px rgba(13,17,23,0.25) !important;

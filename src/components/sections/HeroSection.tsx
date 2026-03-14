@@ -168,7 +168,7 @@ export default function HeroSection() {
               margin: 0,
               fontFamily: "'Playfair Display', serif",
               fontWeight: 400,
-              fontSize: "clamp(3rem, 7vw, 7rem)",
+              fontSize: "clamp(2.5rem, 8vw, 7rem)",
               letterSpacing: "-0.02em",
               lineHeight: 1.05,
               color: "#ffffff",
@@ -195,7 +195,7 @@ export default function HeroSection() {
           transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
           style={{
             fontFamily: "'Inter', sans-serif",
-            fontSize: "clamp(1.05rem, 1.3vw, 1.35rem)",
+            fontSize: "clamp(0.95rem, 4vw, 1.35rem)",
             lineHeight: 1.6,
             color: "rgba(255,255,255,0.75)",
             maxWidth: 680,
@@ -209,10 +209,11 @@ export default function HeroSection() {
 
         {/* CTAs */}
         <motion.div
+          className="hero-buttons"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          style={{ display: "flex", gap: "1.25rem", flexWrap: "wrap", justifyContent: "center" }}
+          style={{ display: "flex", gap: "1.25rem", flexWrap: "wrap", justifyContent: "center", width: "100%" }}
         >
           <Link
             href="https://calendly.com/hurraymangalam/neues-meeting"
@@ -267,6 +268,14 @@ export default function HeroSection() {
       </motion.div>
 
       <style>{`
+        @media (max-width: 768px) {
+          .hero-buttons {
+            flex-direction: column !important;
+          }
+          .hero-cta-primary, .hero-cta-secondary {
+            width: 100% !important;
+          }
+        }
         .hero-cta-primary:hover {
           transform: translateY(-2px);
           box-shadow: 0 15px 40px rgba(212,168,83,0.5) !important;

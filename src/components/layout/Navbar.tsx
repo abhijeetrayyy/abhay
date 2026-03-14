@@ -11,6 +11,7 @@ const links = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -86,7 +87,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <div style={{ display: "flex", alignItems: "center", gap: 40 }}>
+        <div className="desktop-nav" style={{ display: "flex", alignItems: "center", gap: 40 }}>
           {links.map((l) => (
             <Link
               key={l.label}
@@ -180,7 +181,90 @@ export default function Navbar() {
             Book Session
           </Link>
         </div>
+
+        {/* Mobile Toggle */}
+        <button
+          className="mobile-toggle"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          style={{
+            background: "transparent",
+            border: "none",
+            color: "#ffffff",
+            cursor: "pointer",
+            display: "none",
+            padding: "8px",
+          }}
+        >
+          {mobileMenuOpen ? (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M3 12h18M3 6h18M3 18h18" />
+            </svg>
+          )}
+        </button>
       </nav>
+
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <div
+          className="mobile-menu-overlay"
+          style={{
+            position: "fixed",
+            top: 80,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: "rgba(3,7,15,0.98)",
+            zIndex: 99,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            paddingTop: "40px",
+            gap: "24px",
+          }}
+        >
+          {links.map((l) => (
+            <Link
+              key={l.label}
+              href={l.href}
+              onClick={() => setMobileMenuOpen(false)}
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: "1.2rem",
+                fontWeight: 600,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                color: "#ffffff",
+                textDecoration: "none",
+              }}
+            >
+              {l.label}
+            </Link>
+          ))}
+          <Link
+            href="https://calendly.com/hurraymangalam/neues-meeting"
+            target="_blank"
+            onClick={() => setMobileMenuOpen(false)}
+            style={{
+              marginTop: "20px",
+              padding: "16px 32px",
+              background: "linear-gradient(135deg, #d4a853, #b8893a)",
+              color: "#050810",
+              fontFamily: "'Inter', sans-serif",
+              fontSize: "1rem",
+              fontWeight: 700,
+              textTransform: "uppercase",
+              textDecoration: "none",
+              borderRadius: "4px",
+            }}
+          >
+            Book Session
+          </Link>
+        </div>
+      )}
 
       {/* Global styles for nav links hover effect */}
       <style>{`
@@ -200,8 +284,17 @@ export default function Navbar() {
         .nav-link:hover {
           color: #ffffff !important;
         }
+        @media (max-width: 1024px) {
+          .desktop-nav {
+            display: none !important;
+          }
+          .mobile-toggle {
+            display: block !important;
+          }
+        }
         @media (max-width: 768px) {
-          nav { padding: 0 24px !important; }
+          nav { padding: 0 20px !important; height: 64px !important; }
+          .mobile-menu-overlay { top: 64px !important; }
         }
       `}</style>
     </>

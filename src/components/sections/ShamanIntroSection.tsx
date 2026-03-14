@@ -40,7 +40,7 @@ export default function ShamanIntroSection() {
         style={{
           maxWidth: 1400,
           margin: "0 auto",
-          padding: "clamp(64px, 10vw, 140px) clamp(24px, 6vw, 100px)",
+          padding: "clamp(48px, 8vw, 140px) clamp(16px, 5vw, 100px)",
         }}
       >
         <div className="shaman-intro-grid">
@@ -92,7 +92,7 @@ export default function ShamanIntroSection() {
                 lineHeight: 0.95,
                 letterSpacing: "-0.03em",
                 color: "#0d1117",
-                fontSize: "clamp(2.8rem, 5vw, 5.5rem)",
+                fontSize: "clamp(2.2rem, 8vw, 5.5rem)",
               }}
             >
               35 Years.
@@ -141,6 +141,7 @@ export default function ShamanIntroSection() {
 
             {/* Stats row */}
             <div
+              className="stats-row"
               style={{
                 display: "grid",
                 gridTemplateColumns: "repeat(3, 1fr)",
@@ -157,6 +158,7 @@ export default function ShamanIntroSection() {
               ).map(([num, label], i) => (
                 <motion.div
                   key={label}
+                  className="stats-col"
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -254,6 +256,24 @@ export default function ShamanIntroSection() {
                   max-width: 560px;
                   margin: 0 auto;
                   width: 100%;
+                }
+              }
+              @media (max-width: 600px) {
+                .stats-row {
+                  grid-template-columns: 1fr !important;
+                  gap: 24px;
+                }
+                .stats-col {
+                  border-right: none !important;
+                  border-bottom: 1px solid rgba(212,168,83,0.18);
+                  padding: 24px 0 !important;
+                }
+                .stats-col:last-child {
+                  border-bottom: none;
+                }
+                .intro-btn-primary { 
+                  width: 100% !important; 
+                  justify-content: center !important; 
                 }
               }
             `}</style>

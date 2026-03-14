@@ -60,6 +60,7 @@ export default function TestimonialsSection() {
     >
       {/* Decorative large quote mark */}
       <div
+        className="quote-mark"
         style={{
           position: "absolute",
           top: 80,
@@ -75,7 +76,7 @@ export default function TestimonialsSection() {
         &ldquo;
       </div>
 
-      <div style={{ maxWidth: 1440, margin: "0 auto", padding: "140px 80px" }}>
+      <div className="test-wrapper" style={{ maxWidth: 1440, margin: "0 auto", padding: "140px 80px" }}>
         {/* Section label */}
         <div
           style={{
@@ -101,6 +102,7 @@ export default function TestimonialsSection() {
         </div>
 
         <div
+          className="testimonials-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
@@ -115,7 +117,7 @@ export default function TestimonialsSection() {
                 margin: "0 0 24px 0",
                 fontFamily: "'Playfair Display', serif",
                 fontWeight: 400,
-                fontSize: "clamp(2.5rem, 4vw, 4rem)",
+                fontSize: "clamp(2.2rem, 8vw, 4rem)",
                 letterSpacing: "-0.025em",
                 color: "#0d1117",
                 lineHeight: 0.95,
@@ -199,6 +201,7 @@ export default function TestimonialsSection() {
               >
                 {/* Content Side */}
                 <div
+                  className="testimonial-card-content"
                   style={{
                     flex: "1.2",
                     padding: "60px 40px 60px 60px",
@@ -291,13 +294,23 @@ export default function TestimonialsSection() {
         .testimonial-flex-inner {
           flex-direction: row;
         }
-        @media (max-width: 900px) {
+        @media (max-width: 1024px) {
+          .test-wrapper { padding: 80px 40px !important; }
+          .testimonials-grid {
+            grid-template-columns: 1fr !important;
+            gap: 60px !important;
+          }
           .testimonial-flex-inner {
             flex-direction: column;
           }
           .testimonial-img-side {
             display: none;
           }
+        }
+        @media (max-width: 768px) {
+          .test-wrapper { padding: 60px 16px !important; }
+          .quote-mark { top: 20px !important; left: 10px !important; font-size: 14rem !important; }
+          .testimonial-card-content { padding: 32px 24px !important; }
         }
       `}</style>
     </section>

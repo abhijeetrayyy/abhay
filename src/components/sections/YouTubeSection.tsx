@@ -227,7 +227,7 @@ export default function YouTubeSection() {
         zIndex: 20,
       }}
     >
-      <div style={{ maxWidth: 1440, margin: "0 auto", padding: "140px 7vw" }}>
+      <div className="yt-wrapper" style={{ maxWidth: 1440, margin: "0 auto", padding: "140px 7vw" }}>
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -271,7 +271,7 @@ export default function YouTubeSection() {
                 margin: 0,
                 fontFamily: "'Playfair Display', serif",
                 fontWeight: 700,
-                fontSize: "clamp(2.4rem,4vw,4.5rem)",
+                fontSize: "clamp(2rem, 8vw, 4.5rem)",
                 letterSpacing: "-0.04em",
                 color: "#0d1117",
                 lineHeight: 0.95,
@@ -321,6 +321,7 @@ export default function YouTubeSection() {
 
         {/* 5-video grid: 3 top, 2 bottom */}
         <div
+          className="yt-grid-top"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(3, 1fr)",
@@ -333,6 +334,7 @@ export default function YouTubeSection() {
           ))}
         </div>
         <div
+          className="yt-grid-bottom"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(2, 1fr)",
@@ -346,6 +348,17 @@ export default function YouTubeSection() {
       </div>
 
       <style>{`
+        @media (max-width: 1024px) {
+          .yt-wrapper { padding: 80px 5vw !important; }
+        }
+        @media (max-width: 900px) {
+          .yt-grid-top, .yt-grid-bottom {
+            grid-template-columns: 1fr !important;
+          }
+        }
+        @media (max-width: 768px) {
+          .yt-wrapper { padding: 60px 20px !important; }
+        }
         .yt-btn:hover {
           transform: translateY(-2px);
           background: linear-gradient(135deg, rgba(13,17,23,0.1), rgba(13,17,23,0.05)) !important;

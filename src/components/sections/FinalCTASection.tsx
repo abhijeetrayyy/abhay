@@ -48,6 +48,7 @@ export default function FinalCTASection() {
       </motion.div>
 
       <div
+        className="final-cta-wrapper"
         style={{
           maxWidth: 1440,
           margin: "0 auto",
@@ -97,7 +98,7 @@ export default function FinalCTASection() {
               margin: "0 0 32px 0",
               fontFamily: "'Playfair Display', serif",
               fontWeight: 400,
-              fontSize: "clamp(3.5rem, 7vw, 7rem)",
+              fontSize: "clamp(2.5rem, 8vw, 7rem)",
               letterSpacing: "-0.04em",
               color: "#0d1117",
               lineHeight: 0.9,
@@ -135,6 +136,7 @@ export default function FinalCTASection() {
           </p>
 
           <div
+            className="final-cta-buttons"
             style={{
               display: "flex",
               gap: 14,
@@ -283,6 +285,19 @@ export default function FinalCTASection() {
       </div>
 
       <style>{`
+        @media (max-width: 1024px) {
+          .final-cta-wrapper { padding: 80px 40px !important; }
+        }
+        @media (max-width: 768px) {
+          .final-cta-wrapper { padding: 60px 20px !important; }
+          .final-cta-buttons {
+            flex-direction: column !important;
+          }
+          .final-primary-btn, .final-secondary-btn {
+            width: 100% !important;
+            justify-content: center !important;
+          }
+        }
         .final-primary-btn:hover {
           transform: translateY(-2px);
           box-shadow: 0 16px 48px rgba(13,17,23,0.25) !important;

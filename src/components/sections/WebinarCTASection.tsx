@@ -33,6 +33,7 @@ export default function WebinarCTASection() {
 
 
       <div
+        className="webinar-wrapper"
         style={{
           maxWidth: 1440,
           margin: "0 auto",
@@ -42,6 +43,7 @@ export default function WebinarCTASection() {
         }}
       >
         <div
+          className="webinar-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
@@ -90,7 +92,7 @@ export default function WebinarCTASection() {
                 margin: "0 0 28px 0",
                 fontFamily: "'Playfair Display', serif",
                 fontWeight: 400,
-                fontSize: "clamp(2.5rem, 4vw, 4rem)",
+                fontSize: "clamp(2rem, 8vw, 4rem)",
                 letterSpacing: "-0.025em",
                 color: "#0d1117",
                 lineHeight: 0.95,
@@ -332,6 +334,16 @@ export default function WebinarCTASection() {
       </div>
 
       <style>{`
+        @media (max-width: 1024px) {
+          .webinar-wrapper { padding: 80px 40px !important; }
+          .webinar-grid {
+            grid-template-columns: 1fr !important;
+            gap: 60px !important;
+          }
+        }
+        @media (max-width: 768px) {
+          .webinar-wrapper { padding: 60px 16px !important; }
+        }
         .webinar-btn:hover {
           transform: translateY(-2px);
           box-shadow: 0 16px 48px rgba(13,17,23,0.25) !important;

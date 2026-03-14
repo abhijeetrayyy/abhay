@@ -36,7 +36,7 @@ function GalleryImage({
         overflow: "hidden",
         position: "relative",
         aspectRatio: img.aspect,
-        width: "clamp(240px, 22vw, 380px)",
+        width: "clamp(240px, 60vw, 380px)",
         boxShadow: "0 20px 60px rgba(0,0,0,0.55)",
         border: "1px solid rgba(255,255,255,0.07)",
         transition: "box-shadow 0.4s ease",
@@ -105,6 +105,7 @@ export default function GallerySection() {
 
       {/* Header */}
       <div
+        className="gallery-header"
         style={{
           maxWidth: 1440,
           margin: "0 auto",
@@ -156,7 +157,7 @@ export default function GallerySection() {
               margin: 0,
               fontFamily: "'Playfair Display', serif",
               fontWeight: 400,
-              fontSize: "clamp(2.2rem, 4vw, 4rem)",
+              fontSize: "clamp(2rem, 8vw, 4rem)",
               letterSpacing: "-0.025em",
               color: "#0d1117",
               lineHeight: 1.0,
@@ -199,6 +200,15 @@ export default function GallerySection() {
           <GalleryImage key={img.src + i} img={img} delay={shouldReduce ? 0 : i * 0.07 + 0.1} />
         ))}
       </motion.div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          .gallery-header {
+            padding: 0 16px !important;
+            margin-bottom: 32px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }
