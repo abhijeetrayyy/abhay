@@ -8,6 +8,7 @@ const navItems = [
   { href: '/admin/leads', label: 'Leads', icon: '◉' },
   { href: '/admin/events', label: 'Events', icon: '◇' },
   { href: '/admin/registrations', label: 'Registrations', icon: '○' },
+  { href: '/admin/testimonials', label: 'Testimonials', icon: '★' },
   { href: '/admin/newsletter', label: 'Newsletter', icon: '◌' },
   { href: '/admin/export', label: 'Export', icon: '↓' },
   { href: '/admin/settings', label: 'Settings', icon: '⚙' },

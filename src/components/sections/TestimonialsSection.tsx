@@ -2,54 +2,35 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-
-const testimonials = [
-  {
-    quote: "After one session with Abhay, I felt a weight lift from my chest that I had been carrying for 20 years. It was like my cells remembered how to breathe again.",
-    name: "Maria K.",
-    location: "Berlin, Germany",
-    img: "/sao-gallery-img5.jpg",
-    type: "Healing Session"
-  },
-  {
-    quote: "The SAMPO System completely rewired how I experience stress. What used to cripple me now passes through me. I have never felt more sovereign in my own body.",
-    name: "James R.",
-    location: "London, UK",
-    img: "/sao-gallery-img3.jpg",
-    type: "Training Program"
-  },
-  {
-    quote: "I traveled to three continents seeking healing. What Abhay achieved in a single masterclass surpassed everything. This is ancient wisdom in its purest form.",
-    name: "Elena V.",
-    location: "Moscow, Russia",
-    img: "/sao-gallery-img7.jpg",
-    type: "Masterclass"
-  },
-  {
-    quote: "What people remember most after a personal encounter with the shaman is the special inner feeling — an all-embracing love that truly touches the heart.",
-    name: "Priya S.",
-    location: "Mumbai, India",
-    img: "/sao-gallery-img8.jpg",
-    type: "Ceremony"
-  },
-];
+import { getActiveTestimonials } from "@/lib/data";
+import type { Testimonial } from "@/lib/supabase";
 
 export default function TestimonialsSection() {
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [cur, setCur] = useState(0);
   const [dir, setDir] = useState(1);
 
   useEffect(() => {
+    getActiveTestimonials().then(data => setTestimonials(data));
+  }, []);
+
+  useEffect(() => {
+    if (testimonials.length === 0) return;
     const t = setInterval(() => {
       setDir(1);
       setCur((p) => (p + 1) % testimonials.length);
     }, 7000);
     return () => clearInterval(t);
-  }, []);
+  }, [testimonials.length]);
 
   const go = (i: number) => {
     setDir(i > cur ? 1 : -1);
     setCur(i);
   };
+
+  if (testimonials.length === 0) {
+    return null;
+  }
 
   return (
     <section style={{ position: "relative", background: "#F5F1EA", overflow: "hidden" }}>
@@ -102,7 +83,7 @@ export default function TestimonialsSection() {
                 color: '#1F1B16',
                 marginBottom: 36,
               }}>
-                &ldquo;{testimonials[cur].quote}&rdquo;
+                &ldquo;{testimonials[cur].content}&rdquo;
               </p>
 
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 14 }}>
@@ -115,8 +96,8 @@ export default function TestimonialsSection() {
                   border: '2px solid rgba(201,160,74,0.3)',
                 }}>
                   <img
-                    src={testimonials[cur].img}
-                    alt={testimonials[cur].name}
+                    src={testimonials[cur].client_image || '/sao-gallery-img5.jpg'}
+                    alt={testimonials[cur].client_name}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
                 </div>
@@ -127,7 +108,7 @@ export default function TestimonialsSection() {
                     color: '#1F1B16',
                     fontWeight: 500,
                   }}>
-                    {testimonials[cur].name}
+                    {testimonials[cur].client_name}
                   </div>
                   <div style={{
                     fontFamily: "'Cinzel', serif",
@@ -137,7 +118,7 @@ export default function TestimonialsSection() {
                     textTransform: 'uppercase',
                     fontWeight: 600,
                   }}>
-                    {testimonials[cur].location} &bull; {testimonials[cur].type}
+                    {testimonials[cur].client_location || 'Global Seeker'} &bull; {testimonials[cur].service_type || 'Healing Session'}
                   </div>
                 </div>
               </div>

@@ -2,6 +2,9 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect } from "react";
+import { getPublishedEvents } from "@/lib/data";
+import type { Event as AppEvent } from "@/lib/supabase";
 
 const events = [
   {
