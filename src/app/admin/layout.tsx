@@ -21,66 +21,83 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     return <>{children}</>;
   }
 
+  const isActive = (href: string) => {
+    if (href === '/admin') return pathname === '/admin';
+    return pathname.startsWith(href);
+  };
+
   return (
     <div className="min-h-screen flex" style={{ backgroundColor: '#FBF9F5' }}>
-      <aside className="w-64 flex flex-col fixed h-full" style={{ backgroundColor: '#FDFCFA', borderRight: '1px solid rgba(31,27,22,0.06)' }}>
-        <div className="p-6" style={{ borderBottom: '1px solid rgba(31,27,22,0.06)' }}>
-          <Link href="/admin" className="block">
-            <p className="text-lg" style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", color: '#1F1B16', fontWeight: 500 }}>
-              Admin Panel
+      {/* Sidebar */}
+      <aside style={{
+        width: 260, flexShrink: 0,
+        backgroundColor: '#FDFCFA',
+        borderRight: '1px solid rgba(31,27,22,0.06)',
+        display: 'flex', flexDirection: 'column', height: '100vh',
+        position: 'fixed', left: 0, top: 0,
+      }}>
+        {/* Logo */}
+        <div style={{ padding: '24px 24px 20px', borderBottom: '1px solid rgba(31,27,22,0.06)' }}>
+          <Link href="/admin" style={{ textDecoration: 'none' }}>
+            <p style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", color: '#1F1B16', fontWeight: 500, fontSize: '1.2rem', lineHeight: 1.3 }}>
+              Abhay Oyun
             </p>
-            <p className="text-xs mt-0.5" style={{ fontFamily: "'Cinzel', serif", letterSpacing: '0.15em', color: 'rgba(31,27,22,0.3)' }}>
-              ABHAY OYUN
+            <p style={{ fontFamily: "'Cinzel', serif", fontSize: '0.6rem', letterSpacing: '0.18em', color: 'rgba(31,27,22,0.3)', marginTop: 2 }}>
+              ADMIN PANEL
             </p>
           </Link>
         </div>
 
-        <nav className="flex-1 p-4 space-y-1 overflow-y-auto">
+        {/* Nav */}
+        <nav style={{ flex: 1, padding: '12px 10px', overflowY: 'auto' }}>
           {navItems.map((item) => {
-            const isActive = pathname === item.href;
+            const active = isActive(item.href);
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className="flex items-center gap-3 px-4 py-3 text-sm transition-all duration-300"
                 style={{
-                  borderRadius: 2,
+                  display: 'flex', alignItems: 'center', gap: 12,
+                  padding: '10px 14px', marginBottom: 2,
+                  fontSize: '0.85rem', lineHeight: 1.4,
                   fontFamily: "'Lora', Georgia, serif",
-                  background: isActive ? 'rgba(201,160,74,0.08)' : 'transparent',
-                  color: isActive ? '#A07D2E' : 'rgba(31,27,22,0.45)',
-                  borderLeft: `2px solid ${isActive ? '#C9A04A' : 'transparent'}`,
+                  background: active ? 'rgba(201,160,74,0.08)' : 'transparent',
+                  color: active ? '#A07D2E' : 'rgba(31,27,22,0.5)',
+                  borderLeft: `2.5px solid ${active ? '#C9A04A' : 'transparent'}`,
+                  borderRadius: 0,
+                  textDecoration: 'none',
+                  transition: 'all 0.2s ease',
                 }}
               >
-                <span className="text-base" style={{ opacity: 0.7 }}>{item.icon}</span>
-                {item.label}
+                <span style={{ fontSize: '0.9rem', opacity: active ? 1 : 0.5, width: 20, textAlign: 'center', flexShrink: 0 }}>
+                  {item.icon}
+                </span>
+                <span>{item.label}</span>
               </Link>
             );
           })}
         </nav>
 
-        <div className="px-6 py-2">
-          <div className="h-px" style={{ backgroundColor: 'rgba(31,27,22,0.06)' }} />
-        </div>
-
-        <div className="p-4 space-y-2">
-          <Link
-            href="/"
-            className="flex items-center gap-3 px-4 py-2.5 text-xs transition-colors rounded-sm"
-            style={{ fontFamily: "'Cinzel', serif", letterSpacing: '0.05em', color: 'rgba(31,27,22,0.3)' }}
-          >
-            <span>←</span>
-            Back to Website
+        {/* Bottom */}
+        <div style={{ borderTop: '1px solid rgba(31,27,22,0.06)', padding: '12px 16px' }}>
+          <Link href="/"
+            style={{
+              display: 'flex', alignItems: 'center', gap: 8, padding: '8px 12px',
+              fontSize: '0.72rem', fontFamily: "'Cinzel', serif", letterSpacing: '0.05em',
+              color: 'rgba(31,27,22,0.3)', textDecoration: 'none', borderRadius: 2,
+              transition: 'all 0.2s ease',
+            }}>
+            <span style={{ fontSize: '0.8rem' }}>←</span>
+            <span>Back to Website</span>
           </Link>
-        </div>
-
-        <div className="p-4" style={{ borderTop: '1px solid rgba(31,27,22,0.06)' }}>
-          <p className="text-xs text-center" style={{ fontFamily: "'Cinzel', serif", color: 'rgba(31,27,22,0.15)' }}>
+          <p style={{ fontSize: '0.6rem', textAlign: 'center', fontFamily: "'Cinzel', serif", color: 'rgba(31,27,22,0.1)', marginTop: 8 }}>
             v1.0.0
           </p>
         </div>
       </aside>
 
-      <main className="flex-1 ml-64">
+      {/* Main Content */}
+      <main style={{ flex: 1, marginLeft: 260, minHeight: '100vh' }}>
         {children}
       </main>
     </div>
