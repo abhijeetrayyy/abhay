@@ -142,7 +142,7 @@ export default function Navbar() {
           </div>
 
           <Link
-            href="https://calendly.com/hurraymangalam/neues-meeting"
+            href="https://calendly.com/hurraymangalam/individualsessions"
             target="_blank"
             style={{
               display: "inline-flex",
@@ -245,7 +245,7 @@ export default function Navbar() {
             </Link>
           ))}
           <Link
-            href="https://calendly.com/hurraymangalam/neues-meeting"
+            href="https://calendly.com/hurraymangalam/individualsessions"
             target="_blank"
             onClick={() => setMobileMenuOpen(false)}
             style={{

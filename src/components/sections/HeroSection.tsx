@@ -2,61 +2,166 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 
-export default function HeroSection() {
+function SacredGeometry() {
+  return (
+    <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none', opacity: 0.35 }}>
+      <motion.div
+        animate={{ rotate: 360 }}
+        transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
+        style={{
+          position: 'absolute',
+          width: 700,
+          height: 700,
+          border: '1px solid rgba(201,160,74,0.12)',
+          borderRadius: '50%',
+        }}
+      />
+      <motion.div
+        animate={{ rotate: -360 }}
+        transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+        style={{
+          position: 'absolute',
+          width: 520,
+          height: 520,
+          border: '1px solid rgba(201,160,74,0.15)',
+          borderRadius: '50%',
+        }}
+      />
+      <motion.div
+        animate={{ rotate: 360 }}
+        transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
+        style={{
+          position: 'absolute',
+          width: 850,
+          height: 850,
+          border: '1px solid rgba(201,160,74,0.06)',
+          borderRadius: '50%',
+        }}
+      />
+      {/* Sacred geometry star */}
+      <motion.div
+        animate={{ rotate: -360 }}
+        transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
+        style={{
+          position: 'absolute',
+          width: 380,
+          height: 380,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          opacity: 0.08,
+        }}
+      >
+        <svg width="380" height="380" viewBox="0 0 200 200" fill="none" stroke="#C9A04A" strokeWidth="0.5">
+          <polygon points="100,10 120,70 180,70 130,105 150,170 100,135 50,170 70,105 20,70 80,70" />
+        </svg>
+      </motion.div>
+    </div>
+  );
+}
+
+function Particles() {
   const [mounted, setMounted] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end start"] });
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // Layer 3: Subtle Motion (Particles)
-  const renderParticles = () => {
-    if (!mounted) return null; // Avoid hydration mismatch
-    
-    return Array.from({ length: 25 }).map((_, i) => {
-      const size = Math.random() * 3 + 1.5;
-      const left = Math.random() * 100;
-      const duration = Math.random() * 15 + 15;
-      const delay = Math.random() * 5;
-      
-      return (
+  if (!mounted) return null;
+
+  return (
+    <>
+      {Array.from({ length: 25 }).map((_, i) => (
         <motion.div
           key={i}
-          initial={{ 
-            y: "110vh", 
-            x: `${left}vw`,
-            opacity: Math.random() * 0.4 + 0.1
+          initial={{
+            y: "110vh",
+            x: `${Math.random() * 100}vw`,
+            opacity: 0,
           }}
-          animate={{ 
+          animate={{
             y: "-10vh",
-            x: `calc(${left}vw + ${Math.random() * 80 - 40}px)`
+            x: `calc(${Math.random() * 100}vw + ${Math.random() * 80 - 40}px)`,
+            opacity: [0, Math.random() * 0.5 + 0.2, 0],
           }}
           transition={{
-            duration: duration,
+            duration: Math.random() * 18 + 12,
             repeat: Infinity,
             ease: "linear",
-            delay: delay
+            delay: Math.random() * 12,
           }}
           style={{
-            position: "absolute",
-            width: size,
-            height: size,
-            borderRadius: "50%",
-            background: "rgba(255, 120, 40, 0.8)", // bright ember orange
-            boxShadow: "0 0 15px rgba(255, 80, 0, 0.6), 0 0 30px rgba(255, 120, 0, 0.3)",
-            filter: "blur(0.5px)",
-            zIndex: 15,
-            pointerEvents: "none",
+            position: 'absolute',
+            width: Math.random() * 3 + 1,
+            height: Math.random() * 3 + 1,
+            borderRadius: '50%',
+            background: i % 3 === 0 ? 'rgba(201,160,74,0.7)' : i % 3 === 1 ? 'rgba(155,168,139,0.5)' : 'rgba(255,255,255,0.5)',
+            boxShadow: i % 3 === 0 ? '0 0 12px rgba(201,160,74,0.5)' : i % 3 === 1 ? '0 0 8px rgba(155,168,139,0.4)' : 'none',
+            zIndex: 10,
+            pointerEvents: 'none',
           }}
         />
-      );
-    });
-  };
+      ))}
+    </>
+  );
+}
+
+function ScrollIndicator() {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 2.2 }}
+      style={{
+        position: 'absolute',
+        bottom: 36,
+        left: '50%',
+        transform: 'translateX(-50%)',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: 8,
+        zIndex: 20,
+      }}
+    >
+      <motion.div
+        animate={{ y: [0, 8, 0] }}
+        transition={{ duration: 1.5, repeat: Infinity }}
+        style={{
+          width: 22,
+          height: 38,
+          border: '1.5px solid rgba(201,160,74,0.35)',
+          borderRadius: 11,
+          display: 'flex',
+          justifyContent: 'center',
+          paddingTop: 7,
+        }}
+      >
+        <motion.div
+          animate={{ opacity: [1, 0.4, 1], y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+          style={{ width: 2.5, height: 7, background: '#C9A04A', borderRadius: 2 }}
+        />
+      </motion.div>
+      <span style={{ color: 'rgba(31,27,22,0.35)', fontSize: '0.6rem', letterSpacing: '0.22em', textTransform: 'uppercase', fontFamily: "'Cinzel', serif" }}>
+        Scroll
+      </span>
+    </motion.div>
+  );
+}
+
+export default function HeroSection() {
+  const [mounted, setMounted] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end start"] });
+  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
+  const imgOpacity = useTransform(scrollYProgress, [0, 0.8], [0.85, 0.45]);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <section
@@ -64,64 +169,39 @@ export default function HeroSection() {
       style={{
         position: "relative",
         height: "100svh",
-        minHeight: 700,
-        backgroundColor: "var(--deep-navy)", 
+        minHeight: 800,
+        backgroundColor: "#FBF9F5",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         overflow: "hidden",
       }}
     >
-      {/* Layer 1: Background Image */}
-      <div style={{ position: "absolute", inset: 0, zIndex: 1 }}>
+      {/* Background Image with Parallax */}
+      <motion.div style={{ position: "absolute", inset: 0, zIndex: 1, scale, opacity: imgOpacity }}>
         <img
-          src="/hero-bg.jpg"
-          alt="Shamanic Background"
+          src="/D9DB5CE5-E5BD-400D-9114-E5A90138CFFA_1_105_c.jpeg"
+          alt="Shaman Abhay Oyun"
           style={{
-            position: "absolute",
             width: "100%",
             height: "100%",
             objectFit: "cover",
-            opacity: 0.65,
+            objectPosition: "center 30%",
+            filter: "brightness(1.05) saturate(0.9)",
           }}
         />
-      </div>
+      </motion.div>
 
-      {/* Layer 2: Mystical Overlays */}
-      {/* Deep navy gradient */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          zIndex: 2,
-          background: "linear-gradient(to bottom, rgba(11, 19, 43, 0.5) 0%, rgba(11, 19, 43, 0.3) 40%, rgba(11, 19, 43, 0.85) 100%)",
-        }}
-      />
-      
-      {/* Aurora green radial glow */}
-      <div 
-        style={{
-          position: "absolute",
-          inset: 0,
-          zIndex: 3,
-          background: "radial-gradient(circle at 30% 120%, rgba(0, 210, 128, 0.15) 0%, transparent 60%)",
-        }}
-      />
+      {/* Light overlay gradients */}
+      <div style={{ position: "absolute", inset: 0, zIndex: 2, background: "linear-gradient(to bottom, rgba(251,249,245,0.5) 0%, rgba(251,249,245,0.2) 35%, rgba(251,249,245,0.8) 85%, rgba(251,249,245,0.95) 100%)" }} />
+      <div style={{ position: "absolute", inset: 0, zIndex: 3, background: "radial-gradient(ellipse at 50% 90%, rgba(201,160,74,0.15) 0%, transparent 60%)" }} />
+      <div style={{ position: "absolute", inset: 0, zIndex: 4, background: "radial-gradient(ellipse at 25% 25%, rgba(155,168,139,0.1) 0%, transparent 50%)" }} />
 
-      {/* Warm gold accent glow */}
-      <div 
-        style={{
-          position: "absolute",
-          inset: 0,
-          zIndex: 4,
-          background: "radial-gradient(circle at 70% 30%, rgba(212, 168, 83, 0.08) 0%, transparent 50%)",
-        }}
-      />
+      {/* Animated Elements */}
+      <SacredGeometry />
+      <Particles />
 
-      {/* Layer 3: Subtle Motion (Particles) */}
-      {renderParticles()}
-
-      {/* Layer 4 & 5: Typography and CTA */}
+      {/* Main Content */}
       <motion.div
         style={{
           position: "relative",
@@ -131,135 +211,139 @@ export default function HeroSection() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          padding: "0 6vw"
+          padding: "0 6vw",
+          maxWidth: 1200,
         }}
       >
-        {/* Eyebrow */}
+        {/* Eyebrow Badge */}
         <motion.div
-           initial={{ opacity: 0, y: 15 }}
-           animate={{ opacity: 1, y: 0 }}
-           transition={{ duration: 0.8, delay: 0.1 }}
-           style={{
-             display: "inline-block",
-             padding: "6px 16px",
-             borderRadius: "100px",
-             border: "1px solid rgba(212,168,83,0.3)",
-             background: "rgba(11,19,43,0.4)",
-             backdropFilter: "blur(4px)",
-             fontFamily: "'Inter', sans-serif",
-             fontSize: "0.65rem",
-             fontWeight: 700,
-             letterSpacing: "0.2em",
-             textTransform: "uppercase",
-             color: "#d4a853",
-             marginBottom: "2rem"
-           }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 12,
+            padding: "10px 22px",
+            borderRadius: 2,
+            border: "1px solid rgba(201,160,74,0.25)",
+            background: "rgba(251,249,245,0.7)",
+            backdropFilter: "blur(12px)",
+            WebkitBackdropFilter: "blur(12px)",
+            marginBottom: 36,
+          }}
         >
-          Master Abhay Oyun
+          <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#C9A04A' }} />
+          <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.68rem", fontWeight: 600, letterSpacing: "0.25em", textTransform: "uppercase", color: "#A07D2E" }}>
+            Siberian Shaman & Guardian of Our Planet
+          </span>
+          <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#C9A04A' }} />
         </motion.div>
 
+        {/* Main Heading */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h1
-            style={{
-              margin: 0,
-              fontFamily: "'Playfair Display', serif",
-              fontWeight: 400,
-              fontSize: "clamp(2.5rem, 8vw, 7rem)",
-              letterSpacing: "-0.02em",
-              lineHeight: 1.05,
-              color: "#ffffff",
-              textShadow: "0 10px 40px rgba(0,0,0,0.6)"
-            }}
-          >
-            Ancient Wisdom.
+          <h1 style={{
+            margin: 0,
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontWeight: 300,
+            fontSize: "clamp(3.2rem, 10vw, 7.5rem)",
+            letterSpacing: "-0.02em",
+            lineHeight: 1.02,
+            color: "#1F1B16",
+          }}>
+            Between Worlds
             <br />
-            <span style={{ 
-              fontStyle: "italic", 
-              color: "transparent",
-              backgroundImage: "linear-gradient(135deg, #f9d58b, #d4a853)",
+            <span style={{
+              fontStyle: "italic",
+              backgroundImage: "linear-gradient(135deg, #E8CD7A 0%, #C9A04A 40%, #A07D2E 100%)",
               WebkitBackgroundClip: "text",
-              backgroundClip: "text"
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
             }}>
-              for the Modern World
+              Abhay Oyun
             </span>
           </h1>
         </motion.div>
 
+        {/* Subtitle */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
           style={{
-            fontFamily: "'Inter', sans-serif",
-            fontSize: "clamp(0.95rem, 4vw, 1.35rem)",
-            lineHeight: 1.6,
-            color: "rgba(255,255,255,0.75)",
+            fontFamily: "'Lora', Georgia, serif",
+            fontSize: "clamp(1rem, 2.5vw, 1.3rem)",
+            lineHeight: 1.85,
+            color: "rgba(31,27,22,0.65)",
             maxWidth: 680,
-            marginTop: "1.5rem",
-            marginBottom: "3rem",
-            textShadow: "0 2px 10px rgba(0,0,0,0.5)"
+            marginTop: 28,
+            marginBottom: 0,
+            fontWeight: 400,
           }}
         >
-          Experience 35 years of Siberian shamanic mastery. Restore your vital energy, dissolve trauma, and awaken your dormant life force.
+          Awakening the world to the raw power of ancient Siberian shamanic traditions.
+          Sacred ceremonies, healing, and training since 1991.
         </motion.p>
 
-        {/* CTAs */}
+        {/* CTA Buttons */}
         <motion.div
-          className="hero-buttons"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          style={{ display: "flex", gap: "1.25rem", flexWrap: "wrap", justifyContent: "center", width: "100%" }}
+          transition={{ duration: 1, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          style={{ display: "flex", gap: 18, flexWrap: "wrap", justifyContent: "center", marginTop: 40 }}
         >
           <Link
-            href="https://calendly.com/hurraymangalam/neues-meeting"
+            href="https://calendly.com/hurraymangalam/individualsessions"
             target="_blank"
-            className="hero-cta-primary"
             style={{
               display: "inline-flex",
               alignItems: "center",
               justifyContent: "center",
-              padding: "18px 40px",
-              background: "linear-gradient(135deg, #d4a853, #b8893a)",
-              color: "#050810",
-              fontFamily: "'Inter', sans-serif",
-              fontSize: "0.85rem",
-              fontWeight: 700,
+              gap: 10,
+              padding: "18px 44px",
+              background: "linear-gradient(135deg, #C9A04A, #A07D2E)",
+              color: "#FDFCFA",
+              fontFamily: "'Cinzel', serif",
+              fontSize: "0.8rem",
+              fontWeight: 600,
               letterSpacing: "0.15em",
               textTransform: "uppercase",
-              borderRadius: 4,
+              borderRadius: 2,
               textDecoration: "none",
-              boxShadow: "0 10px 30px rgba(212,168,83,0.25)",
-              transition: "transform 0.3s ease, box-shadow 0.3s ease",
+              boxShadow: "0 8px 36px rgba(201,160,74,0.3)",
+              transition: "all 0.35s cubic-bezier(0.25, 0.1, 0.25, 1)",
             }}
           >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="1.2" />
+              <path d="M6 5l4 3-4 3V5z" fill="currentColor" />
+            </svg>
             Book a Free Session
           </Link>
           <Link
             href="https://forms.gle/jEDaUrKwbyHd8WvUA"
             target="_blank"
-            className="hero-cta-secondary"
             style={{
               display: "inline-flex",
               alignItems: "center",
               justifyContent: "center",
-              padding: "18px 40px",
-              background: "rgba(255,255,255,0.03)",
+              padding: "18px 44px",
+              background: "rgba(31,27,22,0.04)",
               backdropFilter: "blur(10px)",
-              color: "#ffffff",
-              fontFamily: "'Inter', sans-serif",
-              fontSize: "0.85rem",
-              fontWeight: 600,
+              color: "#1F1B16",
+              fontFamily: "'Cinzel', serif",
+              fontSize: "0.8rem",
+              fontWeight: 500,
               letterSpacing: "0.15em",
               textTransform: "uppercase",
-              borderRadius: 4,
-              border: "1px solid rgba(255,255,255,0.2)",
+              borderRadius: 2,
+              border: "1px solid rgba(31,27,22,0.12)",
               textDecoration: "none",
-              transition: "all 0.3s ease",
+              transition: "all 0.35s cubic-bezier(0.25, 0.1, 0.25, 1)",
             }}
           >
             Join the Webinar
@@ -267,23 +351,18 @@ export default function HeroSection() {
         </motion.div>
       </motion.div>
 
+      {/* Scroll Indicator */}
+      <ScrollIndicator />
+
       <style>{`
-        @media (max-width: 768px) {
-          .hero-buttons {
-            flex-direction: column !important;
-          }
-          .hero-cta-primary, .hero-cta-secondary {
-            width: 100% !important;
-          }
+        a[href*="calendly"]:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 16px 44px rgba(201,160,74,0.45) !important;
         }
-        .hero-cta-primary:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 15px 40px rgba(212,168,83,0.5) !important;
-        }
-        .hero-cta-secondary:hover {
-          background: rgba(255,255,255,0.1) !important;
-          border-color: rgba(255,255,255,0.4) !important;
-          transform: translateY(-2px);
+        a[href*="forms.gle"]:hover {
+          background: rgba(31,27,22,0.08) !important;
+          border-color: rgba(31,27,22,0.25) !important;
+          transform: translateY(-3px);
         }
       `}</style>
     </section>

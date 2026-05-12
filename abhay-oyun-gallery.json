@@ -1,0 +1,221 @@
+{
+  "title": "Abhay Oyun Gallery — v2 Editor Friendly",
+  "type": "section",
+  "version": "2.0",
+  "content": [
+    {
+      "id": "sao-gallery-section",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#F9F6F0",
+        "padding": {
+          "unit": "px",
+          "top": "120",
+          "right": "0",
+          "bottom": "120",
+          "left": "0",
+          "isLinked": false
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "60",
+          "right": "0",
+          "bottom": "60",
+          "left": "0",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "sao-gallery-column",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100
+          },
+          "elements": [
+            {
+              "id": "sao-gallery-header",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div style=\"max-width:1200px;margin:0 auto;padding:0 80px 56px;\">\n  <div style=\"display:flex;align-items:center;gap:14px;margin-bottom:16px;\">\n    <div style=\"width:36px;height:1px;background:linear-gradient(to right,#d4a853,transparent);\"></div>\n    <span style=\"font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#d4a853;\">Shamanic Retreats</span>\n  </div>\n  <h2 style=\"margin:0;font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(40px,5vw,64px);letter-spacing:-1px;color:#0d1117;line-height:1.1;\">Join our<br><em style=\"color:rgba(13,17,23,0.3)\">shamanic family.</em></h2>\n  <p style=\"font-family:'Inter',sans-serif;font-size:15px;line-height:1.7;color:rgba(13,17,23,0.55);margin:20px 0 0;max-width:520px;\">Moments from retreats, ceremonies, and healing gatherings around the world. Replace images from the Media Library in Elementor editor.</p>\n</div>",
+                "text_color": "",
+                "typography_typography": "custom"
+              }
+            },
+            {
+              "id": "sao-gallery-grid-section",
+              "elType": "section",
+              "settings": {
+                "layout": "full_width",
+                "gap": "no",
+                "padding": { "unit": "px", "top": "0", "right": "80", "bottom": "24", "left": "80", "isLinked": false },
+                "padding_mobile": { "unit": "px", "top": "0", "right": "20", "bottom": "16", "left": "20", "isLinked": false }
+              },
+              "elements": [
+                {
+                  "id": "sao-gallery-col1",
+                  "elType": "column",
+                  "settings": {
+                    "_column_size": 33,
+                    "_inline_size": 33,
+                    "_column_size_mobile": 100,
+                    "padding": { "unit": "px", "top": "8", "right": "8", "bottom": "8", "left": "0", "isLinked": false }
+                  },
+                  "elements": [
+                    {
+                      "id": "sao-gal-img1",
+                      "elType": "widget",
+                      "widgetType": "image",
+                      "settings": {
+                        "image": { "url": "", "id": "" },
+                        "image_size": "full",
+                        "width": { "unit": "%", "size": 100, "sizes": [] },
+                        "height": { "unit": "px", "size": 340, "sizes": [] },
+                        "object_fit": "cover",
+                        "_css_classes": "sao-gal-item",
+                        "custom_css": "selector img{border-radius:16px;transition:transform .4s ease,box-shadow .4s ease;box-shadow:0 12px 40px rgba(0,0,0,0.08);} selector img:hover{transform:scale(1.03);box-shadow:0 20px 60px rgba(0,0,0,0.14);}"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "sao-gallery-col2",
+                  "elType": "column",
+                  "settings": {
+                    "_column_size": 33,
+                    "_inline_size": 33,
+                    "_column_size_mobile": 100,
+                    "padding": { "unit": "px", "top": "8", "right": "8", "bottom": "8", "left": "8", "isLinked": false }
+                  },
+                  "elements": [
+                    {
+                      "id": "sao-gal-img2",
+                      "elType": "widget",
+                      "widgetType": "image",
+                      "settings": {
+                        "image": { "url": "", "id": "" },
+                        "image_size": "full",
+                        "width": { "unit": "%", "size": 100, "sizes": [] },
+                        "height": { "unit": "px", "size": 340, "sizes": [] },
+                        "object_fit": "cover",
+                        "_css_classes": "sao-gal-item",
+                        "custom_css": "selector img{border-radius:16px;transition:transform .4s ease,box-shadow .4s ease;box-shadow:0 12px 40px rgba(0,0,0,0.08);} selector img:hover{transform:scale(1.03);box-shadow:0 20px 60px rgba(0,0,0,0.14);}"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "sao-gallery-col3",
+                  "elType": "column",
+                  "settings": {
+                    "_column_size": 34,
+                    "_inline_size": 34,
+                    "_column_size_mobile": 100,
+                    "padding": { "unit": "px", "top": "8", "right": "0", "bottom": "8", "left": "8", "isLinked": false }
+                  },
+                  "elements": [
+                    {
+                      "id": "sao-gal-img3",
+                      "elType": "widget",
+                      "widgetType": "image",
+                      "settings": {
+                        "image": { "url": "", "id": "" },
+                        "image_size": "full",
+                        "width": { "unit": "%", "size": 100, "sizes": [] },
+                        "height": { "unit": "px", "size": 340, "sizes": [] },
+                        "object_fit": "cover",
+                        "_css_classes": "sao-gal-item",
+                        "custom_css": "selector img{border-radius:16px;transition:transform .4s ease,box-shadow .4s ease;box-shadow:0 12px 40px rgba(0,0,0,0.08);} selector img:hover{transform:scale(1.03);box-shadow:0 20px 60px rgba(0,0,0,0.14);}"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "isInner": true
+            },
+            {
+              "id": "sao-gallery-grid-section2",
+              "elType": "section",
+              "settings": {
+                "layout": "full_width",
+                "gap": "no",
+                "padding": { "unit": "px", "top": "0", "right": "80", "bottom": "0", "left": "80", "isLinked": false },
+                "padding_mobile": { "unit": "px", "top": "0", "right": "20", "bottom": "0", "left": "20", "isLinked": false }
+              },
+              "elements": [
+                {
+                  "id": "sao-gallery-col4",
+                  "elType": "column",
+                  "settings": {
+                    "_column_size": 50,
+                    "_inline_size": 50,
+                    "_column_size_mobile": 100,
+                    "padding": { "unit": "px", "top": "8", "right": "8", "bottom": "8", "left": "0", "isLinked": false }
+                  },
+                  "elements": [
+                    {
+                      "id": "sao-gal-img4",
+                      "elType": "widget",
+                      "widgetType": "image",
+                      "settings": {
+                        "image": { "url": "", "id": "" },
+                        "image_size": "full",
+                        "width": { "unit": "%", "size": 100, "sizes": [] },
+                        "height": { "unit": "px", "size": 280, "sizes": [] },
+                        "object_fit": "cover",
+                        "_css_classes": "sao-gal-item",
+                        "custom_css": "selector img{border-radius:16px;transition:transform .4s ease,box-shadow .4s ease;box-shadow:0 12px 40px rgba(0,0,0,0.08);} selector img:hover{transform:scale(1.03);box-shadow:0 20px 60px rgba(0,0,0,0.14);}"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "sao-gallery-col5",
+                  "elType": "column",
+                  "settings": {
+                    "_column_size": 50,
+                    "_inline_size": 50,
+                    "_column_size_mobile": 100,
+                    "padding": { "unit": "px", "top": "8", "right": "0", "bottom": "8", "left": "8", "isLinked": false }
+                  },
+                  "elements": [
+                    {
+                      "id": "sao-gal-img5",
+                      "elType": "widget",
+                      "widgetType": "image",
+                      "settings": {
+                        "image": { "url": "", "id": "" },
+                        "image_size": "full",
+                        "width": { "unit": "%", "size": 100, "sizes": [] },
+                        "height": { "unit": "px", "size": 280, "sizes": [] },
+                        "object_fit": "cover",
+                        "_css_classes": "sao-gal-item",
+                        "custom_css": "selector img{border-radius:16px;transition:transform .4s ease,box-shadow .4s ease;box-shadow:0 12px 40px rgba(0,0,0,0.08);} selector img:hover{transform:scale(1.03);box-shadow:0 20px 60px rgba(0,0,0,0.14);}"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "isInner": true
+            },
+            {
+              "id": "sao-gallery-caption",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style=\"text-align:center;font-family:'Inter',sans-serif;font-size:11px;color:rgba(13,17,23,0.3);letter-spacing:3px;text-transform:uppercase;margin-top:40px;\">📷 Add your retreat photos via Elementor Media Library</p>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "align": "center"
+              }
+            }
+          ]
+        }
+      ],
+      "isInner": false
+    }
+  ]
+}

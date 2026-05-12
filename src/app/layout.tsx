@@ -1,27 +1,37 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import { Cormorant_Garamond, Lora, Cinzel } from "next/font/google";
 import "./globals.css";
+import Navigation from "@/components/layout/Navigation";
+import Footer from "@/components/layout/Footer";
 
-const playfair = Playfair_Display({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-  variable: "--font-display",
+  weight: ["300", "400", "500", "600", "700"],
   style: ["normal", "italic"],
+  variable: "--font-display",
   display: "swap",
 });
 
-const inter = Inter({
+const lora = Lora({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
   variable: "--font-body",
   display: "swap",
 });
 
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-label",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "Abhay Oyun | Awaken Your Wild Power",
+  title: "Abhay Oyun | Shamanic Practitioner & Guide",
   description:
-    "Master Abhay Oyun — 35 years of Siberian shamanic mastery. Experience cellular healing, energetic sovereignty, and deep transformation through ancient wisdom mapped to modern living.",
+    "Between Worlds. Siberian Shaman working at the edge of the known. Sacred ceremonies, healing, and training.",
+  keywords: ["shaman", "healing", "ceremony", "spiritual", "siberian"],
 };
 
 export default function RootLayout({
@@ -30,10 +40,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
+    <html lang="en" className={`${cormorant.variable} ${lora.variable} ${cinzel.variable}`}>
       <body className="antialiased">
-        <Navbar />
-        <main>{children}</main>
+        <div className="grain-overlay" aria-hidden="true" />
+        <Navigation />
+        <main className="relative">{children}</main>
         <Footer />
       </body>
     </html>

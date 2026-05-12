@@ -1,0 +1,323 @@
+{
+  "title": "Abhay Oyun Video Testimonials Native 4-Col",
+  "type": "page",
+  "version": "0.4",
+  "page_settings": {},
+  "content": [
+    {
+      "id": "2a0000a",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#0a0c12",
+        "padding": { "unit": "px", "top": "140", "right": "60", "bottom": "140", "left": "60", "isLinked": false },
+        "padding_mobile": { "unit": "px", "top": "60", "right": "16", "bottom": "60", "left": "16", "isLinked": false },
+        "custom_css": ""
+      },
+      "elements": [
+        {
+          "id": "2a00009",
+          "elType": "column",
+          "settings": { "_column_size": 100, "_inline_size": 100 },
+          "elements": [
+            {
+              "id": "2a00000",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": { "editor": "<div style=\"display:flex;align-items:center;gap:14px;\"><div style=\"width:36px;height:1px;background:linear-gradient(to right,#d4a853,transparent);\"></div><span style=\"font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:#d4a853;\">Video Testimonials</span></div>" }
+            },
+            {
+              "id": "2a00001",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "settings": { "space": { "unit": "px", "size": 14 } }
+            },
+            {
+              "id": "2a00002",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Real Stories.<br><em style=\"color:rgba(255,255,255,0.25)\">Real Transformation.</em>",
+                "header_size": "h2", "title_color": "#ffffff",
+                "typography_typography": "custom", "typography_font_family": "Playfair Display",
+                "typography_font_size": { "unit": "px", "size": 56 },
+                "typography_font_size_mobile": { "unit": "px", "size": 32 },
+                "typography_font_size_tablet": { "unit": "px", "size": 42 },
+                "typography_font_weight": "400", "typography_letter_spacing": { "unit": "px", "size": -1 },
+                "typography_line_height": { "unit": "em", "size": 0.95 },
+                "_animation": "fadeInUp", "animation_duration": "slow"
+              }
+            },
+            { "id": "2a00003", "elType": "widget", "widgetType": "spacer", "settings": { "space": { "unit": "px", "size": 6 } } },
+            {
+              "id": "2a00004",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style=\"max-width:520px;\">Hear directly from students and participants who have experienced the power of Abhay Oyun's shamanic practices.</p>",
+                "text_color": "rgba(255,255,255,0.4)", "typography_typography": "custom"
+              }
+            },
+            { "id": "2a00005", "elType": "widget", "widgetType": "spacer", "settings": { "space": { "unit": "px", "size": 50 } } },
+            {
+              "id": "ao-vid-inner-grid",
+              "elType": "section",
+              "isInner": true,
+              "settings": {
+                "layout": "full_width",
+                "gap": "no",
+                "padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true },
+                "custom_css": "/* NATIVE ELEMENTOR CSS GRID */\nselector .elementor-container {\n  display: grid !important;\n  grid-template-columns: repeat(4, 1fr) !important;\n  gap: 20px !important;\n}\n@media(max-width:1200px){\n  selector .elementor-container {\n    grid-template-columns: repeat(3, 1fr) !important;\n  }\n}\n@media(max-width:900px){\n  selector .elementor-container {\n    grid-template-columns: repeat(2, 1fr) !important;\n  }\n}\n@media(max-width:600px){\n  selector .elementor-container {\n    grid-template-columns: 1fr !important;\n  }\n}\n\n/* Override Elementor fixed column widths */\nselector > .elementor-container > .elementor-column {\n  width: 100% !important;\n  margin-bottom: 0 !important;\n}\n\n/* Visual Card Styles applied directly to the columns */\nselector .ao-vid-col > .elementor-element-populated, \nselector .ao-vid-col > .elementor-widget-wrap {\n  background: #121418 !important;\n  border-radius: 12px !important;\n  border: 1px solid rgba(255,255,255,0.04) !important;\n  transition: transform 0.4s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;\n  overflow: hidden !important;\n  padding: 0 !important;\n  display: flex !important;\n  flex-direction: column !important;\n}\nselector .ao-vid-col:hover > .elementor-element-populated, \nselector .ao-vid-col:hover > .elementor-widget-wrap {\n  transform: translateY(-4px) !important;\n  border-color: rgba(212,168,83,0.2) !important;\n  box-shadow: 0 16px 32px rgba(0,0,0,0.5) !important;\n}\n\n/* Native Video Thumbnail Modifications */\nselector .elementor-widget-video .elementor-wrapper {\n  aspect-ratio: 16/9 !important;\n}\nselector .elementor-widget-video img {\n  transition: transform 0.6s ease !important;\n}\nselector .ao-vid-col:hover .elementor-widget-video img {\n  transform: scale(1.06) !important;\n}\nselector .elementor-widget-video .elementor-custom-embed-image-overlay { \n  overflow: hidden !important; \n}\nselector .elementor-widget-video .elementor-custom-embed-image-overlay::after {\n  content: '' !important;\n  position: absolute !important;\n  inset: 0 !important;\n  background: linear-gradient(to top, rgba(10,12,18,0.7) 0%, transparent 50%) !important;\n  pointer-events: none !important;\n}\n\n/* Simpler Golden Play Button */\nselector .elementor-widget-video .elementor-custom-embed-play {\n  background: rgba(212,168,83,0.9) !important;\n  width: 52px !important;\n  height: 52px !important;\n  border-radius: 50% !important;\n  display: flex !important;\n  align-items: center !important;\n  justify-content: center !important;\n  box-shadow: 0 6px 20px rgba(212,168,83,0.25) !important;\n  transition: transform 0.3s ease, background 0.3s ease !important;\n  z-index: 2 !important;\n}\nselector .elementor-widget-video .elementor-custom-embed-play i,\nselector .elementor-widget-video .elementor-custom-embed-play svg {\n  color: #0a0c12 !important;\n  fill: #0a0c12 !important;\n  font-size: 18px !important;\n  width: 18px !important;\n  height: 18px !important;\n  margin-left: 2px !important;\n}\nselector .ao-vid-col:hover .elementor-widget-video .elementor-custom-embed-play {\n  transform: scale(1.1) !important;\n  background: #d4a853 !important;\n}\n"
+              },
+              "elements": [
+                {
+                  "id": "vid-col-0",
+                  "elType": "column",
+                  "settings": { "_column_size": 25, "_inline_size": 25, "css_classes": "ao-vid-col", "padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true } },
+                  "elements": [
+                    {
+                      "id": "vid-w-0",
+                      "elType": "widget",
+                      "widgetType": "video",
+                      "settings": {
+                        "video_type": "youtube",
+                        "show_image_overlay": "yes",
+                        "image_overlay": { "url": "https://img.youtube.com/vi/PKpKIkGQGv4/maxresdefault.jpg" },
+                        "play_icon": "yes",
+                        "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true },
+                        "youtube_url": "https://www.youtube.com/watch?v=PKpKIkGQGv4"
+                      }
+                    },
+                    {
+                      "id": "vid-t-0",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "settings": {
+                        "editor": "<div style=\"padding:20px 18px 22px;\">\n<span style=\"display:inline-block;font-family:'Inter',sans-serif;font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#d4a853;padding:4px 8px;border:1px solid rgba(212,168,83,0.3);border-radius:4px;margin-bottom:10px;\">Student Story</span>\n<h4 style=\"font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:#ffffff;line-height:1.35;margin:0 0 8px 0;\">Meeting with Master — Review of Christian</h4>\n<div style=\"font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,0.4);\">YouTube · Watch now</div>\n</div>",
+                        "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "vid-col-1",
+                  "elType": "column",
+                  "settings": { "_column_size": 25, "_inline_size": 25, "css_classes": "ao-vid-col", "padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true } },
+                  "elements": [
+                    {
+                      "id": "vid-w-1",
+                      "elType": "widget",
+                      "widgetType": "video",
+                      "settings": {
+                        "video_type": "youtube",
+                        "show_image_overlay": "yes",
+                        "image_overlay": { "url": "https://img.youtube.com/vi/buldB9zzREs/maxresdefault.jpg" },
+                        "play_icon": "yes",
+                        "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true },
+                        "youtube_url": "https://www.youtube.com/watch?v=buldB9zzREs"
+                      }
+                    },
+                    {
+                      "id": "vid-t-1",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "settings": {
+                        "editor": "<div style=\"padding:20px 18px 22px;\">\n<span style=\"display:inline-block;font-family:'Inter',sans-serif;font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#d4a853;padding:4px 8px;border:1px solid rgba(212,168,83,0.3);border-radius:4px;margin-bottom:10px;\">Teaching</span>\n<h4 style=\"font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:#ffffff;line-height:1.35;margin:0 0 8px 0;\">Expanded Consciousness — The Transformation of Life</h4>\n<div style=\"font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,0.4);\">YouTube · Watch now</div>\n</div>",
+                        "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "vid-col-2",
+                  "elType": "column",
+                  "settings": { "_column_size": 25, "_inline_size": 25, "css_classes": "ao-vid-col", "padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true } },
+                  "elements": [
+                    {
+                      "id": "vid-w-2",
+                      "elType": "widget",
+                      "widgetType": "video",
+                      "settings": {
+                        "video_type": "youtube",
+                        "show_image_overlay": "yes",
+                        "image_overlay": { "url": "https://img.youtube.com/vi/Lw2A4Rbyxm0/maxresdefault.jpg" },
+                        "play_icon": "yes",
+                        "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true },
+                        "youtube_url": "https://www.youtube.com/watch?v=Lw2A4Rbyxm0"
+                      }
+                    },
+                    {
+                      "id": "vid-t-2",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "settings": {
+                        "editor": "<div style=\"padding:20px 18px 22px;\">\n<span style=\"display:inline-block;font-family:'Inter',sans-serif;font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#d4a853;padding:4px 8px;border:1px solid rgba(212,168,83,0.3);border-radius:4px;margin-bottom:10px;\">Testimony</span>\n<h4 style=\"font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:#ffffff;line-height:1.35;margin:0 0 8px 0;\">Shaman Lead to Happiness</h4>\n<div style=\"font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,0.4);\">YouTube · Watch now</div>\n</div>",
+                        "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "vid-col-3",
+                  "elType": "column",
+                  "settings": { "_column_size": 25, "_inline_size": 25, "css_classes": "ao-vid-col", "padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true } },
+                  "elements": [
+                    {
+                      "id": "vid-w-3",
+                      "elType": "widget",
+                      "widgetType": "video",
+                      "settings": {
+                        "video_type": "youtube",
+                        "show_image_overlay": "yes",
+                        "image_overlay": { "url": "https://img.youtube.com/vi/6fYzu6ZdKJA/maxresdefault.jpg" },
+                        "play_icon": "yes",
+                        "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true },
+                        "youtube_url": "https://www.youtube.com/watch?v=6fYzu6ZdKJA"
+                      }
+                    },
+                    {
+                      "id": "vid-t-3",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "settings": {
+                        "editor": "<div style=\"padding:20px 18px 22px;\">\n<span style=\"display:inline-block;font-family:'Inter',sans-serif;font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#d4a853;padding:4px 8px;border:1px solid rgba(212,168,83,0.3);border-radius:4px;margin-bottom:10px;\">Workshop</span>\n<h4 style=\"font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:#ffffff;line-height:1.35;margin:0 0 8px 0;\">Unlimited Love Through Energy</h4>\n<div style=\"font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,0.4);\">YouTube · Watch now</div>\n</div>",
+                        "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "vid-col-4",
+                  "elType": "column",
+                  "settings": { "_column_size": 25, "_inline_size": 25, "css_classes": "ao-vid-col", "padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true } },
+                  "elements": [
+                    {
+                      "id": "vid-w-4",
+                      "elType": "widget",
+                      "widgetType": "video",
+                      "settings": {
+                        "video_type": "hosted",
+                        "show_image_overlay": "yes",
+                        "image_overlay": { "url": "https://abhayoyun.org/wp-content/uploads/sao-gallery-img3.jpg" },
+                        "play_icon": "yes",
+                        "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true },
+                        "hosted_url": { "url": "" }
+                      }
+                    },
+                    {
+                      "id": "vid-t-4",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "settings": {
+                        "editor": "<div style=\"padding:20px 18px 22px;\">\n<span style=\"display:inline-block;font-family:'Inter',sans-serif;font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#d4a853;padding:4px 8px;border:1px solid rgba(212,168,83,0.3);border-radius:4px;margin-bottom:10px;\">Media</span>\n<h4 style=\"font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:#ffffff;line-height:1.35;margin:0 0 8px 0;\">Personal Healing Session</h4>\n<div style=\"font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,0.4);\">Upload from Media Library</div>\n</div>",
+                        "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "vid-col-5",
+                  "elType": "column",
+                  "settings": { "_column_size": 25, "_inline_size": 25, "css_classes": "ao-vid-col", "padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true } },
+                  "elements": [
+                    {
+                      "id": "vid-w-5",
+                      "elType": "widget",
+                      "widgetType": "video",
+                      "settings": {
+                        "video_type": "hosted",
+                        "show_image_overlay": "yes",
+                        "image_overlay": { "url": "https://abhayoyun.org/wp-content/uploads/sao-gallery-img3.jpg" },
+                        "play_icon": "yes",
+                        "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true },
+                        "hosted_url": { "url": "" }
+                      }
+                    },
+                    {
+                      "id": "vid-t-5",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "settings": {
+                        "editor": "<div style=\"padding:20px 18px 22px;\">\n<span style=\"display:inline-block;font-family:'Inter',sans-serif;font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#d4a853;padding:4px 8px;border:1px solid rgba(212,168,83,0.3);border-radius:4px;margin-bottom:10px;\">Media</span>\n<h4 style=\"font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:#ffffff;line-height:1.35;margin:0 0 8px 0;\">Sacred Drum Ceremony</h4>\n<div style=\"font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,0.4);\">Upload from Media Library</div>\n</div>",
+                        "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "vid-col-6",
+                  "elType": "column",
+                  "settings": { "_column_size": 25, "_inline_size": 25, "css_classes": "ao-vid-col", "padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true } },
+                  "elements": [
+                    {
+                      "id": "vid-w-6",
+                      "elType": "widget",
+                      "widgetType": "video",
+                      "settings": {
+                        "video_type": "hosted",
+                        "show_image_overlay": "yes",
+                        "image_overlay": { "url": "https://abhayoyun.org/wp-content/uploads/sao-gallery-img3.jpg" },
+                        "play_icon": "yes",
+                        "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true },
+                        "hosted_url": { "url": "" }
+                      }
+                    },
+                    {
+                      "id": "vid-t-6",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "settings": {
+                        "editor": "<div style=\"padding:20px 18px 22px;\">\n<span style=\"display:inline-block;font-family:'Inter',sans-serif;font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#d4a853;padding:4px 8px;border:1px solid rgba(212,168,83,0.3);border-radius:4px;margin-bottom:10px;\">Media</span>\n<h4 style=\"font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:#ffffff;line-height:1.35;margin:0 0 8px 0;\">Nature Synchronization Ritual</h4>\n<div style=\"font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,0.4);\">Upload from Media Library</div>\n</div>",
+                        "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "vid-col-7",
+                  "elType": "column",
+                  "settings": { "_column_size": 25, "_inline_size": 25, "css_classes": "ao-vid-col", "padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true } },
+                  "elements": [
+                    {
+                      "id": "vid-w-7",
+                      "elType": "widget",
+                      "widgetType": "video",
+                      "settings": {
+                        "video_type": "hosted",
+                        "show_image_overlay": "yes",
+                        "image_overlay": { "url": "https://abhayoyun.org/wp-content/uploads/sao-gallery-img3.jpg" },
+                        "play_icon": "yes",
+                        "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true },
+                        "hosted_url": { "url": "" }
+                      }
+                    },
+                    {
+                      "id": "vid-t-7",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "settings": {
+                        "editor": "<div style=\"padding:20px 18px 22px;\">\n<span style=\"display:inline-block;font-family:'Inter',sans-serif;font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#d4a853;padding:4px 8px;border:1px solid rgba(212,168,83,0.3);border-radius:4px;margin-bottom:10px;\">Media</span>\n<h4 style=\"font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:#ffffff;line-height:1.35;margin:0 0 8px 0;\">Deep Trance Sound Healing</h4>\n<div style=\"font-family:'Inter',sans-serif;font-size:10px;color:rgba(255,255,255,0.4);\">Upload from Media Library</div>\n</div>",
+                        "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true }
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            { "id": "2a00007", "elType": "widget", "widgetType": "spacer", "settings": { "space": { "unit": "px", "size": 60 } } },
+            {
+              "id": "2a00008",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div style=\"text-align:center;\">\n          <a href=\"https://www.youtube.com/@earthforpeace\" target=\"_blank\" style=\"display:inline-flex;align-items:center;gap:12px;padding:14px 32px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:4px;font-family:'Inter',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;transition:all 0.3s;\">\n            <span style=\"font-size:16px;\">▶</span> View All on YouTube\n          </a>\n        </div>",
+                "align": "center"
+              }
+            }
+          ]
+        }
+      ],
+      "isInner": false
+    }
+  ]
+}

@@ -1,0 +1,1010 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;500&family=Lora:ital,wght@0,400;1,400&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0d0b08;
+    color: #e8e0d0;
+    font-family: 'Lora', serif;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .doc-header {
+    background: #0d0b08;
+    border-bottom: 1px solid #2a2520;
+    padding: 28px 32px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .doc-title {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: #c8a96e;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .doc-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: #f5efe6;
+  }
+
+  .funnel-bar {
+    display: flex;
+    gap: 0;
+    margin-top: 14px;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 6px;
+  }
+
+  .funnel-bar span { flex: 1; }
+  .f-awareness { background: #4a3f2e; }
+  .f-intrigue { background: #6b5430; }
+  .f-trust { background: #8a6a3a; }
+  .f-desire { background: #a87e45; }
+  .f-action { background: #c8a96e; }
+
+  .funnel-labels {
+    display: flex;
+    gap: 0;
+    margin-top: 4px;
+  }
+
+  .funnel-labels span {
+    flex: 1;
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: 0.08em;
+    color: #8c8680;
+    text-transform: uppercase;
+  }
+
+  .sections-wrap {
+    padding: 0 24px 48px;
+  }
+
+  .section-block {
+    border-left: 2px solid #2a2520;
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+
+  .section-block:hover { border-left-color: #c8a96e; transition: border-color 0.3s; }
+
+  .section-inner {
+    padding: 28px 0 28px 28px;
+    border-bottom: 1px solid #1e1b16;
+  }
+
+  .section-num {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: #4a4540;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .section-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #f5efe6;
+    margin-bottom: 2px;
+  }
+
+  .section-subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #c8a96e;
+    margin-bottom: 14px;
+  }
+
+  .section-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .section-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .info-pill {
+    background: #1a1710;
+    border: 0.5px solid #2a2520;
+    border-radius: 4px;
+    padding: 10px 12px;
+  }
+
+  .info-pill-label {
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: 0.12em;
+    color: #4a4540;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+
+  .info-pill-text {
+    font-size: 12px;
+    color: #8c8680;
+    line-height: 1.5;
+  }
+
+  .info-pill-text.gold { color: #c8a96e; }
+  .info-pill-text.light { color: #e8e0d0; }
+
+  .visual-sketch {
+    background: #13110e;
+    border: 0.5px solid #2a2520;
+    border-radius: 6px;
+    padding: 16px;
+    margin-bottom: 14px;
+    min-height: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sketch-tag {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+
+  .tag-full { background: #1e1b16; color: #c8a96e; border: 0.5px solid #3a3020; }
+  .tag-split { background: #1a1a1e; color: #8a8fdd; border: 0.5px solid #2a2a3a; }
+  .tag-grid { background: #1a1e1a; color: #7ab87a; border: 0.5px solid #2a3a2a; }
+  .tag-strip { background: #1e1a1a; color: #d87a7a; border: 0.5px solid #3a2a2a; }
+  .tag-timeline { background: #1e1b16; color: #e0a85a; border: 0.5px solid #3a3020; }
+
+  .layout-row {
+    display: flex;
+    gap: 6px;
+    align-items: stretch;
+    margin-top: 10px;
+  }
+
+  .layout-box {
+    border: 0.5px solid #2a2520;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: 0.1em;
+    color: #4a4540;
+    text-transform: uppercase;
+    padding: 8px 4px;
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  .layout-box.hero-box { flex: 3; min-height: 80px; background: #0d0b08; color: #c8a96e; border-color: #3a3020; font-size: 10px; }
+  .layout-box.side-box { flex: 1; min-height: 60px; }
+  .layout-box.card-box { flex: 1; min-height: 50px; background: #161310; }
+  .layout-box.wide-box { flex: 2; min-height: 50px; }
+  .layout-box.full-box { flex: 1; min-height: 40px; background: #0d0b08; }
+  .layout-box.accent-box { background: #1e1810; border-color: #c8a96e; color: #c8a96e; }
+
+  .conversion-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-right: 6px;
+    margin-bottom: 4px;
+  }
+
+  .conv-awareness { background: #1e1a14; color: #7a6040; border: 0.5px solid #3a3020; }
+  .conv-intrigue { background: #1a1720; color: #7a70b0; border: 0.5px solid #2a2840; }
+  .conv-trust { background: #1a1c14; color: #6a8040; border: 0.5px solid #2a3020; }
+  .conv-desire { background: #201a10; color: #c09050; border: 0.5px solid #403020; }
+  .conv-action { background: #201a08; color: #c8a96e; border: 0.5px solid #c8a96e44; }
+
+  .dot-accent {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    position: absolute;
+    left: -8px;
+    top: 28px;
+    border: 2px solid #0d0b08;
+  }
+
+  .dot-gold { background: #c8a96e; }
+  .dot-muted { background: #2a2520; }
+
+  .section-highlight {
+    background: #1a1608;
+    border: 0.5px solid #c8a96e44;
+    border-radius: 4px;
+    padding: 10px 14px;
+    margin-bottom: 12px;
+  }
+
+  .highlight-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: #c8a96e;
+    line-height: 1.5;
+  }
+
+  .copy-sample {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 11.5px;
+    color: #8c8680;
+    line-height: 1.6;
+    padding: 8px 14px;
+    border-left: 1.5px solid #2a2520;
+    margin: 10px 0;
+  }
+
+  .events-mockup {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .event-card {
+    background: #0d0b08;
+    border: 0.5px solid #2a2520;
+    border-radius: 4px;
+    padding: 10px 12px;
+  }
+
+  .event-card.featured {
+    border-color: #c8a96e;
+    grid-column: span 2;
+    display: flex;
+    gap: 12px;
+  }
+
+  .event-img { width: 80px; min-height: 70px; background: #1e1b16; border-radius: 3px; flex-shrink: 0; }
+  .event-date { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.15em; color: #c8a96e; text-transform: uppercase; margin-bottom: 3px; }
+  .event-title { font-family: 'Cormorant Garamond', serif; font-size: 15px; color: #f5efe6; margin-bottom: 3px; }
+  .event-meta { font-size: 10px; color: #4a4540; margin-bottom: 5px; }
+  .event-spots { font-family: 'Cinzel', serif; font-size: 8px; letter-spacing: 0.1em; color: #a87e45; text-transform: uppercase; }
+
+  .pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+
+  .micro-pill {
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 2px;
+    border: 0.5px solid #2a2520;
+    color: #4a4540;
+  }
+
+  .micro-pill.active {
+    border-color: #c8a96e;
+    color: #c8a96e;
+    background: #1a1608;
+  }
+
+  .section-spacer {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #c8a96e44, transparent);
+    margin: 4px 0 0 28px;
+  }
+
+  .key-line {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 5px 0;
+    border-bottom: 0.5px solid #1e1b16;
+    font-size: 11.5px;
+    color: #8c8680;
+  }
+
+  .key-line:last-child { border-bottom: none; }
+
+  .key-line-label {
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: 0.1em;
+    color: #4a4540;
+    text-transform: uppercase;
+    min-width: 60px;
+    padding-top: 2px;
+  }
+
+  .section-counter {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    font-weight: 300;
+    color: #1e1b16;
+    position: absolute;
+    right: 0;
+    top: 12px;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  hr.gold-rule {
+    border: none;
+    height: 0.5px;
+    background: linear-gradient(90deg, transparent, #c8a96e66, transparent);
+    margin: 24px 0 24px 28px;
+  }
+</style>
+<h2 class="sr-only">Complete homepage section blueprint for Abhay Oyun shamanic website — all sections with storytelling and conversion strategy</h2>
+</head>
+<body>
+
+<div class="doc-header">
+  <div class="doc-title">DoonDzn × Abhay Oyun</div>
+  <div class="doc-subtitle">Homepage Architecture — Full Blueprint</div>
+  <div class="funnel-bar">
+    <span class="f-awareness"></span>
+    <span class="f-intrigue"></span>
+    <span class="f-trust"></span>
+    <span class="f-desire"></span>
+    <span class="f-action"></span>
+  </div>
+  <div class="funnel-labels">
+    <span>Awareness</span><span>Intrigue</span><span>Trust</span><span>Desire</span><span>Book</span>
+  </div>
+</div>
+
+<div class="sections-wrap">
+
+  <!-- NAV -->
+  <div class="section-block">
+    <div class="dot-accent dot-gold"></div>
+    <div class="section-inner">
+      <div class="section-counter">00</div>
+      <div class="section-num">Section 00</div>
+      <div class="section-name">Navigation</div>
+      <div class="section-subtitle">Always present · Identity anchor</div>
+      <div class="visual-sketch">
+        <span class="sketch-tag tag-full">Fixed / Transparent on load</span>
+        <div class="layout-row">
+          <div class="layout-box card-box" style="flex:0.8">Logo Mark</div>
+          <div class="layout-box wide-box">
+            <span style="color:#4a4540;font-size:9px;letter-spacing:0.12em;">About · Work · Ceremonies · Blog</span>
+          </div>
+          <div class="layout-box accent-box" style="flex:0.8; font-size:8px;">Book a Session ↗</div>
+        </div>
+      </div>
+      <div class="section-grid">
+        <div class="info-pill">
+          <div class="info-pill-label">Behaviour</div>
+          <div class="info-pill-text">Transparent at top. On scroll: blurred dark glass background. Nav shrinks 20%.</div>
+        </div>
+        <div class="info-pill">
+          <div class="info-pill-label">Logo concept</div>
+          <div class="info-pill-text light">Abhay Oyun in Cormorant Garamond with a thin SVG geometric sigil mark left of name.</div>
+        </div>
+        <div class="info-pill">
+          <div class="info-pill-label">CTA</div>
+          <div class="info-pill-text gold">Gold-bordered "Begin" button — always visible. Persistent conversion point.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section-spacer"></div>
+
+  <!-- SECTION 01 — HERO -->
+  <div class="section-block">
+    <div class="dot-accent dot-gold"></div>
+    <div class="section-inner">
+      <div class="section-counter">01</div>
+      <div class="section-num">Section 01</div>
+      <div class="section-name">The Threshold — Hero</div>
+      <div class="section-subtitle">First impression · The world changes here</div>
+      <span class="conversion-tag conv-awareness">Awareness</span>
+      <span class="conversion-tag conv-intrigue">Intrigue</span>
+      <div class="visual-sketch" style="min-height:120px;">
+        <span class="sketch-tag tag-full">Full Viewport · Cinematic · Particle Canvas</span>
+        <div class="layout-row" style="min-height:110px;">
+          <div class="layout-box hero-box" style="flex-direction:column; gap:8px; min-height:110px;">
+            <div style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:0.2em;color:#6a5a40;">SHAMANIC PRACTITIONER · GUIDE · HEALER</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;color:#f5efe6;line-height:1.1;">"Some doors<br/>cannot be<br/>un-opened."</div>
+            <div style="font-size:10px;color:#8c8680;font-family:'Lora',serif;font-style:italic;">Two-line breath. A question, not an answer.</div>
+            <div style="display:flex;gap:8px;margin-top:4px;">
+              <div style="background:#c8a96e;border-radius:2px;padding:4px 10px;font-family:'Cinzel',serif;font-size:8px;color:#0d0b08;letter-spacing:0.1em;">BEGIN</div>
+              <div style="border:0.5px solid #4a4540;border-radius:2px;padding:4px 10px;font-family:'Cinzel',serif;font-size:8px;color:#8c8680;letter-spacing:0.1em;">LEARN MORE</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section-highlight">
+        <div class="highlight-text">"The hero doesn't explain itself. It opens a door and waits."</div>
+      </div>
+      <div class="copy-sample">Sample headline option: "The ancestors are not gone. They are waiting to be heard." / "Come as you are. Leave as who you were always meant to be." / "Between one world and the next — that is where the healing happens."</div>
+      <div class="section-grid">
+        <div class="info-pill">
+          <div class="info-pill-label">Background</div>
+          <div class="info-pill-text">Dark forest or fire image. Canvas smoke/ember particles drifting upward. Slow parallax. No video autoplay.</div>
+        </div>
+        <div class="info-pill">
+          <div class="info-pill-label">Typography scale</div>
+          <div class="info-pill-text">Cormorant Garamond 90–120px, weight 300. Space is the point — not cramming.</div>
+        </div>
+        <div class="info-pill">
+          <div class="info-pill-label">Scroll cue</div>
+          <div class="info-pill-text">Thin pulsing vertical line at bottom center. Very slow breath animation. No "scroll down" text.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section-spacer"></div>
+
+  <!-- SECTION 02 — TRUST BAR / CREDIBILITY -->
+  <div class="section-block">
+    <div class="dot-accent dot-muted"></div>
+    <div class="section-inner">
+      <div class="section-counter">02</div>
+      <div class="section-num">Section 02</div>
+      <div class="section-name">The Lineage — Credibility Bar</div>
+      <div class="section-subtitle">Immediate trust · Quiet authority</div>
+      <span class="conversion-tag conv-trust">Trust</span>
+      <div class="visual-sketch">
+        <span class="sketch-tag tag-strip">Thin horizontal strip · Dark surface</span>
+        <div class="layout-row" style="justify-content:space-around;padding:10px 0;">
+          <div style="text-align:center;">
+            <div style="font-family:'Cinzel',serif;font-size:16px;color:#c8a96e;">12+</div>
+            <div style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:0.1em;color:#4a4540;text-transform:uppercase;margin-top:2px;">Years Practice</div>
+          </div>
+          <div style="width:0.5px;background:#2a2520;"></div>
+          <div style="text-align:center;">
+            <div style="font-family:'Cinzel',serif;font-size:16px;color:#c8a96e;">40+</div>
+            <div style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:0.1em;color:#4a4540;text-transform:uppercase;margin-top:2px;">Countries</div>
+          </div>
+          <div style="width:0.5px;background:#2a2520;"></div>
+          <div style="text-align:center;">
+            <div style="font-family:'Cinzel',serif;font-size:16px;color:#c8a96e;">500+</div>
+            <div style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:0.1em;color:#4a4540;text-transform:uppercase;margin-top:2px;">Ceremonies Led</div>
+          </div>
+          <div style="width:0.5px;background:#2a2520;"></div>
+          <div style="text-align:center;">
+            <div style="font-family:'Cinzel',serif;font-size:16px;color:#c8a96e;">Altai</div>
+            <div style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:0.1em;color:#4a4540;text-transform:uppercase;margin-top:2px;">Tradition</div>
+          </div>
+        </div>
+      </div>
+      <div class="info-pill">
+        <div class="info-pill-label">Notes</div>
+        <div class="info-pill-text">Use Abhay's actual numbers. If media features exist — add logo row below: "As heard on..." in muted Cinzel. No bright logos. Monochrome at 30% opacity.</div>
+      </div>
+    </div>
+  </div>
+  <div class="section-spacer"></div>
+
+  <!-- SECTION 03 — MANIFESTO -->
+  <div class="section-block">
+    <div class="dot-accent dot-gold"></div>
+    <div class="section-inner">
+      <div class="section-counter">03</div>
+      <div class="section-num">Section 03</div>
+      <div class="section-name">The Belief — Manifesto</div>
+      <div class="section-subtitle">Worldview declaration · Qualifying the visitor</div>
+      <span class="conversion-tag conv-intrigue">Intrigue</span>
+      <span class="conversion-tag conv-trust">Trust</span>
+      <div class="visual-sketch" style="min-height:100px;">
+        <span class="sketch-tag tag-full">Full width · Dark earth · Centered editorial</span>
+        <div style="text-align:center;padding:16px 20px;">
+          <div style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:0.2em;color:#4a4540;text-transform:uppercase;margin-bottom:10px;">THE WAY</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:#f5efe6;line-height:1.3;font-style:italic;">"Every wound carries a story<br/>older than this lifetime.<br/>We find the root."</div>
+          <div style="width:40px;height:0.5px;background:#c8a96e;margin:14px auto 0;"></div>
+        </div>
+      </div>
+      <div class="copy-sample">This section is the filter. It attracts the right people and quietly turns away those who aren't ready. 3 short belief statements below the quote — e.g. "We believe in the intelligence of the body. / We believe the unseen world is not supernatural — it is natural. / We believe healing is remembering."</div>
+      <div class="section-grid-2">
+        <div class="info-pill">
+          <div class="info-pill-label">Conversion role</div>
+          <div class="info-pill-text">Resonance. A seeker reads this and thinks "this is for me." That feeling drives everything downstream.</div>
+        </div>
+        <div class="info-pill">
+          <div class="info-pill-label">Design detail</div>
+          <div class="info-pill-text">Three-column belief strip below quote. Thin gold line separator. Slow fade-in animation. No CTA here — let it breathe.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section-spacer"></div>
+
+  <!-- SECTION 04 — ABOUT PREVIEW -->
+  <div class="section-block">
+    <div class="dot-accent dot-muted"></div>
+    <div class="section-inner">
+      <div class="section-counter">04</div>
+      <div class="section-num">Section 04</div>
+      <div class="section-name">The Keeper — About Preview</div>
+      <div class="section-subtitle">Human connection · Who is this person?</div>
+      <span class="conversion-tag conv-trust">Trust</span>
+      <div class="visual-sketch">
+        <span class="sketch-tag tag-split">Split Layout · Image Left · Text Right</span>
+        <div class="layout-row" style="min-height:90px;">
+          <div class="layout-box side-box" style="flex:1.2;min-height:90px;background:#13110e;border-style:dashed;">Portrait</div>
+          <div class="layout-box wide-box" style="flex:2;flex-direction:column;gap:5px;align-items:flex-start;padding:10px;">
+            <div style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:0.15em;color:#c8a96e;text-transform:uppercase;">About Abhay</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:16px;color:#f5efe6;line-height:1.2;">A life lived at the<br/>edge of the known.</div>
+            <div style="font-size:9px;color:#8c8680;line-height:1.5;">2 paragraphs — origin, calling, lineage. Then CTA: "Read the full story →" in gold.</div>
+          </div>
+        </div>
+      </div>
+      <div class="section-highlight">
+        <div class="highlight-text">"Don't write a bio. Write a myth. The visitor needs to feel that Abhay has walked somewhere most people haven't — and returned with something real."</div>
+      </div>
+      <div class="section-grid">
+        <div class="info-pill">
+          <div class="info-pill-label">Image style</div>
+          <div class="info-pill-text">Environmental portrait. Dark. Natural. Not studio. Ideally: forest, fire, or sacred space. No business headshot energy.</div>
+        </div>
+        <div class="info-pill">
+          <div class="info-pill-label">Copy opening</div>
+          <div class="info-pill-text light">"He didn't choose this path. It found him — the way fire finds dry wood." Then tell the actual story.</div>
+        </div>
+        <div class="info-pill">
+          <div class="info-pill-label">Training strip</div>
+          <div class="info-pill-text">Below text: 3–4 lineage/training badges in small Cinzel caps. Altai tradition, plant medicine work, etc.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section-spacer"></div>
+
+  <!-- SECTION 05 — THE JOURNEY (HOW IT WORKS) -->
+  <div class="section-block">
+    <div class="dot-accent dot-gold"></div>
+    <div class="section-inner">
+      <div class="section-counter">05</div>
+      <div class="section-num">Section 05</div>
+      <div class="section-name">The Path — How the Work Unfolds</div>
+      <div class="section-subtitle">Demystify · Remove fear · Show the container</div>
+      <span class="conversion-tag conv-intrigue">Intrigue</span>
+      <span class="conversion-tag conv-desire">Desire</span>
+      <div class="visual-sketch" style="min-height:90px;">
+        <span class="sketch-tag tag-timeline">Horizontal timeline · 4 steps</span>
+        <div class="layout-row" style="min-height:75px;align-items:center;">
+          <div class="layout-box card-box" style="flex-direction:column;gap:4px;">
+            <div style="width:20px;height:20px;border-radius:50%;border:0.5px solid #c8a96e;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:8px;color:#c8a96e;margin:0 auto;">I</div>
+            <div style="font-size:8px;color:#8c8680;text-align:center;">First Contact</div>
+          </div>
+          <div style="flex:0.3;height:0.5px;background:#2a2520;"></div>
+          <div class="layout-box card-box" style="flex-direction:column;gap:4px;">
+            <div style="width:20px;height:20px;border-radius:50%;border:0.5px solid #c8a96e;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:8px;color:#c8a96e;margin:0 auto;">II</div>
+            <div style="font-size:8px;color:#8c8680;text-align:center;">The Consultation</div>
+          </div>
+          <div style="flex:0.3;height:0.5px;background:#2a2520;"></div>
+          <div class="layout-box card-box" style="flex-direction:column;gap:4px;">
+            <div style="width:20px;height:20px;border-radius:50%;border:0.5px solid #c8a96e;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:8px;color:#c8a96e;margin:0 auto;">III</div>
+            <div style="font-size:8px;color:#8c8680;text-align:center;">The Work</div>
+          </div>
+          <div style="flex:0.3;height:0.5px;background:#2a2520;"></div>
+          <div class="layout-box accent-box" style="flex-direction:column;gap:4px;">
+            <div style="width:20px;height:20px;border-radius:50%;border:0.5px solid #c8a96e;background:#1a1608;display:flex;align-items:center;justify-content:center;font-family:'Cinzel',serif;font-size:8px;color:#c8a96e;margin:0 auto;">IV</div>
+            <div style="font-size:8px;color:#c8a96e;text-align:center;">Integration</div>
+          </div>
+        </div>
+      </div>
+      <div class="copy-sample">"Many people arrive here not knowing what they need — only that something is calling. That is enough. The first step is always a conversation." Each step gets an icon, a Cinzel heading, and 2 lines of body text. Keep language warm and non-clinical.</div>
+      <div class="info-pill">
+        <div class="info-pill-label">Conversion role</div>
+        <div class="info-pill-text">This section dissolves the #1 objection: "I don't know what to expect." It makes booking feel safe. CTA at end: "Begin with a conversation →"</div>
+      </div>
+    </div>
+  </div>
+  <div class="section-spacer"></div>
+
+  <!-- SECTION 06 — SERVICES -->
+  <div class="section-block">
+    <div class="dot-accent dot-muted"></div>
+    <div class="section-inner">
+      <div class="section-counter">06</div>
+      <div class="section-num">Section 06</div>
+      <div class="section-name">The Offerings — Services</div>
+      <div class="section-subtitle">What Abhay does · Desire builder</div>
+      <span class="conversion-tag conv-desire">Desire</span>
+      <div class="visual-sketch">
+        <span class="sketch-tag tag-grid">3-Col Grid · Hover expand · Gold top border</span>
+        <div class="layout-row" style="flex-wrap:wrap;gap:6px;min-height:80px;">
+          <div class="layout-box card-box" style="flex-direction:column;gap:4px;padding:10px 8px;align-items:flex-start;min-width:28%;">
+            <div style="width:16px;height:16px;border:0.5px solid #4a4540;border-radius:2px;"></div>
+            <div style="font-family:'Cinzel',serif;font-size:9px;color:#c8a96e;letter-spacing:0.1em;">Soul Retrieval</div>
+            <div style="font-size:8px;color:#4a4540;line-height:1.4;">Reclaiming what was left behind</div>
+          </div>
+          <div class="layout-box card-box" style="flex-direction:column;gap:4px;padding:10px 8px;align-items:flex-start;min-width:28%;">
+            <div style="width:16px;height:16px;border:0.5px solid #4a4540;border-radius:2px;"></div>
+            <div style="font-family:'Cinzel',serif;font-size:9px;color:#c8a96e;letter-spacing:0.1em;">Ancestral Healing</div>
+            <div style="font-size:8px;color:#4a4540;line-height:1.4;">Untangling inherited patterns</div>
+          </div>
+          <div class="layout-box card-box" style="flex-direction:column;gap:4px;padding:10px 8px;align-items:flex-start;min-width:28%;">
+            <div style="width:16px;height:16px;border:0.5px solid #4a4540;border-radius:2px;"></div>
+            <div style="font-family:'Cinzel',serif;font-size:9px;color:#c8a96e;letter-spacing:0.1em;">Plant Medicine</div>
+            <div style="font-size:8px;color:#4a4540;line-height:1.4;">Ceremony with ancient teachers</div>
+          </div>
+          <div class="layout-box card-box" style="flex-direction:column;gap:4px;padding:10px 8px;align-items:flex-start;min-width:28%;">
+            <div style="width:16px;height:16px;border:0.5px solid #4a4540;border-radius:2px;"></div>
+            <div style="font-family:'Cinzel',serif;font-size:9px;color:#c8a96e;letter-spacing:0.1em;">Divination</div>
+            <div style="font-size:8px;color:#4a4540;line-height:1.4;">Reading the unseen patterns</div>
+          </div>
+          <div class="layout-box card-box" style="flex-direction:column;gap:4px;padding:10px 8px;align-items:flex-start;min-width:28%;">
+            <div style="width:16px;height:16px;border:0.5px solid #4a4540;border-radius:2px;"></div>
+            <div style="font-family:'Cinzel',serif;font-size:9px;color:#c8a96e;letter-spacing:0.1em;">Energy Clearing</div>
+            <div style="font-size:8px;color:#4a4540;line-height:1.4;">Return to original stillness</div>
+          </div>
+          <div class="layout-box accent-box" style="flex-direction:column;gap:4px;padding:10px 8px;align-items:flex-start;min-width:28%;">
+            <div style="width:16px;height:16px;border:0.5px solid #c8a96e55;border-radius:2px;"></div>
+            <div style="font-family:'Cinzel',serif;font-size:9px;color:#c8a96e;letter-spacing:0.1em;">Shamanic Training</div>
+            <div style="font-size:8px;color:#6a5a40;line-height:1.4;">For those called to this path</div>
+          </div>
+        </div>
+      </div>
+      <div class="section-grid-2">
+        <div class="info-pill">
+          <div class="info-pill-label">Hover state</div>
+          <div class="info-pill-text">On hover: card lifts (translateY -4px), gold top border appears (1px), a brief 2-line "what to expect" expands below description. No jump — smooth 0.3s transition.</div>
+        </div>
+        <div class="info-pill">
+          <div class="info-pill-label">Section CTA</div>
+          <div class="info-pill-text light">Below grid: "Not sure which is right for you? Begin with a free consultation." — removes decision paralysis.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section-spacer"></div>
+
+  <!-- SECTION 07 — TRANSFORMATION STORIES -->
+  <div class="section-block">
+    <div class="dot-accent dot-gold"></div>
+    <div class="section-inner">
+      <div class="section-counter">07</div>
+      <div class="section-num">Section 07</div>
+      <div class="section-name">The Witnesses — Transformation Stories</div>
+      <div class="section-subtitle">Social proof · Emotional resonance · Not just testimonials</div>
+      <span class="conversion-tag conv-trust">Trust</span>
+      <span class="conversion-tag conv-desire">Desire</span>
+      <div class="visual-sketch" style="min-height:100px;">
+        <span class="sketch-tag tag-full">Dark section · 3 story cards with slow horizontal scroll</span>
+        <div class="layout-row">
+          <div class="layout-box card-box" style="flex-direction:column;gap:5px;padding:10px;align-items:flex-start;">
+            <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:11px;color:#8c8680;line-height:1.4;">"Something I had carried for 30 years left the room that night."</div>
+            <div style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:0.1em;color:#4a4540;text-transform:uppercase;margin-top:4px;">— Sarah M. · New York</div>
+          </div>
+          <div class="layout-box card-box" style="flex-direction:column;gap:5px;padding:10px;align-items:flex-start;">
+            <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:11px;color:#8c8680;line-height:1.4;">"I came as a skeptic. I left as someone who had been seen."</div>
+            <div style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:0.1em;color:#4a4540;text-transform:uppercase;margin-top:4px;">— Marco K. · Amsterdam</div>
+          </div>
+          <div class="layout-box card-box" style="flex-direction:column;gap:5px;padding:10px;align-items:flex-start;">
+            <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:11px;color:#8c8680;line-height:1.4;">"The ancestral session gave me language for pain I never had words for."</div>
+            <div style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:0.1em;color:#4a4540;text-transform:uppercase;margin-top:4px;">— Yuki T. · Tokyo</div>
+          </div>
+        </div>
+      </div>
+      <div class="section-highlight">
+        <div class="highlight-text">"Don't call them testimonials. Call them 'Witnesses' or 'Stories'. The language changes the feeling — from reviews to ceremony."</div>
+      </div>
+      <div class="key-line">
+        <span class="key-line-label">Design</span>
+        <span>Large decorative " mark at 8% opacity in gold behind each card. Name always First name + Last initial + City. Never full name — privacy builds trust.</span>
+      </div>
+      <div class="key-line">
+        <span class="key-line-label">Selection</span>
+        <span>Choose testimonials from different services and different continents — shows global reach and range of offerings.</span>
+      </div>
+      <div class="key-line">
+        <span class="key-line-label">Optional</span>
+        <span>Below the 3 cards: a full "Story" — 1 person's 3-paragraph journey. Link "Read their full story". Converts deeply for skeptics.</span>
+      </div>
+    </div>
+  </div>
+  <div class="section-spacer"></div>
+
+  <!-- SECTION 08 — EVENTS & CEREMONIES SHOWCASE ← THE BIG ONE -->
+  <div class="section-block">
+    <div class="dot-accent dot-gold"></div>
+    <div class="section-inner">
+      <div class="section-counter">08</div>
+      <div class="section-name" style="color:#c8a96e;">The Calendar — Events & Ceremonies</div>
+      <div class="section-subtitle">The most conversion-critical section on the page</div>
+      <span class="conversion-tag conv-desire">Desire</span>
+      <span class="conversion-tag conv-action">Book</span>
+
+      <div class="visual-sketch" style="min-height:180px;">
+        <span class="sketch-tag tag-timeline">Featured event hero + category filter + cards grid</span>
+
+        <div style="margin-top:10px;">
+          <div class="pill-row" style="margin-bottom:10px;">
+            <span class="micro-pill active">All</span>
+            <span class="micro-pill">Ceremony</span>
+            <span class="micro-pill">Retreat</span>
+            <span class="micro-pill">Online</span>
+            <span class="micro-pill">1:1 Session</span>
+            <span class="micro-pill">Training</span>
+          </div>
+
+          <div class="events-mockup">
+            <div class="event-card featured">
+              <div class="event-img" style="display:flex;align-items:center;justify-content:center;">
+                <div style="font-family:'Cinzel',serif;font-size:8px;color:#4a4540;letter-spacing:0.1em;">PHOTO</div>
+              </div>
+              <div style="flex:1;">
+                <div style="display:flex;gap:6px;align-items:center;margin-bottom:5px;">
+                  <span style="background:#1a1608;border:0.5px solid #c8a96e44;border-radius:2px;font-family:'Cinzel',serif;font-size:7px;letter-spacing:0.1em;color:#c8a96e;padding:2px 6px;text-transform:uppercase;">Featured · Retreat</span>
+                  <span style="background:#1e1a14;border-radius:2px;font-family:'Cinzel',serif;font-size:7px;letter-spacing:0.1em;color:#7a6040;padding:2px 6px;text-transform:uppercase;">3 Spots Left</span>
+                </div>
+                <div class="event-date">June 14–21, 2026 · Altai Mountains, Russia</div>
+                <div class="event-title">Ancestral Fire Retreat</div>
+                <div class="event-meta">7-day immersive · Plant medicine ceremony · Drumming · Nature immersion</div>
+                <div style="display:flex;gap:10px;align-items:center;margin-top:6px;">
+                  <div style="background:#c8a96e;border-radius:2px;padding:3px 10px;font-family:'Cinzel',serif;font-size:8px;color:#0d0b08;letter-spacing:0.1em;">Apply Now</div>
+                  <div style="font-family:'Cinzel',serif;font-size:8px;color:#4a4540;letter-spacing:0.08em;">From $2,800</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="event-card">
+              <div class="event-date">May 31, 2026 · Online · 3hr</div>
+              <div class="event-title">Opening the Ancestral Channel</div>
+              <div class="event-meta">Group ceremony · Live via Zoom</div>
+              <div class="event-spots">8 Spots Remaining</div>
+            </div>
+
+            <div class="event-card">
+              <div class="event-date">July 5, 2026 · Amsterdam</div>
+              <div class="event-title">Soul Retrieval Intensive</div>
+              <div class="event-meta">1-day workshop · In person</div>
+              <div class="event-spots">12 Spots Remaining</div>
+            </div>
+          </div>
+
+          <div style="text-align:center;margin-top:10px;">
+            <div style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:0.15em;color:#c8a96e;text-transform:uppercase;">View All Ceremonies & Retreats →</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-highlight">
+        <div class="highlight-text">"The events section is where browsers become buyers. Every element — scarcity, location, date — creates urgency without pressure. The design must feel sacred, not salesy."</div>
+      </div>
+
+      <div class="section-grid">
+        <div class="info-pill">
+          <div class="info-pill-label">Scarcity system</div>
+          <div class="info-pill-text light">Always show remaining spots. When 5 or fewer: amber "X Spots Left" badge. When full: grey "Waitlist" button. This is the #1 conversion driver.</div>
+        </div>
+        <div class="info-pill">
+          <div class="info-pill-label">Filter UX</div>
+          <div class="info-pill-text">Category pills animate cards in/out. Smooth JS filter — no page reload. Helps repeat visitors find what they want fast.</div>
+        </div>
+        <div class="info-pill">
+          <div class="info-pill-label">Past events</div>
+          <div class="info-pill-text">Below active events: "Past Ceremonies" in a lighter grid — builds proof of track record and globe-spanning work.</div>
+        </div>
+      </div>
+
+      <div style="margin-top:10px;">
+        <div class="key-line">
+          <span class="key-line-label">CTA copy</span>
+          <span>Never "Buy Ticket" — use "Apply", "Reserve Your Place", "Join the Circle", "Request an Invitation"</span>
+        </div>
+        <div class="key-line">
+          <span class="key-line-label">Featured card</span>
+          <span>Always one featured/hero event at top spanning full width. Rotating highlight. Most impactful upcoming event.</span>
+        </div>
+        <div class="key-line">
+          <span class="key-line-label">Location poetry</span>
+          <span>"Altai Mountains, Russia" hits differently than "Russia". Location names are part of the mystique.</span>
+        </div>
+        <div class="key-line">
+          <span class="key-line-label">Price display</span>
+          <span>"From $2,800" — never the full price upfront. Leads with "From". Keeps aspirational energy. Full investment on detail page.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section-spacer"></div>
+
+  <!-- SECTION 09 — MEDIA & PRESS -->
+  <div class="section-block">
+    <div class="dot-accent dot-muted"></div>
+    <div class="section-inner">
+      <div class="section-counter">09</div>
+      <div class="section-num">Section 09</div>
+      <div class="section-name">The Voice — Media & Podcast</div>
+      <div class="section-subtitle">Authority · Reach · Curiosity driver</div>
+      <span class="conversion-tag conv-trust">Trust</span>
+      <div class="visual-sketch">
+        <span class="sketch-tag tag-grid">Horizontal scroll of media cards</span>
+        <div class="layout-row" style="overflow:hidden;">
+          <div class="layout-box card-box" style="flex-direction:column;gap:4px;padding:8px;align-items:flex-start;min-width:120px;">
+            <div style="font-size:8px;color:#4a4540;font-family:'Cinzel',serif;letter-spacing:0.1em;text-transform:uppercase;">Podcast</div>
+            <div style="font-size:10px;color:#8c8680;">"The Inner Compass"<br/>Episode: What is Shamanism?</div>
+            <div style="font-size:8px;color:#c8a96e;font-family:'Cinzel',serif;letter-spacing:0.1em;text-transform:uppercase;margin-top:4px;">Listen →</div>
+          </div>
+          <div class="layout-box card-box" style="flex-direction:column;gap:4px;padding:8px;align-items:flex-start;min-width:120px;">
+            <div style="font-size:8px;color:#4a4540;font-family:'Cinzel',serif;letter-spacing:0.1em;text-transform:uppercase;">Interview</div>
+            <div style="font-size:10px;color:#8c8680;">"Healing Traditions<br/>of Siberia"</div>
+            <div style="font-size:8px;color:#c8a96e;font-family:'Cinzel',serif;letter-spacing:0.1em;text-transform:uppercase;margin-top:4px;">Read →</div>
+          </div>
+          <div class="layout-box card-box" style="flex-direction:column;gap:4px;padding:8px;align-items:flex-start;min-width:120px;">
+            <div style="font-size:8px;color:#4a4540;font-family:'Cinzel',serif;letter-spacing:0.1em;text-transform:uppercase;">Video</div>
+            <div style="font-size:10px;color:#8c8680;">"A Ceremony in<br/>the Altai"</div>
+            <div style="font-size:8px;color:#c8a96e;font-family:'Cinzel',serif;letter-spacing:0.1em;text-transform:uppercase;margin-top:4px;">Watch →</div>
+          </div>
+        </div>
+      </div>
+      <div class="info-pill">
+        <div class="info-pill-label">Note</div>
+        <div class="info-pill-text">Only include if Abhay has actual media appearances. If not yet — replace this section with "Featured Teaching" — 1 long-form essay preview. Never fake it.</div>
+      </div>
+    </div>
+  </div>
+  <div class="section-spacer"></div>
+
+  <!-- SECTION 10 — TRANSMISSIONS / BLOG -->
+  <div class="section-block">
+    <div class="dot-accent dot-muted"></div>
+    <div class="section-inner">
+      <div class="section-counter">10</div>
+      <div class="section-num">Section 10</div>
+      <div class="section-name">Transmissions — Teachings & Writing</div>
+      <div class="section-subtitle">SEO engine · Depth signal · Long-term trust</div>
+      <span class="conversion-tag conv-intrigue">Intrigue</span>
+      <div class="visual-sketch">
+        <span class="sketch-tag tag-grid">2+1 grid — featured post large, two small beside</span>
+        <div class="layout-row" style="min-height:70px;">
+          <div class="layout-box wide-box" style="flex-direction:column;gap:4px;align-items:flex-start;padding:8px;">
+            <div style="font-size:8px;color:#4a4540;font-family:'Cinzel',serif;letter-spacing:0.1em;text-transform:uppercase;">Featured Teaching</div>
+            <div style="font-family:'Cormorant Garamond',serif;font-size:13px;color:#f5efe6;">"What Happens When the Drum Stops"</div>
+            <div style="font-size:9px;color:#8c8680;">On silence, integration, and the work that happens after ceremony.</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px;flex:1;">
+            <div class="layout-box card-box" style="flex-direction:column;gap:3px;align-items:flex-start;padding:8px;flex:1;">
+              <div style="font-family:'Cormorant Garamond',serif;font-size:11px;color:#f5efe6;">"On Choosing a Shaman"</div>
+              <div style="font-size:8px;color:#4a4540;">6 min read</div>
+            </div>
+            <div class="layout-box card-box" style="flex-direction:column;gap:3px;align-items:flex-start;padding:8px;flex:1;">
+              <div style="font-family:'Cormorant Garamond',serif;font-size:11px;color:#f5efe6;">"The Difference Between Healing and Fixing"</div>
+              <div style="font-size:8px;color:#4a4540;">8 min read</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="info-pill">
+        <div class="info-pill-label">SEO value</div>
+        <div class="info-pill-text">Articles titled "What is Soul Retrieval", "How to Prepare for a Shamanic Ceremony", "Ancestral Healing Explained" — these are what people Google before booking. Each article is a warm lead entry point.</div>
+      </div>
+    </div>
+  </div>
+  <div class="section-spacer"></div>
+
+  <!-- SECTION 11 — NEWSLETTER / INITIATION -->
+  <div class="section-block">
+    <div class="dot-accent dot-gold"></div>
+    <div class="section-inner">
+      <div class="section-counter">11</div>
+      <div class="section-num">Section 11</div>
+      <div class="section-name">The Circle — Newsletter Initiation</div>
+      <div class="section-subtitle">Email capture · Long-game conversion · Community seed</div>
+      <span class="conversion-tag conv-desire">Desire</span>
+      <div class="visual-sketch" style="min-height:80px;">
+        <span class="sketch-tag tag-full">Full dark section · Centered · Intimate</span>
+        <div style="text-align:center;padding:16px;">
+          <div style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:0.2em;color:#4a4540;text-transform:uppercase;margin-bottom:8px;">The Inner Circle</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:#f5efe6;margin-bottom:8px;">"Letters from between the worlds."</div>
+          <div style="font-size:10px;color:#8c8680;margin-bottom:10px;">Monthly transmissions: ceremony announcements, teachings, and the unseen that arrived this month.</div>
+          <div style="display:flex;gap:6px;justify-content:center;">
+            <div style="border:0.5px solid #4a4540;border-radius:2px;padding:6px 14px;font-size:9px;color:#4a4540;flex:1;max-width:200px;text-align:left;">your@email.com</div>
+            <div style="background:#c8a96e;border-radius:2px;padding:6px 14px;font-family:'Cinzel',serif;font-size:8px;color:#0d0b08;letter-spacing:0.1em;">Enter</div>
+          </div>
+          <div style="font-size:9px;color:#2a2520;margin-top:8px;font-family:'Cinzel',serif;letter-spacing:0.08em;text-transform:uppercase;">No noise. No spam. Only what matters.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section-spacer"></div>
+
+  <!-- SECTION 12 — FINAL CTA -->
+  <div class="section-block">
+    <div class="dot-accent dot-gold"></div>
+    <div class="section-inner">
+      <div class="section-counter">12</div>
+      <div class="section-num">Section 12</div>
+      <div class="section-name">The Invitation — Final CTA</div>
+      <div class="section-subtitle">Last chance · Soft close · No pressure</div>
+      <span class="conversion-tag conv-action">Book</span>
+      <div class="visual-sketch" style="min-height:90px;">
+        <span class="sketch-tag tag-full">Full viewport · Dark · Single focused message</span>
+        <div style="text-align:center;padding:20px;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:#f5efe6;line-height:1.2;margin-bottom:12px;">"When you are ready,<br/>the path will be here."</div>
+          <div style="font-size:11px;color:#8c8680;margin-bottom:16px;max-width:240px;margin-left:auto;margin-right:auto;">A free 20-minute consultation. No commitment. Just a conversation.</div>
+          <div style="display:inline-block;border:1px solid #c8a96e;border-radius:2px;padding:10px 28px;font-family:'Cinzel',serif;font-size:10px;color:#c8a96e;letter-spacing:0.15em;text-transform:uppercase;">Begin</div>
+          <div style="font-size:9px;color:#2a2520;margin-top:10px;">abhay@abhayoyun.com</div>
+        </div>
+      </div>
+      <div class="section-grid-2">
+        <div class="info-pill">
+          <div class="info-pill-label">Why "Begin" not "Book"</div>
+          <div class="info-pill-text">"Book" is transactional. "Begin" is existential. This visitor is on a journey — meet them there. Every word on this page is a ceremony.</div>
+        </div>
+        <div class="info-pill">
+          <div class="info-pill-label">Free consult offer</div>
+          <div class="info-pill-text light">The free 20-min call is the single highest-converting offer for premium healing services. Removes financial risk from first contact. Essential.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section-spacer"></div>
+
+  <!-- FOOTER -->
+  <div class="section-block">
+    <div class="dot-accent dot-muted"></div>
+    <div class="section-inner" style="padding-bottom:40px;">
+      <div class="section-counter">13</div>
+      <div class="section-num">Section 13</div>
+      <div class="section-name">Footer</div>
+      <div class="section-subtitle">Navigation close · Trust seals</div>
+      <div class="visual-sketch">
+        <div class="layout-row">
+          <div class="layout-box card-box" style="flex:1.5;flex-direction:column;gap:4px;align-items:flex-start;padding:8px;">
+            <div style="font-family:'Cormorant Garamond',serif;font-size:14px;color:#f5efe6;">Abhay Oyun</div>
+            <div style="font-size:9px;color:#4a4540;line-height:1.5;">Shamanic Practitioner<br/>Since 2012 · Global</div>
+            <div style="display:flex;gap:8px;margin-top:6px;">
+              <div style="width:20px;height:20px;border:0.5px solid #2a2520;border-radius:2px;"></div>
+              <div style="width:20px;height:20px;border:0.5px solid #2a2520;border-radius:2px;"></div>
+            </div>
+          </div>
+          <div class="layout-box card-box" style="flex-direction:column;gap:4px;align-items:flex-start;padding:8px;">
+            <div style="font-family:'Cinzel',serif;font-size:8px;color:#4a4540;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Navigate</div>
+            <div style="font-size:9px;color:#4a4540;line-height:1.9;">About<br/>Services<br/>Ceremonies<br/>Transmissions<br/>Contact</div>
+          </div>
+          <div class="layout-box card-box" style="flex-direction:column;gap:4px;align-items:flex-start;padding:8px;">
+            <div style="font-family:'Cinzel',serif;font-size:8px;color:#4a4540;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;">Work</div>
+            <div style="font-size:9px;color:#4a4540;line-height:1.9;">Soul Retrieval<br/>Ancestral Healing<br/>Plant Medicine<br/>Training</div>
+          </div>
+        </div>
+        <div style="border-top:0.5px solid #1e1b16;margin-top:10px;padding-top:8px;display:flex;justify-content:space-between;align-items:center;">
+          <div style="font-size:8px;color:#2a2520;font-family:'Cinzel',serif;letter-spacing:0.1em;text-transform:uppercase;">© 2026 Abhay Oyun</div>
+          <div style="font-size:8px;color:#2a2520;font-family:'Cinzel',serif;letter-spacing:0.1em;text-transform:uppercase;">Site by DoonDzn</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,232 @@
+{
+  "title": "Abhay Oyun Master Section",
+  "type": "page",
+  "version": "0.4",
+  "page_settings": {},
+  "content": [
+    {
+      "id": "2a0000e",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#F9F6F0",
+        "padding": {
+          "unit": "px",
+          "top": "140",
+          "right": "80",
+          "bottom": "140",
+          "left": "80",
+          "isLinked": false
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "60",
+          "right": "20",
+          "bottom": "60",
+          "left": "20",
+          "isLinked": false
+        },
+        "custom_css": "\nselector .ao-master-wrap {\n  position: relative;\n  overflow: hidden;\n}\nselector .ao-master-credential {\n  display: flex;\n  align-items: flex-start;\n  gap: 20px;\n  margin-bottom: 28px;\n  padding: 24px 28px;\n  background: linear-gradient(145deg, rgba(212,168,83,0.06), rgba(212,168,83,0.02));\n  border: 1px solid rgba(212,168,83,0.12);\n  border-radius: 16px;\n  transition: border-color 0.3s ease;\n}\nselector .ao-master-credential:hover {\n  border-color: rgba(212,168,83,0.3);\n}\nselector .ao-master-cred-icon {\n  width: 44px;\n  height: 44px;\n  border-radius: 12px;\n  background: linear-gradient(135deg, rgba(212,168,83,0.15), rgba(212,168,83,0.05));\n  border: 1px solid rgba(212,168,83,0.2);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-shrink: 0;\n  font-size: 18px;\n}\nselector .ao-master-cred-title {\n  font-family: 'Inter', sans-serif;\n  font-size: 15px;\n  font-weight: 700;\n  color: #0d1117;\n  line-height: 1.3;\n  margin-bottom: 2px;\n}\nselector .ao-master-cred-sub {\n  font-family: 'Inter', sans-serif;\n  font-size: 12px;\n  color: rgba(13,17,23,0.45);\n  line-height: 1.5;\n}\nselector .ao-master-quote-box {\n  position: relative;\n  margin-top: 40px;\n  padding: 36px 32px;\n  background: #0d1117;\n  border-radius: 20px;\n  overflow: hidden;\n}\nselector .ao-master-quote-box::before {\n  content: '';\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 2px;\n  background: linear-gradient(90deg, transparent, #d4a853, transparent);\n}\nselector .ao-master-quote-text {\n  font-family: 'Playfair Display', serif;\n  font-style: italic;\n  font-size: 17px;\n  line-height: 1.65;\n  color: rgba(255,255,255,0.8);\n  margin: 0 0 24px 0;\n}\nselector .ao-master-quote-cite {\n  font-family: 'Inter', sans-serif;\n  font-size: 10px;\n  font-weight: 700;\n  letter-spacing: 3px;\n  text-transform: uppercase;\n  color: #d4a853;\n}\nselector .ao-master-img-wrap {\n  position: relative;\n  border-radius: 24px;\n  overflow: hidden;\n  box-shadow: 0 40px 80px rgba(13,17,23,0.12);\n}\nselector .ao-master-img-wrap img {\n  width: 100%;\n  display: block;\n}\nselector .ao-master-img-overlay {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  padding: 40px 32px;\n  background: linear-gradient(to top, rgba(13,17,23,0.85), transparent);\n}\nselector .ao-master-img-badge {\n  display: inline-block;\n  font-family: 'Inter', sans-serif;\n  font-size: 10px;\n  font-weight: 700;\n  letter-spacing: 3px;\n  text-transform: uppercase;\n  color: #d4a853;\n  padding: 6px 14px;\n  border: 1px solid rgba(212,168,83,0.3);\n  border-radius: 99px;\n  background: rgba(13,17,23,0.5);\n  backdrop-filter: blur(10px);\n}\nselector .ao-master-cta {\n  display: inline-flex;\n  align-items: center;\n  gap: 12px;\n  padding: 18px 44px;\n  background: #d4a853;\n  color: #050810;\n  font-family: 'Inter', sans-serif;\n  font-size: 12px;\n  font-weight: 800;\n  letter-spacing: 2px;\n  text-transform: uppercase;\n  border-radius: 4px;\n  text-decoration: none;\n  box-shadow: 0 12px 30px rgba(212,168,83,0.2);\n  transition: all 0.3s ease;\n}\nselector .ao-master-cta:hover {\n  background: #c49a48;\n  box-shadow: 0 16px 40px rgba(212,168,83,0.3);\n}\n@media (max-width: 767px) {\n  selector .ao-master-credential { padding: 18px 20px; }\n  selector .ao-master-cred-icon { width: 36px; height: 36px; font-size: 14px; }\n  selector .ao-master-quote-box { padding: 28px 24px; }\n  selector .ao-master-img-overlay { padding: 28px 20px; }\n}",
+        "css_classes": "ao-master-wrap"
+      },
+      "elements": [
+        {
+          "id": "2a00009",
+          "elType": "column",
+          "settings": {
+            "_column_size": 55,
+            "_inline_size": 55,
+            "content_position": "center",
+            "_column_size_mobile": 100
+          },
+          "elements": [
+            {
+              "id": "2a00000",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div style=\"display:flex;align-items:center;gap:14px;\"><div style=\"width:36px;height:1px;background:linear-gradient(to right,#d4a853,transparent);\"></div><span style=\"font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:#d4a853;\">The Master</span></div>",
+                "text_color": "",
+                "typography_typography": "custom"
+              }
+            },
+            {
+              "id": "2a00001",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "settings": {
+                "space": {
+                  "unit": "px",
+                  "size": 16,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "2a00002",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Ancient Wisdom.<br><em style=\"background:linear-gradient(135deg,#f9d58b,#d4a853);-webkit-background-clip:text;-webkit-text-fill-color:transparent;\">Living Legacy.</em>",
+                "header_size": "h2",
+                "title_color": "#0d1117",
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 56,
+                  "sizes": []
+                },
+                "typography_font_size_mobile": {
+                  "unit": "px",
+                  "size": 34,
+                  "sizes": []
+                },
+                "typography_font_size_tablet": {
+                  "unit": "px",
+                  "size": 44,
+                  "sizes": []
+                },
+                "typography_font_weight": "400",
+                "typography_letter_spacing": {
+                  "unit": "px",
+                  "size": -1,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 0.95,
+                  "sizes": []
+                },
+                "_animation": "fadeInUp",
+                "animation_duration": "slow"
+              }
+            },
+            {
+              "id": "2a00003",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "settings": {
+                "space": {
+                  "unit": "px",
+                  "size": 20,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "2a00004",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"ao-master-credential\">\n    <div class=\"ao-master-cred-icon\">⚡</div>\n    <div>\n      <div class=\"ao-master-cred-title\">Master of Ancient Traditions</div>\n      <div class=\"ao-master-cred-sub\">Shamanic practices across all world religions and spiritual systems</div>\n    </div>\n  </div><div class=\"ao-master-credential\">\n    <div class=\"ao-master-cred-icon\">🔥</div>\n    <div>\n      <div class=\"ao-master-cred-title\">Master of Energy — 35 Years</div>\n      <div class=\"ao-master-cred-sub\">Three decades of direct psycho-energetic healing practice worldwide</div>\n    </div>\n  </div><div class=\"ao-master-credential\">\n    <div class=\"ao-master-cred-icon\">🛡️</div>\n    <div>\n      <div class=\"ao-master-cred-title\">Founder of SAMPO System</div>\n      <div class=\"ao-master-cred-sub\">Creator of the psycho-energetic defense & personal transformation system</div>\n    </div>\n  </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 200
+              }
+            },
+            {
+              "id": "2a00005",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "settings": {
+                "space": {
+                  "unit": "px",
+                  "size": 10,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "2a00006",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>The books, courses and seminars were born as a result of the answers to thousands of questions posed to Abhay Oyun by his students over a period of 35 years. It is based on the ancient knowledge of psycho-energetic protection, respect for the traditions and knowledge of the peoples of the world, as well as Abhay Oyun's own personal experience.</p>\n        <p>After communicating with Abhay Oyun, people often call him the <strong>Master of ancient traditions</strong>, because he knows and understands all religions and their rituals, and also has vast experience in the practice of spiritual perfection and can give advice and help in any area and situation of life.</p>",
+                "text_color": "rgba(13,17,23,0.6)",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 300
+              }
+            },
+            {
+              "id": "2a00007",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "settings": {
+                "space": {
+                  "unit": "px",
+                  "size": 24,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "2a00008",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<a href=\"https://calendly.com/hurraymangalam/individualsessions\" target=\"_blank\" class=\"ao-master-cta\">Book Now →</a>",
+                "text_color": "",
+                "typography_typography": "custom"
+              }
+            }
+          ]
+        },
+        {
+          "id": "2a0000d",
+          "elType": "column",
+          "settings": {
+            "_column_size": 45,
+            "_inline_size": 45,
+            "content_position": "center",
+            "_column_size_mobile": 100
+          },
+          "elements": [
+            {
+              "id": "2a0000a",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"ao-master-img-wrap\">\n          <img src=\"https://abhayoyun.org/wp-content/uploads/abhay_img.png\" alt=\"Shaman Abhay Oyun\" />\n          <div class=\"ao-master-img-overlay\">\n            <span class=\"ao-master-img-badge\">35 Years · 40 Countries · 10K+ Healed</span>\n          </div>\n        </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInRight",
+                "animation_duration": "slow"
+              }
+            },
+            {
+              "id": "2a0000b",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "settings": {
+                "space": {
+                  "unit": "px",
+                  "size": 20,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "2a0000c",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"ao-master-quote-box\">\n          <p class=\"ao-master-quote-text\">&ldquo;When you reconnect with your wild nature, trauma doesn't just heal — it transforms into power.&rdquo;</p>\n          <div class=\"ao-master-quote-cite\">— Shaman Abhay Oyun</div>\n        </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 300
+              }
+            }
+          ]
+        }
+      ],
+      "isInner": false
+    }
+  ]
+}

@@ -1,0 +1,1049 @@
+/* ═══════════════════════════════════════════════════════════════
+   ABHAY OYUN - PREMIUM SHAMANIC DESIGN
+   WordPress.com Custom CSS
+   Apply in: Appearance > Customize > Additional CSS
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════════════════
+   FONTS & RESET
+   ═══════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lato:wght@300;400;600;700&display=swap');
+
+/* Force our fonts */
+body,
+body .wp-block,
+p, span, div {
+  font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6,
+.wp-block-heading,
+.wp-site-blocks h1,
+.wp-site-blocks h2,
+.wp-site-blocks h3 {
+  font-family: 'Cinzel', Georgia, serif !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   COLOR VARIABLES
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  --color-charcoal: #1A1A14;
+  --color-ivory: #FAF8F3;
+  --color-gold: #D4A853;
+  --color-gold-dark: #C4942A;
+  --color-forest: #3A5430;
+  --color-terra: #B86B4A;
+  --color-brown: #5C4A32;
+  --color-stone: #8B7B65;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GLOBAL STYLES
+   ═══════════════════════════════════════════════════════════════ */
+
+body {
+  color: var(--color-brown) !important;
+  background-color: var(--color-ivory) !important;
+  line-height: 1.7 !important;
+  font-size: 16px !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #F5DFA0;
+  color: var(--color-charcoal);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TYPOGRAPHY SIZES
+   ═══════════════════════════════════════════════════════════════ */
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem) !important;
+  line-height: 1.05 !important;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3.5rem) !important;
+  line-height: 1.1 !important;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem) !important;
+  line-height: 1.2 !important;
+}
+
+p {
+  font-size: 1rem !important;
+  line-height: 1.8 !important;
+  color: var(--color-brown) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LINK STYLES
+   ═══════════════════════════════════════════════════════════════ */
+
+a {
+  color: var(--color-gold-dark) !important;
+  text-decoration: none !important;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-gold) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BUTTON STYLES
+   ═══════════════════════════════════════════════════════════════ */
+
+.wp-block-button__link,
+.wp-block-button a,
+button,
+input[type="submit"] {
+  font-family: 'Cinzel', serif !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+  border-radius: 4px !important;
+  padding: 16px 32px !important;
+  transition: all 0.4s ease !important;
+}
+
+/* Primary Button - Gold */
+.btn-primary,
+.wp-block-button.is-style-fill .wp-block-button__link,
+.has-gold-gradient-background {
+  background: linear-gradient(135deg, var(--color-gold), #E8C878) !important;
+  color: var(--color-charcoal) !important;
+  border: none !important;
+}
+
+.btn-primary:hover,
+.wp-block-button.is-style-fill .wp-block-button__link:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 20px 40px rgba(196, 148, 42, 0.3) !important;
+}
+
+/* Secondary Button - Outline */
+.btn-secondary,
+.wp-block-button.is-style-outline .wp-block-button__link {
+  background: transparent !important;
+  border: 2px solid var(--color-gold) !important;
+  color: var(--color-gold) !important;
+}
+
+.btn-secondary:hover {
+  background: var(--color-gold) !important;
+  color: var(--color-charcoal) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION BASE STYLES
+   ═══════════════════════════════════════════════════════════════ */
+
+.section-hero,
+.section-about,
+.section-teachings,
+.section-testimonials,
+.section-events,
+.section-gallery,
+.section-video,
+.section-transformation,
+.section-cta,
+.section-footer {
+  padding: 80px 20px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO SECTION - Full viewport, dark, powerful
+   ═══════════════════════════════════════════════════════════════ */
+
+.section-hero {
+  min-height: 100vh !important;
+  display: flex !important;
+  align-items: center !important;
+  background: var(--color-charcoal) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+}
+
+.section-hero::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: linear-gradient(135deg, rgba(26, 26, 20, 0.9), rgba(26, 26, 20, 0.7)) !important;
+  z-index: 1 !important;
+}
+
+.section-hero .wp-block-group {
+  position: relative !important;
+  z-index: 2 !important;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  padding: 120px 40px !important;
+  width: 100% !important;
+}
+
+.section-hero h1 {
+  color: var(--color-ivory) !important;
+  font-size: clamp(3rem, 6vw, 5rem) !important;
+  margin-bottom: 24px !important;
+}
+
+.section-hero h1 span {
+  display: block !important;
+}
+
+.section-hero h1 span:last-child {
+  background: linear-gradient(135deg, var(--color-gold), #E8C878) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+.section-hero p {
+  color: rgba(250, 248, 243, 0.8) !important;
+  font-size: 1.2rem !important;
+  max-width: 500px !important;
+  margin-bottom: 40px !important;
+}
+
+.section-hero .wp-block-buttons {
+  gap: 16px !important;
+}
+
+/* Hero Stats */
+.hero-stats {
+  display: flex !important;
+  gap: 48px !important;
+  margin-top: 64px !important;
+  padding-top: 48px !important;
+  border-top: 1px solid rgba(250, 248, 243, 0.15) !important;
+}
+
+.hero-stat-number {
+  font-family: 'Cinzel', serif !important;
+  font-size: 3rem !important;
+  font-weight: 600 !important;
+  color: var(--color-gold) !important;
+  line-height: 1 !important;
+}
+
+.hero-stat-label {
+  font-size: 0.75rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  color: rgba(250, 248, 243, 0.5) !important;
+  margin-top: 8px !important;
+  display: block !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ABOUT SECTION - Light, warm, welcoming
+   ═══════════════════════════════════════════════════════════════ */
+
+.section-about {
+  background: var(--color-ivory) !important;
+  padding: 120px 20px !important;
+}
+
+.section-about .wp-block-group {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+}
+
+.section-about h2 {
+  color: var(--color-charcoal) !important;
+  margin-bottom: 24px !important;
+}
+
+.section-about h2 span {
+  color: var(--color-gold-dark) !important;
+}
+
+.section-about p {
+  font-size: 1.1rem !important;
+  max-width: 700px !important;
+}
+
+/* Quote Box */
+.quote-box {
+  background: white !important;
+  padding: 40px !important;
+  border-left: 4px solid var(--color-gold) !important;
+  margin: 40px 0 !important;
+  border-radius: 0 8px 8px 0 !important;
+}
+
+.quote-box p {
+  font-family: 'Cinzel', serif !important;
+  font-size: 1.5rem !important;
+  font-style: italic !important;
+  color: var(--color-charcoal) !important;
+  line-height: 1.6 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TEACHINGS SECTION - Card grid
+   ═══════════════════════════════════════════════════════════════ */
+
+.section-teachings {
+  background: #F5F0E8 !important;
+  padding: 120px 20px !important;
+}
+
+.section-teachings h2 {
+  text-align: center !important;
+  margin-bottom: 16px !important;
+}
+
+.section-teachings > .wp-block-group > p {
+  text-align: center !important;
+  max-width: 600px !important;
+  margin: 0 auto 60px !important;
+}
+
+/* Teaching Cards Grid */
+.teachings-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+  gap: 32px !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+}
+
+.teaching-card {
+  background: white !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  transition: transform 0.4s ease, box-shadow 0.4s ease !important;
+}
+
+.teaching-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 30px 60px rgba(44, 36, 22, 0.12) !important;
+}
+
+.teaching-card-image {
+  height: 200px !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.teaching-card-content {
+  padding: 32px !important;
+}
+
+.teaching-card h3 {
+  color: var(--color-charcoal) !important;
+  margin-bottom: 12px !important;
+  font-size: 1.5rem !important;
+}
+
+.teaching-card p {
+  font-size: 0.95rem !important;
+  margin-bottom: 20px !important;
+}
+
+.teaching-card .wp-block-button {
+  margin-top: auto !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TESTIMONIALS SECTION - Social proof
+   ═══════════════════════════════════════════════════════════════ */
+
+.section-testimonials {
+  background: var(--color-charcoal) !important;
+  padding: 120px 20px !important;
+}
+
+.section-testimonials h2 {
+  color: var(--color-ivory) !important;
+  text-align: center !important;
+  margin-bottom: 60px !important;
+}
+
+.testimonials-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
+  gap: 32px !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+}
+
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 16px !important;
+  padding: 32px !important;
+}
+
+.testimonial-quote {
+  font-family: 'Cinzel', serif !important;
+  font-size: 1.1rem !important;
+  font-style: italic !important;
+  color: var(--color-ivory) !important;
+  line-height: 1.7 !important;
+  margin-bottom: 24px !important;
+}
+
+.testimonial-quote::before {
+  content: '"' !important;
+  font-size: 4rem !important;
+  color: var(--color-gold) !important;
+  opacity: 0.3 !important;
+  display: block !important;
+  line-height: 1 !important;
+  margin-bottom: -20px !important;
+}
+
+.testimonial-author {
+  color: var(--color-gold) !important;
+  font-weight: 600 !important;
+}
+
+.testimonial-location {
+  color: rgba(250, 248, 243, 0.5) !important;
+  font-size: 0.875rem !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   EVENTS SECTION - Upcoming gatherings
+   ═══════════════════════════════════════════════════════════════ */
+
+.section-events {
+  background: var(--color-ivory) !important;
+  padding: 120px 20px !important;
+}
+
+.section-events h2 {
+  text-align: center !important;
+  margin-bottom: 60px !important;
+}
+
+.events-list {
+  max-width: 1000px !important;
+  margin: 0 auto !important;
+}
+
+.event-card {
+  display: grid !important;
+  grid-template-columns: 300px 1fr !important;
+  gap: 40px !important;
+  background: white !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  margin-bottom: 32px !important;
+  box-shadow: 0 10px 40px rgba(44, 36, 22, 0.08) !important;
+}
+
+.event-image {
+  height: 100% !important;
+  min-height: 250px !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.event-content {
+  padding: 40px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+
+.event-date {
+  font-size: 0.75rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.15em !important;
+  color: var(--color-gold-dark) !important;
+  margin-bottom: 12px !important;
+}
+
+.event-title {
+  color: var(--color-charcoal) !important;
+  margin-bottom: 16px !important;
+}
+
+.event-desc {
+  font-size: 0.95rem !important;
+  margin-bottom: 24px !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GALLERY SECTION - Visual feast
+   ═══════════════════════════════════════════════════════════════ */
+
+.section-gallery {
+  background: #F5F0E8 !important;
+  padding: 120px 20px !important;
+}
+
+.section-gallery h2 {
+  text-align: center !important;
+  margin-bottom: 60px !important;
+}
+
+.gallery-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 16px !important;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+}
+
+.gallery-item {
+  aspect-ratio: 1 !important;
+  overflow: hidden !important;
+  border-radius: 8px !important;
+  position: relative !important;
+}
+
+.gallery-item img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  transition: transform 0.6s ease !important;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1) !important;
+}
+
+.gallery-item::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: linear-gradient(to top, rgba(26, 26, 20, 0.6), transparent) !important;
+  opacity: 0 !important;
+  transition: opacity 0.4s ease !important;
+}
+
+.gallery-item:hover::after {
+  opacity: 1 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   VIDEO SECTION - Watch & Learn
+   ═══════════════════════════════════════════════════════════════ */
+
+.section-video {
+  background: var(--color-ivory) !important;
+  padding: 120px 20px !important;
+}
+
+.section-video h2 {
+  text-align: center !important;
+  margin-bottom: 60px !important;
+}
+
+.video-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
+  gap: 32px !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+}
+
+.video-card {
+  position: relative !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  aspect-ratio: 16/9 !important;
+  cursor: pointer !important;
+}
+
+.video-card img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+.video-play {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 64px !important;
+  height: 64px !important;
+  background: var(--color-gold) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: transform 0.4s ease !important;
+  box-shadow: 0 10px 30px rgba(196, 148, 42, 0.4) !important;
+}
+
+.video-card:hover .video-play {
+  transform: translate(-50%, -50%) scale(1.1) !important;
+}
+
+.video-play svg {
+  fill: white !important;
+  width: 24px !important;
+  height: 24px !important;
+  margin-left: 4px !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TRANSFORMATION SECTION - Global impact
+   ═══════════════════════════════════════════════════════════════ */
+
+.section-transformation {
+  background: var(--color-charcoal) !important;
+  padding: 120px 20px !important;
+}
+
+.section-transformation h2 {
+  color: var(--color-ivory) !important;
+  text-align: center !important;
+  margin-bottom: 60px !important;
+}
+
+.timeline {
+  max-width: 800px !important;
+  margin: 0 auto !important;
+  position: relative !important;
+}
+
+.timeline::before {
+  content: '' !important;
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 2px !important;
+  height: 100% !important;
+  background: linear-gradient(to bottom, var(--color-gold), var(--color-forest)) !important;
+}
+
+.timeline-item {
+  display: flex !important;
+  align-items: center !important;
+  margin-bottom: 48px !important;
+  position: relative !important;
+}
+
+.timeline-item:nth-child(odd) {
+  flex-direction: row-reverse !important;
+}
+
+.timeline-dot {
+  width: 16px !important;
+  height: 16px !important;
+  background: var(--color-gold) !important;
+  border-radius: 50% !important;
+  position: absolute !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 1 !important;
+}
+
+.timeline-content {
+  width: 45% !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  padding: 24px !important;
+  border-radius: 12px !important;
+}
+
+.timeline-year {
+  font-family: 'Cinzel', serif !important;
+  font-size: 2rem !important;
+  color: var(--color-gold) !important;
+}
+
+.timeline-title {
+  color: var(--color-ivory) !important;
+  margin: 8px 0 !important;
+}
+
+.timeline-desc {
+  color: rgba(250, 248, 243, 0.7) !important;
+  font-size: 0.9rem !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FINAL CTA SECTION - Journey begins
+   ═══════════════════════════════════════════════════════════════ */
+
+.section-cta {
+  background: linear-gradient(160deg, #EDE4D3, #E5DDD0) !important;
+  padding: 140px 20px !important;
+  text-align: center !important;
+}
+
+.section-cta h2 {
+  color: var(--color-charcoal) !important;
+  margin-bottom: 24px !important;
+}
+
+.section-cta h2 span {
+  background: linear-gradient(135deg, var(--color-gold), var(--color-forest)) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+.section-cta p {
+  font-size: 1.1rem !important;
+  max-width: 600px !important;
+  margin: 0 auto 48px !important;
+}
+
+.cta-buttons {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 20px !important;
+  flex-wrap: wrap !important;
+  margin-bottom: 48px !important;
+}
+
+/* Trust Indicators */
+.trust-badges {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 48px !important;
+  flex-wrap: wrap !important;
+}
+
+.trust-badge {
+  text-align: center !important;
+}
+
+.trust-number {
+  font-family: 'Cinzel', serif !important;
+  font-size: 2.5rem !important;
+  font-weight: 600 !important;
+  color: var(--color-gold-dark) !important;
+  display: block !important;
+}
+
+.trust-label {
+  font-size: 0.75rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  color: var(--color-stone) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FOOTER - Sacred closure
+   ═══════════════════════════════════════════════════════════════ */
+
+.section-footer {
+  background: var(--color-charcoal) !important;
+  padding: 80px 20px 40px !important;
+  color: var(--color-stone) !important;
+}
+
+.footer-grid {
+  display: grid !important;
+  grid-template-columns: 2fr 1fr 1fr 1fr !important;
+  gap: 48px !important;
+  max-width: 1200px !important;
+  margin: 0 auto 60px !important;
+}
+
+.footer-brand h3 {
+  color: var(--color-ivory) !important;
+  font-size: 1.5rem !important;
+  margin-bottom: 16px !important;
+}
+
+.footer-brand p {
+  color: var(--color-stone) !important;
+  font-size: 0.95rem !important;
+  max-width: 300px !important;
+}
+
+.footer-nav h4 {
+  color: var(--color-ivory) !important;
+  font-size: 0.875rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  margin-bottom: 20px !important;
+}
+
+.footer-nav ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.footer-nav li {
+  margin-bottom: 12px !important;
+}
+
+.footer-nav a {
+  color: var(--color-stone) !important;
+  transition: color 0.3s ease !important;
+}
+
+.footer-nav a:hover {
+  color: var(--color-gold) !important;
+}
+
+.footer-bottom {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding-top: 40px !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 20px !important;
+}
+
+.footer-copyright {
+  font-size: 0.875rem !important;
+  color: var(--color-stone) !important;
+}
+
+.footer-social {
+  display: flex !important;
+  gap: 16px !important;
+}
+
+.footer-social a {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.3s ease !important;
+}
+
+.footer-social a:hover {
+  background: var(--color-gold) !important;
+  transform: translateY(-3px) !important;
+}
+
+.footer-social svg {
+  width: 18px !important;
+  height: 18px !important;
+  fill: var(--color-ivory) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .event-card {
+    grid-template-columns: 1fr !important;
+  }
+
+  .event-image {
+    min-height: 200px !important;
+  }
+
+  .timeline::before {
+    left: 20px !important;
+  }
+
+  .timeline-dot {
+    left: 20px !important;
+  }
+
+  .timeline-item,
+  .timeline-item:nth-child(odd) {
+    flex-direction: row !important;
+    padding-left: 60px !important;
+  }
+
+  .timeline-content {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem !important;
+  }
+
+  h2 {
+    font-size: 2rem !important;
+  }
+
+  .section-hero,
+  .section-about,
+  .section-teachings,
+  .section-testimonials,
+  .section-events,
+  .section-gallery,
+  .section-video,
+  .section-transformation,
+  .section-cta {
+    padding: 80px 16px !important;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+  }
+
+  .footer-brand p {
+    max-width: 100% !important;
+  }
+
+  .footer-nav ul {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 16px !important;
+  }
+
+  .footer-nav li {
+    margin-bottom: 0 !important;
+  }
+
+  .trust-badges {
+    gap: 32px !important;
+  }
+
+  .cta-buttons {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .hero-stats {
+    flex-direction: column !important;
+    gap: 32px !important;
+    align-items: flex-start !important;
+  }
+
+  .testimonials-grid,
+  .teachings-grid,
+  .video-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════════════════════════ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Apply animations */
+.section-hero .wp-block-group > * {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.section-hero h1 {
+  animation-delay: 0.2s !important;
+}
+
+.section-hero p {
+  animation-delay: 0.4s !important;
+}
+
+.section-hero .wp-block-buttons {
+  animation-delay: 0.6s !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   WORDPRESS BLOCK OVERRIDES
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Remove default block spacing */
+.wp-block {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Group block styling */
+.wp-block-group {
+  padding: 0 !important;
+}
+
+/* Image blocks */
+.wp-block-image img {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* Cover block */
+.wp-block-cover {
+  min-height: 100vh !important;
+}
+
+.wp-block-cover h1,
+.wp-block-cover h2,
+.wp-block-cover p {
+  color: white !important;
+}
+
+/* Remove editor margins */
+.wp-site-blocks {
+  padding-top: 0 !important;
+}
+
+.wp-site-blocks > * {
+  margin-block-start: 0 !important;
+  margin-block-end: 0 !important;
+}
+
+/* Full width blocks */
+.alignfull {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin-left: calc(50% - 50vw) !important;
+}
+
+/* Gallery spacing fix */
+.wp-block-gallery {
+  gap: 16px !important;
+}
+
+/* Quote styling */
+.wp-block-quote {
+  border-left: 4px solid var(--color-gold) !important;
+  padding-left: 24px !important;
+}
+
+/* Separator */
+.wp-block-separator {
+  border: none !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+  max-width: 100% !important;
+}

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node generate.js)",
+      "Bash(curl -s \"https://abhayoyun.com/new-home/\" -H \"User-Agent: Mozilla/5.0\")",
+      "Bash(npm run *)",
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(curl -s \"https://mindvalley.com/\" -H \"User-Agent: Mozilla/5.0\")"
+    ]
+  }
+}

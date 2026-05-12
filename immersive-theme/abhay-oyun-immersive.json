@@ -1,0 +1,1704 @@
+{
+  "title": "Abhay Oyun - Immersive Theme",
+  "type": "page",
+  "version": "1.0",
+  "page_settings": {
+    "hide_title": "yes"
+  },
+  "content": [
+    {
+      "id": "7a00008",
+      "elType": "section",
+      "settings": {
+        "layout": "full_width",
+        "height": "min-height",
+        "custom_height": {
+          "unit": "vh",
+          "size": 100
+        },
+        "content_position": "middle",
+        "background_background": "classic",
+        "background_color": "#1A1A14",
+        "custom_css": "\n// ── Hero Section ──\n.hero-section {\n  position: relative;\n  min-height: 100vh;\n  display: flex;\n  align-items: center;\n  overflow: hidden;\n}\n\n// ── Background Image ──\n.hero-bg {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-size: cover;\n  background-position: center;\n  background-repeat: no-repeat;\n}\n\n// Dark gradient overlay for text contrast\n.hero-bg::after {\n  content: '';\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: linear-gradient(\n    135deg,\n    rgba(26, 26, 20, 0.85) 0%,\n    rgba(26, 26, 20, 0.6) 50%,\n    rgba(26, 26, 20, 0.75) 100%\n  );\n}\n\n// ── Content Container ──\n.hero-container {\n  position: relative;\n  z-index: 10;\n  max-width: 1400px;\n  margin: 0 auto;\n  padding: 0 80px;\n  width: 100%;\n}\n\n// ── Main Content Grid ──\n.hero-content {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 80px;\n  align-items: center;\n  min-height: calc(100vh - 160px);\n  padding: 80px 0;\n}\n\n// ── Left: Text Content ──\n.hero-text {\n  max-width: 600px;\n}\n\n// ── Eyebrow ──\n.hero-eyebrow {\n  font-family: 'Cinzel', serif;\n  font-size: 11px;\n  font-weight: 600;\n  letter-spacing: 5px;\n  text-transform: uppercase;\n  color: #C4942A;\n  margin-bottom: 24px;\n  opacity: 0;\n  animation: fadeInUp 0.8s ease forwards 0.2s;\n}\n\n// ── Main Title ──\n.hero-title {\n  font-family: 'Cinzel', serif;\n  font-size: clamp(48px, 6vw, 80px);\n  font-weight: 600;\n  line-height: 1.05;\n  letter-spacing: -0.02em;\n  color: #FAF8F3;\n  margin: 0 0 32px 0;\n  opacity: 0;\n  animation: fadeInUp 0.8s ease forwards 0.4s;\n}\n\n.hero-title-line {\n  display: block;\n}\n\n.hero-title-line:last-child {\n  background: linear-gradient(135deg, #C4942A, #E8BC5A);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  background-clip: text;\n}\n\n// ── Subtitle ──\n.hero-subtitle {\n  font-family: 'Lato', sans-serif;\n  font-size: clamp(16px, 1.2vw, 20px);\n  line-height: 1.8;\n  color: rgba(250, 248, 243, 0.8);\n  margin: 0 0 48px 0;\n  max-width: 480px;\n  opacity: 0;\n  animation: fadeInUp 0.8s ease forwards 0.6s;\n}\n\n// ── CTA Group ──\n.hero-cta {\n  display: flex;\n  align-items: center;\n  gap: 20px;\n  flex-wrap: wrap;\n  opacity: 0;\n  animation: fadeInUp 0.8s ease forwards 0.8s;\n}\n\n.hero-cta-primary {\n  display: inline-flex;\n  align-items: center;\n  gap: 12px;\n  padding: 20px 40px;\n  background: linear-gradient(135deg, #C4942A, #E8BC5A);\n  color: #2C2416;\n  font-family: 'Cinzel', serif;\n  font-size: 12px;\n  font-weight: 600;\n  letter-spacing: 2px;\n  text-transform: uppercase;\n  text-decoration: none;\n  border-radius: 4px;\n  transition: all 0.4s ease;\n}\n\n.hero-cta-primary:hover {\n  transform: translateY(-3px);\n  box-shadow: 0 20px 40px rgba(196, 148, 42, 0.3);\n}\n\n.hero-cta-primary svg {\n  width: 16px;\n  height: 16px;\n  fill: currentColor;\n  transition: transform 0.3s ease;\n}\n\n.hero-cta-primary:hover svg {\n  transform: translateX(4px);\n}\n\n.hero-cta-secondary {\n  display: inline-flex;\n  align-items: center;\n  gap: 10px;\n  color: rgba(250, 248, 243, 0.7);\n  font-family: 'Lato', sans-serif;\n  font-size: 14px;\n  font-weight: 400;\n  text-decoration: none;\n  transition: color 0.3s ease;\n}\n\n.hero-cta-secondary:hover {\n  color: #C4942A;\n}\n\n.hero-cta-secondary svg {\n  width: 20px;\n  height: 20px;\n  fill: currentColor;\n}\n\n// ── Stats Bar ──\n.hero-stats {\n  display: flex;\n  gap: 48px;\n  margin-top: 64px;\n  padding-top: 48px;\n  border-top: 1px solid rgba(250, 248, 243, 0.15);\n  opacity: 0;\n  animation: fadeInUp 0.8s ease forwards 1s;\n}\n\n.hero-stat {\n  text-align: left;\n}\n\n.hero-stat-number {\n  font-family: 'Cinzel', serif;\n  font-size: clamp(32px, 3vw, 48px);\n  font-weight: 600;\n  color: #C4942A;\n  line-height: 1;\n  margin-bottom: 8px;\n}\n\n.hero-stat-label {\n  font-family: 'Lato', sans-serif;\n  font-size: 12px;\n  font-weight: 400;\n  letter-spacing: 1px;\n  text-transform: uppercase;\n  color: rgba(250, 248, 243, 0.5);\n}\n\n// ── Right: Image ──\n.hero-image-wrap {\n  position: relative;\n  height: calc(100vh - 160px);\n  max-height: 700px;\n  opacity: 0;\n  animation: fadeIn 1.2s ease forwards 0.6s;\n}\n\n.hero-image-frame {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  border-radius: 8px;\n  overflow: hidden;\n}\n\n.hero-image-frame img {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n}\n\n// Decorative frame lines\n.hero-image-frame::before {\n  content: '';\n  position: absolute;\n  top: -20px;\n  right: -20px;\n  width: 100%;\n  height: 100%;\n  border: 1px solid #C4942A;\n  border-radius: 8px;\n  opacity: 0.3;\n  z-index: -1;\n}\n\n.hero-image-frame::after {\n  content: '';\n  position: absolute;\n  bottom: -12px;\n  left: -12px;\n  width: 200px;\n  height: 200px;\n  background: radial-gradient(circle, #C4942A 0%, transparent 70%);\n  opacity: 0.15;\n  z-index: -1;\n}\n\n// ── Social Proof Bar ──\n.hero-social-proof {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  z-index: 20;\n  padding: 24px 0;\n  background: rgba(26, 26, 20, 0.9);\n  backdrop-filter: blur(10px);\n  border-top: 1px solid rgba(250, 248, 243, 0.08);\n}\n\n.hero-social-proof-inner {\n  max-width: 1400px;\n  margin: 0 auto;\n  padding: 0 80px;\n  display: flex;\n  align-items: center;\n  gap: 48px;\n}\n\n.hero-social-proof-label {\n  font-family: 'Lato', sans-serif;\n  font-size: 11px;\n  font-weight: 600;\n  letter-spacing: 2px;\n  text-transform: uppercase;\n  color: rgba(250, 248, 243, 0.4);\n  white-space: nowrap;\n}\n\n.hero-social-proof-logos {\n  display: flex;\n  align-items: center;\n  gap: 40px;\n  flex-wrap: wrap;\n}\n\n.hero-social-proof-logo {\n  font-family: 'Cinzel', serif;\n  font-size: 14px;\n  font-weight: 600;\n  color: rgba(250, 248, 243, 0.35);\n  letter-spacing: 1px;\n  transition: color 0.3s ease;\n}\n\n.hero-social-proof-logo:hover {\n  color: rgba(250, 248, 243, 0.7);\n}\n\n// ── Scroll Indicator ──\n.hero-scroll {\n  position: absolute;\n  bottom: 100px;\n  left: 50%;\n  transform: translateX(-50%);\n  z-index: 15;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: 8px;\n  opacity: 0;\n  animation: fadeIn 1s ease forwards 1.2s;\n}\n\n.hero-scroll-text {\n  font-family: 'Lato', sans-serif;\n  font-size: 10px;\n  font-weight: 600;\n  letter-spacing: 3px;\n  text-transform: uppercase;\n  color: rgba(250, 248, 243, 0.4);\n}\n\n.hero-scroll-line {\n  width: 1px;\n  height: 48px;\n  background: linear-gradient(to bottom, #C4942A, transparent);\n  animation: scrollPulse 2s ease-in-out infinite;\n}\n\n@keyframes scrollPulse {\n  0%, 100% { opacity: 0.3; transform: scaleY(0.8); }\n  50% { opacity: 0.8; transform: scaleY(1); }\n}\n\n// ── Animations ──\n@keyframes fadeIn {\n  from { opacity: 0; }\n  to { opacity: 1; }\n}\n\n@keyframes fadeInUp {\n  from { opacity: 0; transform: translateY(30px); }\n  to { opacity: 1; transform: translateY(0); }\n}\n\n// ── Responsive ──\n@media (max-width: 1200px) {\n  .hero-container,\n  .hero-social-proof-inner {\n    padding: 0 40px;\n  }\n\n  .hero-content {\n    grid-template-columns: 1fr;\n    gap: 48px;\n    text-align: center;\n  }\n\n  .hero-text {\n    max-width: 100%;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n  }\n\n  .hero-subtitle {\n    max-width: 600px;\n  }\n\n  .hero-cta {\n    justify-content: center;\n  }\n\n  .hero-stats {\n    justify-content: center;\n  }\n\n  .hero-image-wrap {\n    display: none;\n  }\n}\n\n@media (max-width: 767px) {\n  .hero-container,\n  .hero-social-proof-inner {\n    padding: 0 24px;\n  }\n\n  .hero-content {\n    padding: 60px 0 120px;\n    min-height: auto;\n  }\n\n  .hero-stats {\n    gap: 32px;\n  }\n\n  .hero-social-proof-label {\n    display: none;\n  }\n\n  .hero-social-proof-logos {\n    justify-content: center;\n  }\n\n  .hero-scroll {\n    display: none;\n  }\n}\n",
+        "css_classes": "hero-section"
+      },
+      "elements": [
+        {
+          "id": "7a00001",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100,
+            "content_position": "top",
+            "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": [
+            {
+              "id": "7a00000",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"hero-bg\" style=\"background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&q=80');\"></div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "z_index": 1
+              }
+            }
+          ]
+        },
+        {
+          "id": "7a00003",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100,
+            "content_position": "center"
+          },
+          "elements": [
+            {
+              "id": "7a00002",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"hero-container\">\n        <div class=\"hero-content\">\n          <!-- Left: Text -->\n          <div class=\"hero-text\">\n            <div class=\"hero-eyebrow\">Siberian Shaman • Guardian of Our Planet</div>\n            <h1 class=\"hero-title\">\n              <span class=\"hero-title-line\">Heal Your Wild</span>\n              <span class=\"hero-title-line\">Reclaim Your Power</span>\n            </h1>\n            <p class=\"hero-subtitle\">\n              Ancient Siberian shamanic practices for modern seekers. Transform trauma into power. Reconnect with nature's wisdom. Find your way home.\n            </p>\n            <div class=\"hero-cta\">\n              <a href=\"https://forms.gle/jEDaUrKwbyHd8WvUA\" target=\"_blank\" class=\"hero-cta-primary\">\n                Start Your Journey\n                <svg viewBox=\"0 0 24 24\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>\n              </a>\n              <a href=\"#\" class=\"hero-cta-secondary\">\n                <svg viewBox=\"0 0 24 24\"><path d=\"M8 5v14l11-7z\"/></svg>\n                Watch the Film\n              </a>\n            </div>\n            <div class=\"hero-stats\">\n              <div class=\"hero-stat\">\n                <div class=\"hero-stat-number\">35+</div>\n                <div class=\"hero-stat-label\">Years of Practice</div>\n              </div>\n              <div class=\"hero-stat\">\n                <div class=\"hero-stat-number\">40</div>\n                <div class=\"hero-stat-label\">Countries Served</div>\n              </div>\n              <div class=\"hero-stat\">\n                <div class=\"hero-stat-number\">10K+</div>\n                <div class=\"hero-stat-label\">Lives Transformed</div>\n              </div>\n            </div>\n          </div>\n\n          <!-- Right: Image -->\n          <div class=\"hero-image-wrap\">\n            <div class=\"hero-image-frame\">\n              <img src=\"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80\" alt=\"Abhay Oyun - Siberian Shaman\">\n            </div>\n          </div>\n        </div>\n      </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "align": "center",
+                "z_index": 10
+              }
+            }
+          ]
+        },
+        {
+          "id": "7a00005",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100,
+            "content_position": "bottom",
+            "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": [
+            {
+              "id": "7a00004",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"hero-social-proof\">\n        <div class=\"hero-social-proof-inner\">\n          <span class=\"hero-social-proof-label\">Featured In</span>\n          <div class=\"hero-social-proof-logos\">\n            <span class=\"hero-social-proof-logo\">Forbes</span>\n            <span class=\"hero-social-proof-logo\">BBC</span>\n            <span class=\"hero-social-proof-logo\">The Guardian</span>\n            <span class=\"hero-social-proof-logo\">Entrepreneur</span>\n            <span class=\"hero-social-proof-logo\">Mindvalley</span>\n          </div>\n        </div>\n      </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "z_index": 20
+              }
+            }
+          ]
+        },
+        {
+          "id": "7a00007",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100,
+            "content_position": "bottom",
+            "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": [
+            {
+              "id": "7a00006",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"hero-scroll\">\n        <span class=\"hero-scroll-text\">Scroll</span>\n        <div class=\"hero-scroll-line\"></div>\n      </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "z_index": 15
+              }
+            }
+          ]
+        }
+      ],
+      "isInner": false
+    },
+    {
+      "id": "7a0000b",
+      "elType": "section",
+      "settings": {
+        "layout": "full_width",
+        "stretch_section": "section-stretched",
+        "background_background": "classic",
+        "background_color": "transparent",
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        },
+        "z_index": 1000,
+        "css_classes": "ao-header-wrap",
+        "custom_css": "\n// ── Header Base ──\nselector.ao-header-wrap {\n  position: sticky !important;\n  top: 0;\n  z-index: 1000;\n  width: 100%;\n}\n\nselector.ao-header {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  width: 100%;\n  min-height: 88px;\n  padding: 0 48px;\n  background: rgba(255, 253, 248, 0.92);\n  backdrop-filter: blur(20px);\n  -webkit-backdrop-filter: blur(20px);\n  border-bottom: 1px solid rgba(196, 148, 42, 0.08);\n  transition: all 0.4s ease;\n}\n\n/* Scroll state - slightly more opaque */\n.ao-header-scrolled .ao-header {\n  background: rgba(255, 253, 248, 0.98);\n  box-shadow: 0 4px 30px rgba(44, 36, 22, 0.06);\n}\n\n// ── Logo ──\n.ao-logo {\n  display: flex;\n  align-items: center;\n  gap: 14px;\n  text-decoration: none;\n  flex-shrink: 0;\n}\n\n.ao-logo-icon {\n  width: 42px;\n  height: 42px;\n  background-image: url(https://abhayoyun.org/wp-content/uploads/icon1.png);\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center;\n  filter: brightness(0) saturate(100%) sepia(50%) saturate(450%) hue-rotate(5deg) brightness(0.85);\n  transition: transform 0.3s ease;\n}\n\n.ao-logo:hover .ao-logo-icon {\n  transform: scale(1.05);\n}\n\n.ao-logo-text {\n  font-family: 'Cinzel', serif;\n  font-size: 20px;\n  font-weight: 600;\n  letter-spacing: 0.1em;\n  color: #2C2416;\n  line-height: 1;\n}\n\n.ao-logo-text span {\n  color: #C4942A;\n}\n\n.ao-logo-sub {\n  font-family: 'Lato', sans-serif;\n  font-size: 7px;\n  font-weight: 400;\n  letter-spacing: 0.28em;\n  text-transform: uppercase;\n  color: #8B7B65;\n  margin-top: 4px;\n  opacity: 0.8;\n}\n\n// ── Navigation ──\n.ao-nav {\n  display: flex;\n  align-items: center;\n  gap: 44px;\n}\n\n.ao-nav-link {\n  font-family: 'Lato', sans-serif;\n  font-size: 11px;\n  font-weight: 600;\n  letter-spacing: 2px;\n  text-transform: uppercase;\n  color: #5C4A32;\n  text-decoration: none;\n  position: relative;\n  padding: 4px 0;\n  transition: color 0.3s ease;\n}\n\n.ao-nav-link::after {\n  content: '';\n  position: absolute;\n  bottom: -2px;\n  left: 0;\n  width: 0;\n  height: 2px;\n  background: linear-gradient(90deg, #C4942A, #E8BC5A);\n  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);\n}\n\n.ao-nav-link:hover {\n  color: #C4942A;\n}\n\n.ao-nav-link:hover::after {\n  width: 100%;\n}\n\n// ── Right Section ──\n.ao-header-right {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  flex-shrink: 0;\n}\n\n.ao-social {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  margin-right: 8px;\n}\n\n.ao-social-link {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  width: 36px;\n  height: 36px;\n  border-radius: 50%;\n  background: #F8F3E8;\n  color: #8B7B65;\n  font-family: 'Lato', sans-serif;\n  font-size: 10px;\n  font-weight: 700;\n  text-decoration: none;\n  transition: all 0.3s ease;\n}\n\n.ao-social-link:hover {\n  background: #C4942A;\n  color: #fff;\n  transform: translateY(-2px);\n}\n\n.ao-cta {\n  display: inline-flex;\n  align-items: center;\n  gap: 10px;\n  padding: 12px 28px;\n  background: linear-gradient(135deg, #C4942A, #E8BC5A);\n  color: #fff;\n  font-family: 'Cinzel', serif;\n  font-size: 10px;\n  font-weight: 600;\n  letter-spacing: 2px;\n  text-transform: uppercase;\n  text-decoration: none;\n  border-radius: 100px;\n  box-shadow: 0 4px 20px rgba(196, 148, 42, 0.3);\n  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);\n}\n\n.ao-cta:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 8px 32px rgba(196, 148, 42, 0.45);\n}\n\n.ao-cta-icon {\n  font-size: 12px;\n  transition: transform 0.3s ease;\n}\n\n.ao-cta:hover .ao-cta-icon {\n  transform: translateX(3px);\n}\n\n// ── Mobile Menu Button ──\n.ao-mobile-toggle {\n  display: none;\n  flex-direction: column;\n  justify-content: center;\n  gap: 5px;\n  width: 36px;\n  height: 36px;\n  background: #F8F3E8;\n  border-radius: 8px;\n  cursor: pointer;\n  padding: 8px;\n}\n\n.ao-mobile-toggle span {\n  display: block;\n  width: 100%;\n  height: 2px;\n  background: #5C4A32;\n  border-radius: 2px;\n  transition: all 0.3s ease;\n}\n\n// ── Mobile Navigation ──\n.ao-mobile-nav {\n  display: none;\n  position: absolute;\n  top: 100%;\n  left: 0;\n  right: 0;\n  background: #FFFDF8;\n  border-bottom: 1px solid rgba(196, 148, 42, 0.1);\n  padding: 24px;\n  box-shadow: 0 8px 40px rgba(44, 36, 22, 0.08);\n}\n\n.ao-mobile-nav.active {\n  display: block;\n  animation: slideDown 0.3s ease;\n}\n\n.ao-mobile-nav .ao-nav-link {\n  display: block;\n  padding: 14px 0;\n  font-size: 13px;\n  border-bottom: 1px solid #EDE4D3;\n}\n\n.ao-mobile-nav .ao-nav-link:last-child {\n  border-bottom: none;\n}\n\n// ── Animations ──\n@keyframes slideDown {\n  from { opacity: 0; transform: translateY(-10px); }\n  to { opacity: 1; transform: translateY(0); }\n}\n\n@keyframes fadeIn {\n  from { opacity: 0; }\n  to { opacity: 1; }\n}\n\n// ── Responsive ──\n@media (max-width: 1024px) {\n  .ao-nav { gap: 28px; }\n  .ao-nav-link { font-size: 10px; letter-spacing: 1.5px; }\n  .ao-social { display: none; }\n}\n\n@media (max-width: 767px) {\n  .ao-header {\n    min-height: 68px;\n    padding: 0 20px;\n  }\n\n  .ao-nav { display: none; }\n  .ao-social { display: none; }\n  .ao-cta { display: none; }\n\n  .ao-mobile-toggle { display: flex; }\n\n  .ao-logo-text { font-size: 18px; }\n  .ao-logo-sub { display: none; }\n}\n"
+      },
+      "elements": [
+        {
+          "id": "7a0000a",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100,
+            "content_position": "center",
+            "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": [
+            {
+              "id": "7a00009",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"ao-header\">\n  <!-- Logo -->\n  <a href=\"/\" class=\"ao-logo\">\n    <div class=\"ao-logo-icon\"></div>\n    <div>\n      <div class=\"ao-logo-text\">ABHAY <span>OYUN</span></div>\n      <div class=\"ao-logo-sub\">Siberian Shamanism</div>\n    </div>\n  </a>\n\n  <!-- Navigation -->\n  <nav class=\"ao-nav\">\n    <a href=\"#about\" class=\"ao-nav-link\">About</a>\n    <a href=\"#teachings\" class=\"ao-nav-link\">Teachings</a>\n    <a href=\"#events\" class=\"ao-nav-link\">Events</a>\n    <a href=\"#journey\" class=\"ao-nav-link\">Journey</a>\n  </nav>\n\n  <!-- Right Section -->\n  <div class=\"ao-header-right\">\n    <!-- Social Links -->\n    <div class=\"ao-social\">\n      <a href=\"https://www.instagram.com/abhayoyun/\" target=\"_blank\" class=\"ao-social-link\" title=\"Instagram\">\n        <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n          <rect x=\"2\" y=\"2\" width=\"20\" height=\"20\" rx=\"5\" ry=\"5\"></rect>\n          <path d=\"M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z\"></path>\n          <line x1=\"17.5\" y1=\"6.5\" x2=\"17.51\" y2=\"6.5\"></line>\n        </svg>\n      </a>\n      <a href=\"https://www.youtube.com/@earthforpeace\" target=\"_blank\" class=\"ao-social-link\" title=\"YouTube\">\n        <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\n          <path d=\"M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2A2.78 2.78 0 0 0 1 9.86a2.78 2.78 0 0 0 1.94 2C3.12 12 12 12 12 12s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2 2.78 2.78 0 0 0-1.94-2C21.12 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2A2.78 2.78 0 0 0 1 9.86a2.78 2.78 0 0 0 1.94 2C3.12 12 12 12 12 12s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2A2.78 2.78 0 0 0 23 9.86z\"></path>\n          <polygon points=\"9.75 15.02 15.5 12 9.75 8.98 9.75 15.02\" fill=\"#fff\"></polygon>\n        </svg>\n      </a>\n      <a href=\"https://wa.me/12122561366\" target=\"_blank\" class=\"ao-social-link\" title=\"WhatsApp\">\n        <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\n          <path d=\"M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z\"/>\n        </svg>\n      </a>\n    </div>\n\n    <!-- CTA Button -->\n    <a href=\"https://calendly.com/hurraymangalam/individualsessions\" target=\"_blank\" class=\"ao-cta\">\n      Begin Your Journey\n      <span class=\"ao-cta-icon\">→</span>\n    </a>\n\n    <!-- Mobile Toggle -->\n    <div class=\"ao-mobile-toggle\" onclick=\"this.classList.toggle('active'); document.querySelector('.ao-mobile-nav').classList.toggle('active');\">\n      <span></span>\n      <span></span>\n      <span></span>\n    </div>\n  </div>\n\n  <!-- Mobile Navigation -->\n  <div class=\"ao-mobile-nav\">\n    <a href=\"#about\" class=\"ao-nav-link\">About</a>\n    <a href=\"#teachings\" class=\"ao-nav-link\">Teachings</a>\n    <a href=\"#events\" class=\"ao-nav-link\">Events</a>\n    <a href=\"#journey\" class=\"ao-nav-link\">Journey</a>\n    <a href=\"https://calendly.com/hurraymangalam/individualsessions\" target=\"_blank\" class=\"ao-nav-link\" style=\"color:#C4942A;\">Begin Your Journey</a>\n  </div>\n</div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "custom_css": "selector { width: 100%; }"
+              }
+            }
+          ]
+        }
+      ],
+      "isInner": false
+    },
+    {
+      "id": "7a00018",
+      "elType": "section",
+      "settings": {
+        "layout": "full_width",
+        "background_background": "classic",
+        "background_color": "#FFFDF8",
+        "padding": {
+          "unit": "px",
+          "top": "140",
+          "right": "80",
+          "bottom": "140",
+          "left": "80",
+          "isLinked": false
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "60",
+          "right": "24",
+          "bottom": "60",
+          "left": "24",
+          "isLinked": false
+        },
+        "padding_tablet": {
+          "unit": "px",
+          "top": "80",
+          "right": "48",
+          "bottom": "80",
+          "left": "48",
+          "isLinked": false
+        },
+        "z_index": 10,
+        "custom_css": "\n// ── Section Container ──\n.about-section {\n  position: relative;\n  overflow: hidden;\n}\n\n// ── Decorative Elements ──\n@keyframes float-slow {\n  0%, 100% { transform: translateY(0) rotate(0deg); }\n  50% { transform: translateY(-15px) rotate(2deg); }\n}\n\n@keyframes glow-pulse {\n  0%, 100% { opacity: 0.15; transform: scale(1); }\n  50% { opacity: 0.25; transform: scale(1.1); }\n}\n\n.about-deco-1 {\n  position: absolute;\n  top: -100px;\n  left: -100px;\n  width: 300px;\n  height: 300px;\n  border-radius: 50%;\n  background: radial-gradient(circle, #F5DFA0 0%, transparent 70%);\n  opacity: 0.3;\n  animation: glow-pulse 8s ease-in-out infinite;\n  pointer-events: none;\n}\n\n.about-deco-2 {\n  position: absolute;\n  bottom: -80px;\n  right: -80px;\n  width: 250px;\n  height: 250px;\n  border-radius: 50%;\n  background: radial-gradient(circle, #6B8F5C 0%, transparent 70%);\n  opacity: 0.15;\n  animation: glow-pulse 10s ease-in-out infinite reverse;\n  pointer-events: none;\n}\n\n// ── Image Styling ──\n.about-image-wrap {\n  position: relative;\n  display: inline-block;\n}\n\n.about-image-frame {\n  position: absolute;\n  top: -16px;\n  left: -16px;\n  right: 16px;\n  bottom: 16px;\n  border: 2px solid #F5DFA0;\n  border-radius: 24px;\n  opacity: 0.4;\n  pointer-events: none;\n}\n\n.about-image-frame-2 {\n  position: absolute;\n  top: -8px;\n  left: -8px;\n  right: 8px;\n  bottom: 8px;\n  border: 1px solid #C4942A;\n  border-radius: 20px;\n  opacity: 0.25;\n  pointer-events: none;\n}\n\n.about-image-main {\n  position: relative;\n  border-radius: 20px;\n  overflow: hidden;\n  box-shadow: 0 24px 60px rgba(44, 36, 22, 0.12);\n  transition: all 0.6s ease;\n}\n\n.about-image-main:hover {\n  transform: scale(1.02);\n  box-shadow: 0 32px 80px rgba(44, 36, 22, 0.16);\n}\n\n.about-image-main img {\n  width: 100%;\n  height: auto;\n  display: block;\n  border-radius: 20px;\n}\n\n.about-image-caption {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  padding: 20px;\n  background: linear-gradient(to top, rgba(44, 36, 22, 0.7), transparent);\n  color: #fff;\n  font-family: 'Cinzel', serif;\n  font-size: 11px;\n  letter-spacing: 3px;\n  text-transform: uppercase;\n  text-align: center;\n}\n\n// ── Content Styling ──\n.about-eyebrow {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n  margin-bottom: 20px;\n}\n\n.about-eyebrow-line {\n  width: 40px;\n  height: 1px;\n  background: linear-gradient(to right, transparent, #C4942A);\n}\n\n.about-eyebrow-text {\n  font-family: 'Cinzel', serif;\n  font-size: 11px;\n  font-weight: 600;\n  letter-spacing: 5px;\n  text-transform: uppercase;\n  color: #C4942A;\n}\n\n.about-title {\n  font-family: 'Cinzel', serif;\n  font-size: clamp(36px, 4vw, 52px);\n  line-height: 1.1;\n  letter-spacing: -0.5px;\n  color: #2C2416;\n  margin-bottom: 24px;\n}\n\n.about-title-accent {\n  display: block;\n  background: linear-gradient(135deg, #C4942A, #E8BC5A);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  background-clip: text;\n}\n\n.about-text {\n  font-family: 'Lato', sans-serif;\n  font-size: 16px;\n  line-height: 2;\n  color: #5C4A32;\n  margin-bottom: 16px;\n  opacity: 0;\n  animation: fadeInUp 0.8s ease forwards;\n}\n\n.about-text:nth-child(2) { animation-delay: 0.2s; }\n.about-text:nth-child(3) { animation-delay: 0.4s; }\n\n@keyframes fadeInUp {\n  from { opacity: 0; transform: translateY(20px); }\n  to { opacity: 1; transform: translateY(0); }\n}\n\n// ── Stats Grid ──\n.about-stats {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 24px;\n  margin-top: 40px;\n  padding-top: 36px;\n  border-top: 2px solid rgba(196, 148, 42, 0.15);\n}\n\n.about-stat {\n  text-align: center;\n  padding: 0 12px;\n  opacity: 0;\n  animation: fadeInUp 0.6s ease forwards;\n}\n\n.about-stat:nth-child(1) { animation-delay: 0.3s; }\n.about-stat:nth-child(2) { animation-delay: 0.45s; }\n.about-stat:nth-child(3) { animation-delay: 0.6s; }\n\n.about-stat-number {\n  font-family: 'Cinzel', serif;\n  font-size: clamp(40px, 4vw, 52px);\n  font-weight: 600;\n  line-height: 1;\n  margin-bottom: 8px;\n  background: linear-gradient(135deg, #C4942A, #E8BC5A);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  background-clip: text;\n}\n\n.about-stat:nth-child(2) .about-stat-number {\n  background: linear-gradient(135deg, #3A5430, #6B8F5C);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  background-clip: text;\n}\n\n.about-stat:nth-child(3) .about-stat-number {\n  background: linear-gradient(135deg, #B86B4A, #C49A7A);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  background-clip: text;\n}\n\n.about-stat-label {\n  font-family: 'Lato', sans-serif;\n  font-size: 10px;\n  font-weight: 600;\n  letter-spacing: 3px;\n  text-transform: uppercase;\n  color: #8B7B65;\n}\n\n// ── CTA Buttons ──\n.about-ctas {\n  display: flex;\n  gap: 16px;\n  margin-top: 32px;\n  flex-wrap: wrap;\n}\n\n.about-btn-primary {\n  display: inline-flex;\n  align-items: center;\n  gap: 10px;\n  padding: 16px 32px;\n  background: linear-gradient(135deg, #C4942A, #E8BC5A);\n  color: #fff;\n  font-family: 'Cinzel', serif;\n  font-size: 11px;\n  font-weight: 600;\n  letter-spacing: 2px;\n  text-transform: uppercase;\n  text-decoration: none;\n  border-radius: 100px;\n  box-shadow: 0 6px 24px rgba(196, 148, 42, 0.3);\n  transition: all 0.4s ease;\n}\n\n.about-btn-primary:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 10px 32px rgba(196, 148, 42, 0.45);\n}\n\n.about-btn-secondary {\n  display: inline-flex;\n  align-items: center;\n  gap: 10px;\n  padding: 16px 32px;\n  background: transparent;\n  color: #2C2416;\n  font-family: 'Cinzel', serif;\n  font-size: 11px;\n  font-weight: 600;\n  letter-spacing: 2px;\n  text-transform: uppercase;\n  text-decoration: none;\n  border-radius: 100px;\n  border: 1.5px solid rgba(196, 148, 42, 0.35);\n  transition: all 0.4s ease;\n}\n\n.about-btn-secondary:hover {\n  background: #FFFDF8;\n  border-color: #C4942A;\n  transform: translateY(-2px);\n}\n\n// ── Quote Block ──\n.about-quote {\n  position: relative;\n  padding: 32px 0 32px 32px;\n  border-left: 3px solid #C4942A;\n  margin: 32px 0;\n}\n\n.about-quote-text {\n  font-family: 'Cinzel', serif;\n  font-style: italic;\n  font-size: 20px;\n  line-height: 1.6;\n  color: #2C2416;\n  margin: 0 0 12px 0;\n}\n\n.about-quote-author {\n  font-family: 'Lato', sans-serif;\n  font-size: 11px;\n  font-weight: 600;\n  letter-spacing: 2px;\n  text-transform: uppercase;\n  color: #8B7B65;\n}\n\n// ── Responsive ──\n@media (max-width: 1024px) {\n  .about-stats { gap: 16px; }\n  .about-stat-number { font-size: 36px; }\n}\n\n@media (max-width: 767px) {\n  .about-image-wrap { margin-bottom: 32px; }\n  .about-stats {\n    grid-template-columns: repeat(3, 1fr);\n    gap: 12px;\n  }\n  .about-stat-number { font-size: 28px; }\n  .about-stat-label { font-size: 8px; letter-spacing: 2px; }\n  .about-ctas { flex-direction: column; }\n  .about-btn-primary, .about-btn-secondary { width: 100%; justify-content: center; }\n}\n",
+        "css_classes": "about-section"
+      },
+      "elements": [
+        {
+          "id": "7a00010",
+          "elType": "column",
+          "settings": {
+            "_column_size": 45,
+            "_inline_size": 45,
+            "content_position": "center",
+            "_column_size_mobile": 100,
+            "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "40",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            },
+            "padding_mobile": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": [
+            {
+              "id": "7a0000c",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"about-deco-1\"></div>\n            <div class=\"about-deco-2\"></div>",
+                "text_color": "",
+                "typography_typography": "custom"
+              }
+            },
+            {
+              "id": "7a0000d",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"about-image-wrap\">\n        <div class=\"about-image-frame\"></div>\n        <div class=\"about-image-frame-2\"></div>\n      </div>",
+                "text_color": "",
+                "typography_typography": "custom"
+              }
+            },
+            {
+              "id": "7a0000e",
+              "elType": "widget",
+              "widgetType": "image",
+              "settings": {
+                "image": {
+                  "url": "https://abhayoyun.org/wp-content/uploads/AO 2.JPG",
+                  "id": ""
+                },
+                "image_size": "full",
+                "caption": "Shaman Abhay Oyun in Sacred Ceremony"
+              }
+            },
+            {
+              "id": "7a0000f",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div style=\"text-align:center;margin-top:16px;\">\n        <span style=\"font-family:'Cinzel',serif;font-size:12px;color:#8B7B65;letter-spacing:3px;text-transform:uppercase;\">In sacred ceremony, worldwide</span>\n      </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "align": "center"
+              }
+            }
+          ]
+        },
+        {
+          "id": "7a00017",
+          "elType": "column",
+          "settings": {
+            "_column_size": 55,
+            "_inline_size": 55,
+            "content_position": "center",
+            "_column_size_mobile": 100,
+            "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "40",
+              "isLinked": false
+            },
+            "padding_mobile": {
+              "unit": "px",
+              "top": "40",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": [
+            {
+              "id": "7a00011",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"about-eyebrow\">\n        <div class=\"about-eyebrow-line\"></div>\n        <span class=\"about-eyebrow-text\">The Shaman</span>\n      </div>",
+                "text_color": "",
+                "typography_typography": "custom"
+              }
+            },
+            {
+              "id": "7a00012",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "A Life Dedicated to<br><em class=\"about-title-accent\">Earth & Humanity</em>",
+                "header_size": "h2",
+                "title_color": "#2C2416",
+                "typography_typography": "custom",
+                "typography_font_family": "Cinzel",
+                "typography_font_size": 52,
+                "typography_font_size_mobile": 32,
+                "typography_font_size_tablet": 42,
+                "typography_font_weight": "400",
+                "typography_letter_spacing": -0.5,
+                "typography_line_height": 1.1,
+                "_animation": "fadeInUp",
+                "animation_duration": "slow"
+              }
+            },
+            {
+              "id": "7a00013",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p class=\"about-text\">Shaman Abhay Oyun carries the ancient wisdom of Siberian shamanism — passed through generations, refined across 40 countries, and shared with thousands seeking healing.</p>\n      <p class=\"about-text\">Called the <em>Guardian of Our Planet</em> by communities worldwide, he has guided thousands through ceremonial work — restoring vital energy, dissolving trauma, and awakening dormant power.</p>",
+                "text_color": "",
+                "typography_typography": "custom"
+              }
+            },
+            {
+              "id": "7a00014",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"about-quote\">\n        <p class=\"about-quote-text\">\"When you reconnect with your wild nature, trauma doesn't just heal — it transforms into power.\"</p>\n        <span class=\"about-quote-author\">— Shaman Abhay Oyun</span>\n      </div>",
+                "text_color": "",
+                "typography_typography": "custom"
+              }
+            },
+            {
+              "id": "7a00015",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"about-stats\">\n        <div class=\"about-stat\">\n          <div class=\"about-stat-number\">35+</div>\n          <div class=\"about-stat-label\">Years of Practice</div>\n        </div>\n        <div class=\"about-stat\">\n          <div class=\"about-stat-number\">40</div>\n          <div class=\"about-stat-label\">Countries</div>\n        </div>\n        <div class=\"about-stat\">\n          <div class=\"about-stat-number\">10K+</div>\n          <div class=\"about-stat-label\">Lives Transformed</div>\n        </div>\n      </div>",
+                "text_color": "",
+                "typography_typography": "custom"
+              }
+            },
+            {
+              "id": "7a00016",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"about-ctas\">\n        <a href=\"https://calendly.com/hurraymangalam/individualsessions\" target=\"_blank\" class=\"about-btn-primary\">\n          Begin Your Journey →\n        </a>\n        <a href=\"#teachings\" class=\"about-btn-secondary\">\n          Explore Teachings\n        </a>\n      </div>",
+                "text_color": "",
+                "typography_typography": "custom"
+              }
+            }
+          ]
+        }
+      ],
+      "isInner": false
+    },
+    {
+      "id": "7a00021",
+      "elType": "section",
+      "settings": {
+        "layout": "full_width",
+        "background_background": "classic",
+        "background_color": "#F8F3E8",
+        "padding": {
+          "unit": "px",
+          "top": "140",
+          "right": "80",
+          "bottom": "140",
+          "left": "80",
+          "isLinked": false
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "60",
+          "right": "20",
+          "bottom": "60",
+          "left": "20",
+          "isLinked": false
+        },
+        "padding_tablet": {
+          "unit": "px",
+          "top": "80",
+          "right": "40",
+          "bottom": "80",
+          "left": "40",
+          "isLinked": false
+        },
+        "z_index": 10,
+        "custom_css": "\n// ── Section Container ──\n.teachings-section {\n  position: relative;\n  overflow: hidden;\n}\n\n// ── Section Header ──\n.teachings-header {\n  text-align: center;\n  max-width: 680px;\n  margin: 0 auto 56px;\n}\n\n.teachings-eyebrow {\n  display: inline-flex;\n  align-items: center;\n  gap: 16px;\n  margin-bottom: 20px;\n}\n\n.teachings-eyebrow-line {\n  width: 40px;\n  height: 1px;\n  background: linear-gradient(to right, transparent, #C4942A);\n}\n\n.teachings-eyebrow-line-r {\n  width: 40px;\n  height: 1px;\n  background: linear-gradient(to left, transparent, #C4942A);\n}\n\n.teachings-eyebrow-text {\n  font-family: 'Cinzel', serif;\n  font-size: 11px;\n  font-weight: 600;\n  letter-spacing: 5px;\n  text-transform: uppercase;\n  color: #C4942A;\n}\n\n.teachings-title {\n  font-family: 'Cinzel', serif;\n  font-size: clamp(36px, 4.5vw, 56px);\n  line-height: 1.1;\n  letter-spacing: -0.5px;\n  color: #2C2416;\n  margin-bottom: 20px;\n}\n\n.teachings-title-accent {\n  display: block;\n  background: linear-gradient(135deg, #C4942A, #3A5430);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  background-clip: text;\n}\n\n.teachings-subtitle {\n  font-family: 'Lato', sans-serif;\n  font-size: 17px;\n  line-height: 1.8;\n  color: #5C4A32;\n  max-width: 520px;\n  margin: 0 auto;\n}\n\n// ── Practice Cards ──\n.teachings-grid {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 32px;\n}\n\n.teaching-card {\n  position: relative;\n  background: #FFFDF8;\n  border-radius: 24px;\n  overflow: hidden;\n  border: 1px solid rgba(196, 148, 42, 0.08);\n  box-shadow: 0 16px 48px rgba(44, 36, 22, 0.06);\n  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);\n  cursor: pointer;\n}\n\n.teaching-card:hover {\n  transform: translateY(-8px);\n  box-shadow: 0 24px 64px rgba(44, 36, 22, 0.1);\n}\n\n.teaching-card-inner {\n  padding: 32px;\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n}\n\n// ── Card Top: Number + Tag ──\n.teaching-card-top {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  margin-bottom: 24px;\n}\n\n.teaching-card-num {\n  font-family: 'Cinzel', serif;\n  font-size: 48px;\n  font-weight: 600;\n  line-height: 1;\n  opacity: 0.15;\n  color: #2C2416;\n}\n\n.teaching-card-tag {\n  display: inline-block;\n  padding: 6px 14px;\n  font-family: 'Lato', sans-serif;\n  font-size: 9px;\n  font-weight: 700;\n  letter-spacing: 2px;\n  text-transform: uppercase;\n  border-radius: 100px;\n  transition: all 0.4s ease;\n}\n\n// Tag colors by practice\n.teaching-card[data-practice=\"1\"] .teaching-card-tag {\n  background: #C4942A15;\n  color: #C4942A;\n  border: 1px solid #C4942A30;\n}\n\n.teaching-card[data-practice=\"2\"] .teaching-card-tag {\n  background: #3A543015;\n  color: #3A5430;\n  border: 1px solid #3A543030;\n}\n\n.teaching-card[data-practice=\"3\"] .teaching-card-tag {\n  background: #B86B4A15;\n  color: #B86B4A;\n  border: 1px solid #B86B4A30;\n}\n\n// ── Card Icon ──\n.teaching-card-icon {\n  font-size: 48px;\n  margin-bottom: 20px;\n  transition: transform 0.4s ease;\n}\n\n.teaching-card:hover .teaching-card-icon {\n  transform: scale(1.1);\n}\n\n// ── Card Title ──\n.teaching-card-title {\n  font-family: 'Cinzel', serif;\n  font-size: 22px;\n  font-weight: 600;\n  color: #2C2416;\n  margin-bottom: 12px;\n  line-height: 1.2;\n}\n\n// ── Card Description ──\n.teaching-card-desc {\n  font-family: 'Lato', sans-serif;\n  font-size: 15px;\n  line-height: 1.75;\n  color: #5C4A32;\n  margin-bottom: 24px;\n  flex-grow: 1;\n}\n\n// ── Card Bottom: Learn More ──\n.teaching-card-bottom {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding-top: 20px;\n  border-top: 1px solid #EDE4D3;\n}\n\n.teaching-card-cta {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n  font-family: 'Cinzel', serif;\n  font-size: 11px;\n  font-weight: 600;\n  letter-spacing: 2px;\n  text-transform: uppercase;\n  text-decoration: none;\n  transition: all 0.3s ease;\n}\n\n.teaching-card[data-practice=\"1\"] .teaching-card-cta { color: #C4942A; }\n.teaching-card[data-practice=\"2\"] .teaching-card-cta { color: #3A5430; }\n.teaching-card[data-practice=\"3\"] .teaching-card-cta { color: #B86B4A; }\n\n.teaching-card-cta:hover {\n  gap: 12px;\n}\n\n.teaching-card-arrow {\n  transition: transform 0.3s ease;\n}\n\n.teaching-card-cta:hover .teaching-card-arrow {\n  transform: translateX(4px);\n}\n\n// ── Decorative Gradient Bar ──\n.teaching-card-bar {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 4px;\n  transition: height 0.4s ease;\n}\n\n.teaching-card:hover .teaching-card-bar {\n  height: 6px;\n}\n\n.teaching-card[data-practice=\"1\"] .teaching-card-bar {\n  background: linear-gradient(90deg, #C4942A, #E8BC5A);\n}\n\n.teaching-card[data-practice=\"2\"] .teaching-card-bar {\n  background: linear-gradient(90deg, #3A5430, #6B8F5C);\n}\n\n.teaching-card[data-practice=\"3\"] .teaching-card-bar {\n  background: linear-gradient(90deg, #B86B4A, #C49A7A);\n}\n\n// ── Responsive ──\n@media (max-width: 1024px) {\n  .teachings-grid {\n    grid-template-columns: repeat(2, 1fr);\n    gap: 24px;\n  }\n\n  .teaching-card:last-child {\n    grid-column: span 2;\n    max-width: 50%;\n    margin: 0 auto;\n  }\n}\n\n@media (max-width: 767px) {\n  .teachings-grid {\n    grid-template-columns: 1fr;\n    gap: 24px;\n  }\n\n  .teaching-card:last-child {\n    grid-column: span 1;\n    max-width: 100%;\n  }\n\n  .teaching-card-title { font-size: 20px; }\n  .teaching-card-desc { font-size: 14px; }\n}\n",
+        "css_classes": "teachings-section"
+      },
+      "elements": [
+        {
+          "id": "7a0001d",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100,
+            "content_position": "center"
+          },
+          "elements": [
+            {
+              "id": "7a0001c",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"teachings-header\">\n        <div class=\"teachings-eyebrow\">\n          <div class=\"teachings-eyebrow-line\"></div>\n          <span class=\"teachings-eyebrow-text\">The Sacred Work</span>\n          <div class=\"teachings-eyebrow-line-r\"></div>\n        </div>\n        <h2 class=\"teachings-title\">\n          Three Paths to<br>\n          <span class=\"teachings-title-accent\">Awakening</span>\n        </h2>\n        <p class=\"teachings-subtitle\">\n          Each practice meets you where you are — offering a unique doorway into the ancient wisdom that has healed thousands across 40 countries and 35 years of sacred service.\n        </p>\n      </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow"
+              }
+            }
+          ]
+        },
+        {
+          "id": "7a0001e",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100,
+            "content_position": "top"
+          },
+          "elements": [
+            {
+              "id": "7a00019",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"teaching-card\" data-practice=\"1\">\n      <div class=\"teaching-card-bar\"></div>\n      <div class=\"teaching-card-inner\">\n        <div class=\"teaching-card-top\">\n          <span class=\"teaching-card-num\">01</span>\n          <span class=\"teaching-card-tag\">SAMPO System</span>\n        </div>\n        <div class=\"teaching-card-icon\">⚡</div>\n        <h3 class=\"teaching-card-title\">Psycho-Energetic Training</h3>\n        <p class=\"teaching-card-desc\">A complete system for accumulating, protecting, and directing your vital energy.</p>\n        <div class=\"teaching-card-bottom\">\n          <a href=\"https://calendly.com/hurraymangalam/individualsessions\" target=\"_blank\" class=\"teaching-card-cta\">\n            Begin Your Journey\n            <span class=\"teaching-card-arrow\">→</span>\n          </a>\n        </div>\n      </div>\n    </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow"
+              }
+            },
+            {
+              "id": "7a0001a",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"teaching-card\" data-practice=\"2\">\n      <div class=\"teaching-card-bar\"></div>\n      <div class=\"teaching-card-inner\">\n        <div class=\"teaching-card-top\">\n          <span class=\"teaching-card-num\">02</span>\n          <span class=\"teaching-card-tag\">Sound Medicine</span>\n        </div>\n        <div class=\"teaching-card-icon\">🥁</div>\n        <h3 class=\"teaching-card-title\">Sacred Drum Healing</h3>\n        <p class=\"teaching-card-desc\">The shaman's drum is a portal to other dimensions of consciousness.</p>\n        <div class=\"teaching-card-bottom\">\n          <a href=\"https://calendly.com/hurraymangalam/individualsessions\" target=\"_blank\" class=\"teaching-card-cta\">\n            Begin Your Journey\n            <span class=\"teaching-card-arrow\">→</span>\n          </a>\n        </div>\n      </div>\n    </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 150
+              }
+            },
+            {
+              "id": "7a0001b",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"teaching-card\" data-practice=\"3\">\n      <div class=\"teaching-card-bar\"></div>\n      <div class=\"teaching-card-inner\">\n        <div class=\"teaching-card-top\">\n          <span class=\"teaching-card-num\">03</span>\n          <span class=\"teaching-card-tag\">Personal Healing</span>\n        </div>\n        <div class=\"teaching-card-icon\">🔥</div>\n        <h3 class=\"teaching-card-title\">1-on-1 Shamanic Session</h3>\n        <p class=\"teaching-card-desc\">Direct, private energetic work with Shaman Abhay Oyun.</p>\n        <div class=\"teaching-card-bottom\">\n          <a href=\"https://calendly.com/hurraymangalam/individualsessions\" target=\"_blank\" class=\"teaching-card-cta\">\n            Begin Your Journey\n            <span class=\"teaching-card-arrow\">→</span>\n          </a>\n        </div>\n      </div>\n    </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 300
+              }
+            }
+          ]
+        },
+        {
+          "id": "7a00020",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100,
+            "content_position": "center",
+            "padding": {
+              "unit": "px",
+              "top": "48",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": [
+            {
+              "id": "7a0001f",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div style=\"text-align:center;\">\n        <p style=\"font-family:'Cinzel',serif;font-size:14px;color:#8B7B65;margin-bottom:20px;letter-spacing:2px;\">\n          Not sure which path is right for you?\n        </p>\n        <a href=\"https://calendly.com/hurraymangalam/individualsessions\" target=\"_blank\" style=\"display:inline-flex;align-items:center;gap:12px;padding:16px 40px;background:linear-gradient(135deg,#C4942A,#E8BC5A);color:#fff;font-family:'Cinzel',serif;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border-radius:100px;box-shadow:0 8px 28px rgba(196,148,42,0.3);transition:all 0.4s ease;\">\n          Book a Free Discovery Call →\n        </a>\n      </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 500
+              }
+            }
+          ]
+        }
+      ],
+      "isInner": false
+    },
+    {
+      "id": "7a0002d",
+      "elType": "section",
+      "settings": {
+        "layout": "full_width",
+        "background_background": "classic",
+        "background_color": "#F0EAE0",
+        "padding": {
+          "unit": "px",
+          "top": "140",
+          "right": "80",
+          "bottom": "140",
+          "left": "80",
+          "isLinked": false
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "60",
+          "right": "20",
+          "bottom": "60",
+          "left": "20",
+          "isLinked": false
+        },
+        "padding_tablet": {
+          "unit": "px",
+          "top": "80",
+          "right": "40",
+          "bottom": "80",
+          "left": "40",
+          "isLinked": false
+        },
+        "z_index": 10,
+        "custom_css": "\n// ── Section Container ──\n.testimonials-section {\n  position: relative;\n  overflow: hidden;\n}\n\n// ── Decorative Background ──\n@keyframes shimmer-slow {\n  0% { opacity: 0.1; transform: scale(1); }\n  50% { opacity: 0.2; transform: scale(1.05); }\n  100% { opacity: 0.1; transform: scale(1); }\n}\n\n.testimonials-bg-orb {\n  position: absolute;\n  border-radius: 50%;\n  pointer-events: none;\n  filter: blur(80px);\n}\n\n.testimonials-bg-orb-1 {\n  top: -150px;\n  left: -150px;\n  width: 400px;\n  height: 400px;\n  background: #F5DFA0;\n  animation: shimmer-slow 10s ease-in-out infinite;\n}\n\n.testimonials-bg-orb-2 {\n  bottom: -150px;\n  right: -150px;\n  width: 350px;\n  height: 350px;\n  background: #9BAF8C;\n  animation: shimmer-slow 12s ease-in-out infinite reverse;\n}\n\n// ── Section Header ──\n.testimonials-header {\n  text-align: center;\n  max-width: 600px;\n  margin: 0 auto 56px;\n}\n\n.testimonials-eyebrow {\n  display: inline-flex;\n  align-items: center;\n  gap: 16px;\n  margin-bottom: 20px;\n}\n\n.testimonials-eyebrow-line {\n  width: 40px;\n  height: 1px;\n  background: linear-gradient(to right, transparent, #C4942A);\n}\n\n.testimonials-eyebrow-line-r {\n  width: 40px;\n  height: 1px;\n  background: linear-gradient(to left, transparent, #C4942A);\n}\n\n.testimonials-eyebrow-text {\n  font-family: 'Cinzel', serif;\n  font-size: 11px;\n  font-weight: 600;\n  letter-spacing: 5px;\n  text-transform: uppercase;\n  color: #C4942A;\n}\n\n.testimonials-title {\n  font-family: 'Cinzel', serif;\n  font-size: clamp(34px, 4vw, 52px);\n  line-height: 1.1;\n  letter-spacing: -0.5px;\n  color: #2C2416;\n  margin-bottom: 16px;\n}\n\n.testimonials-title-accent {\n  display: block;\n  background: linear-gradient(135deg, #C4942A, #3A5430);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  background-clip: text;\n}\n\n.testimonials-subtitle {\n  font-family: 'Lato', sans-serif;\n  font-size: 16px;\n  line-height: 1.8;\n  color: #5C4A32;\n}\n\n// ── Testimonials Grid ──\n.testimonials-grid {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n  gap: 28px;\n}\n\n// ── Individual Testimonial Card ──\n.testimonial-card {\n  position: relative;\n  background: #FFFDF8;\n  border-radius: 24px;\n  padding: 40px;\n  border: 1px solid rgba(196, 148, 42, 0.08);\n  box-shadow: 0 12px 40px rgba(44, 36, 22, 0.04);\n  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);\n  overflow: hidden;\n}\n\n.testimonial-card:hover {\n  transform: translateY(-6px);\n  box-shadow: 0 20px 60px rgba(44, 36, 22, 0.08);\n  border-color: rgba(196, 148, 42, 0.15);\n}\n\n// ── Card Top: Decorative Quote Mark ──\n.testimonial-quote-mark {\n  position: absolute;\n  top: 20px;\n  right: 28px;\n  font-family: 'Cinzel', serif;\n  font-size: 72px;\n  line-height: 1;\n  color: #F5DFA0;\n  opacity: 0.5;\n  pointer-events: none;\n}\n\n// ── Card Top: Gradient Bar ──\n.testimonial-card-bar {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  height: 4px;\n  background: linear-gradient(90deg, #C4942A, #E8BC5A);\n  opacity: 0.7;\n  transition: all 0.4s ease;\n}\n\n.testimonial-card:hover .testimonial-card-bar {\n  height: 5px;\n  opacity: 1;\n}\n\n// ── Quote Text ──\n.testimonial-quote {\n  font-family: 'Cinzel', serif;\n  font-style: italic;\n  font-size: 18px;\n  line-height: 1.75;\n  color: #2C2416;\n  margin: 0 0 28px 0;\n  position: relative;\n  z-index: 1;\n}\n\n// ── Person Info ──\n.testimonial-person {\n  display: flex;\n  align-items: center;\n  gap: 14px;\n}\n\n.testimonial-divider {\n  width: 36px;\n  height: 2px;\n  background: linear-gradient(to right, #C4942A, transparent);\n  flex-shrink: 0;\n}\n\n.testimonial-details {}\n\n.testimonial-name {\n  font-family: 'Cinzel', serif;\n  font-size: 15px;\n  font-weight: 600;\n  color: #2C2416;\n  margin-bottom: 4px;\n}\n\n.testimonial-location {\n  font-family: 'Lato', sans-serif;\n  font-size: 10px;\n  font-weight: 600;\n  letter-spacing: 2px;\n  text-transform: uppercase;\n  color: #8B7B65;\n}\n\n// ── Decorative Element ──\n.testimonial-icon {\n  position: absolute;\n  bottom: 20px;\n  left: 40px;\n  font-size: 24px;\n  opacity: 0.15;\n  color: #C4942A;\n}\n\n// ── Large Featured Testimonial ──\n.testimonial-featured {\n  grid-column: span 2;\n  background: linear-gradient(135deg, #FFFDF8 0%, #F5DFA020 100%);\n  padding: 48px;\n}\n\n.testimonial-featured .testimonial-quote {\n  font-size: 22px;\n}\n\n.testimonial-featured .testimonial-quote-mark {\n  font-size: 96px;\n  top: 16px;\n  right: 36px;\n}\n\n// ── Responsive ──\n@media (max-width: 1024px) {\n  .testimonials-grid {\n    gap: 20px;\n  }\n\n  .testimonial-card {\n    padding: 32px;\n  }\n\n  .testimonial-featured {\n    grid-column: span 1;\n  }\n}\n\n@media (max-width: 767px) {\n  .testimonials-grid {\n    grid-template-columns: 1fr;\n    gap: 20px;\n  }\n\n  .testimonial-featured {\n    grid-column: span 1;\n  }\n\n  .testimonial-quote {\n    font-size: 16px;\n  }\n\n  .testimonial-featured .testimonial-quote {\n    font-size: 18px;\n  }\n\n  .testimonial-card {\n    padding: 28px;\n  }\n}\n",
+        "css_classes": "testimonials-section"
+      },
+      "elements": [
+        {
+          "id": "7a00029",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100,
+            "content_position": "top",
+            "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": [
+            {
+              "id": "7a00028",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"testimonials-bg-orb testimonials-bg-orb-1\"></div>\n            <div class=\"testimonials-bg-orb testimonials-bg-orb-2\"></div>",
+                "text_color": "",
+                "typography_typography": "custom"
+              }
+            }
+          ]
+        },
+        {
+          "id": "7a0002b",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100,
+            "content_position": "center"
+          },
+          "elements": [
+            {
+              "id": "7a0002a",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"testimonials-header\">\n        <div class=\"testimonials-eyebrow\">\n          <div class=\"testimonials-eyebrow-line\"></div>\n          <span class=\"testimonials-eyebrow-text\">Sacred Transformations</span>\n          <div class=\"testimonials-eyebrow-line-r\"></div>\n        </div>\n        <h2 class=\"testimonials-title\">\n          Stories of<br>\n          <span class=\"testimonials-title-accent\">Healing & Belonging</span>\n        </h2>\n        <p class=\"testimonials-subtitle\">\n          Thousands have come from places of pain and disconnection — and left feeling whole, grounded, and alive. These are some of their stories.\n        </p>\n      </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow"
+              }
+            }
+          ]
+        },
+        {
+          "id": "7a0002c",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100,
+            "content_position": "top",
+            "padding": {
+              "unit": "px",
+              "top": "40",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": [
+            {
+              "id": "7a00022",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"testimonial-card testimonial-featured\">\n      <div class=\"testimonial-card-bar\"></div>\n      <span class=\"testimonial-quote-mark\">\"</span>\n      <p class=\"testimonial-quote\">\"After one session with Abhay, I felt a weight lift from my chest that I had been carrying for 20 years. It was like my cells remembered how to breathe again.\"</p>\n      <div class=\"testimonial-person\">\n        <div class=\"testimonial-divider\"></div>\n        <div class=\"testimonial-details\">\n          <div class=\"testimonial-name\">Maria K.</div>\n          <div class=\"testimonial-location\">Berlin, Germany</div>\n        </div>\n      </div>\n      <span class=\"testimonial-icon\">✦</span>\n    </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow"
+              }
+            },
+            {
+              "id": "7a00023",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"testimonial-card \">\n      <div class=\"testimonial-card-bar\"></div>\n      <span class=\"testimonial-quote-mark\">\"</span>\n      <p class=\"testimonial-quote\">\"The Sampo System completely rewired how I experience stress. What used to cripple me now passes through me. I have never felt more whole, more present, more alive.\"</p>\n      <div class=\"testimonial-person\">\n        <div class=\"testimonial-divider\"></div>\n        <div class=\"testimonial-details\">\n          <div class=\"testimonial-name\">James R.</div>\n          <div class=\"testimonial-location\">London, United Kingdom</div>\n        </div>\n      </div>\n      <span class=\"testimonial-icon\">✦</span>\n    </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 120
+              }
+            },
+            {
+              "id": "7a00024",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"testimonial-card \">\n      <div class=\"testimonial-card-bar\"></div>\n      <span class=\"testimonial-quote-mark\">\"</span>\n      <p class=\"testimonial-quote\">\"I traveled to three continents seeking healing. What Abhay achieved in a single session surpassed everything. This is ancient wisdom in its purest form.\"</p>\n      <div class=\"testimonial-person\">\n        <div class=\"testimonial-divider\"></div>\n        <div class=\"testimonial-details\">\n          <div class=\"testimonial-name\">Elena V.</div>\n          <div class=\"testimonial-location\">Moscow, Russia</div>\n        </div>\n      </div>\n      <span class=\"testimonial-icon\">✦</span>\n    </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 240
+              }
+            },
+            {
+              "id": "7a00025",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"testimonial-card \">\n      <div class=\"testimonial-card-bar\"></div>\n      <span class=\"testimonial-quote-mark\">\"</span>\n      <p class=\"testimonial-quote\">\"What I remember most is the feeling — an all-embracing warmth that touched my heart deeply. I finally felt like I belonged somewhere. Like I was finally home.\"</p>\n      <div class=\"testimonial-person\">\n        <div class=\"testimonial-divider\"></div>\n        <div class=\"testimonial-details\">\n          <div class=\"testimonial-name\">Priya S.</div>\n          <div class=\"testimonial-location\">Mumbai, India</div>\n        </div>\n      </div>\n      <span class=\"testimonial-icon\">✦</span>\n    </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 360
+              }
+            },
+            {
+              "id": "7a00026",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"testimonial-card \">\n      <div class=\"testimonial-card-bar\"></div>\n      <span class=\"testimonial-quote-mark\">\"</span>\n      <p class=\"testimonial-quote\">\"The drum healing ceremony was unlike anything I've experienced. I released grief I'd held for years. I emerged feeling lighter, clearer, more myself than ever before.\"</p>\n      <div class=\"testimonial-person\">\n        <div class=\"testimonial-divider\"></div>\n        <div class=\"testimonial-details\">\n          <div class=\"testimonial-name\">Michael T.</div>\n          <div class=\"testimonial-location\">Toronto, Canada</div>\n        </div>\n      </div>\n      <span class=\"testimonial-icon\">✦</span>\n    </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 480
+              }
+            },
+            {
+              "id": "7a00027",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"testimonial-card \">\n      <div class=\"testimonial-card-bar\"></div>\n      <span class=\"testimonial-quote-mark\">\"</span>\n      <p class=\"testimonial-quote\">\"Abhay doesn't just heal — he transforms. In one session, patterns I struggled with for decades simply dissolved. The change was immediate, profound, and lasting.\"</p>\n      <div class=\"testimonial-person\">\n        <div class=\"testimonial-divider\"></div>\n        <div class=\"testimonial-details\">\n          <div class=\"testimonial-name\">Ana M.</div>\n          <div class=\"testimonial-location\">Barcelona, Spain</div>\n        </div>\n      </div>\n      <span class=\"testimonial-icon\">✦</span>\n    </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 600
+              }
+            }
+          ]
+        }
+      ],
+      "isInner": false
+    },
+    {
+      "id": "7a00034",
+      "elType": "section",
+      "settings": {
+        "layout": "full_width",
+        "background_background": "classic",
+        "background_color": "#EDE4D3",
+        "padding": {
+          "unit": "px",
+          "top": "140",
+          "right": "80",
+          "bottom": "140",
+          "left": "80",
+          "isLinked": false
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "60",
+          "right": "20",
+          "bottom": "60",
+          "left": "20",
+          "isLinked": false
+        },
+        "padding_tablet": {
+          "unit": "px",
+          "top": "80",
+          "right": "40",
+          "bottom": "80",
+          "left": "40",
+          "isLinked": false
+        },
+        "z_index": 10,
+        "custom_css": "\n// ── Section Container ──\n.events-section {\n  position: relative;\n  overflow: hidden;\n}\n\n// ── Section Header ──\n.events-header {\n  text-align: center;\n  max-width: 600px;\n  margin: 0 auto 56px;\n}\n\n.events-eyebrow {\n  display: inline-flex;\n  align-items: center;\n  gap: 16px;\n  margin-bottom: 20px;\n}\n\n.events-eyebrow-line {\n  width: 40px;\n  height: 1px;\n  background: linear-gradient(to right, transparent, #C4942A);\n}\n\n.events-eyebrow-line-r {\n  width: 40px;\n  height: 1px;\n  background: linear-gradient(to left, transparent, #C4942A);\n}\n\n.events-eyebrow-text {\n  font-family: 'Cinzel', serif;\n  font-size: 11px;\n  font-weight: 600;\n  letter-spacing: 5px;\n  text-transform: uppercase;\n  color: #C4942A;\n}\n\n.events-title {\n  font-family: 'Cinzel', serif;\n  font-size: clamp(36px, 4.5vw, 56px);\n  line-height: 1.1;\n  letter-spacing: -0.5px;\n  color: #2C2416;\n  margin-bottom: 20px;\n}\n\n.events-title-accent {\n  display: block;\n  background: linear-gradient(135deg, #C4942A, #B86B4A);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  background-clip: text;\n}\n\n.events-subtitle {\n  font-family: 'Lato', sans-serif;\n  font-size: 17px;\n  line-height: 1.8;\n  color: #5C4A32;\n}\n\n// ── Events List ──\n.events-list {\n  display: flex;\n  flex-direction: column;\n  gap: 32px;\n  max-width: 900px;\n  margin: 0 auto;\n}\n\n// ── Individual Event Card ──\n.event-card {\n  display: grid;\n  grid-template-columns: 200px 1fr;\n  background: #FFFDF8;\n  border-radius: 24px;\n  overflow: hidden;\n  border: 1px solid rgba(196, 148, 42, 0.1);\n  box-shadow: 0 16px 48px rgba(44, 36, 22, 0.05);\n  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);\n}\n\n.event-card:hover {\n  transform: translateY(-4px);\n  box-shadow: 0 24px 64px rgba(44, 36, 22, 0.1);\n  border-color: rgba(196, 148, 42, 0.2);\n}\n\n// ── Event Image ──\n.event-card-image {\n  position: relative;\n  height: 100%;\n  min-height: 200px;\n  overflow: hidden;\n}\n\n.event-card-image img {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  transition: transform 0.6s ease;\n}\n\n.event-card:hover .event-card-image img {\n  transform: scale(1.05);\n}\n\n// ── Event Content ──\n.event-card-content {\n  padding: 36px 40px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n\n// ── Event Header: Tags + Badge ──\n.event-card-tags {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n  margin-bottom: 12px;\n  flex-wrap: wrap;\n}\n\n.event-tag {\n  display: inline-block;\n  padding: 5px 12px;\n  font-family: 'Lato', sans-serif;\n  font-size: 9px;\n  font-weight: 700;\n  letter-spacing: 2px;\n  text-transform: uppercase;\n  border-radius: 100px;\n}\n\n.event-badge {\n  display: inline-block;\n  padding: 5px 12px;\n  font-family: 'Lato', sans-serif;\n  font-size: 9px;\n  font-weight: 700;\n  letter-spacing: 2px;\n  text-transform: uppercase;\n  border-radius: 100px;\n  background: #F8F3E8;\n  color: #8B7B65;\n}\n\n// ── Event Title ──\n.event-card-title {\n  font-family: 'Cinzel', serif;\n  font-size: 24px;\n  font-weight: 600;\n  color: #2C2416;\n  margin-bottom: 12px;\n  line-height: 1.2;\n}\n\n// ── Event Description ──\n.event-card-desc {\n  font-family: 'Lato', sans-serif;\n  font-size: 15px;\n  line-height: 1.75;\n  color: #5C4A32;\n  margin-bottom: 16px;\n}\n\n// ── Event Highlights ──\n.event-highlights {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n  margin-bottom: 20px;\n}\n\n.event-highlight {\n  display: inline-block;\n  padding: 4px 10px;\n  font-family: 'Lato', sans-serif;\n  font-size: 10px;\n  font-weight: 500;\n  color: #5C4A32;\n  background: #F8F3E8;\n  border-radius: 100px;\n}\n\n// ── Event Meta ──\n.event-meta {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  flex-wrap: wrap;\n  gap: 16px;\n  padding-top: 20px;\n  border-top: 1px solid #EDE4D3;\n  margin-bottom: 20px;\n}\n\n.event-meta-item {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n}\n\n.event-meta-icon {\n  font-size: 14px;\n}\n\n.event-meta-text {\n  font-family: 'Lato', sans-serif;\n  font-size: 13px;\n  font-weight: 600;\n  color: #2C2416;\n}\n\n.event-meta-sub {\n  font-family: 'Lato', sans-serif;\n  font-size: 11px;\n  color: #8B7B65;\n}\n\n.event-price {\n  font-family: 'Cinzel', serif;\n  font-size: 28px;\n  font-weight: 600;\n  color: #2C2416;\n}\n\n// ── Event CTA ──\n.event-cta {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  gap: 10px;\n  padding: 14px 32px;\n  font-family: 'Cinzel', serif;\n  font-size: 11px;\n  font-weight: 600;\n  letter-spacing: 2px;\n  text-transform: uppercase;\n  text-decoration: none;\n  border-radius: 100px;\n  transition: all 0.4s ease;\n}\n\n.event-cta:hover {\n  transform: translateY(-2px);\n}\n\n.event-cta-arrow {\n  transition: transform 0.3s ease;\n}\n\n.event-cta:hover .event-cta-arrow {\n  transform: translateX(4px);\n}\n\n// ── Event Card Color Variants ──\n.event-card[data-event=\"1\"] .event-tag {\n  background: #3A543015;\n  color: #3A5430;\n  border: 1px solid #3A543025;\n}\n\n.event-card[data-event=\"1\"] .event-cta {\n  background: linear-gradient(135deg, #3A5430, #6B8F5C);\n  color: #fff;\n  box-shadow: 0 6px 24px #3A543040;\n}\n\n.event-card[data-event=\"2\"] .event-tag {\n  background: #B86B4A15;\n  color: #B86B4A;\n  border: 1px solid #B86B4A25;\n}\n\n.event-card[data-event=\"2\"] .event-cta {\n  background: linear-gradient(135deg, #B86B4A, #C49A7A);\n  color: #fff;\n  box-shadow: 0 6px 24px #B86B4A40;\n}\n\n.event-card[data-event=\"3\"] .event-tag {\n  background: #C4942A15;\n  color: #C4942A;\n  border: 1px solid #C4942A25;\n}\n\n.event-card[data-event=\"3\"] .event-cta {\n  background: linear-gradient(135deg, #C4942A, #E8BC5A);\n  color: #fff;\n  box-shadow: 0 6px 24px rgba(196, 148, 42, 0.3);\n}\n\n// ── Responsive ──\n@media (max-width: 1024px) {\n  .event-card {\n    grid-template-columns: 180px 1fr;\n  }\n\n  .event-card-content {\n    padding: 28px 32px;\n  }\n}\n\n@media (max-width: 767px) {\n  .event-card {\n    grid-template-columns: 1fr;\n    grid-template-rows: 200px auto;\n  }\n\n  .event-card-image {\n    height: 200px;\n    min-height: 200px;\n  }\n\n  .event-card-content {\n    padding: 24px;\n  }\n\n  .event-card-title {\n    font-size: 20px;\n  }\n\n  .event-meta {\n    flex-direction: column;\n    align-items: flex-start;\n  }\n\n  .event-price {\n    font-size: 24px;\n  }\n}\n",
+        "css_classes": "events-section"
+      },
+      "elements": [
+        {
+          "id": "7a0002f",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100,
+            "content_position": "center"
+          },
+          "elements": [
+            {
+              "id": "7a0002e",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"events-header\">\n        <div class=\"events-eyebrow\">\n          <div class=\"events-eyebrow-line\"></div>\n          <span class=\"events-eyebrow-text\">Upcoming Gatherings</span>\n          <div class=\"events-eyebrow-line-r\"></div>\n        </div>\n        <h2 class=\"events-title\">\n          Join the<br>\n          <span class=\"events-title-accent\">Sacred Circle</span>\n        </h2>\n        <p class=\"events-subtitle\">\n          Each gathering is a doorway into ancient wisdom. Whether in person or online, you are invited to step into sacred space with your community.\n        </p>\n      </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow"
+              }
+            }
+          ]
+        },
+        {
+          "id": "7a00033",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100,
+            "content_position": "top"
+          },
+          "elements": [
+            {
+              "id": "7a00030",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"event-card\" data-event=\"1\">\n          <div class=\"event-card-image\">\n            <img src=\"https://abhayoyun.org/wp-content/uploads/sao-gallery-img3.jpg\" alt=\"Reclaim Your Masculine Power\">\n          </div>\n          <div class=\"event-card-content\">\n            <div class=\"event-card-tags\">\n              <span class=\"event-tag\">Men's Intensive</span>\n              <span class=\"event-badge\">Filling Fast</span>\n            </div>\n            <h3 class=\"event-card-title\">Reclaim Your Masculine Power</h3>\n            <p class=\"event-card-desc\">A 5-day immersive for men ready to step fully into their energetic sovereignty. Cold exposure, sacred fire ceremony, drum healing, and direct shamanic mentorship with Master Abhay.</p>\n            <div class=\"event-highlights\"><span class=\"event-highlight\">Cold Plunge Ceremony</span><span class=\"event-highlight\">Sacred Fire Ritual</span><span class=\"event-highlight\">Drum Healing</span><span class=\"event-highlight\">1-on-1 Session</span></div>\n            <div class=\"event-meta\">\n              <div>\n                <div class=\"event-meta-item\">\n                  <span class=\"event-meta-icon\">📅</span>\n                  <span class=\"event-meta-text\">March 25–29, 2025</span>\n                </div>\n                <div class=\"event-meta-item\" style=\"margin-top:6px;\">\n                  <span class=\"event-meta-icon\">📍</span>\n                  <span class=\"event-meta-sub\">Denver, Colorado</span>\n                </div>\n              </div>\n              <div class=\"event-price\">From $1,200</div>\n            </div>\n            <a href=\"https://forms.gle/jEDaUrKwbyHd8WvUA\" target=\"_blank\" class=\"event-cta\">\n              Register Now →\n              <span class=\"event-cta-arrow\">→</span>\n            </a>\n          </div>\n        </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 200
+              }
+            },
+            {
+              "id": "7a00031",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"event-card\" data-event=\"2\">\n          <div class=\"event-card-image\">\n            <img src=\"https://abhayoyun.org/wp-content/uploads/sao-gallery-img1.jpg\" alt=\"Shamanism — Source of Happiness & Love\">\n          </div>\n          <div class=\"event-card-content\">\n            <div class=\"event-card-tags\">\n              <span class=\"event-tag\">Women's Gathering</span>\n              <span class=\"event-badge\">Limited</span>\n            </div>\n            <h3 class=\"event-card-title\">Shamanism — Source of Happiness & Love</h3>\n            <p class=\"event-card-desc\">A sacred gathering for women. Reconnect with the ancient feminine power of the Earth through ceremony, sound medicine, and shamanic healing circles in an intimate group setting.</p>\n            <div class=\"event-highlights\"><span class=\"event-highlight\">Sound Ceremony</span><span class=\"event-highlight\">Sisterhood Circle</span><span class=\"event-highlight\">Energy Work</span><span class=\"event-highlight\">Forest Ritual</span></div>\n            <div class=\"event-meta\">\n              <div>\n                <div class=\"event-meta-item\">\n                  <span class=\"event-meta-icon\">📅</span>\n                  <span class=\"event-meta-text\">March 20–22, 2025</span>\n                </div>\n                <div class=\"event-meta-item\" style=\"margin-top:6px;\">\n                  <span class=\"event-meta-icon\">📍</span>\n                  <span class=\"event-meta-sub\">Denver, Colorado</span>\n                </div>\n              </div>\n              <div class=\"event-price\">From $890</div>\n            </div>\n            <a href=\"https://forms.gle/jEDaUrKwbyHd8WvUA\" target=\"_blank\" class=\"event-cta\">\n              Join the Circle →\n              <span class=\"event-cta-arrow\">→</span>\n            </a>\n          </div>\n        </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 350
+              }
+            },
+            {
+              "id": "7a00032",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"event-card\" data-event=\"3\">\n          <div class=\"event-card-image\">\n            <img src=\"https://abhayoyun.org/wp-content/uploads/healing-global-harmony.jpg\" alt=\"Your First Step Into the SAMPO System\">\n          </div>\n          <div class=\"event-card-content\">\n            <div class=\"event-card-tags\">\n              <span class=\"event-tag\">Free Webinar</span>\n              <span class=\"event-badge\">Free Entry</span>\n            </div>\n            <h3 class=\"event-card-title\">Your First Step Into the SAMPO System</h3>\n            <p class=\"event-card-desc\">Experience the SAMPO System from anywhere. A live initiation into the foundations of shamanic energy work. Open to all seekers — no prior experience required.</p>\n            <div class=\"event-highlights\"><span class=\"event-highlight\">Live Q&A</span><span class=\"event-highlight\">Energy Practice</span><span class=\"event-highlight\">SAMPO Introduction</span><span class=\"event-highlight\">Worldwide Access</span></div>\n            <div class=\"event-meta\">\n              <div>\n                <div class=\"event-meta-item\">\n                  <span class=\"event-meta-icon\">📅</span>\n                  <span class=\"event-meta-text\">March 19, 2025</span>\n                </div>\n                <div class=\"event-meta-item\" style=\"margin-top:6px;\">\n                  <span class=\"event-meta-icon\">📍</span>\n                  <span class=\"event-meta-sub\">Online · Global Access</span>\n                </div>\n              </div>\n              <div class=\"event-price\">Free</div>\n            </div>\n            <a href=\"https://forms.gle/jEDaUrKwbyHd8WvUA\" target=\"_blank\" class=\"event-cta\">\n              Reserve Your Spot →\n              <span class=\"event-cta-arrow\">→</span>\n            </a>\n          </div>\n        </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 500
+              }
+            }
+          ]
+        }
+      ],
+      "isInner": false
+    },
+    {
+      "id": "7a0004b",
+      "elType": "section",
+      "settings": {
+        "layout": "full_width",
+        "background_background": "classic",
+        "background_color": "#FFFDF8",
+        "padding": {
+          "unit": "px",
+          "top": "140",
+          "right": "80",
+          "bottom": "140",
+          "left": "80",
+          "isLinked": false
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "60",
+          "right": "20",
+          "bottom": "60",
+          "left": "20",
+          "isLinked": false
+        },
+        "padding_tablet": {
+          "unit": "px",
+          "top": "80",
+          "right": "40",
+          "bottom": "80",
+          "left": "40",
+          "isLinked": false
+        },
+        "z_index": 10,
+        "custom_css": "\n// ── Section Container ──\n.gallery-section {\n  position: relative;\n  overflow: hidden;\n}\n\n// ── Section Header ──\n.gallery-header {\n  text-align: center;\n  max-width: 600px;\n  margin: 0 auto 48px;\n}\n\n.gallery-eyebrow {\n  display: inline-flex;\n  align-items: center;\n  gap: 16px;\n  margin-bottom: 20px;\n}\n\n.gallery-eyebrow-line {\n  width: 40px;\n  height: 1px;\n  background: linear-gradient(to right, transparent, #C4942A);\n}\n\n.gallery-eyebrow-line-r {\n  width: 40px;\n  height: 1px;\n  background: linear-gradient(to left, transparent, #C4942A);\n}\n\n.gallery-eyebrow-text {\n  font-family: 'Cinzel', serif;\n  font-size: 11px;\n  font-weight: 600;\n  letter-spacing: 5px;\n  text-transform: uppercase;\n  color: #C4942A;\n}\n\n.gallery-title {\n  font-family: 'Cinzel', serif;\n  font-size: clamp(34px, 4vw, 52px);\n  line-height: 1.1;\n  letter-spacing: -0.5px;\n  color: #2C2416;\n  margin-bottom: 16px;\n}\n\n.gallery-title-accent {\n  display: block;\n  background: linear-gradient(135deg, #C4942A, #E8BC5A);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  background-clip: text;\n}\n\n// ── Gallery Grid ──\n.gallery-grid {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 20px;\n}\n\n// ── Individual Gallery Item ──\n.gallery-item {\n  position: relative;\n  border-radius: 16px;\n  overflow: hidden;\n  aspect-ratio: 1;\n  cursor: pointer;\n  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);\n}\n\n.gallery-item:hover {\n  transform: scale(1.02);\n  z-index: 2;\n  box-shadow: 0 24px 60px rgba(44, 36, 22, 0.15);\n}\n\n/* Aspect ratio variations for visual interest */\n.gallery-item:nth-child(1) { aspect-ratio: 1; }\n.gallery-item:nth-child(2) { aspect-ratio: 1; }\n.gallery-item:nth-child(3) { aspect-ratio: 1; }\n.gallery-item:nth-child(4) { aspect-ratio: 1; }\n.gallery-item:nth-child(5) { aspect-ratio: 1; }\n.gallery-item:nth-child(6) { aspect-ratio: 1; }\n.gallery-item:nth-child(7) { aspect-ratio: 1; }\n.gallery-item:nth-child(8) { aspect-ratio: 1; }\n.gallery-item:last-child { grid-column: span 3; aspect-ratio: 3/1; }\n\n/* On tablet: 2 columns */\n@media (max-width: 1024px) {\n  .gallery-grid {\n    grid-template-columns: repeat(2, 1fr);\n  }\n\n  .gallery-item:last-child {\n    grid-column: span 2;\n    aspect-ratio: 16/9;\n  }\n}\n\n/* On mobile: 2 columns */\n@media (max-width: 767px) {\n  .gallery-grid {\n    grid-template-columns: repeat(2, 1fr);\n    gap: 12px;\n  }\n\n  .gallery-item {\n    aspect-ratio: 1;\n  }\n\n  .gallery-item:last-child {\n    grid-column: span 2;\n    aspect-ratio: 16/9;\n  }\n}\n\n// ── Image ──\n.gallery-item img {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  transition: transform 0.6s ease;\n}\n\n.gallery-item:hover img {\n  transform: scale(1.08);\n}\n\n// ── Overlay ──\n.gallery-overlay {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: linear-gradient(\n    to top,\n    rgba(44, 36, 22, 0.7) 0%,\n    rgba(44, 36, 22, 0.3) 40%,\n    transparent 70%\n  );\n  opacity: 0;\n  transition: opacity 0.4s ease;\n  display: flex;\n  align-items: flex-end;\n  padding: 20px;\n}\n\n.gallery-item:hover .gallery-overlay {\n  opacity: 1;\n}\n\n// ── Caption ──\n.gallery-caption {\n  font-family: 'Cinzel', serif;\n  font-size: 12px;\n  color: #fff;\n  letter-spacing: 2px;\n  text-transform: uppercase;\n  transform: translateY(10px);\n  transition: transform 0.4s ease;\n}\n\n.gallery-item:hover .gallery-caption {\n  transform: translateY(0);\n}\n\n// ── View More Link ──\n.gallery-footer {\n  text-align: center;\n  margin-top: 40px;\n}\n\n.gallery-view-more {\n  display: inline-flex;\n  align-items: center;\n  gap: 12px;\n  padding: 14px 36px;\n  font-family: 'Cinzel', serif;\n  font-size: 11px;\n  font-weight: 600;\n  letter-spacing: 2px;\n  text-transform: uppercase;\n  color: #2C2416;\n  text-decoration: none;\n  background: #FFFDF8;\n  border: 1.5px solid rgba(196, 148, 42, 0.3);\n  border-radius: 100px;\n  transition: all 0.4s ease;\n}\n\n.gallery-view-more:hover {\n  background: #C4942A;\n  border-color: #C4942A;\n  color: #fff;\n  transform: translateY(-2px);\n  box-shadow: 0 8px 28px rgba(196, 148, 42, 0.3);\n}\n\n.gallery-view-more-arrow {\n  transition: transform 0.3s ease;\n}\n\n.gallery-view-more:hover .gallery-view-more-arrow {\n  transform: translateX(4px);\n}\n\n// ── Social Section ──\n.gallery-social-header {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 16px;\n  margin-bottom: 32px;\n}\n\n.gallery-social-icon {\n  width: 32px;\n  height: 32px;\n  background: linear-gradient(135deg, #C4942A, #E8BC5A);\n  border-radius: 50%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.gallery-social-icon svg {\n  width: 16px;\n  height: 16px;\n  fill: #fff;\n}\n\n.gallery-social-text {\n  font-family: 'Cinzel', serif;\n  font-size: 14px;\n  font-weight: 600;\n  color: #2C2416;\n  letter-spacing: 2px;\n}\n\n.gallery-social-handle {\n  font-family: 'Lato', sans-serif;\n  font-size: 12px;\n  color: #8B7B65;\n  letter-spacing: 1px;\n}\n\n\n// ── Social Gallery Grid ──\n.social-gallery-grid {\n  display: grid;\n  grid-template-columns: repeat(5, 1fr);\n  gap: 16px;\n  margin-top: 40px;\n}\n\n.social-gallery-item {\n  position: relative;\n  border-radius: 12px;\n  overflow: hidden;\n  aspect-ratio: 1;\n  cursor: pointer;\n  transition: all 0.4s ease;\n}\n\n.social-gallery-item:hover {\n  transform: scale(1.05);\n  z-index: 2;\n}\n\n.social-gallery-item img {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n}\n\n.social-gallery-overlay {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(196, 148, 42, 0.6);\n  opacity: 0;\n  transition: opacity 0.3s ease;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.social-gallery-item:hover .social-gallery-overlay {\n  opacity: 1;\n}\n\n.social-gallery-overlay svg {\n  width: 24px;\n  height: 24px;\n  fill: #fff;\n}\n\n.social-gallery-follow {\n  text-align: center;\n  margin-top: 20px;\n}\n\n.social-gallery-follow a {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n  font-family: 'Lato', sans-serif;\n  font-size: 12px;\n  font-weight: 600;\n  color: #8B7B65;\n  text-decoration: none;\n  letter-spacing: 1px;\n  transition: color 0.3s ease;\n}\n\n.social-gallery-follow a:hover {\n  color: #C4942A;\n}\n\n@media (max-width: 1024px) {\n  .social-gallery-grid {\n    grid-template-columns: repeat(4, 1fr);\n  }\n}\n\n@media (max-width: 767px) {\n  .social-gallery-grid {\n    grid-template-columns: repeat(3, 1fr);\n    gap: 10px;\n  }\n}\n",
+        "css_classes": "gallery-section"
+      },
+      "elements": [
+        {
+          "id": "7a00044",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100,
+            "content_position": "center"
+          },
+          "elements": [
+            {
+              "id": "7a00043",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"gallery-header\">\n        <div class=\"gallery-eyebrow\">\n          <div class=\"gallery-eyebrow-line\"></div>\n          <span class=\"gallery-eyebrow-text\">The Global Journey</span>\n          <div class=\"gallery-eyebrow-line-r\"></div>\n        </div>\n        <h2 class=\"gallery-title\">\n          Healing Without<br>\n          <span class=\"gallery-title-accent\">Borders</span>\n        </h2>\n      </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow"
+              }
+            }
+          ]
+        },
+        {
+          "id": "7a00045",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100,
+            "content_position": "top"
+          },
+          "elements": [
+            {
+              "id": "7a00035",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"gallery-item\">\n      <img src=\"https://abhayoyun.org/wp-content/uploads/sao-gallery-img1.jpg\" alt=\"Sacred Ceremony\">\n      <div class=\"gallery-overlay\">\n        <span class=\"gallery-caption\">Sacred Ceremony</span>\n      </div>\n    </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow"
+              }
+            },
+            {
+              "id": "7a00036",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"gallery-item\">\n      <img src=\"https://abhayoyun.org/wp-content/uploads/sao-gallery-img2.jpg\" alt=\"Shamanic Ritual\">\n      <div class=\"gallery-overlay\">\n        <span class=\"gallery-caption\">Shamanic Ritual</span>\n      </div>\n    </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 80
+              }
+            },
+            {
+              "id": "7a00037",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"gallery-item\">\n      <img src=\"https://abhayoyun.org/wp-content/uploads/sao-gallery-img3.jpg\" alt=\"Community Gathering\">\n      <div class=\"gallery-overlay\">\n        <span class=\"gallery-caption\">Community Gathering</span>\n      </div>\n    </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 160
+              }
+            },
+            {
+              "id": "7a00038",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"gallery-item\">\n      <img src=\"https://abhayoyun.org/wp-content/uploads/sao-gallery-img4.jpg\" alt=\"Nature Connection\">\n      <div class=\"gallery-overlay\">\n        <span class=\"gallery-caption\">Nature Connection</span>\n      </div>\n    </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 240
+              }
+            },
+            {
+              "id": "7a00039",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"gallery-item\">\n      <img src=\"https://abhayoyun.org/wp-content/uploads/sao-gallery-img5.jpg\" alt=\"Healing Circle\">\n      <div class=\"gallery-overlay\">\n        <span class=\"gallery-caption\">Healing Circle</span>\n      </div>\n    </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 320
+              }
+            },
+            {
+              "id": "7a0003a",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"gallery-item\">\n      <img src=\"https://abhayoyun.org/wp-content/uploads/sao-gallery-img6.jpg\" alt=\"Sacred Fire\">\n      <div class=\"gallery-overlay\">\n        <span class=\"gallery-caption\">Sacred Fire</span>\n      </div>\n    </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 400
+              }
+            },
+            {
+              "id": "7a0003b",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"gallery-item\">\n      <img src=\"https://abhayoyun.org/wp-content/uploads/sao-gallery-img7.jpg\" alt=\"Drum Ceremony\">\n      <div class=\"gallery-overlay\">\n        <span class=\"gallery-caption\">Drum Ceremony</span>\n      </div>\n    </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 480
+              }
+            },
+            {
+              "id": "7a0003c",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"gallery-item\">\n      <img src=\"https://abhayoyun.org/wp-content/uploads/sao-gallery-img8.jpg\" alt=\"Forest Practice\">\n      <div class=\"gallery-overlay\">\n        <span class=\"gallery-caption\">Forest Practice</span>\n      </div>\n    </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 560
+              }
+            },
+            {
+              "id": "7a0003d",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"gallery-item\">\n      <img src=\"https://abhayoyun.org/wp-content/uploads/visited-countries-img.png\" alt=\"40 Countries Journey\">\n      <div class=\"gallery-overlay\">\n        <span class=\"gallery-caption\">40 Countries Journey</span>\n      </div>\n    </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 640
+              }
+            }
+          ]
+        },
+        {
+          "id": "7a00047",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100,
+            "content_position": "top",
+            "padding": {
+              "unit": "px",
+              "top": "80",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": [
+            {
+              "id": "7a00046",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"gallery-social-header\">\n        <div class=\"gallery-social-icon\">\n          <svg viewBox=\"0 0 24 24\"><path d=\"M12 2.163c3.204 0 3.584.012 4.85.070 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z\"/></svg>\n        </div>\n        <span class=\"gallery-social-text\">@EarthForPeace</span>\n      </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 300
+              }
+            }
+          ]
+        },
+        {
+          "id": "7a00048",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100,
+            "content_position": "top"
+          },
+          "elements": [
+            {
+              "id": "7a0003e",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"social-gallery-item\">\n      <img src=\"https://abhayoyun.org/wp-content/uploads/sao-gallery-img1.jpg\" alt=\"@EarthForPeace\">\n      <div class=\"social-gallery-overlay\">\n        <svg viewBox=\"0 0 24 24\"><path d=\"M12 2.163c3.204 0 3.584.012 4.85.070 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z\"/></svg>\n      </div>\n    </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 400
+              }
+            },
+            {
+              "id": "7a0003f",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"social-gallery-item\">\n      <img src=\"https://abhayoyun.org/wp-content/uploads/sao-gallery-img2.jpg\" alt=\"@EarthForPeace\">\n      <div class=\"social-gallery-overlay\">\n        <svg viewBox=\"0 0 24 24\"><path d=\"M12 2.163c3.204 0 3.584.012 4.85.070 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z\"/></svg>\n      </div>\n    </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 500
+              }
+            },
+            {
+              "id": "7a00040",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"social-gallery-item\">\n      <img src=\"https://abhayoyun.org/wp-content/uploads/sao-gallery-img3.jpg\" alt=\"@EarthForPeace\">\n      <div class=\"social-gallery-overlay\">\n        <svg viewBox=\"0 0 24 24\"><path d=\"M12 2.163c3.204 0 3.584.012 4.85.070 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z\"/></svg>\n      </div>\n    </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 600
+              }
+            },
+            {
+              "id": "7a00041",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"social-gallery-item\">\n      <img src=\"https://abhayoyun.org/wp-content/uploads/sao-gallery-img4.jpg\" alt=\"@EarthForPeace\">\n      <div class=\"social-gallery-overlay\">\n        <svg viewBox=\"0 0 24 24\"><path d=\"M12 2.163c3.204 0 3.584.012 4.85.070 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z\"/></svg>\n      </div>\n    </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 700
+              }
+            },
+            {
+              "id": "7a00042",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"social-gallery-item\">\n      <img src=\"https://abhayoyun.org/wp-content/uploads/sao-gallery-img5.jpg\" alt=\"@EarthForPeace\">\n      <div class=\"social-gallery-overlay\">\n        <svg viewBox=\"0 0 24 24\"><path d=\"M12 2.163c3.204 0 3.584.012 4.85.070 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z\"/></svg>\n      </div>\n    </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 800
+              }
+            }
+          ]
+        },
+        {
+          "id": "7a0004a",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100,
+            "content_position": "center",
+            "padding": {
+              "unit": "px",
+              "top": "24",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": [
+            {
+              "id": "7a00049",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"social-gallery-follow\">\n        <a href=\"https://www.instagram.com/earthforpeace/\" target=\"_blank\">\n          Follow the journey on Instagram →\n        </a>\n      </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 800
+              }
+            }
+          ]
+        }
+      ],
+      "isInner": false
+    },
+    {
+      "id": "7a00058",
+      "elType": "section",
+      "settings": {
+        "layout": "full_width",
+        "background_background": "classic",
+        "background_color": "#F8F3E8",
+        "padding": {
+          "unit": "px",
+          "top": "140",
+          "right": "80",
+          "bottom": "140",
+          "left": "80",
+          "isLinked": false
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "60",
+          "right": "20",
+          "bottom": "60",
+          "left": "20",
+          "isLinked": false
+        },
+        "padding_tablet": {
+          "unit": "px",
+          "top": "80",
+          "right": "40",
+          "bottom": "80",
+          "left": "40",
+          "isLinked": false
+        },
+        "z_index": 10,
+        "custom_css": "\n// ── Section Container ──\n.video-section {\n  position: relative;\n  overflow: hidden;\n}\n\n// ── Section Header ──\n.video-header {\n  text-align: center;\n  max-width: 600px;\n  margin: 0 auto 48px;\n}\n\n.video-eyebrow {\n  display: inline-flex;\n  align-items: center;\n  gap: 16px;\n  margin-bottom: 20px;\n}\n\n.video-eyebrow-line {\n  width: 40px;\n  height: 1px;\n  background: linear-gradient(to right, transparent, #C4942A);\n}\n\n.video-eyebrow-line-r {\n  width: 40px;\n  height: 1px;\n  background: linear-gradient(to left, transparent, #C4942A);\n}\n\n.video-eyebrow-text {\n  font-family: 'Cinzel', serif;\n  font-size: 11px;\n  font-weight: 600;\n  letter-spacing: 5px;\n  text-transform: uppercase;\n  color: #C4942A;\n}\n\n.video-title {\n  font-family: 'Cinzel', serif;\n  font-size: clamp(34px, 4vw, 52px);\n  line-height: 1.1;\n  letter-spacing: -0.5px;\n  color: #2C2416;\n  margin-bottom: 16px;\n}\n\n.video-title-accent {\n  display: block;\n  background: linear-gradient(135deg, #C4942A, #3A5430);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  background-clip: text;\n}\n\n.video-subtitle {\n  font-family: 'Lato', sans-serif;\n  font-size: 16px;\n  line-height: 1.8;\n  color: #5C4A32;\n}\n\n// ── Video Grid ──\n.video-grid {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 24px;\n}\n\n// ── Top Row: 3 Videos ──\n.video-row-top {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 24px;\n  margin-bottom: 24px;\n}\n\n// ── Bottom Row: 2 Videos ──\n.video-row-bottom {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n  gap: 24px;\n  max-width: 66.66%;\n  margin: 0 auto;\n}\n\n// ── Individual Video Card ──\n.video-card {\n  position: relative;\n  border-radius: 16px;\n  overflow: hidden;\n  cursor: pointer;\n  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);\n}\n\n.video-card:hover {\n  transform: translateY(-6px) scale(1.02);\n  box-shadow: 0 24px 60px rgba(44, 36, 22, 0.15);\n}\n\n/* Staggered animations */\n.video-card:nth-child(1) { transition-delay: 0s; }\n.video-card:nth-child(2) { transition-delay: 0.1s; }\n.video-card:nth-child(3) { transition-delay: 0.2s; }\n.video-card:nth-child(4) { transition-delay: 0.3s; }\n.video-card:nth-child(5) { transition-delay: 0.4s; }\n\n// ── Video Thumbnail ──\n.video-thumbnail {\n  position: relative;\n  aspect-ratio: 16/9;\n  overflow: hidden;\n  background: #2C2416;\n}\n\n.video-thumbnail img {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  transition: transform 0.6s ease, opacity 0.4s ease;\n}\n\n.video-card:hover .video-thumbnail img {\n  transform: scale(1.08);\n  opacity: 0.85;\n}\n\n// ── Play Button Overlay ──\n.video-play-overlay {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background: rgba(44, 36, 22, 0.3);\n  transition: all 0.4s ease;\n}\n\n.video-card:hover .video-play-overlay {\n  background: rgba(44, 36, 22, 0.15);\n}\n\n// ── Play Button ──\n.video-play-btn {\n  width: 64px;\n  height: 64px;\n  border-radius: 50%;\n  background: linear-gradient(135deg, #C4942A, #E8BC5A);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  box-shadow: 0 8px 32px rgba(196, 148, 42, 0.4);\n  transition: all 0.4s ease;\n}\n\n.video-card:hover .video-play-btn {\n  transform: scale(1.1);\n  box-shadow: 0 12px 40px rgba(196, 148, 42, 0.5);\n}\n\n.video-play-btn svg {\n  width: 24px;\n  height: 24px;\n  fill: #fff;\n  margin-left: 4px; /* Optical centering for play icon */\n}\n\n/* Duration badge */\n.video-duration {\n  position: absolute;\n  bottom: 12px;\n  right: 12px;\n  padding: 4px 8px;\n  background: rgba(44, 36, 22, 0.85);\n  border-radius: 4px;\n  font-family: 'Lato', sans-serif;\n  font-size: 11px;\n  font-weight: 600;\n  color: #fff;\n  letter-spacing: 0.5px;\n}\n\n// ── Video Info ──\n.video-info {\n  padding: 16px 0 0 0;\n}\n\n.video-title-text {\n  font-family: 'Cinzel', serif;\n  font-size: 15px;\n  font-weight: 500;\n  color: #2C2416;\n  margin-bottom: 4px;\n  line-height: 1.3;\n}\n\n.video-channel {\n  font-family: 'Lato', sans-serif;\n  font-size: 11px;\n  color: #8B7B65;\n  letter-spacing: 0.5px;\n}\n\n// ── Subscribe Section ──\n.video-subscribe {\n  text-align: center;\n  margin-top: 56px;\n  padding-top: 48px;\n  border-top: 1px solid #EDE4D3;\n}\n\n.video-subscribe-content {\n  display: inline-flex;\n  align-items: center;\n  gap: 20px;\n  padding: 20px 40px;\n  background: #FFFDF8;\n  border-radius: 100px;\n  border: 1px solid rgba(196, 148, 42, 0.15);\n}\n\n.video-subscribe-icon {\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  background: linear-gradient(135deg, #C4942A, #E8BC5A);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-shrink: 0;\n}\n\n.video-subscribe-icon svg {\n  width: 20px;\n  height: 20px;\n  fill: #fff;\n}\n\n.video-subscribe-text {\n  text-align: left;\n}\n\n.video-subscribe-title {\n  font-family: 'Cinzel', serif;\n  font-size: 14px;\n  font-weight: 600;\n  color: #2C2416;\n  margin-bottom: 2px;\n}\n\n.video-subscribe-sub {\n  font-family: 'Lato', sans-serif;\n  font-size: 11px;\n  color: #8B7B65;\n}\n\n.video-subscribe-btn {\n  display: inline-flex;\n  align-items: center;\n  gap: 8px;\n  padding: 12px 24px;\n  background: linear-gradient(135deg, #C4942A, #E8BC5A);\n  color: #fff;\n  font-family: 'Cinzel', serif;\n  font-size: 10px;\n  font-weight: 600;\n  letter-spacing: 2px;\n  text-transform: uppercase;\n  text-decoration: none;\n  border-radius: 100px;\n  box-shadow: 0 4px 16px rgba(196, 148, 42, 0.3);\n  transition: all 0.4s ease;\n  flex-shrink: 0;\n}\n\n.video-subscribe-btn:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 8px 28px rgba(196, 148, 42, 0.45);\n}\n\n.video-subscribe-btn svg {\n  width: 14px;\n  height: 14px;\n  fill: currentColor;\n}\n\n// ── Responsive ──\n@media (max-width: 1024px) {\n  .video-row-top {\n    grid-template-columns: repeat(2, 1fr);\n  }\n\n  .video-row-top .video-card:last-child {\n    grid-column: span 2;\n    max-width: 50%;\n    margin: 0 auto;\n  }\n\n  .video-row-bottom {\n    max-width: 50%;\n  }\n}\n\n@media (max-width: 767px) {\n  .video-row-top,\n  .video-row-bottom {\n    grid-template-columns: 1fr;\n    max-width: 100%;\n  }\n\n  .video-row-top .video-card:last-child,\n  .video-row-bottom .video-card {\n    grid-column: span 1;\n    max-width: 100%;\n  }\n\n  .video-grid {\n    gap: 20px;\n  }\n\n  .video-subscribe-content {\n    flex-direction: column;\n    text-align: center;\n    padding: 24px;\n  }\n\n  .video-subscribe-text {\n    text-align: center;\n  }\n}\n",
+        "css_classes": "video-section"
+      },
+      "elements": [
+        {
+          "id": "7a00052",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100,
+            "content_position": "center"
+          },
+          "elements": [
+            {
+              "id": "7a00051",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"video-header\">\n        <div class=\"video-eyebrow\">\n          <div class=\"video-eyebrow-line\"></div>\n          <span class=\"video-eyebrow-text\">Sacred Teachings</span>\n          <div class=\"video-eyebrow-line-r\"></div>\n        </div>\n        <h2 class=\"video-title\">\n          Watch &<br>\n          <span class=\"video-title-accent\">Learn</span>\n        </h2>\n        <p class=\"video-subtitle\">\n          Dive deeper into the ancient wisdom of Siberian shamanism. These sacred teachings are offered freely to all who seek.\n        </p>\n      </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow"
+              }
+            }
+          ]
+        },
+        {
+          "id": "7a00055",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100,
+            "content_position": "top"
+          },
+          "elements": [
+            {
+              "id": "7a00053",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"video-row-top\"></div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 200
+              }
+            },
+            {
+              "id": "7a00054",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"video-row-bottom\"></div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 500
+              }
+            }
+          ]
+        },
+        {
+          "id": "7a00057",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100,
+            "content_position": "center"
+          },
+          "elements": [
+            {
+              "id": "7a00056",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"video-subscribe\">\n        <div class=\"video-subscribe-content\">\n          <div class=\"video-subscribe-icon\">\n            <svg viewBox=\"0 0 24 24\"><path d=\"M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2A2.78 2.78 0 0 0 1 9.86a2.78 2.78 0 0 0 1.94 2c1.71.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2 2.78 2.78 0 0 0-1.94-2C21.12 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2A2.78 2.78 0 0 0 1 9.86a2.78 2.78 0 0 0 1.94 2c1.71.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2A2.78 2.78 0 0 0 23 9.86z\"></path><polygon points=\"9.75 15.02 15.5 12 9.75 8.98 9.75 15.02\" fill=\"#fff\"></polygon></svg>\n          </div>\n          <div class=\"video-subscribe-text\">\n            <div class=\"video-subscribe-title\">Subscribe to the Channel</div>\n            <div class=\"video-subscribe-sub\">More sacred teachings every week</div>\n          </div>\n          <a href=\"https://www.youtube.com/@AbhayOyun\" target=\"_blank\" class=\"video-subscribe-btn\">\n            <svg viewBox=\"0 0 24 24\"><path d=\"M8 5v14l11-7z\"/></svg>\n            Subscribe Now\n          </a>\n        </div>\n      </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 700
+              }
+            }
+          ]
+        }
+      ],
+      "isInner": false
+    },
+    {
+      "id": "7a00060",
+      "elType": "section",
+      "settings": {
+        "layout": "full_width",
+        "background_background": "classic",
+        "background_color": "#FFFDF8",
+        "padding": {
+          "unit": "px",
+          "top": "140",
+          "right": "80",
+          "bottom": "140",
+          "left": "80",
+          "isLinked": false
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "60",
+          "right": "20",
+          "bottom": "60",
+          "left": "20",
+          "isLinked": false
+        },
+        "padding_tablet": {
+          "unit": "px",
+          "top": "80",
+          "right": "40",
+          "bottom": "80",
+          "left": "40",
+          "isLinked": false
+        },
+        "z_index": 10,
+        "custom_css": "\n// ── Section Container ──\n.transformation-section {\n  position: relative;\n  overflow: hidden;\n}\n\n// ── Section Header ──\n.transformation-header {\n  text-align: center;\n  max-width: 600px;\n  margin: 0 auto 56px;\n}\n\n.transformation-eyebrow {\n  display: inline-flex;\n  align-items: center;\n  gap: 16px;\n  margin-bottom: 20px;\n}\n\n.transformation-eyebrow-line {\n  width: 40px;\n  height: 1px;\n  background: linear-gradient(to right, transparent, #C4942A);\n}\n\n.transformation-eyebrow-line-r {\n  width: 40px;\n  height: 1px;\n  background: linear-gradient(to left, transparent, #C4942A);\n}\n\n.transformation-eyebrow-text {\n  font-family: 'Cinzel', serif;\n  font-size: 11px;\n  font-weight: 600;\n  letter-spacing: 5px;\n  text-transform: uppercase;\n  color: #C4942A;\n}\n\n.transformation-title {\n  font-family: 'Cinzel', serif;\n  font-size: clamp(34px, 4vw, 52px);\n  line-height: 1.1;\n  letter-spacing: -0.5px;\n  color: #2C2416;\n  margin-bottom: 16px;\n}\n\n.transformation-title-accent {\n  display: block;\n  background: linear-gradient(135deg, #C4942A, #3A5430);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  background-clip: text;\n}\n\n// ── Two Column Layout ──\n.transformation-grid {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 64px;\n  align-items: start;\n}\n\n// ── Left Column: Quote Block ──\n.transformation-quote-wrap {\n  position: relative;\n}\n\n.transformation-quote {\n  padding: 40px;\n  background: #FFFDF8;\n  border-radius: 24px;\n  border: 1px solid rgba(196, 148, 42, 0.1);\n  position: relative;\n}\n\n.transformation-quote::before {\n  content: '\"';\n  position: absolute;\n  top: 20px;\n  left: 28px;\n  font-family: 'Cinzel', serif;\n  font-size: 80px;\n  color: #F5DFA0;\n  line-height: 1;\n  pointer-events: none;\n}\n\n.transformation-quote-text {\n  font-family: 'Cinzel', serif;\n  font-style: italic;\n  font-size: clamp(20px, 2.2vw, 28px);\n  line-height: 1.5;\n  color: #2C2416;\n  margin: 0 0 24px 0;\n  position: relative;\n  z-index: 1;\n}\n\n.transformation-quote-divider {\n  width: 48px;\n  height: 2px;\n  background: linear-gradient(to right, #C4942A, transparent);\n  margin-bottom: 16px;\n}\n\n.transformation-quote-author {\n  font-family: 'Cinzel', serif;\n  font-size: 13px;\n  font-weight: 600;\n  color: #2C2416;\n  letter-spacing: 1px;\n}\n\n.transformation-quote-label {\n  font-family: 'Lato', sans-serif;\n  font-size: 10px;\n  font-weight: 600;\n  letter-spacing: 3px;\n  text-transform: uppercase;\n  color: #C4942A;\n  margin-bottom: 4px;\n}\n\n// ── Description Text ──\n.transformation-desc {\n  margin-top: 32px;\n  padding: 28px;\n  background: #FFFDF8;\n  border-radius: 16px;\n  border: 1px solid rgba(196, 148, 42, 0.08);\n}\n\n.transformation-desc-text {\n  font-family: 'Lato', sans-serif;\n  font-size: 15px;\n  line-height: 1.9;\n  color: #5C4A32;\n  margin: 0;\n}\n\n.transformation-desc-text strong {\n  color: #2C2416;\n  font-weight: 600;\n}\n\n// ── Right Column: Timeline ──\n.transformation-timeline {\n  position: relative;\n  padding-left: 32px;\n}\n\n// ── Timeline Line ──\n.transformation-timeline::before {\n  content: '';\n  position: absolute;\n  left: 0;\n  top: 8px;\n  bottom: 8px;\n  width: 2px;\n  background: linear-gradient(to bottom, #C4942A, #F5DFA0, #3A5430, #F5DFA0, #C4942A);\n  border-radius: 2px;\n}\n\n// ── Timeline Items ──\n.timeline-item {\n  position: relative;\n  padding-bottom: 40px;\n}\n\n.timeline-item:last-child {\n  padding-bottom: 0;\n}\n\n// ── Timeline Dot ──\n.timeline-dot {\n  position: absolute;\n  left: -36px;\n  top: 4px;\n  width: 20px;\n  height: 20px;\n  border-radius: 50%;\n  background: #FFFDF8;\n  border: 2px solid #C4942A;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 2;\n}\n\n.timeline-dot::after {\n  content: '';\n  width: 8px;\n  height: 8px;\n  border-radius: 50%;\n  background: #C4942A;\n}\n\n.timeline-item:nth-child(2) .timeline-dot { border-color: #3A5430; }\n.timeline-item:nth-child(2) .timeline-dot::after { background: #3A5430; }\n\n.timeline-item:nth-child(3) .timeline-dot { border-color: #B86B4A; }\n.timeline-item:nth-child(3) .timeline-dot::after { background: #B86B4A; }\n\n.timeline-item:nth-child(4) .timeline-dot { border-color: #C4942A; }\n.timeline-item:nth-child(4) .timeline-dot::after { background: #C4942A; }\n\n// ── Timeline Content ──\n.timeline-year {\n  font-family: 'Cinzel', serif;\n  font-size: 36px;\n  font-weight: 600;\n  line-height: 1;\n  margin-bottom: 4px;\n  background: linear-gradient(135deg, #C4942A, #E8BC5A);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  background-clip: text;\n}\n\n.timeline-location {\n  font-family: 'Lato', sans-serif;\n  font-size: 10px;\n  font-weight: 700;\n  letter-spacing: 2px;\n  text-transform: uppercase;\n  color: #8B7B65;\n  margin-bottom: 12px;\n}\n\n.timeline-title {\n  font-family: 'Cinzel', serif;\n  font-size: 18px;\n  font-weight: 600;\n  color: #2C2416;\n  margin-bottom: 8px;\n}\n\n.timeline-desc {\n  font-family: 'Lato', sans-serif;\n  font-size: 14px;\n  line-height: 1.8;\n  color: #5C4A32;\n  margin: 0;\n}\n\n// ── Decorative Globe ──\n.transformation-globe {\n  position: absolute;\n  bottom: 0;\n  right: 0;\n  width: 200px;\n  height: 200px;\n  opacity: 0.08;\n  pointer-events: none;\n}\n\n// ── Responsive ──\n@media (max-width: 1024px) {\n  .transformation-grid {\n    grid-template-columns: 1fr;\n    gap: 48px;\n  }\n\n  .transformation-timeline {\n    padding-left: 28px;\n  }\n\n  .timeline-dot {\n    left: -32px;\n  }\n}\n\n@media (max-width: 767px) {\n  .transformation-quote {\n    padding: 28px 24px;\n  }\n\n  .transformation-quote-text {\n    font-size: 18px;\n  }\n\n  .timeline-year {\n    font-size: 28px;\n  }\n\n  .timeline-title {\n    font-size: 16px;\n  }\n\n  .timeline-desc {\n    font-size: 13px;\n  }\n}\n",
+        "css_classes": "transformation-section"
+      },
+      "elements": [
+        {
+          "id": "7a0005a",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100,
+            "content_position": "center"
+          },
+          "elements": [
+            {
+              "id": "7a00059",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"transformation-header\">\n        <div class=\"transformation-eyebrow\">\n          <div class=\"transformation-eyebrow-line\"></div>\n          <span class=\"transformation-eyebrow-text\">Global Impact</span>\n          <div class=\"transformation-eyebrow-line-r\"></div>\n        </div>\n        <h2 class=\"transformation-title\">\n          Guardian of<br>\n          <span class=\"transformation-title-accent\">Our Planet</span>\n        </h2>\n      </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow"
+              }
+            }
+          ]
+        },
+        {
+          "id": "7a0005d",
+          "elType": "column",
+          "settings": {
+            "_column_size": 48,
+            "_inline_size": 48,
+            "content_position": "top",
+            "_column_size_mobile": 100
+          },
+          "elements": [
+            {
+              "id": "7a0005b",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"transformation-quote\">\n        <p class=\"transformation-quote-text\">When you reconnect with your wild nature, trauma doesn't just heal — it transforms into power.</p>\n        <div class=\"transformation-quote-divider\"></div>\n        <div class=\"transformation-quote-label\">Shaman Abhay Oyun</div>\n        <div class=\"transformation-quote-author\">Guardian of Our Planet</div>\n      </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInLeft",
+                "animation_duration": "slow",
+                "_animation_delay": 200
+              }
+            },
+            {
+              "id": "7a0005c",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"transformation-desc\">\n        <p class=\"transformation-desc-text\">Called the <strong>Guardian of Our Planet</strong>, Abhay Oyun has dedicated his life to responding to global crises — natural disasters, wars, humanitarian emergencies — through the ancient lens of shamanic intervention.</p>\n      </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInLeft",
+                "animation_duration": "slow",
+                "_animation_delay": 400
+              }
+            }
+          ]
+        },
+        {
+          "id": "7a0005f",
+          "elType": "column",
+          "settings": {
+            "_column_size": 52,
+            "_inline_size": 52,
+            "content_position": "top",
+            "_column_size_mobile": 100
+          },
+          "elements": [
+            {
+              "id": "7a0005e",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"transformation-timeline\">\n        \n          <div class=\"timeline-item\">\n            <div class=\"timeline-dot\"></div>\n            <div class=\"timeline-year\">2004</div>\n            <div class=\"timeline-location\">Mount Fuji, Japan</div>\n            <div class=\"timeline-title\">The Great Gathering</div>\n            <p class=\"timeline-desc\">2,500 people gathered at the base of Mount Fuji under Abhay's guidance. Shaman chiefs from North America and Asian tribes united in ceremony for the first time in recorded history.</p>\n          </div>\n        \n          <div class=\"timeline-item\">\n            <div class=\"timeline-dot\"></div>\n            <div class=\"timeline-year\">2007</div>\n            <div class=\"timeline-location\">South Russia</div>\n            <div class=\"timeline-title\">Peace Conferences</div>\n            <p class=\"timeline-desc\">Major peace conferences and large spiritual gatherings where prayers and sacred rituals were held to bring peace and healing to the war-torn region.</p>\n          </div>\n        \n          <div class=\"timeline-item\">\n            <div class=\"timeline-dot\"></div>\n            <div class=\"timeline-year\">2015</div>\n            <div class=\"timeline-location\">Chile</div>\n            <div class=\"timeline-title\">Earth Healing Ceremony</div>\n            <p class=\"timeline-desc\">When earthquakes, volcanic ash, and severe drought converged on Chile, Abhay led ceremonies to shift the collective energetic field and support recovery.</p>\n          </div>\n        \n          <div class=\"timeline-item\">\n            <div class=\"timeline-dot\"></div>\n            <div class=\"timeline-year\">2022</div>\n            <div class=\"timeline-location\">Ukraine</div>\n            <div class=\"timeline-title\">Sacred Ceremonies for Peace</div>\n            <p class=\"timeline-desc\">During the New Year's Retreat, Abhay received a vision of the coming conflict. Sacred ceremonies were organized across Europe to focus healing energy on the region.</p>\n          </div>\n        \n      </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInRight",
+                "animation_duration": "slow",
+                "_animation_delay": 300
+              }
+            }
+          ]
+        }
+      ],
+      "isInner": false
+    },
+    {
+      "id": "7a00067",
+      "elType": "section",
+      "settings": {
+        "layout": "full_width",
+        "height": "min-height",
+        "custom_height": {
+          "unit": "vh",
+          "size": 80
+        },
+        "custom_height_mobile": {
+          "unit": "vh",
+          "size": 75
+        },
+        "content_position": "middle",
+        "background_background": "classic",
+        "background_color": "#EDE4D3",
+        "padding": {
+          "unit": "px",
+          "top": "120",
+          "right": "80",
+          "bottom": "120",
+          "left": "80",
+          "isLinked": false
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "80",
+          "right": "24",
+          "bottom": "80",
+          "left": "24",
+          "isLinked": false
+        },
+        "padding_tablet": {
+          "unit": "px",
+          "top": "100",
+          "right": "40",
+          "bottom": "100",
+          "left": "40",
+          "isLinked": false
+        },
+        "z_index": 10,
+        "custom_css": "\n// ── Section Container ──\n.final-cta-section {\n  position: relative;\n  overflow: hidden;\n  background: linear-gradient(160deg, #EDE4D3 0%, #E5DDD0 100%);\n}\n\n// ── Decorative Background Elements ──\n@keyframes float-slow {\n  0%, 100% { transform: translateY(0) rotate(0deg); }\n  50% { transform: translateY(-20px) rotate(3deg); }\n}\n\n@keyframes pulse-subtle {\n  0%, 100% { opacity: 0.08; transform: scale(1); }\n  50% { opacity: 0.12; transform: scale(1.05); }\n}\n\n.final-cta-bg-orb {\n  position: absolute;\n  border-radius: 50%;\n  pointer-events: none;\n  filter: blur(100px);\n}\n\n.final-cta-bg-orb-1 {\n  top: -100px;\n  right: -100px;\n  width: 400px;\n  height: 400px;\n  background: #F5DFA0;\n  animation: pulse-subtle 8s ease-in-out infinite;\n}\n\n.final-cta-bg-orb-2 {\n  bottom: -100px;\n  left: -100px;\n  width: 350px;\n  height: 350px;\n  background: #6B8F5C;\n  animation: pulse-subtle 10s ease-in-out infinite reverse;\n}\n\n.final-cta-bg-orb-3 {\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  width: 600px;\n  height: 600px;\n  background: #F5DFA0;\n  animation: pulse-subtle 12s ease-in-out infinite;\n  opacity: 0.05;\n}\n\n// ── Decorative Lines ──\n.final-cta-lines {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  pointer-events: none;\n  overflow: hidden;\n}\n\n.final-cta-line {\n  position: absolute;\n  background: linear-gradient(to bottom, transparent, #F5DFA0, transparent);\n  width: 1px;\n  opacity: 0.3;\n}\n\n.final-cta-line-1 { left: 15%; height: 100%; animation: fadeIn 2s ease forwards; }\n.final-cta-line-2 { left: 30%; height: 80%; animation: fadeIn 2s ease 0.3s forwards; }\n.final-cta-line-3 { right: 30%; height: 80%; animation: fadeIn 2s ease 0.6s forwards; }\n.final-cta-line-4 { right: 15%; height: 100%; animation: fadeIn 2s ease 0.9s forwards; }\n\n@keyframes fadeIn {\n  from { opacity: 0; }\n  to { opacity: 0.3; }\n}\n\n// ── Main Content Wrapper ──\n.final-cta-content {\n  position: relative;\n  z-index: 10;\n  text-align: center;\n  max-width: 720px;\n  margin: 0 auto;\n}\n\n// ── Eyebrow ──\n.final-cta-eyebrow {\n  display: inline-flex;\n  align-items: center;\n  gap: 16px;\n  margin-bottom: 24px;\n  opacity: 0;\n  animation: fadeInUp 0.8s ease forwards 0.2s;\n}\n\n.final-cta-eyebrow-line {\n  width: 48px;\n  height: 1px;\n  background: linear-gradient(to right, transparent, #C4942A);\n}\n\n.final-cta-eyebrow-line-r {\n  width: 48px;\n  height: 1px;\n  background: linear-gradient(to left, transparent, #C4942A);\n}\n\n.final-cta-eyebrow-text {\n  font-family: 'Cinzel', serif;\n  font-size: 11px;\n  font-weight: 600;\n  letter-spacing: 6px;\n  text-transform: uppercase;\n  color: #C4942A;\n}\n\n// ── Main Title ──\n.final-cta-title {\n  font-family: 'Cinzel', serif;\n  font-size: clamp(38px, 5vw, 64px);\n  line-height: 1.1;\n  letter-spacing: -1px;\n  color: #2C2416;\n  margin-bottom: 24px;\n  opacity: 0;\n  animation: fadeInUp 0.8s ease forwards 0.4s;\n}\n\n.final-cta-title-line {\n  display: block;\n}\n\n.final-cta-title-accent {\n  display: block;\n  background: linear-gradient(135deg, #C4942A, #E8BC5A, #3A5430);\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  background-clip: text;\n  background-size: 200% auto;\n}\n\n// ── Subtitle ──\n.final-cta-subtitle {\n  font-family: 'Lato', sans-serif;\n  font-size: clamp(15px, 1.2vw, 18px);\n  line-height: 1.85;\n  color: #5C4A32;\n  max-width: 560px;\n  margin: 0 auto 40px;\n  opacity: 0;\n  animation: fadeInUp 0.8s ease forwards 0.6s;\n}\n\n@keyframes fadeInUp {\n  from { opacity: 0; transform: translateY(30px); }\n  to { opacity: 1; transform: translateY(0); }\n}\n\n// ── CTA Buttons ──\n.final-cta-buttons {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 20px;\n  flex-wrap: wrap;\n  margin-bottom: 48px;\n  opacity: 0;\n  animation: fadeInUp 0.8s ease forwards 0.8s;\n}\n\n.final-cta-btn-primary {\n  display: inline-flex;\n  align-items: center;\n  gap: 12px;\n  padding: 20px 48px;\n  background: linear-gradient(135deg, #C4942A, #E8BC5A);\n  color: #fff;\n  font-family: 'Cinzel', serif;\n  font-size: 12px;\n  font-weight: 600;\n  letter-spacing: 3px;\n  text-transform: uppercase;\n  text-decoration: none;\n  border-radius: 100px;\n  box-shadow: 0 12px 40px rgba(196, 148, 42, 0.4), 0 0 80px rgba(196, 148, 42, 0.15);\n  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);\n}\n\n.final-cta-btn-primary:hover {\n  transform: translateY(-4px) scale(1.02);\n  box-shadow: 0 16px 52px rgba(196, 148, 42, 0.55), 0 0 100px rgba(196, 148, 42, 0.2);\n}\n\n.final-cta-btn-primary svg {\n  width: 16px;\n  height: 16px;\n  fill: currentColor;\n  transition: transform 0.3s ease;\n}\n\n.final-cta-btn-primary:hover svg {\n  transform: translateX(4px);\n}\n\n.final-cta-btn-secondary {\n  display: inline-flex;\n  align-items: center;\n  gap: 12px;\n  padding: 20px 40px;\n  background: #FFFDF8;\n  color: #2C2416;\n  font-family: 'Cinzel', serif;\n  font-size: 12px;\n  font-weight: 600;\n  letter-spacing: 3px;\n  text-transform: uppercase;\n  text-decoration: none;\n  border-radius: 100px;\n  border: 1.5px solid rgba(196, 148, 42, 0.35);\n  box-shadow: 0 8px 24px rgba(44, 36, 22, 0.06);\n  transition: all 0.4s ease;\n}\n\n.final-cta-btn-secondary:hover {\n  background: #FFFDF8;\n  border-color: #C4942A;\n  transform: translateY(-3px);\n  box-shadow: 0 12px 36px rgba(44, 36, 22, 0.1);\n}\n\n// ── Trust Indicators ──\n.final-cta-trust {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 40px;\n  flex-wrap: wrap;\n  margin-bottom: 40px;\n  opacity: 0;\n  animation: fadeInUp 0.8s ease forwards 1s;\n}\n\n.final-cta-trust-item {\n  display: flex;\n  align-items: center;\n  gap: 10px;\n}\n\n.final-cta-trust-dot {\n  width: 8px;\n  height: 8px;\n  border-radius: 50%;\n}\n\n.final-cta-trust-text {\n  font-family: 'Lato', sans-serif;\n  font-size: 11px;\n  font-weight: 600;\n  letter-spacing: 2px;\n  text-transform: uppercase;\n  color: #8B7B65;\n}\n\n// ── Social Links ──\n.final-cta-social {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 16px;\n  opacity: 0;\n  animation: fadeInUp 0.8s ease forwards 1.2s;\n}\n\n.final-cta-social-label {\n  font-family: 'Cinzel', serif;\n  font-size: 10px;\n  font-weight: 600;\n  letter-spacing: 2px;\n  text-transform: uppercase;\n  color: #8B7B65;\n  margin-right: 8px;\n}\n\n.final-cta-social-link {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  width: 44px;\n  height: 44px;\n  border-radius: 50%;\n  background: #FFFDF8;\n  border: 1px solid rgba(196, 148, 42, 0.15);\n  color: #5C4A32;\n  text-decoration: none;\n  transition: all 0.4s ease;\n}\n\n.final-cta-social-link:hover {\n  background: #C4942A;\n  border-color: #C4942A;\n  color: #fff;\n  transform: translateY(-3px);\n  box-shadow: 0 8px 24px rgba(196, 148, 42, 0.3);\n}\n\n.final-cta-social-link svg {\n  width: 18px;\n  height: 18px;\n  fill: currentColor;\n}\n\n// ── Decorative Divider ──\n.final-cta-divider {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 20px;\n  margin-bottom: 32px;\n  opacity: 0;\n  animation: fadeInUp 0.8s ease forwards 1.1s;\n}\n\n.final-cta-divider-line {\n  width: 80px;\n  height: 1px;\n  background: linear-gradient(to right, transparent, #B5A892);\n}\n\n.final-cta-divider-icon {\n  font-size: 20px;\n  color: #C4942A;\n}\n\n// ── Responsive ──\n@media (max-width: 767px) {\n  .final-cta-buttons {\n    flex-direction: column;\n  }\n\n  .final-cta-btn-primary,\n  .final-cta-btn-secondary {\n    width: 100%;\n    justify-content: center;\n  }\n\n  .final-cta-trust {\n    flex-direction: column;\n    gap: 16px;\n  }\n\n  .final-cta-social {\n    flex-wrap: wrap;\n  }\n}\n",
+        "css_classes": "final-cta-section"
+      },
+      "elements": [
+        {
+          "id": "7a00062",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100,
+            "content_position": "top",
+            "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": [
+            {
+              "id": "7a00061",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"final-cta-bg-orb final-cta-bg-orb-1\"></div>\n            <div class=\"final-cta-bg-orb final-cta-bg-orb-2\"></div>\n            <div class=\"final-cta-bg-orb final-cta-bg-orb-3\"></div>",
+                "text_color": "",
+                "typography_typography": "custom"
+              }
+            }
+          ]
+        },
+        {
+          "id": "7a00064",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100,
+            "content_position": "top",
+            "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": [
+            {
+              "id": "7a00063",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"final-cta-lines\">\n        <div class=\"final-cta-line final-cta-line-1\"></div>\n        <div class=\"final-cta-line final-cta-line-2\"></div>\n        <div class=\"final-cta-line final-cta-line-3\"></div>\n        <div class=\"final-cta-line final-cta-line-4\"></div>\n      </div>",
+                "text_color": "",
+                "typography_typography": "custom"
+              }
+            }
+          ]
+        },
+        {
+          "id": "7a00066",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100,
+            "content_position": "center"
+          },
+          "elements": [
+            {
+              "id": "7a00065",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"final-cta-content\">\n        <!-- Eyebrow -->\n        <div class=\"final-cta-eyebrow\">\n          <div class=\"final-cta-eyebrow-line\"></div>\n          <span class=\"final-cta-eyebrow-text\">Your Journey Begins</span>\n          <div class=\"final-cta-eyebrow-line-r\"></div>\n        </div>\n\n        <!-- Main Title -->\n        <h2 class=\"final-cta-title\">\n          <span class=\"final-cta-title-line\">Step Into the</span>\n          <span class=\"final-cta-title-accent\">Sacred Field</span>\n        </h2>\n\n        <!-- Subtitle -->\n        <p class=\"final-cta-subtitle\">\n          Whether you begin with a free webinar or a personal shamanic session —\n          transformation begins with a single decision to show up for yourself.\n          Here, you are welcomed, held, and seen.\n        </p>\n\n        <!-- CTA Buttons -->\n        <div class=\"final-cta-buttons\">\n          <a href=\"https://calendly.com/hurraymangalam/individualsessions\" target=\"_blank\" class=\"final-cta-btn-primary\">\n            Book a Free Session\n            <svg viewBox=\"0 0 24 24\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>\n          </a>\n          <a href=\"https://forms.gle/jEDaUrKwbyHd8WvUA\" target=\"_blank\" class=\"final-cta-btn-secondary\">\n            Watch Free Webinar\n          </a>\n        </div>\n\n        <!-- Decorative Divider -->\n        <div class=\"final-cta-divider\">\n          <div class=\"final-cta-divider-line\"></div>\n          <span class=\"final-cta-divider-icon\">✦</span>\n          <div class=\"final-cta-divider-line\"></div>\n        </div>\n\n        <!-- Trust Indicators -->\n        <div class=\"final-cta-trust\">\n          <div class=\"final-cta-trust-item\">\n            <div class=\"final-cta-trust-dot\" style=\"background: #C4942A;\"></div>\n            <span class=\"final-cta-trust-text\">35+ Years of Practice</span>\n          </div>\n          <div class=\"final-cta-trust-item\">\n            <div class=\"final-cta-trust-dot\" style=\"background: #3A5430;\"></div>\n            <span class=\"final-cta-trust-text\">40 Countries Served</span>\n          </div>\n          <div class=\"final-cta-trust-item\">\n            <div class=\"final-cta-trust-dot\" style=\"background: #B86B4A;\"></div>\n            <span class=\"final-cta-trust-text\">10,000+ Transformed</span>\n          </div>\n        </div>\n\n        <!-- Social Links -->\n        <div class=\"final-cta-social\">\n          <span class=\"final-cta-social-label\">Connect:</span>\n          <a href=\"https://www.instagram.com/earthforpeace/\" target=\"_blank\" class=\"final-cta-social-link\" title=\"Instagram\">\n            <svg viewBox=\"0 0 24 24\"><path d=\"M12 2.163c3.204 0 3.584.012 4.85.070 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z\"/></svg>\n          </a>\n          <a href=\"https://www.youtube.com/@earthforpeace\" target=\"_blank\" class=\"final-cta-social-link\" title=\"YouTube\">\n            <svg viewBox=\"0 0 24 24\"><path d=\"M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2A2.78 2.78 0 0 0 1 9.86a2.78 2.78 0 0 0 1.94 2c1.71.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2 2.78 2.78 0 0 0-1.94-2C21.12 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2A2.78 2.78 0 0 0 1 9.86a2.78 2.78 0 0 0 1.94 2c1.71.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2 2.78 2.78 0 0 0-1.94-2C21.12 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2A2.78 2.78 0 0 0 1 9.86a2.78 2.78 0 0 0 1.94 2c1.71.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2 2.78 2.78 0 0 0-1.94-2C21.12 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2A2.78 2.78 0 0 0 1 9.86a2.78 2.78 0 0 0 1.94 2c1.71.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2A2.78 2.78 0 0 0 23 9.86z\"/><polygon points=\"9.75 15.02 15.5 12 9.75 8.98 9.75 15.02\" fill=\"#fff\"/></svg>\n          </a>\n          <a href=\"https://www.facebook.com/abhayoyun0/\" target=\"_blank\" class=\"final-cta-social-link\" title=\"Facebook\">\n            <svg viewBox=\"0 0 24 24\"><path d=\"M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z\"/></svg>\n          </a>\n        </div>\n      </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "align": "center"
+              }
+            }
+          ]
+        }
+      ],
+      "isInner": false
+    },
+    {
+      "id": "7a00070",
+      "elType": "section",
+      "settings": {
+        "layout": "full_width",
+        "background_background": "classic",
+        "background_color": "#2C2416",
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "80",
+          "bottom": "0",
+          "left": "80",
+          "isLinked": false
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "0",
+          "right": "24",
+          "bottom": "0",
+          "left": "24",
+          "isLinked": false
+        },
+        "padding_tablet": {
+          "unit": "px",
+          "top": "0",
+          "right": "40",
+          "bottom": "0",
+          "left": "40",
+          "isLinked": false
+        },
+        "z_index": 10,
+        "custom_css": "\n// ── Footer Container ──\n.footer-section {\n  position: relative;\n  background: #2C2416;\n  color: #8B7B65;\n}\n\n// ── Decorative Top Border ──\n.footer-divider {\n  width: 100%;\n  height: 1px;\n  background: linear-gradient(to right, transparent, #C4942A, transparent);\n  position: relative;\n}\n\n.footer-divider::before {\n  content: '✦';\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  transform: translate(-50%, -50%);\n  background: #2C2416;\n  padding: 0 20px;\n  color: #C4942A;\n  font-size: 12px;\n}\n\n// ── Footer Main Content ──\n.footer-main {\n  padding: 80px 0 60px;\n}\n\n// ── Footer Grid ──\n.footer-grid {\n  display: grid;\n  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;\n  gap: 48px;\n}\n\n// ── Brand Column ──\n.footer-brand {\n  padding-right: 32px;\n}\n\n.footer-logo {\n  font-family: 'Cinzel', serif;\n  font-size: 28px;\n  font-weight: 600;\n  color: #FFFDF8;\n  margin-bottom: 16px;\n  letter-spacing: 1px;\n}\n\n.footer-tagline {\n  font-family: 'Lato', sans-serif;\n  font-size: 14px;\n  line-height: 1.9;\n  color: #8B7B65;\n  margin-bottom: 24px;\n  max-width: 280px;\n}\n\n.footer-social {\n  display: flex;\n  gap: 12px;\n}\n\n.footer-social-link {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  background: rgba(255, 253, 248, 0.08);\n  border: 1px solid rgba(255, 253, 248, 0.1);\n  color: #8B7B65;\n  text-decoration: none;\n  transition: all 0.4s ease;\n}\n\n.footer-social-link:hover {\n  background: #C4942A;\n  border-color: #C4942A;\n  color: #2C2416;\n  transform: translateY(-3px);\n}\n\n.footer-social-link svg {\n  width: 16px;\n  height: 16px;\n  fill: currentColor;\n}\n\n// ── Navigation Columns ──\n.footer-nav-title {\n  font-family: 'Cinzel', serif;\n  font-size: 11px;\n  font-weight: 600;\n  letter-spacing: 3px;\n  text-transform: uppercase;\n  color: #FFFDF8;\n  margin-bottom: 20px;\n  padding-bottom: 12px;\n  border-bottom: 1px solid rgba(255, 253, 248, 0.1);\n}\n\n.footer-nav-list {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n\n.footer-nav-item {\n  margin-bottom: 12px;\n}\n\n.footer-nav-link {\n  font-family: 'Lato', sans-serif;\n  font-size: 14px;\n  color: #8B7B65;\n  text-decoration: none;\n  transition: all 0.3s ease;\n  position: relative;\n}\n\n.footer-nav-link::before {\n  content: '→';\n  position: absolute;\n  left: -16px;\n  opacity: 0;\n  color: #C4942A;\n  transition: all 0.3s ease;\n  transform: translateX(-4px);\n}\n\n.footer-nav-link:hover {\n  color: #C4942A;\n  padding-left: 8px;\n}\n\n.footer-nav-link:hover::before {\n  opacity: 1;\n  transform: translateX(0);\n}\n\n// ── Contact Column ──\n.footer-contact-item {\n  display: flex;\n  align-items: flex-start;\n  gap: 12px;\n  margin-bottom: 16px;\n}\n\n.footer-contact-icon {\n  width: 20px;\n  height: 20px;\n  color: #C4942A;\n  flex-shrink: 0;\n  margin-top: 2px;\n}\n\n.footer-contact-icon svg {\n  width: 100%;\n  height: 100%;\n  fill: currentColor;\n}\n\n.footer-contact-text {\n  font-family: 'Lato', sans-serif;\n  font-size: 14px;\n  color: #8B7B65;\n  line-height: 1.6;\n}\n\n.footer-contact-text a {\n  color: #8B7B65;\n  text-decoration: none;\n  transition: color 0.3s ease;\n}\n\n.footer-contact-text a:hover {\n  color: #C4942A;\n}\n\n// ── Newsletter Column ──\n.footer-newsletter-text {\n  font-family: 'Lato', sans-serif;\n  font-size: 14px;\n  line-height: 1.8;\n  color: #8B7B65;\n  margin-bottom: 20px;\n}\n\n.footer-newsletter-form {\n  display: flex;\n  gap: 8px;\n}\n\n.footer-newsletter-input {\n  flex: 1;\n  padding: 14px 16px;\n  background: rgba(255, 253, 248, 0.06);\n  border: 1px solid rgba(255, 253, 248, 0.12);\n  border-radius: 8px;\n  color: #FFFDF8;\n  font-family: 'Lato', sans-serif;\n  font-size: 13px;\n  outline: none;\n  transition: all 0.3s ease;\n}\n\n.footer-newsletter-input::placeholder {\n  color: #8B7B65;\n}\n\n.footer-newsletter-input:focus {\n  border-color: #C4942A;\n  background: rgba(255, 253, 248, 0.08);\n}\n\n.footer-newsletter-btn {\n  padding: 14px 20px;\n  background: linear-gradient(135deg, #C4942A, #E8BC5A);\n  border: none;\n  border-radius: 8px;\n  color: #2C2416;\n  font-family: 'Cinzel', serif;\n  font-size: 11px;\n  font-weight: 600;\n  letter-spacing: 1px;\n  cursor: pointer;\n  transition: all 0.4s ease;\n  white-space: nowrap;\n}\n\n.footer-newsletter-btn:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 8px 24px rgba(196, 148, 42, 0.35);\n}\n\n// ── Footer Bottom ──\n.footer-bottom {\n  padding: 28px 0;\n  border-top: 1px solid rgba(255, 253, 248, 0.08);\n}\n\n.footer-bottom-content {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  flex-wrap: wrap;\n  gap: 16px;\n}\n\n.footer-copyright {\n  font-family: 'Lato', sans-serif;\n  font-size: 12px;\n  color: #8B7B65;\n}\n\n.footer-copyright a {\n  color: #C4942A;\n  text-decoration: none;\n}\n\n.footer-legal {\n  display: flex;\n  gap: 24px;\n}\n\n.footer-legal-link {\n  font-family: 'Lato', sans-serif;\n  font-size: 12px;\n  color: #8B7B65;\n  text-decoration: none;\n  transition: color 0.3s ease;\n}\n\n.footer-legal-link:hover {\n  color: #FFFDF8;\n}\n\n// ── Mystical Bottom Element ──\n.footer-mystical {\n  text-align: center;\n  padding: 24px 0 0;\n}\n\n.footer-mystical-text {\n  font-family: 'Cinzel', serif;\n  font-size: 11px;\n  letter-spacing: 4px;\n  text-transform: uppercase;\n  color: #8B7B65;\n  opacity: 0.6;\n}\n\n.footer-mystical-symbol {\n  font-size: 16px;\n  color: #C4942A;\n  margin-bottom: 8px;\n  opacity: 0.4;\n}\n\n// ── Responsive ──\n@media (max-width: 1024px) {\n  .footer-grid {\n    grid-template-columns: 1fr 1fr;\n    gap: 40px;\n  }\n\n  .footer-brand {\n    grid-column: span 2;\n    padding-right: 0;\n  }\n}\n\n@media (max-width: 767px) {\n  .footer-grid {\n    grid-template-columns: 1fr;\n    gap: 36px;\n  }\n\n  .footer-brand {\n    grid-column: span 1;\n    text-align: center;\n  }\n\n  .footer-tagline {\n    max-width: 100%;\n  }\n\n  .footer-social {\n    justify-content: center;\n  }\n\n  .footer-nav-title {\n    text-align: center;\n  }\n\n  .footer-nav-list {\n    text-align: center;\n  }\n\n  .footer-contact-item {\n    justify-content: center;\n    text-align: left;\n  }\n\n  .footer-newsletter-form {\n    flex-direction: column;\n  }\n\n  .footer-bottom-content {\n    flex-direction: column;\n    text-align: center;\n  }\n\n  .footer-legal {\n    justify-content: center;\n  }\n}\n",
+        "css_classes": "footer-section"
+      },
+      "elements": [
+        {
+          "id": "7a00069",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100,
+            "content_position": "center",
+            "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            }
+          },
+          "elements": [
+            {
+              "id": "7a00068",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"footer-divider\"></div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeIn",
+                "animation_duration": "slow"
+              }
+            }
+          ]
+        },
+        {
+          "id": "7a0006b",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100,
+            "content_position": "top"
+          },
+          "elements": [
+            {
+              "id": "7a0006a",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"footer-main\">\n        <div class=\"footer-grid\">\n          <!-- Brand Column -->\n          <div class=\"footer-brand\">\n            <div class=\"footer-logo\">Abhay Oyun</div>\n            <p class=\"footer-tagline\">\n              Siberian Shaman & Guardian of Our Planet. Guiding seekers toward wild healing, inner peace, and reconnection with nature's ancient wisdom.\n            </p>\n            <div class=\"footer-social\">\n              <a href=\"https://www.instagram.com/earthforpeace/\" target=\"_blank\" class=\"footer-social-link\" title=\"Instagram\">\n                <svg viewBox=\"0 0 24 24\"><path d=\"M12 2.163c3.204 0 3.584.012 4.85.070 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z\"/></svg>\n              </a>\n              <a href=\"https://www.youtube.com/@earthforpeace\" target=\"_blank\" class=\"footer-social-link\" title=\"YouTube\">\n                <svg viewBox=\"0 0 24 24\"><path d=\"M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2A2.78 2.78 0 0 0 1 9.86a2.78 2.78 0 0 0 1.94 2c1.71.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2 2.78 2.78 0 0 0-1.94-2C21.12 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2A2.78 2.78 0 0 0 1 9.86a2.78 2.78 0 0 0 1.94 2c1.71.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2 2.78 2.78 0 0 0-1.94-2C21.12 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2A2.78 2.78 0 0 0 1 9.86a2.78 2.78 0 0 0 1.94 2c1.71.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2A2.78 2.78 0 0 0 23 9.86z\"/><polygon points=\"9.75 15.02 15.5 12 9.75 8.98 9.75 15.02\" fill=\"#fff\"/></svg>\n              </a>\n              <a href=\"https://www.facebook.com/abhayoyun0/\" target=\"_blank\" class=\"footer-social-link\" title=\"Facebook\">\n                <svg viewBox=\"0 0 24 24\"><path d=\"M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z\"/></svg>\n              </a>\n            </div>\n          </div>\n\n          <!-- Explore Column -->\n          <div class=\"footer-nav\">\n            <div class=\"footer-nav-title\">Explore</div>\n            <ul class=\"footer-nav-list\">\n              <li class=\"footer-nav-item\"><a href=\"#\" class=\"footer-nav-link\">Home</a></li>\n              <li class=\"footer-nav-item\"><a href=\"#about\" class=\"footer-nav-link\">About Abhay</a></li>\n              <li class=\"footer-nav-item\"><a href=\"#teachings\" class=\"footer-nav-link\">Teachings</a></li>\n              <li class=\"footer-nav-item\"><a href=\"#events\" class=\"footer-nav-link\">Events</a></li>\n              <li class=\"footer-nav-item\"><a href=\"#gallery\" class=\"footer-nav-link\">Gallery</a></li>\n            </ul>\n          </div>\n\n          <!-- Learn Column -->\n          <div class=\"footer-nav\">\n            <div class=\"footer-nav-title\">Learn</div>\n            <ul class=\"footer-nav-list\">\n              <li class=\"footer-nav-item\"><a href=\"#\" class=\"footer-nav-link\">Free Webinar</a></li>\n              <li class=\"footer-nav-item\"><a href=\"#\" class=\"footer-nav-link\">SAMPO System</a></li>\n              <li class=\"footer-nav-item\"><a href=\"#\" class=\"footer-nav-link\">Sound Medicine</a></li>\n              <li class=\"footer-nav-item\"><a href=\"#\" class=\"footer-nav-link\">YouTube Channel</a></li>\n              <li class=\"footer-nav-item\"><a href=\"#\" class=\"footer-nav-link\">Blog</a></li>\n            </ul>\n          </div>\n\n          <!-- Contact Column -->\n          <div class=\"footer-contact\">\n            <div class=\"footer-nav-title\">Connect</div>\n            <div class=\"footer-contact-item\">\n              <div class=\"footer-contact-icon\">\n                <svg viewBox=\"0 0 24 24\"><path d=\"M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z\"/></svg>\n              </div>\n              <div class=\"footer-contact-text\">\n                <a href=\"mailto:contact@earthforpeace.com\">contact@earthforpeace.com</a>\n              </div>\n            </div>\n            <div class=\"footer-contact-item\">\n              <div class=\"footer-contact-icon\">\n                <svg viewBox=\"0 0 24 24\"><path d=\"M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z\"/></svg>\n              </div>\n              <div class=\"footer-contact-text\">\n                <a href=\"https://wa.me/1234567890\" target=\"_blank\">WhatsApp</a>\n              </div>\n            </div>\n            <div class=\"footer-contact-item\">\n              <div class=\"footer-contact-icon\">\n                <svg viewBox=\"0 0 24 24\"><path d=\"M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z\"/></svg>\n              </div>\n              <div class=\"footer-contact-text\">\n                Serving worldwide through sacred ceremonies and online sessions\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 100
+              }
+            }
+          ]
+        },
+        {
+          "id": "7a0006d",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100,
+            "content_position": "top"
+          },
+          "elements": [
+            {
+              "id": "7a0006c",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"footer-bottom\">\n        <div class=\"footer-bottom-content\">\n          <div class=\"footer-copyright\">\n            © 2026 <a href=\"#\">Abhay Oyun</a>. All rights reserved. Crafted with sacred intention.\n          </div>\n          <div class=\"footer-legal\">\n            <a href=\"#\" class=\"footer-legal-link\">Privacy Policy</a>\n            <a href=\"#\" class=\"footer-legal-link\">Terms of Service</a>\n          </div>\n        </div>\n      </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 200
+              }
+            }
+          ]
+        },
+        {
+          "id": "7a0006f",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100,
+            "content_position": "center"
+          },
+          "elements": [
+            {
+              "id": "7a0006e",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"footer-mystical\">\n        <div class=\"footer-mystical-symbol\">✦ ✦ ✦</div>\n        <div class=\"footer-mystical-text\">Until We Meet Again</div>\n      </div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 300
+              }
+            }
+          ]
+        }
+      ],
+      "isInner": false
+    }
+  ]
+}

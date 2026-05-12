@@ -1,0 +1,173 @@
+{
+  "title": "Abhay Oyun Shamanic Aura",
+  "type": "page",
+  "version": "0.4",
+  "page_settings": {},
+  "content": [
+    {
+      "id": "2a0000a",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#F5F0E8",
+        "padding": {
+          "unit": "px",
+          "top": "120",
+          "right": "20",
+          "bottom": "120",
+          "left": "20",
+          "isLinked": false
+        },
+        "custom_css": "\nselector {\n  position: relative;\n  overflow: hidden;\n  background-color: #F5F0E8 !important;\n}\n\n/* The Animated Aura */\nselector .ao-aura-bg {\n  position: absolute;\n  inset: -10% -10%;\n  z-index: 1;\n  filter: blur(80px);\n  pointer-events: none;\n  opacity: 0.6;\n}\n\nselector .ao-aura-blob {\n  position: absolute;\n  border-radius: 50%;\n  animation: auraMove 20s infinite alternate ease-in-out;\n}\n\nselector .ao-aura-1 {\n  width: 80%;\n  height: 80%;\n  background: radial-gradient(circle, #f9d58b 0%, transparent 70%);\n  top: 10%;\n  left: 10%;\n  animation-duration: 25s;\n}\n\nselector .ao-aura-2 {\n  width: 60%;\n  height: 60%;\n  background: radial-gradient(circle, #ffffff 0%, transparent 60%);\n  bottom: 10%;\n  right: 10%;\n  animation-duration: 18s;\n  animation-delay: -5s;\n}\n\n@keyframes auraMove {\n  0% { transform: translate(0, 0) scale(1); }\n  50% { transform: translate(5%, 5%) scale(1.1); }\n  100% { transform: translate(-5%, -2%) scale(0.9); }\n}\n\n/* Pulsating Shamanic Source */\nselector .ao-source-wrap {\n  position: relative;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  margin-bottom: 40px;\n  z-index: 2;\n}\n\nselector .ao-source-icon {\n  width: 110px;\n  height: 110px;\n  background-image: url(https://abhayoyun.org/wp-content/uploads/icon1.png);\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position: center;\n  position: relative;\n  z-index: 3;\n  animation: sourcePulse 4s infinite ease-in-out;\n  filter: brightness(0) saturate(100%) invert(69%) sepia(54%) saturate(550%) hue-rotate(4deg) brightness(94%);\n}\n\nselector .ao-source-glow {\n  position: absolute;\n  width: 140px;\n  height: 140px;\n  border-radius: 50%;\n  background: #d4a853;\n  filter: blur(40px);\n  opacity: 0.4;\n  animation: glowPulse 3s infinite ease-in-out;\n}\n\nselector .ao-source-glow-outer {\n  position: absolute;\n  width: 180px;\n  height: 180px;\n  border-radius: 50%;\n  background: #f9d58b;\n  filter: blur(60px);\n  opacity: 0.2;\n  animation: glowPulse 5s infinite ease-in-out reverse;\n}\n\n@keyframes sourcePulse {\n  0%, 100% { transform: scale(1) rotate(0deg); filter: brightness(0) saturate(100%) invert(69%) sepia(54%) saturate(550%) hue-rotate(4deg) brightness(94%); }\n  50% { transform: scale(1.12) rotate(5deg); filter: brightness(0) saturate(100%) invert(69%) sepia(54%) saturate(550%) hue-rotate(4deg) brightness(130%); }\n}\n\n@keyframes glowPulse {\n  0%, 100% { transform: scale(1); opacity: 0.2; }\n  50% { transform: scale(1.5); opacity: 0.4; }\n}\n\n/* Floating Particles */\nselector .ao-particles {\n  position: absolute;\n  inset: 0;\n  z-index: 2;\n  pointer-events: none;\n}\n\nselector .ao-particle {\n  position: absolute;\n  width: 4px;\n  height: 4px;\n  background: #d4a853;\n  border-radius: 50%;\n  box-shadow: 0 0 10px #d4a853;\n  opacity: 0.4;\n  animation: particleFloat 10s infinite linear;\n}\n\n@keyframes particleFloat {\n  0% { transform: translateY(100vh) scale(0); opacity: 0; }\n  20% { opacity: 0.6; }\n  80% { opacity: 0.6; }\n  100% { transform: translateY(-100px) scale(1); opacity: 0; }\n}\n\n/* High-vibration Content */\nselector .ao-aura-content {\n  position: relative;\n  z-index: 5;\n  text-align: center;\n}\n\nselector .ao-shimmer-text {\n  background: linear-gradient(90deg, #0d1117, #d4a853, #0d1117);\n  background-size: 200% auto;\n  -webkit-background-clip: text;\n  -webkit-text-fill-color: transparent;\n  animation: shimmer 5s linear infinite;\n}\n\n@keyframes shimmer {\n  to { background-position: 200% center; }\n}\n\n@media (max-width: 767px) {\n  selector .ao-source-icon { width: 70px; height: 70px; }\n  selector .ao-source-glow { width: 90px; height: 90px; }\n}\n",
+        "css_classes": "ao-aura-section"
+      },
+      "elements": [
+        {
+          "id": "2a00009",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100,
+            "align": "center"
+          },
+          "elements": [
+            {
+              "id": "2a00000",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"ao-aura-bg\"><div class=\"ao-aura-blob ao-aura-1\"></div><div class=\"ao-aura-blob ao-aura-2\"></div></div>",
+                "text_color": "",
+                "typography_typography": "custom"
+              }
+            },
+            {
+              "id": "2a00001",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"ao-particles\"><div class=\"ao-particle\" style=\"left: 53.31937172954423%; animation-delay: 4.605626428665579s;\"></div><div class=\"ao-particle\" style=\"left: 40.97580413755759%; animation-delay: 8.14880228414913s;\"></div><div class=\"ao-particle\" style=\"left: 59.66067466751992%; animation-delay: 7.11307167178973s;\"></div><div class=\"ao-particle\" style=\"left: 60.43057088114783%; animation-delay: 0.7860758560906744s;\"></div><div class=\"ao-particle\" style=\"left: 47.09758713106541%; animation-delay: 4.145195514788453s;\"></div><div class=\"ao-particle\" style=\"left: 50.938708377921394%; animation-delay: 4.313195376021514s;\"></div><div class=\"ao-particle\" style=\"left: 38.553566427393925%; animation-delay: 4.435893880865266s;\"></div><div class=\"ao-particle\" style=\"left: 46.80941574777696%; animation-delay: 6.363074354578535s;\"></div><div class=\"ao-particle\" style=\"left: 55.478279069640394%; animation-delay: 3.399206976867599s;\"></div><div class=\"ao-particle\" style=\"left: 79.4486888859232%; animation-delay: 6.078251637451676s;\"></div><div class=\"ao-particle\" style=\"left: 71.46165250017286%; animation-delay: 9.405804712487429s;\"></div><div class=\"ao-particle\" style=\"left: 72.46447800326384%; animation-delay: 8.994469265629984s;\"></div></div>",
+                "text_color": "",
+                "typography_typography": "custom"
+              }
+            },
+            {
+              "id": "2a00002",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"ao-source-wrap\"><div class=\"ao-source-glow\"></div><div class=\"ao-source-glow-outer\"></div><div class=\"ao-source-icon\"></div></div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInDown",
+                "animation_duration": "slow"
+              }
+            },
+            {
+              "id": "2a00003",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"ao-aura-content\">\n          <div style=\"display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:24px;\">\n            <div style=\"width:36px;height:1px;background:linear-gradient(90deg,transparent,#d4a853);\"></div>\n            <span style=\"font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:#d4a853;\">Chosen from the Spirits</span>\n            <div style=\"width:36px;height:1px;background:linear-gradient(90deg,#d4a853,transparent);\"></div>\n          </div>\n        </div>",
+                "text_color": "",
+                "typography_typography": "custom"
+              }
+            },
+            {
+              "id": "2a00004",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Step into the<br><span class=\"ao-shimmer-text\">Field of Ancient Knowledge</span>",
+                "header_size": "h2",
+                "title_color": "#0d1117",
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 64,
+                  "sizes": []
+                },
+                "typography_font_size_mobile": {
+                  "unit": "px",
+                  "size": 38,
+                  "sizes": []
+                },
+                "typography_font_size_tablet": {
+                  "unit": "px",
+                  "size": 52,
+                  "sizes": []
+                },
+                "typography_font_weight": "400",
+                "typography_letter_spacing": {
+                  "unit": "px",
+                  "size": -1,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.1,
+                  "sizes": []
+                },
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 200
+              }
+            },
+            {
+              "id": "2a00005",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "settings": {
+                "space": {
+                  "unit": "px",
+                  "size": 30,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "2a00006",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style=\"max-width:640px;margin:0 auto;color:rgba(13,17,23,0.7);font-family:'Inter',sans-serif;font-size:18px;line-height:1.75;\">\n          Throughout human history, all the great teachers have always spoken of the same eternal truth: “Awaken and know thyself.” With the power of Shamanic Knowledge, you now have the chance to liberate your spirit from the invisible prison of conditioning, society, and false morality - so you can finally discover who you truly are. YOU, in your authentic individuality.\n        </p>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 400
+              }
+            },
+            {
+              "id": "2a00007",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "settings": {
+                "space": {
+                  "unit": "px",
+                  "size": 50,
+                  "sizes": []
+                }
+              }
+            },
+            {
+              "id": "2a00008",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<a href=\"#teachings\" style=\"display:inline-flex;align-items:center;padding:18px 44px;background:#0d1117;color:#ffffff;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-radius:4px;text-decoration:none;transition:all 0.3s;box-shadow:0 10px 30px rgba(13,17,23,0.1);\">\n          Siberian Shamanic Knowledge\n        </a>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "_animation": "fadeInUp",
+                "animation_duration": "slow",
+                "_animation_delay": 600
+              }
+            }
+          ]
+        }
+      ],
+      "isInner": false
+    }
+  ]
+}

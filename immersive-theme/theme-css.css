@@ -1,0 +1,109 @@
+/* ═══════════════════════════════════════════════════════════════
+   ABHAY OYUN — IMMERSIVE MYSTICAL THEME
+   Add to: Appearance → Customize → Additional CSS
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Google Fonts Import ── */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lato:wght@300;400;600;700&display=swap');
+
+/* ── CSS Variables ── */
+:root {
+  --ivory: #FFFDF8;
+  --parchment: #F8F3E8;
+  --dune: #EDE4D3;
+  --stone: #E5DDD0;
+  --charcoal: #2C2416;
+  --brown: #5C4A32;
+  --stone-gray: #8B7B65;
+  --gold: #C4942A;
+  --gold-light: #E8BC5A;
+  --gold-pale: #F5DFA0;
+  --forest: #3A5430;
+  --moss: #6B8F5C;
+  --sage: #9BAF8C;
+  --terra: #B86B4A;
+}
+
+/* ── Global Reset ── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: var(--ivory);
+  color: var(--brown);
+}
+
+/* ── Typography Defaults ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cinzel', serif !important;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--charcoal);
+}
+
+p {
+  font-family: 'Lato', sans-serif;
+  line-height: 1.8;
+}
+
+/* ── Selection Color ── */
+::selection {
+  background: var(--gold-pale);
+  color: var(--charcoal);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION-SPECIFIC STYLES
+   These enhance the JSON-generated CSS
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Hero Section ── */
+.elementor-section-wrap .hero-section {
+  position: relative;
+}
+
+/* ── Button Hover Enhancements ── */
+.elementor-button {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.elementor-button:hover {
+  transform: translateY(-3px) !important;
+}
+
+/* ── Image Hover Effects ── */
+.elementor-image img {
+  transition: transform 0.6s ease, box-shadow 0.6s ease !important;
+}
+
+.elementor-image:hover img {
+  transform: scale(1.02);
+}
+
+/* ── Smooth Scroll Indicator ── */
+.scroll-indicator {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+/* ── Mobile Optimizations ── */
+@media (max-width: 768px) {
+  h1 { font-size: 36px !important; line-height: 1.1 !important; }
+  h2 { font-size: 28px !important; }
+  h3 { font-size: 22px !important; }
+}
+
+/* ── Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

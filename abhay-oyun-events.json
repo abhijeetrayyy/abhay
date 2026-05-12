@@ -1,0 +1,494 @@
+{
+  "title": "Abhay Oyun Events",
+  "type": "section",
+  "version": "1.0",
+  "content": [
+    {
+      "id": "sao-events-section",
+      "elType": "section",
+      "settings": {
+        "background_background": "classic",
+        "background_color": "#f5f0e8",
+        "padding": {
+          "unit": "px",
+          "top": "140",
+          "right": "80",
+          "bottom": "140",
+          "left": "80",
+          "isLinked": false
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "60",
+          "right": "20",
+          "bottom": "60",
+          "left": "20",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "sao-events-col",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100
+          },
+          "elements": [
+
+            {
+              "id": "sao-events-eyebrow",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div style=\"display:inline-flex;align-items:center;gap:10px;margin-bottom:16px;\"><div style=\"width:28px;height:1px;background:#d4a853;\"></div><span style=\"font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:#d4a853;\">Upcoming Events</span></div>"
+              }
+            },
+            {
+              "id": "sao-events-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Join Abhay<br><em style=\"color:#d4a853;font-style:italic;\">in the Field.</em>",
+                "header_size": "h2",
+                "title_color": "#0d1117",
+                "typography_typography": "custom",
+                "typography_font_family": "Playfair Display",
+                "typography_font_size": { "unit": "px", "size": 60, "sizes": [] },
+                "typography_font_size_mobile": { "unit": "px", "size": 36, "sizes": [] },
+                "typography_font_weight": "700",
+                "typography_letter_spacing": { "unit": "px", "size": -1, "sizes": [] },
+                "typography_line_height": { "unit": "em", "size": 0.95, "sizes": [] },
+                "_animation": "fadeInUp",
+                "animation_duration": "slow"
+              }
+            },
+
+            {
+              "id": "sao-events-spacer1",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "settings": { "space": { "unit": "px", "size": 48, "sizes": [] } }
+            },
+
+            {
+              "id": "sao-event1-section",
+              "elType": "section",
+              "settings": {
+                "background_background": "classic",
+                "background_color": "#FFFFFF",
+                "border_radius": { "unit": "px", "top": "20", "right": "20", "bottom": "20", "left": "20", "isLinked": true },
+                "box_shadow_box_shadow_type": "yes",
+                "box_shadow_box_shadow": { "horizontal": 0, "vertical": 8, "blur": 40, "spread": 0, "color": "rgba(13,17,23,0.07)" },
+                "overflow": "hidden",
+                "margin": { "unit": "px", "top": "0", "right": "0", "bottom": "24", "left": "0", "isLinked": false },
+                "padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": false }
+              },
+              "elements": [
+                {
+                  "id": "sao-event1-img-col",
+                  "elType": "column",
+                  "settings": {
+                    "_column_size": 40,
+                    "_inline_size": 40,
+                    "_column_size_mobile": 100,
+                    "padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": false }
+                  },
+                  "elements": [
+                    {
+                      "id": "sao-event1-img",
+                      "elType": "widget",
+                      "widgetType": "image",
+                      "settings": {
+                        "image": { "url": "https://abhayoyun.org/wp-content/uploads/drum_gold_waves.png", "id": "" },
+                        "image_size": "full",
+                        "width": { "unit": "%", "size": 100 },
+                        "height": { "unit": "px", "size": 320 },
+                        "object_fit": "cover"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "sao-event1-info-col",
+                  "elType": "column",
+                  "settings": {
+                    "_column_size": 60,
+                    "_inline_size": 60,
+                    "content_position": "middle",
+                    "_column_size_mobile": 100,
+                    "padding": {
+                      "unit": "px",
+                      "top": "48",
+                      "right": "56",
+                      "bottom": "48",
+                      "left": "56",
+                      "isLinked": false
+                    },
+                    "padding_mobile": {
+                      "unit": "px",
+                      "top": "32",
+                      "right": "24",
+                      "bottom": "32",
+                      "left": "24",
+                      "isLinked": false
+                    }
+                  },
+                  "elements": [
+                    {
+                      "id": "sao-event1-badge",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "settings": {
+                        "editor": "<div style=\"display:inline-flex;gap:8px;margin-bottom:20px;\"><span style=\"font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#d4a853;padding:5px 14px;border:1px solid rgba(212,168,83,0.4);border-radius:999px;\">Free Webinar</span><span style=\"font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#00b37e;padding:5px 14px;border:1px solid rgba(0,179,126,0.3);border-radius:999px;background:rgba(0,179,126,0.06);\">Online</span></div>"
+                      }
+                    },
+                    {
+                      "id": "sao-event1-title",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "title": "Free Shamanic Webinar",
+                        "header_size": "h3",
+                        "title_color": "#0d1117",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Playfair Display",
+                        "typography_font_size": { "unit": "px", "size": 32, "sizes": [] },
+                        "typography_font_size_mobile": { "unit": "px", "size": 24, "sizes": [] },
+                        "typography_font_weight": "700"
+                      }
+                    },
+                    {
+                      "id": "sao-event1-desc",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "settings": {
+                        "editor": "<p style=\"font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:rgba(13,17,23,0.6);margin:12px 0 28px;\">Join Shaman Abhay Oyun for a live introduction to Siberian Shamanism — discover how ancient wisdom can liberate your spirit and reconnect you with your true nature.</p>"
+                      }
+                    },
+                    {
+                      "id": "sao-event1-meta",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "settings": {
+                        "editor": "<div style=\"display:flex;align-items:flex-start;gap:40px;margin-bottom:32px;\">\n  <div>\n    <div style=\"font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(13,17,23,0.4);margin-bottom:6px;\">Date</div>\n    <div style=\"font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:#0d1117;\">April 9, 2025</div>\n  </div>\n  <div style=\"width:1px;height:40px;background:rgba(13,17,23,0.1);\"></div>\n  <div>\n    <div style=\"font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(13,17,23,0.4);margin-bottom:6px;\">Location</div>\n    <div style=\"font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:#0d1117;\">Zoom (Online)</div>\n  </div>\n</div>"
+                      }
+                    },
+                    {
+                      "id": "sao-event1-btn",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "settings": {
+                        "text": "Join the Webinar — April 9 →",
+                        "link": { "url": "https://forms.gle/jEDaUrKwbyHd8WvUA", "is_external": true },
+                        "button_type": "button",
+                        "background_color": "#0d1117",
+                        "button_text_color": "#ffffff",
+                        "border_radius": { "unit": "px", "top": "10", "right": "10", "bottom": "10", "left": "10", "isLinked": true },
+                        "typography_typography": "custom",
+                        "typography_font_family": "Inter",
+                        "typography_font_size": { "unit": "px", "size": 13, "sizes": [] },
+                        "typography_font_weight": "700",
+                        "typography_letter_spacing": { "unit": "px", "size": 1, "sizes": [] },
+                        "text_padding": { "unit": "px", "top": "16", "right": "32", "bottom": "16", "left": "32", "isLinked": false }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "isInner": true
+            },
+
+            {
+              "id": "sao-event2-section",
+              "elType": "section",
+              "settings": {
+                "background_background": "classic",
+                "background_color": "#FFFFFF",
+                "border_radius": { "unit": "px", "top": "20", "right": "20", "bottom": "20", "left": "20", "isLinked": true },
+                "box_shadow_box_shadow_type": "yes",
+                "box_shadow_box_shadow": { "horizontal": 0, "vertical": 8, "blur": 40, "spread": 0, "color": "rgba(13,17,23,0.07)" },
+                "overflow": "hidden",
+                "margin": { "unit": "px", "top": "0", "right": "0", "bottom": "24", "left": "0", "isLinked": false },
+                "padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": false }
+              },
+              "elements": [
+                {
+                  "id": "sao-event2-img-col",
+                  "elType": "column",
+                  "settings": {
+                    "_column_size": 40,
+                    "_inline_size": 40,
+                    "_column_size_mobile": 100,
+                    "padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": false }
+                  },
+                  "elements": [
+                    {
+                      "id": "sao-event2-img",
+                      "elType": "widget",
+                      "widgetType": "image",
+                      "settings": {
+                        "image": { "url": "https://abhayoyun.org/wp-content/uploads/yurt_fire_healing.png", "id": "" },
+                        "image_size": "full",
+                        "width": { "unit": "%", "size": 100 },
+                        "height": { "unit": "px", "size": 320 },
+                        "object_fit": "cover"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "sao-event2-info-col",
+                  "elType": "column",
+                  "settings": {
+                    "_column_size": 60,
+                    "_inline_size": 60,
+                    "content_position": "middle",
+                    "_column_size_mobile": 100,
+                    "padding": {
+                      "unit": "px",
+                      "top": "48",
+                      "right": "56",
+                      "bottom": "48",
+                      "left": "56",
+                      "isLinked": false
+                    },
+                    "padding_mobile": {
+                      "unit": "px",
+                      "top": "32",
+                      "right": "24",
+                      "bottom": "32",
+                      "left": "24",
+                      "isLinked": false
+                    }
+                  },
+                  "elements": [
+                    {
+                      "id": "sao-event2-badge",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "settings": {
+                        "editor": "<div style=\"display:inline-flex;gap:8px;margin-bottom:20px;\"><span style=\"font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#d4a853;padding:5px 14px;border:1px solid rgba(212,168,83,0.4);border-radius:999px;\">Women's Gathering</span><span style=\"font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(13,17,23,0.5);padding:5px 14px;border:1px solid rgba(13,17,23,0.15);border-radius:999px;\">Limited Spots</span></div>"
+                      }
+                    },
+                    {
+                      "id": "sao-event2-title",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "title": "Women's Retreat",
+                        "header_size": "h3",
+                        "title_color": "#0d1117",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Playfair Display",
+                        "typography_font_size": { "unit": "px", "size": 32, "sizes": [] },
+                        "typography_font_size_mobile": { "unit": "px", "size": 24, "sizes": [] },
+                        "typography_font_weight": "700"
+                      }
+                    },
+                    {
+                      "id": "sao-event2-desc",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "settings": {
+                        "editor": "<p style=\"font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:rgba(13,17,23,0.6);margin:12px 0 28px;\">A sacred 3-day retreat for women seeking to reconnect with their feminine power, ancestral roots, and inner light through Siberian shamanic ceremonies and healing rituals.</p>"
+                      }
+                    },
+                    {
+                      "id": "sao-event2-meta",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "settings": {
+                        "editor": "<div style=\"display:flex;align-items:flex-start;gap:40px;margin-bottom:32px;\">\n  <div>\n    <div style=\"font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(13,17,23,0.4);margin-bottom:6px;\">Date</div>\n    <div style=\"font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:#0d1117;\">May 1–3, 2025</div>\n  </div>\n  <div style=\"width:1px;height:40px;background:rgba(13,17,23,0.1);\"></div>\n  <div>\n    <div style=\"font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(13,17,23,0.4);margin-bottom:6px;\">Location</div>\n    <div style=\"font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:#0d1117;\">Denver, Colorado</div>\n  </div>\n</div>"
+                      }
+                    },
+                    {
+                      "id": "sao-event2-btn",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "settings": {
+                        "text": "Register on WhatsApp →",
+                        "link": { "url": "https://wa.me/12122561366", "is_external": true },
+                        "background_color": "#d4a853",
+                        "button_text_color": "#0d1117",
+                        "border_radius": { "unit": "px", "top": "10", "right": "10", "bottom": "10", "left": "10", "isLinked": true },
+                        "typography_typography": "custom",
+                        "typography_font_family": "Inter",
+                        "typography_font_size": { "unit": "px", "size": 13, "sizes": [] },
+                        "typography_font_weight": "700",
+                        "typography_letter_spacing": { "unit": "px", "size": 1, "sizes": [] },
+                        "text_padding": { "unit": "px", "top": "16", "right": "32", "bottom": "16", "left": "32", "isLinked": false }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "isInner": true
+            },
+
+            {
+              "id": "sao-event3-section",
+              "elType": "section",
+              "settings": {
+                "background_background": "classic",
+                "background_color": "#FFFFFF",
+                "border_radius": { "unit": "px", "top": "20", "right": "20", "bottom": "20", "left": "20", "isLinked": true },
+                "box_shadow_box_shadow_type": "yes",
+                "box_shadow_box_shadow": { "horizontal": 0, "vertical": 8, "blur": 40, "spread": 0, "color": "rgba(13,17,23,0.07)" },
+                "overflow": "hidden",
+                "margin": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": false },
+                "padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": false }
+              },
+              "elements": [
+                {
+                  "id": "sao-event3-img-col",
+                  "elType": "column",
+                  "settings": {
+                    "_column_size": 40,
+                    "_inline_size": 40,
+                    "_column_size_mobile": 100,
+                    "padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": false }
+                  },
+                  "elements": [
+                    {
+                      "id": "sao-event3-img",
+                      "elType": "widget",
+                      "widgetType": "image",
+                      "settings": {
+                        "image": { "url": "https://abhayoyun.org/wp-content/uploads/healing-global-harmony.jpg", "id": "" },
+                        "image_size": "full",
+                        "width": { "unit": "%", "size": 100 },
+                        "height": { "unit": "px", "size": 320 },
+                        "object_fit": "cover"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "sao-event3-info-col",
+                  "elType": "column",
+                  "settings": {
+                    "_column_size": 60,
+                    "_inline_size": 60,
+                    "content_position": "middle",
+                    "_column_size_mobile": 100,
+                    "padding": {
+                      "unit": "px",
+                      "top": "48",
+                      "right": "56",
+                      "bottom": "48",
+                      "left": "56",
+                      "isLinked": false
+                    },
+                    "padding_mobile": {
+                      "unit": "px",
+                      "top": "32",
+                      "right": "24",
+                      "bottom": "32",
+                      "left": "24",
+                      "isLinked": false
+                    }
+                  },
+                  "elements": [
+                    {
+                      "id": "sao-event3-badge",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "settings": {
+                        "editor": "<div style=\"display:inline-flex;gap:8px;margin-bottom:20px;\"><span style=\"font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#d4a853;padding:5px 14px;border:1px solid rgba(212,168,83,0.4);border-radius:999px;\">International Retreat</span><span style=\"font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(13,17,23,0.5);padding:5px 14px;border:1px solid rgba(13,17,23,0.15);border-radius:999px;\">Limited Spots</span></div>"
+                      }
+                    },
+                    {
+                      "id": "sao-event3-title",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "settings": {
+                        "title": "International Women's Retreat",
+                        "header_size": "h3",
+                        "title_color": "#0d1117",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Playfair Display",
+                        "typography_font_size": { "unit": "px", "size": 32, "sizes": [] },
+                        "typography_font_size_mobile": { "unit": "px", "size": 24, "sizes": [] },
+                        "typography_font_weight": "700"
+                      }
+                    },
+                    {
+                      "id": "sao-event3-desc",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "settings": {
+                        "editor": "<p style=\"font-family:'Inter',sans-serif;font-size:16px;line-height:1.7;color:rgba(13,17,23,0.6);margin:12px 0 28px;\">A deep 5-day international gathering bringing women from across the world together for profound shamanic healing, soul diagnosis, sacred fire ceremonies, and sisterhood.</p>"
+                      }
+                    },
+                    {
+                      "id": "sao-event3-meta",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "settings": {
+                        "editor": "<div style=\"display:flex;align-items:flex-start;gap:40px;margin-bottom:32px;\">\n  <div>\n    <div style=\"font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(13,17,23,0.4);margin-bottom:6px;\">Date</div>\n    <div style=\"font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:#0d1117;\">July 22–26, 2025</div>\n  </div>\n  <div style=\"width:1px;height:40px;background:rgba(13,17,23,0.1);\"></div>\n  <div>\n    <div style=\"font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(13,17,23,0.4);margin-bottom:6px;\">Location</div>\n    <div style=\"font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:#0d1117;\">Denver, Colorado</div>\n  </div>\n</div>"
+                      }
+                    },
+                    {
+                      "id": "sao-event3-btn",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "settings": {
+                        "text": "Register on WhatsApp →",
+                        "link": { "url": "https://wa.me/12122561366", "is_external": true },
+                        "background_color": "#d4a853",
+                        "button_text_color": "#0d1117",
+                        "border_radius": { "unit": "px", "top": "10", "right": "10", "bottom": "10", "left": "10", "isLinked": true },
+                        "typography_typography": "custom",
+                        "typography_font_family": "Inter",
+                        "typography_font_size": { "unit": "px", "size": 13, "sizes": [] },
+                        "typography_font_weight": "700",
+                        "typography_letter_spacing": { "unit": "px", "size": 1, "sizes": [] },
+                        "text_padding": { "unit": "px", "top": "16", "right": "32", "bottom": "16", "left": "32", "isLinked": false }
+                      }
+                    }
+                  ]
+                }
+              ],
+              "isInner": true
+            },
+
+            {
+              "id": "sao-events-spacer2",
+              "elType": "widget",
+              "widgetType": "spacer",
+              "settings": { "space": { "unit": "px", "size": 56, "sizes": [] } }
+            },
+
+            {
+              "id": "sao-events-cta",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "See All Events →",
+                "link": { "url": "#events", "is_external": false },
+                "align": "center",
+                "background_color": "rgba(0,0,0,0)",
+                "button_text_color": "#0d1117",
+                "border_border": "solid",
+                "border_width": { "unit": "px", "top": "2", "right": "2", "bottom": "2", "left": "2", "isLinked": true },
+                "border_color": "#0d1117",
+                "border_radius": { "unit": "px", "top": "12", "right": "12", "bottom": "12", "left": "12", "isLinked": true },
+                "hover_color": "#ffffff",
+                "button_background_hover_color": "#0d1117",
+                "typography_typography": "custom",
+                "typography_font_family": "Inter",
+                "typography_font_size": { "unit": "px", "size": 14, "sizes": [] },
+                "typography_font_weight": "700",
+                "typography_letter_spacing": { "unit": "px", "size": 1.5, "sizes": [] },
+                "text_padding": { "unit": "px", "top": "18", "right": "48", "bottom": "18", "left": "48", "isLinked": false }
+              }
+            }
+
+          ]
+        }
+      ],
+      "isInner": false
+    }
+  ]
+}

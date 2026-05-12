@@ -74,7 +74,7 @@ export default function EventsSection() {
               <div style={{ width: 36, height: 1, background: "#d4a853" }} />
               <span
                 style={{
-                  fontFamily: "'Inter', sans-serif",
+                  fontFamily: "'Cinzel', serif",
                   fontSize: 10,
                   fontWeight: 600,
                   letterSpacing: "0.3em",
@@ -109,7 +109,7 @@ export default function EventsSection() {
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
             style={{
-              fontFamily: "'Inter', sans-serif",
+              fontFamily: "'Cinzel', serif",
               fontSize: "1rem",
               lineHeight: 1.8,
               color: "#666c76",
@@ -182,7 +182,7 @@ export default function EventsSection() {
                             backdropFilter: "blur(8px)",
                             borderRadius: 99,
                             padding: "4px 12px",
-                            fontFamily: "'Inter', sans-serif",
+                            fontFamily: "'Cinzel', serif",
                             fontSize: 10,
                             fontWeight: 600,
                             letterSpacing: "0.15em",
@@ -198,7 +198,7 @@ export default function EventsSection() {
                     <div style={{ padding: "0 48px 0 0" }}>
                       <div
                         style={{
-                          fontFamily: "'Inter', sans-serif",
+                          fontFamily: "'Cinzel', serif",
                           fontSize: 11,
                           fontWeight: 600,
                           letterSpacing: "0.15em",
@@ -223,7 +223,7 @@ export default function EventsSection() {
                       </h3>
                       <p
                         style={{
-                          fontFamily: "'Inter', sans-serif",
+                          fontFamily: "'Cinzel', serif",
                           fontSize: "0.9rem",
                           lineHeight: 1.85,
                           color: "#666c76",
@@ -246,7 +246,7 @@ export default function EventsSection() {
                           padding: "13px 28px",
                           background: "#0d1117",
                           color: "#ffffff",
-                          fontFamily: "'Inter', sans-serif",
+                          fontFamily: "'Cinzel', serif",
                           fontSize: 11,
                           fontWeight: 600,
                           letterSpacing: "0.12em",
@@ -273,7 +273,7 @@ export default function EventsSection() {
                           padding: "13px 28px",
                           background: "#0d1117",
                           color: "#ffffff",
-                          fontFamily: "'Inter', sans-serif",
+                          fontFamily: "'Cinzel', serif",
                           fontSize: 11,
                           fontWeight: 600,
                           letterSpacing: "0.12em",
@@ -289,7 +289,7 @@ export default function EventsSection() {
                     <div style={{ padding: "0 48px" }}>
                       <div
                         style={{
-                          fontFamily: "'Inter', sans-serif",
+                          fontFamily: "'Cinzel', serif",
                           fontSize: 11,
                           fontWeight: 600,
                           letterSpacing: "0.15em",
@@ -314,7 +314,7 @@ export default function EventsSection() {
                       </h3>
                       <p
                         style={{
-                          fontFamily: "'Inter', sans-serif",
+                          fontFamily: "'Cinzel', serif",
                           fontSize: "0.9rem",
                           lineHeight: 1.85,
                           color: "#666c76",
@@ -356,7 +356,7 @@ export default function EventsSection() {
                             backdropFilter: "blur(8px)",
                             borderRadius: 99,
                             padding: "4px 12px",
-                            fontFamily: "'Inter', sans-serif",
+                            fontFamily: "'Cinzel', serif",
                             fontSize: 10,
                             fontWeight: 600,
                             letterSpacing: "0.15em",

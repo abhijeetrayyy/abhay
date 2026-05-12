@@ -1,35 +1,36 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 const testimonials = [
   {
-    quote:
-      "After one session with Abhay, I felt a weight lift from my chest that I had been carrying for 20 years. It was like my cells remembered how to breathe again.",
+    quote: "After one session with Abhay, I felt a weight lift from my chest that I had been carrying for 20 years. It was like my cells remembered how to breathe again.",
     name: "Maria K.",
     location: "Berlin, Germany",
     img: "/sao-gallery-img5.jpg",
+    type: "Healing Session"
   },
   {
-    quote:
-      "The Sampo System completely rewired how I experience stress. What used to cripple me now passes through me. I have never felt more sovereign in my own body.",
+    quote: "The SAMPO System completely rewired how I experience stress. What used to cripple me now passes through me. I have never felt more sovereign in my own body.",
     name: "James R.",
     location: "London, UK",
     img: "/sao-gallery-img3.jpg",
+    type: "Training Program"
   },
   {
-    quote:
-      "I traveled to three continents seeking healing. What Abhay achieved in a single masterclass surpassed everything. This is ancient wisdom in its purest form.",
+    quote: "I traveled to three continents seeking healing. What Abhay achieved in a single masterclass surpassed everything. This is ancient wisdom in its purest form.",
     name: "Elena V.",
     location: "Moscow, Russia",
     img: "/sao-gallery-img7.jpg",
+    type: "Masterclass"
   },
   {
-    quote:
-      "What people remember most after a personal encounter with the shaman is the special inner feeling — an all-embracing love that truly touches the heart.",
+    quote: "What people remember most after a personal encounter with the shaman is the special inner feeling — an all-embracing love that truly touches the heart.",
     name: "Priya S.",
     location: "Mumbai, India",
     img: "/sao-gallery-img8.jpg",
+    type: "Ceremony"
   },
 ];
 
@@ -51,268 +52,147 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section
-      style={{
-        position: "relative",
-        background: "var(--warm-beige)",
-        overflow: "hidden",
-      }}
-    >
-      {/* Decorative large quote mark */}
-      <div
-        className="quote-mark"
-        style={{
-          position: "absolute",
-          top: 80,
-          left: 80,
-          fontFamily: "'Playfair Display', serif",
-          fontSize: "20rem",
-          color: "rgba(212,168,83,0.12)",
-          lineHeight: 1,
-          userSelect: "none",
-          pointerEvents: "none",
-        }}
-      >
-        &ldquo;
-      </div>
+    <section style={{ position: "relative", background: "#F5F1EA", overflow: "hidden" }}>
+      <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 20% 80%, rgba(201,160,74,0.06) 0%, transparent 50%)", pointerEvents: "none" }} />
+      <div style={{ position: "absolute", top: 40, left: 30, fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "18rem", color: "rgba(201,160,74,0.05)", lineHeight: 1, userSelect: "none", pointerEvents: "none", fontWeight: 400 }}>&ldquo;</div>
 
-      <div className="test-wrapper" style={{ maxWidth: 1440, margin: "0 auto", padding: "140px 80px" }}>
-        {/* Section label */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 16,
-            marginBottom: 80,
-          }}
+      <div style={{ maxWidth: 1100, margin: "0 auto", padding: "clamp(80px, 10vw, 140px) 24px", position: "relative" }}>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          style={{ textAlign: 'center', marginBottom: 56 }}
         >
-          <div style={{ width: 36, height: 1, background: "#d4a853" }} />
-          <span
-            style={{
-              fontFamily: "'Inter', sans-serif",
-              fontSize: 10,
-              fontWeight: 600,
-              letterSpacing: "0.3em",
-              textTransform: "uppercase" as const,
-              color: "#d4a853",
-            }}
-          >
-            Voices of Transformation
-          </span>
-        </div>
-
-        <div
-          className="testimonials-grid"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: 100,
-            alignItems: "center",
-          }}
-        >
-          {/* Left — static heading */}
-          <div>
-            <h2
-              style={{
-                margin: "0 0 24px 0",
-                fontFamily: "'Playfair Display', serif",
-                fontWeight: 400,
-                fontSize: "clamp(2.2rem, 8vw, 4rem)",
-                letterSpacing: "-0.025em",
-                color: "#0d1117",
-                lineHeight: 0.95,
-              }}
-            >
-              Lives Changed
-              <br />
-              <span style={{ fontStyle: "italic", color: "#d4a853" }}>
-                Across the World
-              </span>
-            </h2>
-            <p
-              style={{
-                fontFamily: "'Inter', sans-serif",
-                fontSize: "0.95rem",
-                lineHeight: 1.8,
-                color: "#666c76",
-                maxWidth: 380,
-              }}
-            >
-              Over 10,000 individuals across 40 countries have experienced
-              direct healing from Master Abhay Oyun&apos;s practices.
-            </p>
-
-            {/* Progress dots */}
-            <div style={{ display: "flex", gap: 10, marginTop: 48 }}>
-              {testimonials.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => go(i)}
-                  style={{
-                    width: i === cur ? 32 : 8,
-                    height: 8,
-                    borderRadius: 99,
-                    border: "none",
-                    outline: "none",
-                    cursor: "pointer",
-                    background: i === cur ? "#d4a853" : "rgba(13,17,23,0.15)",
-                    transition: "all 0.4s ease",
-                    padding: 0,
-                  }}
-                  aria-label={`Testimonial ${i + 1}`}
-                />
-              ))}
-            </div>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16, marginBottom: 18 }}>
+            <div style={{ width: 40, height: 1, background: 'linear-gradient(to right, #C9A04A, transparent)' }} />
+            <span style={{ color: '#A07D2E', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.3em', textTransform: 'uppercase', fontFamily: "'Cinzel', serif" }}>
+              Testimonials
+            </span>
+            <div style={{ width: 40, height: 1, background: 'linear-gradient(to left, #C9A04A, transparent)' }} />
           </div>
+          <h2 style={{
+            margin: 0,
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontSize: 'clamp(2rem, 4.5vw, 2.8rem)',
+            fontWeight: 400,
+            color: '#1F1B16',
+            letterSpacing: '-0.01em',
+          }}>
+            Stories of Transformation
+          </h2>
+        </motion.div>
 
-          {/* Right — animated quote inside an elegant card */}
-          <div
-            style={{
-              position: "relative",
-              height: 440,
-              background: "#faf6eb",
-              borderRadius: 24,
-              boxShadow: "0 20px 80px rgba(13,17,23,0.04)",
-              border: "1px solid rgba(13,17,23,0.03)",
-              overflow: "hidden",
-            }}
-          >
-            <AnimatePresence mode="wait" custom={dir}>
-              <motion.div
-                key={cur}
-                custom={dir}
-                variants={{
-                  enter: (d: number) => ({ opacity: 0, x: d * 32, y: 0 }),
-                  center: { opacity: 1, x: 0, y: 0 },
-                  exit: (d: number) => ({ opacity: 0, x: d * -32, y: 0 }),
-                }}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  display: "flex",
-                  width: "100%",
-                  height: "100%",
-                }}
-                className="testimonial-flex-inner"
-              >
-                {/* Content Side */}
-                <div
-                  className="testimonial-card-content"
-                  style={{
-                    flex: "1.2",
-                    padding: "60px 40px 60px 60px",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    position: "relative",
-                    zIndex: 2,
-                  }}
-                >
-                  <p
-                    style={{
-                      fontFamily: "'Playfair Display', serif",
-                      fontStyle: "italic",
-                      fontSize: "clamp(1.15rem, 1.8vw, 1.6rem)",
-                      lineHeight: 1.6,
-                      color: "#0d1117",
-                      margin: "0 0 40px 0",
-                    }}
-                  >
-                    &ldquo;{testimonials[cur].quote}&rdquo;
-                  </p>
-                  <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-                    <div
-                      style={{
-                        width: 32,
-                        height: 1,
-                        background:
-                          "linear-gradient(to right, #d4a853, transparent)",
-                      }}
-                    />
-                    <div>
-                      <div
-                        style={{
-                          fontFamily: "'Inter', sans-serif",
-                          fontSize: "0.95rem",
-                          fontWeight: 700,
-                          color: "#0d1117",
-                        }}
-                      >
-                        {testimonials[cur].name}
-                      </div>
-                      <div
-                        style={{
-                          fontFamily: "'Inter', sans-serif",
-                          fontSize: 10,
-                          letterSpacing: "0.18em",
-                          textTransform: "uppercase" as const,
-                          color: "rgba(13,17,23,0.4)",
-                          marginTop: 6,
-                        }}
-                      >
-                        {testimonials[cur].location}
-                      </div>
-                    </div>
+        <div style={{ maxWidth: 850, margin: '0 auto' }}>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={cur}
+              initial={{ opacity: 0, x: dir * 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: dir * -50 }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              style={{ textAlign: 'center' }}
+            >
+              <p style={{
+                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontSize: 'clamp(1.2rem, 2.8vw, 1.7rem)',
+                fontWeight: 400,
+                fontStyle: 'italic',
+                lineHeight: 1.7,
+                color: '#1F1B16',
+                marginBottom: 36,
+              }}>
+                &ldquo;{testimonials[cur].quote}&rdquo;
+              </p>
+
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 14 }}>
+                <div style={{
+                  width: 56,
+                  height: 56,
+                  borderRadius: '50%',
+                  overflow: 'hidden',
+                  background: '#F5F1EA',
+                  border: '2px solid rgba(201,160,74,0.3)',
+                }}>
+                  <img
+                    src={testimonials[cur].img}
+                    alt={testimonials[cur].name}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                </div>
+                <div style={{ textAlign: 'left' }}>
+                  <div style={{
+                    fontFamily: "'Cormorant Garamond', Georgia, serif",
+                    fontSize: '1.05rem',
+                    color: '#1F1B16',
+                    fontWeight: 500,
+                  }}>
+                    {testimonials[cur].name}
+                  </div>
+                  <div style={{
+                    fontFamily: "'Cinzel', serif",
+                    fontSize: '0.65rem',
+                    color: '#A07D2E',
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                    fontWeight: 600,
+                  }}>
+                    {testimonials[cur].location} &bull; {testimonials[cur].type}
                   </div>
                 </div>
-                
-                {/* Image Side */}
-                <div style={{ flex: "1", position: "relative", height: "100%", overflow: "hidden" }} className="testimonial-img-side">
-                  <motion.img 
-                    key={cur}
-                    src={testimonials[cur].img} 
-                    alt={testimonials[cur].name}
-                    initial={{ scale: 1.2, filter: "brightness(0.9) blur(4px)" }}
-                    animate={{ scale: 1, filter: "brightness(1) blur(0px)" }}
-                    transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                    }}
-                  />
-                  {/* Premium fade mask for seamless elegant edge */}
-                  <div 
-                    style={{
-                      position: "absolute",
-                      inset: 0,
-                      background: "linear-gradient(to right, #faf6eb 0%, rgba(250,246,235,0.8) 12%, transparent 45%)"
-                    }}
-                  />
-                </div>
-              </motion.div>
-            </AnimatePresence>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          <div style={{ display: 'flex', justifyContent: 'center', gap: 10, marginTop: 44 }}>
+            {testimonials.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => go(i)}
+                style={{
+                  width: i === cur ? 28 : 8,
+                  height: 8,
+                  borderRadius: 4,
+                  background: i === cur ? '#C9A04A' : 'rgba(201,160,74,0.25)',
+                  border: 'none',
+                  cursor: 'pointer',
+                  transition: 'all 0.35s cubic-bezier(0.25, 0.1, 0.25, 1)',
+                }}
+              />
+            ))}
           </div>
         </div>
-      </div>
 
-      <style>{`
-        .testimonial-flex-inner {
-          flex-direction: row;
-        }
-        @media (max-width: 1024px) {
-          .test-wrapper { padding: 80px 40px !important; }
-          .testimonials-grid {
-            grid-template-columns: 1fr !important;
-            gap: 60px !important;
-          }
-          .testimonial-flex-inner {
-            flex-direction: column;
-          }
-          .testimonial-img-side {
-            display: none;
-          }
-        }
-        @media (max-width: 768px) {
-          .test-wrapper { padding: 60px 16px !important; }
-          .quote-mark { top: 20px !important; left: 10px !important; font-size: 14rem !important; }
-          .testimonial-card-content { padding: 32px 24px !important; }
-        }
-      `}</style>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          style={{ textAlign: 'center', marginTop: 56 }}
+        >
+          <Link
+            href="/#contact"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 10,
+              padding: '14px 28px',
+              background: '#1F1B16',
+              color: '#FDFCFA',
+              fontFamily: "'Cinzel', serif",
+              fontSize: '0.7rem',
+              fontWeight: 600,
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              borderRadius: 2,
+              textDecoration: 'none',
+              transition: 'all 0.3s ease',
+            }}
+          >
+            Share Your Story
+          </Link>
+        </motion.div>
+      </div>
     </section>
   );
 }

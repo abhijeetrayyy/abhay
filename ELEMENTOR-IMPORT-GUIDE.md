@@ -2,22 +2,23 @@
 
 ## What's Included
 
-The file `abhay-oyun-homepage.json` contains **12 fully-styled sections** ready to import:
+The file `abhay-oyun-homepage.json` contains **13 fully-styled sections** ready to import:
 
 | # | Section | Content |
 |---|---------|---------|
-| 1 | **Hero** | Full-screen, eyebrow badge, h1 with gradient text, subtitle, 2 CTA buttons |
-| 2 | **Shaman Intro** | 2-column: bio text + stats (35+ Years / 40 Countries / 10K+ Healed) + images |
-| 3 | **Social Reels** | Header + 5-image gallery grid (Instagram/YouTube moments) |
-| 4 | **Gallery** | "40 Countries" header + 9-image gallery |
-| 5 | **Testimonials** | 2-column: heading + 4 testimonial cards with quotes |
-| 6 | **Teachings** | 2-column: image + accordion with 3 practices (SAMPO, Drum, 1-on-1) |
-| 7 | **Events** | 3 full event cards with tags, descriptions, highlights, pricing, CTA |
-| 8 | **Transformation** | 2-column: blockquote + 4-item timeline (2004–2022) |
-| 9 | **YouTube** | 5 embedded YouTube videos in 3+2 grid (real video IDs) |
-| 10 | **Webinar CTA** | 2-column: benefits list + registration card with date |
-| 11 | **Final CTA** | Large heading, 2 buttons, trust row, social links |
-| 12 | **Footer** | 4-column: brand + nav + legal + newsletter |
+| 1 | **Header** ⭐ | Sticky nav: Logo + nav links (Teachings, Events, Transform) + social icons + Book Session button |
+| 2 | **Hero** | Full-screen, eyebrow badge, h1 with gradient text, subtitle, 2 CTA buttons |
+| 3 | **Shaman Intro** | 2-column: bio text + stats (35+ Years / 40 Countries / 10K+ Healed) + images |
+| 4 | **Social Reels** | Header + 5-image gallery grid (Instagram/YouTube moments) |
+| 5 | **Gallery** | "40 Countries" header + 9-image gallery |
+| 6 | **Testimonials** | 2-column: heading + 4 testimonial cards with quotes |
+| 7 | **Teachings** | 2-column: image + accordion with 3 practices (SAMPO, Drum, 1-on-1) |
+| 8 | **Events** | 3 full event cards with tags, descriptions, highlights, pricing, CTA |
+| 9 | **Transformation** | 2-column: blockquote + 4-item timeline (2004–2022) |
+| 10 | **YouTube** | 5 embedded YouTube videos in 3+2 grid (real video IDs) |
+| 11 | **Webinar CTA** | 2-column: benefits list + registration card with date |
+| 12 | **Final CTA** | Large heading, 2 buttons, trust row, social links |
+| 13 | **Footer** | 4-column: brand + nav + legal + newsletter |
 
 ---
 

@@ -1,0 +1,136 @@
+{
+  "title": "Abhay Oyun — Shamanic Paths v5 Final",
+  "type": "section",
+  "version": "5.0",
+  "content": [
+    {
+      "id": "aop-root",
+      "elType": "section",
+      "settings": {
+        "layout": "full_width",
+        "background_background": "classic",
+        "background_color": "#0a0a0c",
+        "padding": { "unit": "px", "top": "120", "right": "72", "bottom": "120", "left": "72", "isLinked": false },
+        "padding_mobile": { "unit": "px", "top": "60", "right": "20", "bottom": "60", "left": "20", "isLinked": false },
+        "custom_css": "/* === BULLETPROOF GAP & CARD VISUAL === */\nselector .aop-card-col { background: transparent !important; border-left: 12px solid transparent !important; border-right: 12px solid transparent !important; overflow: visible !important; }\n\n/* FIXED HEIGHT CARD (Stable Row) */\nselector .aop-card-col > .elementor-widget-wrap, selector .aop-card-col > .elementor-element-populated { \n  height: 520px !important; \n  position: relative !important; \n  border-radius: 20px !important; \n  overflow: hidden !important; \n  background: #0d0d0f !important; \n  padding: 28px 24px 32px 24px !important; \n  z-index: 1 !important; \n  box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important; \n  transition: transform 0.4s ease, box-shadow 0.4s ease !important; \n}\n@media(max-width:1024px){ selector .aop-card-col > .elementor-widget-wrap { height:480px !important; } }\n@media(max-width:767px){ selector .aop-card-col > .elementor-widget-wrap { height:440px !important; } }\n\n/* Interactive Card Lift */\nselector .aop-card-col:hover > .elementor-widget-wrap, selector .aop-card-col:hover > .elementor-element-populated { transform: translateY(-8px) scale(1.01) !important; box-shadow: 0 30px 60px rgba(0,0,0,0.6) !important; }\n\n/* === DARK GRADIENT OVERLAY === */\nselector .aop-card-col > .elementor-widget-wrap::before, selector .aop-card-col > .elementor-element-populated::before { content: '' !important; position: absolute !important; inset: 0 !important; background: linear-gradient(to top, rgba(8,8,10,0.95) 0%, rgba(8,8,10,0.5) 45%, transparent 80%) !important; z-index: 2 !important; pointer-events: none !important; transition: background 0.4s ease !important; }\nselector .aop-card-col:hover > .elementor-widget-wrap::before, selector .aop-card-col:hover > .elementor-element-populated::before { background: linear-gradient(to top, rgba(8,8,10,0.98) 0%, rgba(8,8,10,0.85) 50%, rgba(8,8,10,0.4) 80%, rgba(8,8,10,0.1) 100%) !important; }\n\n/* === ROBUST SPACER TRANSITION (Pulls content up correctly) === */\nselector .aop-flexible-spacer .elementor-spacer-inner { \n  height: 320px !important; \n  transition: height 0.45s cubic-bezier(0.23, 1, 0.32, 1) !important; \n}\n@media(max-width:767px){ selector .aop-flexible-spacer .elementor-spacer-inner { height:180px !important; } }\n\nselector .aop-card-col:hover .aop-flexible-spacer .elementor-spacer-inner { \n  height: 48px !important; \n}\n\n/* === CONTENT WIDGETS ABOVE OVERLAY === */\nselector .aop-card-col .elementor-widget:not(.aop-bg-video) { position: relative !important; z-index: 3 !important; text-align: left !important; }\nselector .aop-card-col .elementor-heading-title, \nselector .aop-card-col .aop-tag, \nselector .aop-card-col .aop-deity { \n  text-align: left !important; \n  margin-left: 0 !important; \n}\n\n/* === ABSOLUTE BACKGROUND VIDEO === */\nselector .aop-bg-video { position: absolute !important; top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important; z-index: 0 !important; padding: 0 !important; margin: 0 !important; width: auto !important; height: auto !important; }\nselector .aop-bg-video .elementor-widget-container, selector .aop-bg-video .elementor-video-container, selector .aop-bg-video .e-hosted-video { position: absolute !important; top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important; padding: 0 !important; margin: 0 !important; width: 100% !important; height: 100% !important; }\nselector .aop-bg-video video, selector .aop-bg-video .elementor-video { object-fit: cover !important; width: 100% !important; height: 100% !important; display: block !important; margin: 0 !important; padding: 0 !important; transition: transform 0.6s ease !important; }\n/* Video Hover Zoom */\nselector .aop-card-col:hover .aop-bg-video video { transform: scale(1.05) !important; }\n\n/* === DESCRIPTION REVEAL === */\nselector .aop-desc-wrap { overflow: hidden !important; max-height: 0 !important; opacity: 0 !important; transition: max-height 0.45s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.4s ease !important; }\nselector .aop-card-col:hover .aop-desc-wrap { max-height: 180px !important; opacity: 1 !important; padding-top: 12px !important; }\nselector .aop-desc-wrap p { color: #ffffff !important; text-shadow: 0 2px 4px rgba(0,0,0,0.8) !important; font-family:'Inter',sans-serif !important; font-size:13px !important; line-height:1.68 !important; margin:0 !important; }\n\n/* === BUTTON REVEAL === */\nselector .aop-btn-wrap { overflow: hidden !important; max-height: 0 !important; opacity: 0 !important; transition: max-height 0.35s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s ease !important; }\nselector .aop-card-col:hover .aop-btn-wrap { max-height: 64px !important; opacity: 1 !important; }\nselector .aop-btn-wrap .elementor-button { font-family:'Inter',sans-serif !important; font-size:11px !important; font-weight:700 !important; letter-spacing:2.5px !important; text-transform:uppercase !important; color:#d4a853 !important; background:transparent !important; background-color:transparent !important; padding:16px 0 0 !important; border:none !important; box-shadow:none !important; }\n\n/* === TAGS === */\nselector .aop-tag { display:inline-block !important; font-family:'Inter',sans-serif !important; font-size:9px !important; font-weight:700 !important; letter-spacing:2.5px !important; text-transform:uppercase !important; color:rgba(212,168,83,.92) !important; border:1px solid rgba(212,168,83,.35) !important; padding:6px 14px !important; border-radius:999px !important; margin-bottom:10px !important; background:rgba(0,0,0,.3) !important; backdrop-filter:blur(4px); line-height:1 !important; }\nselector .aop-deity { font-family:'Inter',sans-serif !important; font-size:10px !important; font-weight:700 !important; letter-spacing:2.5px !important; text-transform:uppercase !important; color:rgba(212,168,83,.75) !important; margin-bottom:8px !important; }\n\n/* TABLET/MOBILE RESPONSIVENESS */\n@media(max-width:900px){ selector .aop-card-col > .elementor-widget-wrap, selector .aop-card-col > .elementor-element-populated { padding: 20px 16px 24px 16px !important; } }"
+      },
+      "elements": [
+        {
+          "id": "aop-header-col",
+          "elType": "column",
+          "settings": { "_column_size": 100, "_inline_size": 100 },
+          "elements": [
+            {
+              "id": "aop-eyebrow",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": { "editor": "<div style=\"display:inline-flex;align-items:center;gap:10px;margin-bottom:16px;\"><div style=\"width:28px;height:1px;background:#d4a853;\"></div><span style=\"font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:#d4a853;\">Choose Your Path</span><div style=\"width:28px;height:1px;background:#d4a853;\"></div></div>" }
+            },
+            {
+              "id": "aop-heading",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Begin Your<br><em style=\"color:#d4a853;font-style:italic;\">Sacred Journey</em>",
+                "header_size": "h2", "title_color": "#ffffff",
+                "typography_typography": "custom", "typography_font_family": "Playfair Display",
+                "typography_font_size": { "unit": "px", "size": 56 },
+                "typography_font_size_mobile": { "unit": "px", "size": 36 },
+                "typography_font_weight": "400", "typography_letter_spacing": { "unit": "px", "size": -1.5 }
+              }
+            },
+            {
+              "id": "aop-subtext",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": { "editor": "<p style=\"font-family:'Inter',sans-serif;font-size:16px;line-height:1.75;color:rgba(255,255,255,0.45);max-width:580px;margin:0 0 56px;\">Each path is a sacred doorway into the Siberian shamanic tradition. Hover to discover what calls to your soul &mdash; then book your session with Shaman Abhay to begin.</p>" }
+            },
+            {
+              "id": "aop-cards-inner",
+              "elType": "section",
+              "isInner": true,
+              "settings": {
+                "layout": "full_width",
+                "gap": "no",
+                "padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": false }
+              },
+              "elements": [
+                {
+                  "id": "aop-c1",
+                  "elType": "column",
+                  "settings": { "_column_size": 25, "_inline_size": 25, "_column_size_mobile": 100, "css_classes": "aop-card-col", "padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true } },
+                  "elements": [
+                    { "id": "c1-bg", "elType": "widget", "widgetType": "video", "settings": { "_css_classes": "aop-bg-video", "video_type": "hosted", "hosted_url": { "url": "", "id": "" }, "autoplay": "yes", "mute": "yes", "loop": "yes", "controls": "", "showfullscreen": "", "lightbox": "", "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true }, "_padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true } } },
+                    { "id": "c1-spacer", "elType": "widget", "widgetType": "spacer", "settings": { "space": { "unit": "px", "size": 320 }, "space_mobile": { "unit": "px", "size": 180 }, "_css_classes": "aop-flexible-spacer" } },
+                    { "id": "c1-tag", "elType": "widget", "widgetType": "text-editor", "settings": { "editor": "<div class=\"aop-tag\">Soul Diagnosis</div><div class=\"aop-deity\">Goddess of Earth</div>" } },
+                    { "id": "c1-h", "elType": "widget", "widgetType": "heading", "settings": { "title": "Path of Umai", "header_size": "h3", "title_color": "#ffffff", "typography_typography": "custom", "typography_font_family": "Playfair Display", "typography_font_size": { "unit": "px", "size": 28 }, "typography_font_weight": "700" } },
+                    { "id": "c1-desc", "elType": "widget", "widgetType": "text-editor", "settings": { "_css_classes": "aop-desc-wrap", "editor": "<p>A gentle scanning of the living soul &mdash; its clarity, wounds, emotional strength, and inner child. Understand where your heart stands and where energy is leaking.</p>" } },
+                    { "id": "c1-btn", "elType": "widget", "widgetType": "button", "settings": { "text": "Choose this path →", "link": { "url": "https://calendly.com/hurraymangalam/individualsessions", "is_external": true }, "_css_classes": "aop-btn-wrap", "background_color": "rgba(0,0,0,0)", "button_text_color": "#d4a853", "border_border": "none", "box_shadow_box_shadow_type": "", "typography_typography": "custom", "typography_font_family": "Inter", "typography_font_size": { "unit": "px", "size": 11 }, "typography_font_weight": "700", "typography_letter_spacing": { "unit": "px", "size": 2 }, "text_padding": { "unit": "px", "top": "16", "right": "0", "bottom": "0", "left": "0", "isLinked": false } } }
+                  ]
+                },
+                {
+                  "id": "aop-c2",
+                  "elType": "column",
+                  "settings": { "_column_size": 25, "_inline_size": 25, "_column_size_mobile": 100, "css_classes": "aop-card-col", "padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true } },
+                  "elements": [
+                    { "id": "c2-bg", "elType": "widget", "widgetType": "video", "settings": { "_css_classes": "aop-bg-video", "video_type": "hosted", "hosted_url": { "url": "", "id": "" }, "autoplay": "yes", "mute": "yes", "loop": "yes", "controls": "", "showfullscreen": "", "lightbox": "", "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true }, "_padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true } } },
+                    { "id": "c2-spacer", "elType": "widget", "widgetType": "spacer", "settings": { "space": { "unit": "px", "size": 320 }, "space_mobile": { "unit": "px", "size": 180 }, "_css_classes": "aop-flexible-spacer" } },
+                    { "id": "c2-tag", "elType": "widget", "widgetType": "text-editor", "settings": { "editor": "<div class=\"aop-tag\">Destiny Reading</div><div class=\"aop-deity\">God of Infinity</div>" } },
+                    { "id": "c2-h", "elType": "widget", "widgetType": "heading", "settings": { "title": "Path of Tengri", "header_size": "h3", "title_color": "#ffffff", "typography_typography": "custom", "typography_font_family": "Playfair Display", "typography_font_size": { "unit": "px", "size": 28 }, "typography_font_weight": "700" } },
+                    { "id": "c2-desc", "elType": "widget", "widgetType": "text-editor", "settings": { "_css_classes": "aop-desc-wrap", "editor": "<p>A reading of the higher soul, its purpose, mission, and the signs Heaven is giving right now. Remember why you came into this life.</p>" } },
+                    { "id": "c2-btn", "elType": "widget", "widgetType": "button", "settings": { "text": "Choose this path →", "link": { "url": "https://calendly.com/hurraymangalam/individualsessions", "is_external": true }, "_css_classes": "aop-btn-wrap", "background_color": "rgba(0,0,0,0)", "button_text_color": "#d4a853", "border_border": "none", "box_shadow_box_shadow_type": "", "typography_typography": "custom", "typography_font_family": "Inter", "typography_font_size": { "unit": "px", "size": 11 }, "typography_font_weight": "700", "typography_letter_spacing": { "unit": "px", "size": 2 }, "text_padding": { "unit": "px", "top": "16", "right": "0", "bottom": "0", "left": "0", "isLinked": false } } }
+                  ]
+                },
+                {
+                  "id": "aop-c3",
+                  "elType": "column",
+                  "settings": { "_column_size": 25, "_inline_size": 25, "_column_size_mobile": 100, "css_classes": "aop-card-col", "padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true } },
+                  "elements": [
+                    { "id": "c3-bg", "elType": "widget", "widgetType": "video", "settings": { "_css_classes": "aop-bg-video", "video_type": "hosted", "hosted_url": { "url": "", "id": "" }, "autoplay": "yes", "mute": "yes", "loop": "yes", "controls": "", "showfullscreen": "", "lightbox": "", "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true }, "_padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true } } },
+                    { "id": "c3-spacer", "elType": "widget", "widgetType": "spacer", "settings": { "space": { "unit": "px", "size": 320 }, "space_mobile": { "unit": "px", "size": 180 }, "_css_classes": "aop-flexible-spacer" } },
+                    { "id": "c3-tag", "elType": "widget", "widgetType": "text-editor", "settings": { "editor": "<div class=\"aop-tag\">Future Vision</div><div class=\"aop-deity\">God of Future</div>" } },
+                    { "id": "c3-h", "elType": "widget", "widgetType": "heading", "settings": { "title": "Path of Ulgen", "header_size": "h3", "title_color": "#ffffff", "typography_typography": "custom", "typography_font_family": "Playfair Display", "typography_font_size": { "unit": "px", "size": 28 }, "typography_font_weight": "700" } },
+                    { "id": "c3-desc", "elType": "widget", "widgetType": "text-editor", "settings": { "_css_classes": "aop-desc-wrap", "editor": "<p>Reveals your emerging strengths, talents, and spiritual gifts. Especially powerful during transitions, new beginnings, or moments of awakening.</p>" } },
+                    { "id": "c3-btn", "elType": "widget", "widgetType": "button", "settings": { "text": "Choose this path →", "link": { "url": "https://calendly.com/hurraymangalam/individualsessions", "is_external": true }, "_css_classes": "aop-btn-wrap", "background_color": "rgba(0,0,0,0)", "button_text_color": "#d4a853", "border_border": "none", "box_shadow_box_shadow_type": "", "typography_typography": "custom", "typography_font_family": "Inter", "typography_font_size": { "unit": "px", "size": 11 }, "typography_font_weight": "700", "typography_letter_spacing": { "unit": "px", "size": 2 }, "text_padding": { "unit": "px", "top": "16", "right": "0", "bottom": "0", "left": "0", "isLinked": false } } }
+                  ]
+                },
+                {
+                  "id": "aop-c4",
+                  "elType": "column",
+                  "settings": { "_column_size": 25, "_inline_size": 25, "_column_size_mobile": 100, "css_classes": "aop-card-col", "padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true } },
+                  "elements": [
+                    { "id": "c4-bg", "elType": "widget", "widgetType": "video", "settings": { "_css_classes": "aop-bg-video", "video_type": "hosted", "hosted_url": { "url": "", "id": "" }, "autoplay": "yes", "mute": "yes", "loop": "yes", "controls": "", "showfullscreen": "", "lightbox": "", "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true }, "_padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true } } },
+                    { "id": "c4-spacer", "elType": "widget", "widgetType": "spacer", "settings": { "space": { "unit": "px", "size": 320 }, "space_mobile": { "unit": "px", "size": 180 }, "_css_classes": "aop-flexible-spacer" } },
+                    { "id": "c4-tag", "elType": "widget", "widgetType": "text-editor", "settings": { "editor": "<div class=\"aop-tag\">Soul Retrieval</div><div class=\"aop-deity\">God of the Past</div>" } },
+                    { "id": "c4-h", "elType": "widget", "widgetType": "heading", "settings": { "title": "Path of Erlik", "header_size": "h3", "title_color": "#ffffff", "typography_typography": "custom", "typography_font_family": "Playfair Display", "typography_font_size": { "unit": "px", "size": 28 }, "typography_font_weight": "700" } },
+                    { "id": "c4-desc", "elType": "widget", "widgetType": "text-editor", "settings": { "_css_classes": "aop-desc-wrap", "editor": "<p>A deep look at where the soul may have been lost through trauma, fear, or collapse. Ideal when you feel empty, disconnected, or not like yourself.</p>" } },
+                    { "id": "c4-btn", "elType": "widget", "widgetType": "button", "settings": { "text": "Choose this path →", "link": { "url": "https://calendly.com/hurraymangalam/individualsessions", "is_external": true }, "_css_classes": "aop-btn-wrap", "background_color": "rgba(0,0,0,0)", "button_text_color": "#d4a853", "border_border": "none", "box_shadow_box_shadow_type": "", "typography_typography": "custom", "typography_font_family": "Inter", "typography_font_size": { "unit": "px", "size": 11 }, "typography_font_weight": "700", "typography_letter_spacing": { "unit": "px", "size": 2 }, "text_padding": { "unit": "px", "top": "16", "right": "0", "bottom": "0", "left": "0", "isLinked": false } } }
+                  ]
+                }
+              ]
+            },
+            { "id": "aop-spacer-bottom", "elType": "widget", "widgetType": "spacer", "settings": { "space": { "unit": "px", "size": 64 } } },
+            {
+              "id": "aop-cta",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Book Your Session with Shaman Abhay",
+                "link": { "url": "https://calendly.com/hurraymangalam/individualsessions", "is_external": true },
+                "align": "center", "background_color": "#d4a853", "button_text_color": "#050810",
+                "border_radius": { "unit": "px", "top": "8", "right": "8", "bottom": "8", "left": "8", "isLinked": true },
+                "box_shadow_box_shadow_type": "yes",
+                "box_shadow_box_shadow": { "horizontal": 0, "vertical": 12, "blur": 40, "spread": 0, "color": "rgba(212,168,83,0.4)" },
+                "typography_typography": "custom", "typography_font_family": "Inter",
+                "typography_font_size": { "unit": "px", "size": 13 }, "typography_font_weight": "700",
+                "typography_letter_spacing": { "unit": "px", "size": 2 },
+                "text_padding": { "unit": "px", "top": "18", "right": "52", "bottom": "18", "left": "52", "isLinked": false }
+              }
+            }
+          ]
+        }
+      ],
+      "isInner": false
+    }
+  ]
+}

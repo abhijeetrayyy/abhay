@@ -1,0 +1,63 @@
+{
+  "title": "Abhay Oyun Header — v2 Golden Logo",
+  "type": "page",
+  "version": "0.5",
+  "page_settings": {},
+  "content": [
+    {
+      "id": "3a00000",
+      "elType": "section",
+      "settings": {
+        "stretch_section": "section-stretched",
+        "layout": "full_width",
+        "background_background": "classic",
+        "background_color": "#0b0c10",
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "40",
+          "bottom": "0",
+          "left": "40",
+          "isLinked": false
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "0",
+          "right": "16",
+          "bottom": "0",
+          "left": "16",
+          "isLinked": false
+        },
+        "z_index": 100,
+        "css_classes": "sticky-header",
+        "custom_css": "\nselector .ao-header { display:flex; align-items:center; justify-content:space-between; min-height:80px; width:100%; }\nselector .ao-header-logo { display:flex; align-items:center; gap:14px; flex-shrink:0; text-decoration:none; }\nselector .ao-header-logo-icon { width:34px; height:34px; background-image:url(https://abhayoyun.org/wp-content/uploads/icon1.png); background-size:contain; background-repeat:no-repeat; background-position:center; flex-shrink:0; filter:brightness(0) saturate(100%) invert(69%) sepia(54%) saturate(550%) hue-rotate(4deg) brightness(94%); }\nselector .ao-header-logo-text { font-family:'Playfair Display',serif; font-size:20px; font-weight:700; letter-spacing:0.06em; background:linear-gradient(135deg,#d4a853,#f9d58b,#b8893a); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1; }\nselector .ao-header-logo-sub { font-family:'Inter',sans-serif; font-size:8.5px; font-weight:600; letter-spacing:0.28em; text-transform:uppercase; color:rgba(212,168,83,0.65); margin-top:4px; }\nselector .ao-header-nav { display:flex; align-items:center; gap:32px; }\nselector .ao-header-nav a { font-family:'Inter',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.75); text-decoration:none; transition:color .2s; }\nselector .ao-header-nav a:hover { color:#d4a853; }\nselector .ao-header-right { display:flex; align-items:center; gap:8px; flex-shrink:0; }\nselector .ao-header-social { display:flex; align-items:center; gap:6px; border-right:1px solid rgba(255,255,255,0.12); padding-right:16px; margin-right:8px; }\nselector .ao-header-social a { display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; color:rgba(255,255,255,0.45); border-radius:50%; transition:color .2s, background .2s; }\nselector .ao-header-social a:hover { color:#d4a853; background:rgba(212,168,83,0.08); }\nselector .ao-header-cta { display:inline-flex; align-items:center; padding:10px 24px; background:linear-gradient(135deg,#d4a853,#f9d58b); color:#050810; font-family:'Inter',sans-serif; font-size:10px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; border-radius:4px; text-decoration:none; white-space:nowrap; box-shadow:0 6px 16px rgba(212,168,83,0.35); transition:box-shadow .3s, transform .2s; }\nselector .ao-header-cta:hover { box-shadow:0 10px 28px rgba(212,168,83,0.55); transform:translateY(-1px); }\n@media (max-width:767px) {\n  selector .ao-header { min-height:60px; }\n  selector .ao-header-nav { display:none !important; }\n  selector .ao-header-social { display:none !important; }\n  selector .ao-header-logo-text { font-size:16px; }\n  selector .ao-header-logo-sub { font-size:7px; }\n  selector .ao-header-logo-icon { width:28px; height:28px; }\n  selector .ao-header-cta { padding:8px 16px; font-size:8px; letter-spacing:0.12em; }\n}\n@media (min-width:768px) and (max-width:1024px) {\n  selector .ao-header-nav { gap:20px; }\n  selector .ao-header-nav a { font-size:10px; }\n  selector .ao-header-social { display:none !important; }\n  selector .ao-header-cta { padding:8px 18px; font-size:9px; }\n}\n.sticky-header { position: sticky !important; top: 0; z-index: 100; }"
+      },
+      "elements": [
+        {
+          "id": "3a00001",
+          "elType": "column",
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100,
+            "content_position": "center"
+          },
+          "elements": [
+            {
+              "id": "3a00002",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<div class=\"ao-header\">\n  <a href=\"/\" class=\"ao-header-logo\">\n    <div class=\"ao-header-logo-icon\"></div>\n    <div>\n      <div class=\"ao-header-logo-text\">ABHAY OYUN</div>\n      <div class=\"ao-header-logo-sub\">Siberian Shamanism</div>\n    </div>\n  </a>\n  <div class=\"ao-header-nav\">\n    <a href=\"#teachings\">TEACHINGS</a>\n    <a href=\"#events\">EVENTS</a>\n    <a href=\"#transform\">TRANSFORM</a>\n  </div>\n  <div class=\"ao-header-right\">\n    <div class=\"ao-header-social\">\n      <!-- Instagram -->\n      <a href=\"https://www.instagram.com/abhayoyun/\" target=\"_blank\" title=\"Instagram\">\n        <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"2\" y=\"2\" width=\"20\" height=\"20\" rx=\"5\" ry=\"5\"></rect><path d=\"M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z\"></path><line x1=\"17.5\" y1=\"6.5\" x2=\"17.51\" y2=\"6.5\"></line></svg>\n      </a>\n      <!-- TikTok -->\n      <a href=\"https://www.tiktok.com/@abhayoyun\" target=\"_blank\" title=\"TikTok\">\n        <svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.78a4.85 4.85 0 0 1-1.01-.09z\"></path></svg>\n      </a>\n      <!-- YouTube -->\n      <a href=\"https://youtube.com/@master_of_energy\" target=\"_blank\" title=\"YouTube\">\n        <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.14 1 12 1 12s0 3.86.42 5.58a2.78 2.78 0 0 0 1.94 2c1.71.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2C23 15.86 23 12 23 12s0-3.86-.42-5.58z\"></path><polygon points=\"9.75 15.02 15.5 12 9.75 8.98 9.75 15.02\"></polygon></svg>\n      </a>\n      <!-- WhatsApp -->\n      <a href=\"https://wa.me/12122561366\" target=\"_blank\" title=\"WhatsApp\">\n        <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z\"></path></svg>\n      </a>\n    </div>\n    <a href=\"https://calendly.com/hurraymangalam/individualsessions\" target=\"_blank\" class=\"ao-header-cta\">Book Session</a>\n  </div>\n</div>",
+                "text_color": "",
+                "typography_typography": "custom",
+                "typography_font_family": "Inter",
+                "typography_font_size": { "unit": "px", "size": 14, "sizes": [] }
+              }
+            }
+          ]
+        }
+      ],
+      "isInner": false
+    }
+  ]
+}
