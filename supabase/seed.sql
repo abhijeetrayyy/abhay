@@ -3,6 +3,16 @@
 -- Run this AFTER running schema.sql in Supabase SQL Editor
 -- ═══════════════════════════════════════════════════════════════
 
+-- Clear existing data first (to avoid duplicate key errors on re-run)
+DELETE FROM event_registrations;
+DELETE FROM activity_log;
+DELETE FROM contacts;
+DELETE FROM newsletter_subscriptions;
+DELETE FROM gallery;
+DELETE FROM teachings;
+DELETE FROM testimonials;
+DELETE FROM events;
+
 -- EVENTS
 INSERT INTO events (title, slug, short_description, description, event_type, category, start_date, end_date, location_name, location_city, location_country, is_online, max_participants, spots_remaining, price_amount, price_currency, status, is_featured, is_spot_limited, spot_threshold, hero_image) VALUES
 ('Ancestral Fire Retreat 2026', 'ancestral-fire-retreat-2026', 'A 7-day immersive journey into the heart of Siberian shamanic traditions', 'Deep in the Altai Mountains, where the spirits of the ancestors still speak through the wind, we gather for seven days of profound transformation. Each day begins with dawn ceremony at the sacred fire, followed by intensive shamanic teachings, drum journeys, and plant medicine work. Evenings are spent in council around the fire, sharing stories and receiving direct transmissions from Shaman Abhay.', 'retreat', 'retreat', '2026-06-14', '2026-06-21', 'Altai Mountains Base Camp', 'Gorno-Altaysk', 'Russia', false, 8, 3, 2800.00, 'USD', 'published', true, true, 5, '/shaman_birch_forest.png'),
