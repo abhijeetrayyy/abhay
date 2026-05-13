@@ -155,6 +155,19 @@ export async function updateContact(id: string, updates: Partial<Contact>): Prom
   await supabase.from('contacts').update(updates).eq('id', id);
 }
 
+export async function createContact(data: { name: string; email: string; phone?: string; subject?: string; message?: string; source?: string }): Promise<void> {
+  await supabase.from('contacts').insert({
+    name: data.name,
+    email: data.email,
+    phone: data.phone || null,
+    subject: data.subject || null,
+    message: data.message || null,
+    source: data.source || 'contact_form',
+    status: 'new',
+    priority: 'medium',
+  });
+}
+
 // ─── EVENT REGISTRATIONS (ADMIN) ───────────────────────
 
 export async function getAllRegistrations(): Promise<EventRegistration[]> {
@@ -178,7 +191,25 @@ export async function updateRegistration(id: string, updates: Partial<EventRegis
   await supabase.from('event_registrations').update(updates).eq('id', id);
 }
 
-// ─── NEWSLETTER (ADMIN) ────────────────────────────────
+// ─── NEWSLETTER (ADMIN & PUBLIC) ────────────────────────
+
+export async function subscribeToNewsletter(email: string, name?: string): Promise<{ success: boolean; error?: string }> {
+  try {
+    const { error } = await supabase.from('newsletter_subscriptions').insert({
+      email,
+      name: name || null,
+      source: 'website',
+      status: 'active',
+    });
+    if (error) {
+      if (error.code === '23505') return { success: false, error: 'This email is already subscribed.' };
+      return { success: false, error: error.message };
+    }
+    return { success: true };
+  } catch {
+    return { success: false, error: 'Something went wrong.' };
+  }
+}
 
 export async function getNewsletterSubscribers(): Promise<NewsletterSubscription[]> {
   const { data } = await supabase

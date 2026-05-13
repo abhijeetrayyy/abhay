@@ -7,24 +7,24 @@ import { motion, AnimatePresence } from "framer-motion";
 const practices = [
   {
     num: "01",
-    tag: "SAMPO System",
-    title: "Psycho-Energetic Training",
-    desc: "A complete system for accumulating, protecting and directing your vital energy. Ancient Siberian methods to shield from external influences and awaken your dormant life force.",
-    img: "/D9DB5CE5-E5BD-400D-9114-E5A90138CFFA_1_105_c.jpeg",
+    tag: "Nature Healing",
+    title: "Forest & Elemental Medicine",
+    desc: "The Siberian taiga is the original clinic. Through guided forest immersion, elemental ceremonies, and direct communion with the natural world, deep cellular healing occurs naturally. The trees, rivers, and winds become your healers.",
+    img: "/sao-gallery-img2.jpg",
   },
   {
     num: "02",
     tag: "Sound Medicine",
     title: "Sacred Drum Healing",
     desc: "The shaman's drum is a portal. Its frequencies shift brainwave states instantly, dissolve trauma held in the cellular body, and initiate spontaneous healing responses.",
-    img: "/drum_moss_forest.png",
+    img: "/sao-gallery-img4.jpg",
   },
   {
     num: "03",
     tag: "Personal Healing",
     title: "1-on-1 Shamanic Session",
     desc: "Direct, private energetic work with Shaman Abhay Oyun. Each session identifies the root cause of imbalance — physical, emotional, or ancestral — and applies targeted shamanic intervention.",
-    img: "/yurt_fire_healing.png",
+    img: "/AO-2.jpg",
   },
 ];
 
@@ -141,7 +141,7 @@ export default function TeachingsSection() {
               maxWidth: 460,
               fontWeight: 400,
             }}>
-              Three pillars of the SAMPO system, refined across 35 years and 40 countries of direct energetic healing work.
+              Three pillars of healing, refined across 35 years and 40 countries of direct shamanic work.
             </p>
           </motion.div>
 

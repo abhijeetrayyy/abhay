@@ -32,6 +32,10 @@ export const metadata: Metadata = {
   description:
     "Between Worlds. Siberian Shaman working at the edge of the known. Sacred ceremonies, healing, and training.",
   keywords: ["shaman", "healing", "ceremony", "spiritual", "siberian"],
+  icons: {
+    icon: "/icon1.png",
+    apple: "/icon1.png",
+  },
 };
 
 export default function RootLayout({
@@ -41,7 +45,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${cormorant.variable} ${lora.variable} ${cinzel.variable}`}>
-      <body className="antialiased">
+      <body className="antialiased" suppressHydrationWarning>
         <div className="grain-overlay" aria-hidden="true" />
         <Navigation />
         <main className="relative">{children}</main>

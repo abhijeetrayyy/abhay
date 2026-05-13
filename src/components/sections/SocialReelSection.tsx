@@ -61,7 +61,7 @@ function ReelCard({ reel, index, shouldReduce }: { reel: (typeof reels)[0]; inde
           width: "100%",
           height: "100%",
           objectFit: "cover",
-          filter: hovered ? "saturate(1.1) brightness(0.9)" : "saturate(0.6) brightness(0.7)",
+          filter: hovered ? "saturate(1.1) brightness(0.9)" : "saturate(0.85) brightness(0.8)",
           transition: "filter 0.45s ease",
         }}
       />
@@ -154,8 +154,6 @@ function ReelCard({ reel, index, shouldReduce }: { reel: (typeof reels)[0]; inde
 
 export default function SocialReelSection() {
   const shouldReduce = useReducedMotion();
-  const [filter, setFilter] = useState<"All" | "Instagram" | "YouTube">("All");
-  const filteredReels = reels.filter((r) => filter === "All" || r.platform === filter);
 
   return (
     <section style={{ background: "#F5F1EA", overflow: "hidden", position: "relative", marginTop: "-1px", zIndex: 20 }}>
@@ -206,31 +204,37 @@ export default function SocialReelSection() {
             </h2>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 14, alignItems: "flex-end" }}>
-            <div style={{ display: "flex", gap: 10 }}>
-              {(["All", "Instagram", "YouTube"] as const).map((f) => (
-                <button key={f} onClick={() => setFilter(f)} style={{
-                  background: filter === f ? "rgba(201,160,74,0.12)" : "transparent",
-                  border: `1px solid ${filter === f ? "rgba(201,160,74,0.4)" : "rgba(31,27,22,0.06)"}`,
-                  color: filter === f ? "#A07D2E" : "rgba(31,27,22,0.35)",
-                  padding: "5px 14px",
-                  borderRadius: 2,
-                  fontSize: "0.62rem",
-                  fontWeight: 600,
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  cursor: "pointer",
-                  fontFamily: "'Cinzel', serif",
-                  transition: "all 0.3s ease",
-                }}>
-                  {f}
-                </button>
+            {/* Social links */}
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap", justifyContent: "flex-end" }}>
+              {[
+                { label: "YouTube", href: "https://www.youtube.com/@earthforpeace" },
+                { label: "Instagram", href: "https://www.instagram.com/earthforpeace" },
+                { label: "Facebook", href: "https://facebook.com/earthforpeace" },
+                { label: "TikTok", href: "https://tiktok.com/@earthforpeace" },
+                { label: "WhatsApp", href: "https://wa.me/12122561366" },
+              ].map((s) => (
+                <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
+                  style={{
+                    display: "inline-flex", alignItems: "center", gap: 5,
+                    padding: "6px 12px", borderRadius: 2, textDecoration: "none",
+                    fontFamily: "'Cinzel', serif", fontSize: "0.55rem", fontWeight: 600,
+                    letterSpacing: "0.1em", textTransform: "uppercase",
+                    color: "rgba(31,27,22,0.35)", background: "rgba(31,27,22,0.03)",
+                    border: "1px solid rgba(31,27,22,0.06)",
+                    transition: "all 0.3s ease",
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.color = "#C9A04A"; e.currentTarget.style.borderColor = "rgba(201,160,74,0.3)"; e.currentTarget.style.background = "rgba(201,160,74,0.05)"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(31,27,22,0.35)"; e.currentTarget.style.borderColor = "rgba(31,27,22,0.06)"; e.currentTarget.style.background = "rgba(31,27,22,0.03)"; }}
+                >
+                  {s.label}
+                </a>
               ))}
             </div>
           </div>
         </motion.div>
 
         <div className="reel-grid">
-          {filteredReels.map((r, i) => (
+          {reels.map((r, i) => (
             <ReelCard key={`${r.label}-${i}`} reel={r} index={i} shouldReduce={shouldReduce} />
           ))}
         </div>

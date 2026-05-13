@@ -106,141 +106,98 @@ export default function ProgramsSection() {
 
         {/* Cards */}
         <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+          display: 'flex',
+          flexDirection: 'column',
           gap: 28,
         }}>
-          {programs.map((prog, i) => (
-            <motion.div
-              key={prog.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.12, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              style={{
-                background: '#FDFCFA',
-                borderRadius: 2,
-                overflow: 'hidden',
-                border: '1px solid rgba(31,27,22,0.06)',
-                boxShadow: '0 4px 30px rgba(0,0,0,0.04)',
-                transition: 'all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1)',
-              }}
-            >
-              {/* Image */}
-              <div style={{ position: 'relative', height: 220, overflow: 'hidden' }}>
-                <img
-                  src={prog.image}
-                  alt={prog.title}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    transition: 'transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1)',
-                  }}
-                />
-                <div style={{
-                  position: 'absolute',
-                  inset: 0,
-                  background: 'linear-gradient(to top, rgba(31,27,22,0.35) 0%, transparent 50%)',
-                }} />
-                {prog.tag && (
-                  <span style={{
-                    position: 'absolute',
-                    top: 14,
-                    left: 14,
-                    background: 'linear-gradient(135deg, #C9A04A, #A07D2E)',
-                    color: '#FDFCFA',
-                    padding: '5px 12px',
-                    borderRadius: 2,
-                    fontSize: '0.6rem',
-                    fontWeight: 600,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.1em',
-                    fontFamily: "'Cinzel', serif",
-                  }}>
-                    {prog.tag}
-                  </span>
-                )}
+          {/* SAMPO - Full width hero card */}
+          <motion.div
+            key={programs[0].title}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div style={{
+              background: '#FDFCFA', borderRadius: 2, overflow: 'hidden',
+              border: '1px solid rgba(201,160,74,0.3)',
+              boxShadow: '0 8px 40px rgba(201,160,74,0.08), 0 0 0 1px rgba(201,160,74,0.1)',
+              position: 'relative',
+            }}>
+              <div style={{ position: 'absolute', top: 14, right: 14, zIndex: 5, display: 'flex', alignItems: 'center', gap: 5, padding: '4px 10px', borderRadius: 2, background: 'rgba(201,160,74,0.12)', backdropFilter: 'blur(8px)', border: '1px solid rgba(201,160,74,0.2)' }}>
+                <span style={{ color: '#C9A04A', fontSize: '0.55rem' }}>★</span>
+                <span style={{ fontFamily: "'Cinzel', serif", fontSize: '0.5rem', fontWeight: 600, color: '#A07D2E', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Recommended</span>
               </div>
-
-              {/* Content */}
-              <div style={{ padding: 26 }}>
-                <span style={{
-                  color: '#A07D2E',
-                  fontSize: '0.62rem',
-                  fontWeight: 600,
-                  letterSpacing: '0.2em',
-                  textTransform: 'uppercase',
-                  fontFamily: "'Cinzel', serif",
-                }}>
-                  {prog.subtitle}
-                </span>
-                <h3 style={{
-                  margin: '8px 0 12px',
-                  fontFamily: "'Cormorant Garamond', Georgia, serif",
-                  fontSize: '1.4rem',
-                  color: '#1F1B16',
-                  fontWeight: 500,
-                  letterSpacing: '-0.01em',
-                }}>
-                  {prog.title}
-                </h3>
-                <p style={{
-                  color: 'rgba(31,27,22,0.55)',
-                  fontSize: '0.88rem',
-                  lineHeight: 1.75,
-                  marginBottom: 22,
-                  fontFamily: "'Lora', Georgia, serif",
-                  fontWeight: 400,
-                }}>
-                  {prog.description}
-                </p>
-
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  paddingTop: 20,
-                  borderTop: '1px solid rgba(31,27,22,0.06)',
-                }}>
-                  <span style={{
-                    fontFamily: "'Cormorant Garamond', Georgia, serif",
-                    fontSize: '1.3rem',
-                    color: '#1F1B16',
-                    fontWeight: 500,
-                  }}>
-                    {prog.price}
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: 300 }}>
+                <div style={{ position: 'relative', height: '100%', minHeight: 300, overflow: 'hidden' }}>
+                  <img src={programs[0].image} alt={programs[0].title}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, transparent 60%, rgba(31,27,22,0.3) 100%)' }} />
+                  <span style={{ position: 'absolute', top: 14, left: 14, background: 'linear-gradient(135deg, #C9A04A, #A07D2E)', color: '#FDFCFA', padding: '5px 12px', borderRadius: 2, fontSize: '0.6rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: "'Cinzel', serif" }}>
+                    {programs[0].tag}
                   </span>
-                  <Link
-                    href="/events"
-                    style={{
-                      background: '#1F1B16',
-                      color: '#FDFCFA',
-                      padding: '10px 22px',
-                      borderRadius: 2,
-                      textDecoration: 'none',
-                      fontSize: '0.66rem',
-                      fontWeight: 600,
-                      letterSpacing: '0.1em',
-                      textTransform: 'uppercase',
-                      fontFamily: "'Cinzel', serif",
-                      transition: 'all 0.3s ease',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.background = '#2D2924';
-                      e.currentTarget.style.transform = 'translateY(-1px)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.background = '#1F1B16';
-                      e.currentTarget.style.transform = 'translateY(0)';
-                    }}
-                  >
-                    Learn More
-                  </Link>
+                </div>
+                <div style={{ padding: 32, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                  <span style={{ color: '#A07D2E', fontSize: '0.62rem', fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', fontFamily: "'Cinzel', serif" }}>
+                    {programs[0].subtitle}
+                  </span>
+                  <h3 style={{ margin: '10px 0 14px', fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: '1.8rem', color: '#1F1B16', fontWeight: 600, letterSpacing: '-0.01em' }}>
+                    {programs[0].title}
+                  </h3>
+                  <p style={{ color: 'rgba(31,27,22,0.55)', fontSize: '0.92rem', lineHeight: 1.75, marginBottom: 24, fontFamily: "'Lora', Georgia, serif", fontWeight: 400, maxWidth: 400 }}>
+                    {programs[0].description}
+                  </p>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
+                    <span style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: '1.5rem', color: '#C9A04A', fontWeight: 500 }}>
+                      {programs[0].price}
+                    </span>
+                    <Link href="/events" style={{ background: 'linear-gradient(135deg, #C9A04A, #A07D2E)', color: '#FDFCFA', padding: '12px 28px', borderRadius: 2, textDecoration: 'none', fontSize: '0.68rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', fontFamily: "'Cinzel', serif" }}>
+                      Learn More
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </motion.div>
-          ))}
+            </div>
+          </motion.div>
+
+          {/* Bottom two - side by side */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 28 }}>
+            {programs.slice(1).map((prog, i) => (
+              <motion.div
+                key={prog.title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: (i + 1) * 0.12, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <div style={{ background: '#FDFCFA', borderRadius: 2, overflow: 'hidden', border: '1px solid rgba(31,27,22,0.06)', boxShadow: '0 4px 30px rgba(0,0,0,0.04)' }}>
+                  <div style={{ position: 'relative', height: 200, overflow: 'hidden' }}>
+                    <img src={prog.image} alt={prog.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(31,27,22,0.35) 0%, transparent 50%)' }} />
+                  </div>
+                  <div style={{ padding: 24 }}>
+                    <span style={{ color: '#A07D2E', fontSize: '0.6rem', fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', fontFamily: "'Cinzel', serif" }}>
+                      {prog.subtitle}
+                    </span>
+                    <h3 style={{ margin: '8px 0 10px', fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: '1.3rem', color: '#1F1B16', fontWeight: 500 }}>
+                      {prog.title}
+                    </h3>
+                    <p style={{ color: 'rgba(31,27,22,0.55)', fontSize: '0.85rem', lineHeight: 1.7, marginBottom: 18, fontFamily: "'Lora', Georgia, serif", fontWeight: 400 }}>
+                      {prog.description}
+                    </p>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingTop: 16, borderTop: '1px solid rgba(31,27,22,0.06)' }}>
+                      <span style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: '1.2rem', color: '#1F1B16', fontWeight: 500 }}>
+                        {prog.price}
+                      </span>
+                      <Link href="/events" style={{ background: '#1F1B16', color: '#FDFCFA', padding: '9px 20px', borderRadius: 2, textDecoration: 'none', fontSize: '0.64rem', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase', fontFamily: "'Cinzel', serif" }}>
+                        Learn More
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* View All Link */}

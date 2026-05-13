@@ -1,6 +1,9 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import { subscribeToNewsletter } from '@/lib/data';
 
 const SOCIAL_LINKS = {
   facebook: 'https://facebook.com/earthforpeace',
@@ -12,6 +15,24 @@ const SOCIAL_LINKS = {
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const [newsEmail, setNewsEmail] = useState('');
+  const [newsStatus, setNewsStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [newsError, setNewsError] = useState('');
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newsEmail) return;
+    setNewsStatus('sending');
+    const result = await subscribeToNewsletter(newsEmail);
+    if (result.success) {
+      setNewsStatus('success');
+      setNewsEmail('');
+    } else {
+      setNewsError(result.error || 'Something went wrong.');
+      setNewsStatus('error');
+      setTimeout(() => setNewsStatus('idle'), 3000);
+    }
+  };
 
   return (
     <footer style={{
@@ -65,7 +86,8 @@ export default function Footer() {
         }}>
           {/* Brand */}
           <div>
-            <Link href="/" style={{ textDecoration: 'none' }}>
+            <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 10 }}>
+              <Image src="/icon1.png" alt="" width={26} height={26} style={{ objectFit: 'contain' }} />
               <span style={{
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
                 fontSize: '1.4rem',
@@ -248,42 +270,64 @@ export default function Footer() {
             }}>
               Receive potent insights directly from Abhay.
             </p>
-            <div style={{ display: 'flex' }}>
-              <input
-                type="email"
-                placeholder="Your email"
-                style={{
-                  flex: 1,
-                  padding: '11px 14px',
-                  background: 'rgba(31,27,22,0.03)',
-                  border: '1px solid rgba(31,27,22,0.08)',
-                  borderRight: 'none',
-                  borderRadius: '2px 0 0 2px',
-                  color: '#1F1B16',
-                  fontSize: '0.82rem',
-                  outline: 'none',
-                  fontFamily: "'Lora', Georgia, serif",
-                }}
-              />
-              <button
-                style={{
-                  padding: '11px 18px',
-                  background: '#C9A04A',
-                  color: '#FDFCFA',
-                  border: 'none',
-                  borderRadius: '0 2px 2px 0',
-                  fontSize: '0.68rem',
-                  fontWeight: 600,
-                  letterSpacing: '0.1em',
-                  textTransform: 'uppercase',
-                  cursor: 'pointer',
-                  fontFamily: "'Cinzel', serif",
-                  transition: 'background 0.3s ease',
-                }}
-              >
-                Join
-              </button>
-            </div>
+            {newsStatus === 'success' ? (
+              <div style={{
+                padding: '11px 14px',
+                background: 'rgba(107,123,94,0.08)',
+                border: '1px solid rgba(107,123,94,0.15)',
+                borderRadius: 2,
+                fontFamily: "'Lora', Georgia, serif",
+                fontSize: '0.82rem',
+                color: '#6B7B5E',
+              }}>
+                ✓ You're subscribed. Welcome to the circle.
+              </div>
+            ) : (
+              <form onSubmit={handleSubscribe} style={{ display: 'flex' }}>
+                <input
+                  type="email"
+                  value={newsEmail}
+                  onChange={e => setNewsEmail(e.target.value)}
+                  placeholder="Your email"
+                  required
+                  style={{
+                    flex: 1,
+                    padding: '11px 14px',
+                    background: 'rgba(31,27,22,0.03)',
+                    border: '1px solid rgba(31,27,22,0.08)',
+                    borderRight: 'none',
+                    borderRadius: '2px 0 0 2px',
+                    color: '#1F1B16',
+                    fontSize: '0.82rem',
+                    outline: 'none',
+                    fontFamily: "'Lora', Georgia, serif",
+                  }}
+                />
+                <button
+                  type="submit"
+                  disabled={newsStatus === 'sending'}
+                  style={{
+                    padding: '11px 18px',
+                    background: newsStatus === 'error' ? '#BA8A78' : '#C9A04A',
+                    color: '#FDFCFA',
+                    border: 'none',
+                    borderRadius: '0 2px 2px 0',
+                    fontSize: '0.68rem',
+                    fontWeight: 600,
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                    cursor: 'pointer',
+                    fontFamily: "'Cinzel', serif",
+                    transition: 'background 0.3s ease',
+                  }}
+                >
+                  {newsStatus === 'sending' ? '...' : newsStatus === 'error' ? 'Retry' : 'Join'}
+                </button>
+              </form>
+            )}
+            {newsStatus === 'error' && (
+              <p style={{ fontFamily: "'Lora', Georgia, serif", fontSize: '0.72rem', color: '#BA8A78', marginTop: 8 }}>{newsError}</p>
+            )}
           </div>
         </div>
 
