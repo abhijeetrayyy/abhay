@@ -1,0 +1,1973 @@
+[
+  {
+    "of": [
+      {
+        "marks": {
+          "annotations": [
+            {
+              "fields": [
+                {
+                  "validation": [
+                    {
+                      "rules": [
+                        {
+                          "flag": "uri",
+                          "constraint": {
+                            "options": {
+                              "scheme": [
+                                "/^http$/",
+                                "/^https$/"
+                              ],
+                              "allowRelative": false,
+                              "relativeOnly": false,
+                              "allowCredentials": false
+                            }
+                          }
+                        }
+                      ],
+                      "level": "error"
+                    }
+                  ],
+                  "name": "href",
+                  "type": "url",
+                  "title": "URL"
+                }
+              ],
+              "name": "link",
+              "type": "object",
+              "title": "URL"
+            }
+          ],
+          "decorators": [
+            {
+              "value": "strong",
+              "title": "Bold"
+            },
+            {
+              "value": "em",
+              "title": "Italic"
+            }
+          ]
+        },
+        "lists": [
+          {
+            "value": "bullet",
+            "title": "Bullet"
+          },
+          {
+            "value": "number",
+            "title": "Numbered"
+          }
+        ],
+        "styles": [
+          {
+            "value": "normal",
+            "title": "Normal"
+          },
+          {
+            "value": "h2",
+            "title": "H2"
+          },
+          {
+            "value": "h3",
+            "title": "H3"
+          },
+          {
+            "value": "h4",
+            "title": "H4"
+          },
+          {
+            "value": "blockquote",
+            "title": "Quote"
+          }
+        ],
+        "of": [],
+        "type": "block"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "type": "image"
+      }
+    ],
+    "name": "blockContent",
+    "type": "array"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "clientName",
+        "type": "string"
+      },
+      {
+        "name": "clientLocation",
+        "type": "string",
+        "title": "Location"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "clientImage",
+        "type": "image"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "content",
+        "type": "text"
+      },
+      {
+        "name": "shortQuote",
+        "type": "string"
+      },
+      {
+        "options": {
+          "list": [
+            "Healing Session",
+            "Training Program",
+            "Masterclass",
+            "Ceremony",
+            "Retreat",
+            "Online Ceremony"
+          ]
+        },
+        "name": "serviceType",
+        "type": "string"
+      },
+      {
+        "options": {
+          "list": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "name": "rating",
+        "type": "number"
+      },
+      {
+        "name": "order",
+        "type": "number",
+        "title": "Display Order"
+      },
+      {
+        "initialValue": false,
+        "name": "featured",
+        "type": "boolean"
+      }
+    ],
+    "name": "testimonial",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "rows": 2,
+        "name": "shortDescription",
+        "type": "text"
+      },
+      {
+        "rows": 5,
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "options": {
+          "list": [
+            "retreat",
+            "ceremony",
+            "workshop",
+            "training",
+            "online"
+          ]
+        },
+        "name": "eventType",
+        "type": "string",
+        "title": "Type"
+      },
+      {
+        "options": {
+          "dateFormat": "YYYY-MM-DD"
+        },
+        "name": "startDate",
+        "type": "date"
+      },
+      {
+        "options": {
+          "dateFormat": "YYYY-MM-DD"
+        },
+        "name": "endDate",
+        "type": "date"
+      },
+      {
+        "name": "locationName",
+        "type": "string"
+      },
+      {
+        "name": "locationCity",
+        "type": "string",
+        "title": "City"
+      },
+      {
+        "name": "locationCountry",
+        "type": "string",
+        "title": "Country"
+      },
+      {
+        "initialValue": false,
+        "name": "online",
+        "type": "boolean",
+        "title": "Online Event"
+      },
+      {
+        "name": "maxParticipants",
+        "type": "number"
+      },
+      {
+        "name": "price",
+        "type": "number",
+        "title": "Price ($)"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "heroImage",
+        "type": "image"
+      },
+      {
+        "initialValue": false,
+        "name": "featured",
+        "type": "boolean"
+      },
+      {
+        "options": {
+          "list": [
+            "draft",
+            "published",
+            "cancelled",
+            "completed"
+          ]
+        },
+        "initialValue": "draft",
+        "name": "status",
+        "type": "string"
+      }
+    ],
+    "name": "event",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "rows": 2,
+        "name": "excerpt",
+        "type": "text"
+      },
+      {
+        "name": "content",
+        "type": "blockContent"
+      },
+      {
+        "options": {
+          "list": [
+            "teaching",
+            "guide",
+            "philosophy",
+            "ceremony",
+            "integration"
+          ]
+        },
+        "name": "category",
+        "type": "string"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "featuredImage",
+        "type": "image"
+      },
+      {
+        "name": "readTime",
+        "type": "number",
+        "title": "Read Time (minutes)"
+      },
+      {
+        "initialValue": false,
+        "name": "featured",
+        "type": "boolean"
+      },
+      {
+        "options": {
+          "list": [
+            "draft",
+            "published",
+            "archived"
+          ]
+        },
+        "initialValue": "draft",
+        "name": "status",
+        "type": "string"
+      },
+      {
+        "name": "publishedAt",
+        "type": "datetime"
+      }
+    ],
+    "name": "teaching",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "image",
+        "type": "image"
+      },
+      {
+        "options": {
+          "list": [
+            "ceremony",
+            "retreat",
+            "travel",
+            "portrait",
+            "nature"
+          ]
+        },
+        "name": "category",
+        "type": "string"
+      },
+      {
+        "name": "order",
+        "type": "number",
+        "title": "Display Order"
+      }
+    ],
+    "name": "gallery",
+    "type": "document",
+    "title": "Gallery Image"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "title",
+        "type": "string",
+        "title": "Page Title"
+      },
+      {
+        "options": {
+          "source": "title"
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "of": [
+          {
+            "type": "hero",
+            "title": "Hero Section"
+          },
+          {
+            "type": "paths",
+            "title": "Paths Section"
+          },
+          {
+            "type": "stats",
+            "title": "Stats Section"
+          },
+          {
+            "type": "shamanIntro",
+            "title": "Shaman Intro Section"
+          },
+          {
+            "type": "socialReel",
+            "title": "Social Reel Section"
+          },
+          {
+            "type": "programs",
+            "title": "Programs Section"
+          },
+          {
+            "type": "gallerySection"
+          },
+          {
+            "type": "testimonialsSection"
+          },
+          {
+            "type": "videoTestimonials",
+            "title": "Video Testimonials Section"
+          },
+          {
+            "type": "teachingsSection"
+          },
+          {
+            "type": "eventsSection",
+            "title": "Events Showcase Section"
+          },
+          {
+            "type": "transformation",
+            "title": "Transformation / Timeline Section"
+          },
+          {
+            "type": "youtubeSection",
+            "title": "YouTube Videos Section"
+          },
+          {
+            "type": "faqSection",
+            "title": "FAQ Section"
+          },
+          {
+            "type": "webinarCta",
+            "title": "Webinar CTA Section"
+          },
+          {
+            "type": "finalCta",
+            "title": "Final CTA Section"
+          }
+        ],
+        "name": "sections",
+        "type": "array",
+        "title": "Page Sections"
+      }
+    ],
+    "name": "page",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "Siberian Shaman & Guardian of Our Planet",
+        "name": "tagline",
+        "type": "string"
+      },
+      {
+        "initialValue": "Between Worlds",
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "initialValue": "Abhay Oyun",
+        "name": "subheading",
+        "type": "string"
+      },
+      {
+        "rows": 3,
+        "initialValue": "Awakening the world to the raw power of ancient Siberian shamanic traditions. Sacred ceremonies, healing, and training since 1991.",
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "backgroundImage",
+        "type": "image"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "shamanImage",
+        "type": "image"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Book a Session",
+            "name": "label",
+            "type": "string"
+          },
+          {
+            "initialValue": "https://calendly.com/hurraymangalam/individualsessions",
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "uri",
+                    "constraint": {
+                      "options": {
+                        "scheme": [
+                          "/^http$/",
+                          "/^https$/"
+                        ],
+                        "allowRelative": false,
+                        "relativeOnly": false,
+                        "allowCredentials": false
+                      }
+                    }
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "url",
+            "type": "url",
+            "title": "URL"
+          }
+        ],
+        "name": "primaryButton",
+        "type": "object"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Join the Webinar",
+            "name": "label",
+            "type": "string"
+          },
+          {
+            "initialValue": "https://forms.gle/jEDaUrKwbyHd8WvUA",
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "uri",
+                    "constraint": {
+                      "options": {
+                        "scheme": [
+                          "/^http$/",
+                          "/^https$/"
+                        ],
+                        "allowRelative": false,
+                        "relativeOnly": false,
+                        "allowCredentials": false
+                      }
+                    }
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "url",
+            "type": "url",
+            "title": "URL"
+          }
+        ],
+        "name": "secondaryButton",
+        "type": "object"
+      }
+    ],
+    "name": "hero",
+    "type": "object",
+    "title": "Hero Section"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "Choose Your",
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "initialValue": "Path to Power",
+        "name": "subheading",
+        "type": "string"
+      },
+      {
+        "rows": 2,
+        "initialValue": "Four sacred doors into the ancient Siberian tradition. Each path is guarded by a spirit — choose the one that calls to you.",
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "name": "subtitle",
+                "type": "string"
+              },
+              {
+                "rows": 3,
+                "name": "description",
+                "type": "text"
+              },
+              {
+                "name": "link",
+                "type": "string",
+                "title": "Link URL"
+              },
+              {
+                "name": "color",
+                "type": "string",
+                "title": "Accent Color"
+              },
+              {
+                "options": {
+                  "accept": "video/mp4"
+                },
+                "name": "previewVideo",
+                "type": "file"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "paths",
+        "type": "array",
+        "title": "Path Cards"
+      }
+    ],
+    "name": "paths",
+    "type": "object",
+    "title": "Paths Section"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "Proven Results",
+        "name": "eyebrow",
+        "type": "string",
+        "title": "Eyebrow Text"
+      },
+      {
+        "initialValue": "Transforming Lives Worldwide",
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "value",
+                "type": "number"
+              },
+              {
+                "description": "e.g. +, %, K",
+                "name": "suffix",
+                "type": "string"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "label",
+                "type": "string"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "stats",
+        "type": "array",
+        "title": "Statistics"
+      }
+    ],
+    "name": "stats",
+    "type": "object",
+    "title": "Stats Section"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "The Shaman",
+        "name": "eyebrow",
+        "type": "string",
+        "title": "Eyebrow Text"
+      },
+      {
+        "initialValue": [
+          "30+ Years.",
+          "50+ Countries.",
+          "One Mission."
+        ],
+        "description": "Each item is a line break. Last line can be styled as italic gold.",
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "heading",
+        "type": "array"
+      },
+      {
+        "rows": 5,
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "image",
+        "type": "image"
+      },
+      {
+        "initialValue": "Guardian of Our Planet",
+        "name": "imageCaption",
+        "type": "string"
+      },
+      {
+        "initialValue": "Walk in Power. Walk in Light.",
+        "name": "imageQuote",
+        "type": "string"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Book a Session",
+            "name": "label",
+            "type": "string"
+          },
+          {
+            "initialValue": "https://calendly.com/hurraymangalam/individualsessions",
+            "name": "url",
+            "type": "string",
+            "title": "URL"
+          }
+        ],
+        "name": "primaryButton",
+        "type": "object"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Learn More",
+            "name": "label",
+            "type": "string"
+          },
+          {
+            "initialValue": "/about",
+            "name": "url",
+            "type": "string",
+            "title": "URL"
+          }
+        ],
+        "name": "secondaryButton",
+        "type": "object"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "initialValue": "5,000+",
+                "name": "number",
+                "type": "string"
+              },
+              {
+                "initialValue": "Healed",
+                "name": "label",
+                "type": "string"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "stats",
+        "type": "array",
+        "title": "Mini Stats"
+      }
+    ],
+    "name": "shamanIntro",
+    "type": "object",
+    "title": "Shaman Intro Section"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "@EarthForPeace",
+        "name": "handle",
+        "type": "string",
+        "title": "Social Handle"
+      },
+      {
+        "initialValue": "Sacred Moments.",
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "initialValue": "Witnessed.",
+        "name": "subheading",
+        "type": "string"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "label",
+                "type": "string"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "uri",
+                        "constraint": {
+                          "options": {
+                            "scheme": [
+                              "/^http$/",
+                              "/^https$/"
+                            ],
+                            "allowRelative": false,
+                            "relativeOnly": false,
+                            "allowCredentials": false
+                          }
+                        }
+                      },
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "url",
+                "type": "url",
+                "title": "URL"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "socialLinks",
+        "type": "array"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "label",
+                "type": "string"
+              },
+              {
+                "options": {
+                  "list": [
+                    "Instagram",
+                    "YouTube",
+                    "TikTok"
+                  ]
+                },
+                "name": "platform",
+                "type": "string"
+              },
+              {
+                "name": "views",
+                "type": "string"
+              },
+              {
+                "name": "duration",
+                "type": "string"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "uri",
+                        "constraint": {
+                          "options": {
+                            "scheme": [
+                              "/^http$/",
+                              "/^https$/"
+                            ],
+                            "allowRelative": false,
+                            "relativeOnly": false,
+                            "allowCredentials": false
+                          }
+                        }
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "link",
+                "type": "url",
+                "title": "Link URL"
+              },
+              {
+                "options": {
+                  "accept": "video/mp4,video/quicktime"
+                },
+                "name": "video",
+                "type": "file",
+                "title": "Video File"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "reels",
+        "type": "array"
+      }
+    ],
+    "name": "socialReel",
+    "type": "object",
+    "title": "Social Reel Section"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "Programs",
+        "name": "eyebrow",
+        "type": "string",
+        "title": "Eyebrow Text"
+      },
+      {
+        "initialValue": "Transform Your Life",
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "rows": 2,
+        "initialValue": "Choose your path to awakening. Each program is designed to unlock ancient wisdom and modern transformation.",
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "name": "subtitle",
+                "type": "string"
+              },
+              {
+                "rows": 3,
+                "name": "description",
+                "type": "text"
+              },
+              {
+                "name": "price",
+                "type": "string"
+              },
+              {
+                "name": "link",
+                "type": "string",
+                "title": "Link URL"
+              },
+              {
+                "options": {
+                  "list": [
+                    "Popular",
+                    "Premium",
+                    "New",
+                    "Free"
+                  ]
+                },
+                "name": "tag",
+                "type": "string"
+              },
+              {
+                "initialValue": false,
+                "name": "featured",
+                "type": "boolean",
+                "title": "Featured (hero card)"
+              },
+              {
+                "options": {
+                  "hotspot": true
+                },
+                "name": "image",
+                "type": "image"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "programs",
+        "type": "array",
+        "title": "Program Cards"
+      }
+    ],
+    "name": "programs",
+    "type": "object",
+    "title": "Programs Section"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "Shamanic Retreats",
+        "name": "eyebrow",
+        "type": "string",
+        "title": "Eyebrow Text"
+      },
+      {
+        "initialValue": "Join our",
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "initialValue": "shamanic family.",
+        "name": "subheading",
+        "type": "string"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "options": {
+                  "hotspot": true
+                },
+                "name": "image",
+                "type": "image"
+              },
+              {
+                "name": "alt",
+                "type": "string",
+                "title": "Alt Text"
+              },
+              {
+                "options": {
+                  "list": [
+                    "4/3",
+                    "3/4",
+                    "1/1"
+                  ]
+                },
+                "name": "aspect",
+                "type": "string",
+                "title": "Aspect Ratio"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "images",
+        "type": "array"
+      }
+    ],
+    "name": "gallerySection",
+    "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "Testimonials",
+        "name": "eyebrow",
+        "type": "string",
+        "title": "Eyebrow Text"
+      },
+      {
+        "initialValue": "Stories of Transformation",
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "clientName",
+                "type": "string"
+              },
+              {
+                "name": "clientLocation",
+                "type": "string",
+                "title": "Location"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "content",
+                "type": "text"
+              },
+              {
+                "name": "serviceType",
+                "type": "string"
+              },
+              {
+                "options": {
+                  "list": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ]
+                },
+                "name": "rating",
+                "type": "number"
+              },
+              {
+                "options": {
+                  "hotspot": true
+                },
+                "name": "clientImage",
+                "type": "image"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "testimonials",
+        "type": "array"
+      }
+    ],
+    "name": "testimonialsSection",
+    "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "Video Stories",
+        "name": "eyebrow",
+        "type": "string",
+        "title": "Eyebrow Text"
+      },
+      {
+        "initialValue": "Real Voices",
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "initialValue": "of Transformation",
+        "name": "subheading",
+        "type": "string"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "options": {
+                  "list": [
+                    "Student Story",
+                    "Testimonial",
+                    "Teaching",
+                    "Testimony",
+                    "Workshop"
+                  ]
+                },
+                "name": "label",
+                "type": "string"
+              },
+              {
+                "options": {
+                  "list": [
+                    {
+                      "title": "YouTube",
+                      "value": "youtube"
+                    },
+                    {
+                      "title": "Local File",
+                      "value": "local"
+                    }
+                  ]
+                },
+                "name": "source",
+                "type": "string",
+                "title": "Video Source"
+              },
+              {
+                "hidden": "conditional",
+                "name": "youtubeId",
+                "type": "string",
+                "title": "YouTube ID"
+              },
+              {
+                "options": {
+                  "accept": "video/mp4,video/quicktime"
+                },
+                "hidden": "conditional",
+                "name": "videoFile",
+                "type": "file"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "videos",
+        "type": "array"
+      }
+    ],
+    "name": "videoTestimonials",
+    "type": "object",
+    "title": "Video Testimonials Section"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "Ancient Wisdom",
+        "name": "eyebrow",
+        "type": "string",
+        "title": "Eyebrow Text"
+      },
+      {
+        "initialValue": "Shamanic",
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "initialValue": "Teachings",
+        "name": "subheading",
+        "type": "string"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "rows": 2,
+                "name": "excerpt",
+                "type": "text"
+              },
+              {
+                "options": {
+                  "list": [
+                    "teaching",
+                    "guide",
+                    "philosophy",
+                    "ceremony",
+                    "integration"
+                  ]
+                },
+                "name": "category",
+                "type": "string"
+              },
+              {
+                "name": "readTime",
+                "type": "number",
+                "title": "Read Time (min)"
+              },
+              {
+                "options": {
+                  "hotspot": true
+                },
+                "name": "image",
+                "type": "image"
+              },
+              {
+                "name": "link",
+                "type": "string",
+                "title": "Link URL"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "teachings",
+        "type": "array"
+      }
+    ],
+    "name": "teachingsSection",
+    "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "Upcoming Events",
+        "name": "eyebrow",
+        "type": "string",
+        "title": "Eyebrow Text"
+      },
+      {
+        "initialValue": "Join Abhay",
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "initialValue": "in the Field.",
+        "name": "subheading",
+        "type": "string"
+      },
+      {
+        "rows": 2,
+        "initialValue": "Intimate gatherings designed for real transformation. No performance — only depth, ceremony, and direct energetic healing.",
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "tag",
+                "type": "string"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "name": "date",
+                "type": "string"
+              },
+              {
+                "name": "location",
+                "type": "string"
+              },
+              {
+                "name": "seats",
+                "type": "string"
+              },
+              {
+                "name": "price",
+                "type": "string"
+              },
+              {
+                "rows": 3,
+                "name": "description",
+                "type": "text"
+              },
+              {
+                "options": {
+                  "hotspot": true
+                },
+                "name": "image",
+                "type": "image"
+              },
+              {
+                "name": "color",
+                "type": "string",
+                "title": "Accent Color"
+              },
+              {
+                "of": [
+                  {
+                    "type": "string"
+                  }
+                ],
+                "name": "highlights",
+                "type": "array"
+              },
+              {
+                "options": {
+                  "list": [
+                    "Filling Fast",
+                    "Limited",
+                    "Free Entry",
+                    "Sold Out"
+                  ]
+                },
+                "name": "badge",
+                "type": "string"
+              },
+              {
+                "name": "registerUrl",
+                "type": "string",
+                "title": "Register URL"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "events",
+        "type": "array",
+        "title": "Event Cards"
+      }
+    ],
+    "name": "eventsSection",
+    "type": "object",
+    "title": "Events Showcase Section"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "Global Impact",
+        "name": "eyebrow",
+        "type": "string",
+        "title": "Eyebrow Text"
+      },
+      {
+        "rows": 2,
+        "initialValue": "When you reconnect with your wild nature, trauma doesn't just heal — it transforms into power.",
+        "name": "quote",
+        "type": "text"
+      },
+      {
+        "initialValue": "— Shaman Abhay Oyun",
+        "name": "quoteAttribution",
+        "type": "string"
+      },
+      {
+        "rows": 3,
+        "initialValue": "Called the World Shaman and Guardian of Our Planet, Abhay Oyun has dedicated his life to responding to global crises through the ancient lens of shamanic intervention.",
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "year",
+                "type": "string"
+              },
+              {
+                "name": "location",
+                "type": "string"
+              },
+              {
+                "rows": 3,
+                "name": "text",
+                "type": "text",
+                "title": "Description"
+              },
+              {
+                "options": {
+                  "hotspot": true
+                },
+                "name": "image",
+                "type": "image"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "milestones",
+        "type": "array",
+        "title": "Timeline Milestones"
+      }
+    ],
+    "name": "transformation",
+    "type": "object",
+    "title": "Transformation / Timeline Section"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "Watch & Learn",
+        "name": "eyebrow",
+        "type": "string",
+        "title": "Eyebrow Text"
+      },
+      {
+        "initialValue": "Abhay Oyun",
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "initialValue": "Teaching",
+        "name": "subheading",
+        "type": "string"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "youtubeId",
+                "type": "string",
+                "title": "YouTube Video ID"
+              },
+              {
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "name": "subtitle",
+                "type": "string"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "videos",
+        "type": "array",
+        "title": "YouTube Videos"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "View Channel",
+            "name": "label",
+            "type": "string"
+          },
+          {
+            "initialValue": "https://www.youtube.com/@AbhayOyun",
+            "validation": [
+              {
+                "rules": [
+                  {
+                    "flag": "uri",
+                    "constraint": {
+                      "options": {
+                        "scheme": [
+                          "/^http$/",
+                          "/^https$/"
+                        ],
+                        "allowRelative": false,
+                        "relativeOnly": false,
+                        "allowCredentials": false
+                      }
+                    }
+                  }
+                ],
+                "level": "error"
+              }
+            ],
+            "name": "url",
+            "type": "url",
+            "title": "URL"
+          }
+        ],
+        "name": "channelLink",
+        "type": "object"
+      }
+    ],
+    "name": "youtubeSection",
+    "type": "object",
+    "title": "YouTube Videos Section"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "FAQ",
+        "name": "eyebrow",
+        "type": "string",
+        "title": "Eyebrow Text"
+      },
+      {
+        "initialValue": "Common Questions",
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "question",
+                "type": "string"
+              },
+              {
+                "rows": 4,
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "answer",
+                "type": "text"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "faqs",
+        "type": "array",
+        "title": "FAQ Items"
+      }
+    ],
+    "name": "faqSection",
+    "type": "object",
+    "title": "FAQ Section"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "Free Webinar",
+        "name": "eyebrow",
+        "type": "string",
+        "title": "Eyebrow Text"
+      },
+      {
+        "initialValue": "Your Transformation",
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "initialValue": "Starts Free",
+        "name": "subheading",
+        "type": "string"
+      },
+      {
+        "rows": 3,
+        "initialValue": "Join thousands of people who made their first shift in a single free masterclass. No experience required — only willingness.",
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "initialValue": [
+          "Live introduction to the SAMPO psycho-energetic system",
+          "Discover your unique energy type and its strengths",
+          "First steps in shamanic self-healing techniques",
+          "Live Q&A with Shaman Abhay Oyun"
+        ],
+        "of": [
+          {
+            "type": "string"
+          }
+        ],
+        "name": "benefits",
+        "type": "array",
+        "title": "Benefit Bullets"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Next Session",
+            "name": "label",
+            "type": "string"
+          },
+          {
+            "initialValue": "March 19, 2025",
+            "name": "date",
+            "type": "string"
+          },
+          {
+            "initialValue": "Online · Free Entry · Global",
+            "name": "meta",
+            "type": "string"
+          },
+          {
+            "initialValue": "The first step costs nothing but the courage to begin.",
+            "name": "quote",
+            "type": "string"
+          },
+          {
+            "initialValue": "Reserve Your Spot — Free →",
+            "name": "primaryButton",
+            "type": "string",
+            "title": "Primary Button Label"
+          },
+          {
+            "initialValue": "https://forms.gle/jEDaUrKwbyHd8WvUA",
+            "name": "primaryUrl",
+            "type": "string",
+            "title": "Primary Button URL"
+          },
+          {
+            "initialValue": "Book Private 1-on-1 Session",
+            "name": "secondaryButton",
+            "type": "string",
+            "title": "Secondary Button Label"
+          },
+          {
+            "initialValue": "https://calendly.com/hurraymangalam/individualsessions",
+            "name": "secondaryUrl",
+            "type": "string",
+            "title": "Secondary Button URL"
+          }
+        ],
+        "name": "card",
+        "type": "object",
+        "title": "Card Details"
+      }
+    ],
+    "name": "webinarCta",
+    "type": "object",
+    "title": "Webinar CTA Section"
+  },
+  {
+    "fields": [
+      {
+        "initialValue": "Ready to Begin Your Journey?",
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "rows": 2,
+        "initialValue": "Whether you're seeking healing, transformation, or to awaken your shamanic abilities — the path awaits. Take the first step today.",
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Book a Session",
+            "name": "label",
+            "type": "string"
+          },
+          {
+            "initialValue": "https://calendly.com/hurraymangalam/individualsessions",
+            "name": "url",
+            "type": "string",
+            "title": "URL"
+          }
+        ],
+        "name": "primaryButton",
+        "type": "object"
+      },
+      {
+        "fields": [
+          {
+            "initialValue": "Contact Abhay",
+            "name": "label",
+            "type": "string"
+          },
+          {
+            "initialValue": "mailto:contact@earthforpeace.com",
+            "name": "url",
+            "type": "string",
+            "title": "URL"
+          }
+        ],
+        "name": "secondaryButton",
+        "type": "object"
+      },
+      {
+        "initialValue": "Walk in Power. Walk in Light.",
+        "name": "bottomQuote",
+        "type": "string"
+      }
+    ],
+    "name": "finalCta",
+    "type": "object",
+    "title": "Final CTA Section"
+  }
+]

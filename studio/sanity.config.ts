@@ -1,5 +1,6 @@
 import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
+import { presentationTool } from 'sanity/presentation';
 import { blockContent, testimonial, event, teaching, gallery } from './schemas/documents';
 import { page } from './schemas/page';
 import { sectionTypes } from './schemas/sections';
@@ -12,7 +13,17 @@ export default defineConfig({
   title: 'Abhay Oyun',
   projectId,
   dataset,
-  plugins: [structureTool()],
+  plugins: [
+    structureTool(),
+    presentationTool({
+      previewUrl: {
+        origin: process.env.SANITY_STUDIO_PREVIEW_URL || 'http://localhost:3000',
+        previewMode: {
+          enable: '/api/draft/enable',
+        },
+      },
+    }),
+  ],
   schema: {
     types: [
       blockContent,
