@@ -1,7 +1,10 @@
 import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
+import { blockContent, testimonial, event, teaching, gallery } from './schemas/documents';
+import { page } from './schemas/page';
+import { sectionTypes } from './schemas/sections';
 
-const projectId = process.env.SANITY_STUDIO_PROJECT_ID || '';
+const projectId = process.env.SANITY_STUDIO_PROJECT_ID || 'wr0ipccq';
 const dataset = process.env.SANITY_STUDIO_DATASET || 'production';
 
 export default defineConfig({
@@ -10,5 +13,15 @@ export default defineConfig({
   projectId,
   dataset,
   plugins: [structureTool()],
-  schema: { types: [testimonial, event, teaching, gallery] },
+  schema: {
+    types: [
+      blockContent,
+      testimonial,
+      event,
+      teaching,
+      gallery,
+      page,
+      ...sectionTypes,
+    ],
+  },
 });

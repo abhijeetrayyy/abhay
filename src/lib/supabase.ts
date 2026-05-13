@@ -3,11 +3,25 @@ import { createBrowserClient } from '@supabase/ssr';
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || '';
 
-export const supabase = supabaseUrl && supabaseAnonKey
-  ? createBrowserClient(supabaseUrl, supabaseAnonKey)
-  : ({} as ReturnType<typeof createBrowserClient>);
-
 export const isSupabaseConfigured = Boolean(supabaseUrl && supabaseAnonKey);
+
+const noopClient = {
+  from: () => ({
+    select: () => ({ eq: () => ({ order: () => ({ gte: () => ({ limit: () => ({ single: () => Promise.resolve({ data: null, error: new Error('Supabase not configured') }) }), data: null, error: new Error('Supabase not configured') }) }), data: null, error: new Error('Supabase not configured') }), data: null, error: new Error('Supabase not configured') }),
+    insert: () => ({ select: () => ({ single: () => Promise.resolve({ data: null, error: new Error('Supabase not configured') }) }), data: null, error: new Error('Supabase not configured') }),
+    update: () => ({ eq: () => ({ select: () => ({ single: () => Promise.resolve({ data: null, error: new Error('Supabase not configured') }) }), data: null, error: new Error('Supabase not configured') }), data: null, error: new Error('Supabase not configured') }),
+    delete: () => ({ eq: () => Promise.resolve({ data: null, error: new Error('Supabase not configured') }) }),
+  }),
+  auth: {
+    getSession: () => Promise.resolve({ data: { session: null }, error: null }),
+    signInWithPassword: () => Promise.resolve({ data: null, error: new Error('Supabase not configured') }),
+    signOut: () => Promise.resolve({ error: null }),
+  },
+} as unknown as ReturnType<typeof createBrowserClient>;
+
+export const supabase = isSupabaseConfigured
+  ? createBrowserClient(supabaseUrl, supabaseAnonKey)
+  : noopClient;
 
 export type Contact = {
   id: string;

@@ -1,295 +1,81 @@
 "use client";
-import { useState } from "react";
-import Image from "next/image";
+import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import { getPublishedTeachings } from "@/lib/data";
 
-const practices = [
-  {
-    num: "01",
-    tag: "Nature Healing",
-    title: "Forest & Elemental Medicine",
-    desc: "The Siberian taiga is the original clinic. Through guided forest immersion, elemental ceremonies, and direct communion with the natural world, deep cellular healing occurs naturally. The trees, rivers, and winds become your healers.",
-    img: "/sao-gallery-img2.jpg",
-  },
-  {
-    num: "02",
-    tag: "Sound Medicine",
-    title: "Sacred Drum Healing",
-    desc: "The shaman's drum is a portal. Its frequencies shift brainwave states instantly, dissolve trauma held in the cellular body, and initiate spontaneous healing responses.",
-    img: "/sao-gallery-img4.jpg",
-  },
-  {
-    num: "03",
-    tag: "Personal Healing",
-    title: "1-on-1 Shamanic Session",
-    desc: "Direct, private energetic work with Shaman Abhay Oyun. Each session identifies the root cause of imbalance — physical, emotional, or ancestral — and applies targeted shamanic intervention.",
-    img: "/AO-2.jpg",
-  },
-];
-
-export default function TeachingsSection() {
-  const [activeIdx, setActiveIdx] = useState(0);
-
+function TeachingCard({ teaching }: { teaching: any }) {
+  const [hovered, setHovered] = useState(false);
   return (
-    <section
-      id="teachings"
-      className="teachings-section"
-      style={{
-        backgroundColor: "#FBF9F5",
-        padding: "120px 4vw",
-        position: "relative",
-        marginTop: "-1px",
-        zIndex: 20,
-      }}
-    >
-      <div
-        className="editorial-container"
-        style={{
-          maxWidth: 1600,
-          margin: "0 auto",
-          display: "flex",
-          gap: "6vw",
-          alignItems: "flex-start",
-        }}
-      >
-        {/* Left Side: Sticky Image Showcase */}
-        <div
-          className="editorial-image-col"
-          style={{
-            flex: 1,
-            position: "sticky",
-            top: 130,
-            height: "calc(100vh - 200px)",
-            minHeight: 600,
-            maxHeight: 800,
-            borderRadius: 2,
-            overflow: "hidden",
-            boxShadow: "0 30px 60px rgba(0,0,0,0.15)",
-          }}
-        >
-          <AnimatePresence mode="popLayout">
-            <motion.div
-              key={activeIdx}
-              initial={{ opacity: 0, scale: 1.04 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.7, ease: "easeInOut" }}
-              style={{ position: "absolute", inset: 0 }}
-            >
-              <Image
-                src={practices[activeIdx].img}
-                alt={practices[activeIdx].title}
-                fill
-                style={{ objectFit: "cover", objectPosition: "center" }}
-                quality={100}
-                priority
-              />
-              <div style={{
-                position: "absolute",
-                inset: 0,
-                background: "linear-gradient(to top, rgba(31,27,22,0.3) 0%, transparent 40%)",
-              }} />
-            </motion.div>
-          </AnimatePresence>
-        </div>
-
-        {/* Right Side: Content & Accordion */}
-        <div className="editorial-content-col" style={{ flex: 1, paddingTop: 40, paddingBottom: 40 }}>
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            style={{ marginBottom: 60 }}
-          >
-            <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 24 }}>
-              <div style={{ width: 36, height: 1, background: "#C9A04A" }} />
-              <span style={{
-                fontFamily: "'Cinzel', serif",
-                fontSize: "0.72rem",
-                fontWeight: 600,
-                letterSpacing: "0.2em",
-                textTransform: "uppercase",
-                color: "#A07D2E",
-              }}>
-                The Work
-              </span>
-            </div>
-            <h2 style={{
-              margin: 0,
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
-              fontWeight: 400,
-              fontSize: "clamp(2.8rem, 3.8vw, 4.2rem)",
-              color: "#1F1B16",
-              lineHeight: 1.1,
-              letterSpacing: "-0.02em",
-            }}>
-              Ancient Practices.
-              <br />
-              <span style={{ fontStyle: "italic", color: "rgba(31,27,22,0.35)" }}>
-                Modern Mastery.
-              </span>
-            </h2>
-            <p style={{
-              fontFamily: "'Lora', Georgia, serif",
-              fontSize: "1rem",
-              color: "rgba(31,27,22,0.55)",
-              marginTop: 24,
-              lineHeight: 1.7,
-              maxWidth: 460,
-              fontWeight: 400,
-            }}>
-              Three pillars of healing, refined across 35 years and 40 countries of direct shamanic work.
-            </p>
-          </motion.div>
-
-          {/* Accordion */}
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            {practices.map((p, i) => {
-              const isActive = activeIdx === i;
-              return (
-                <div
-                  key={p.num}
-                  onClick={() => setActiveIdx(i)}
-                  style={{
-                    borderTop: "1px solid rgba(31,27,22,0.08)",
-                    borderBottom: i === practices.length - 1 ? "1px solid rgba(31,27,22,0.08)" : "none",
-                    padding: "30px 0",
-                    cursor: "pointer",
-                    overflow: "hidden",
-                  }}
-                >
-                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                    <div style={{ display: "flex", alignItems: "baseline", gap: 22 }}>
-                      <span style={{
-                        fontFamily: "'Cinzel', serif",
-                        fontSize: "0.95rem",
-                        fontWeight: 500,
-                        color: isActive ? "#C9A04A" : "rgba(31,27,22,0.25)",
-                        transition: "color 0.4s ease",
-                      }}>
-                        {p.num}
-                      </span>
-                      <h3 style={{
-                        margin: 0,
-                        fontFamily: "'Cormorant Garamond', Georgia, serif",
-                        fontSize: "clamp(1.4rem, 5vw, 2.2rem)",
-                        color: isActive ? "#1F1B16" : "rgba(31,27,22,0.35)",
-                        transition: "color 0.4s ease",
-                        fontWeight: 400,
-                      }}>
-                        {p.title}
-                      </h3>
-                    </div>
-                    <div style={{ width: 22, height: 22, position: "relative" }}>
-                      <div style={{
-                        position: "absolute",
-                        top: "50%",
-                        left: 0,
-                        right: 0,
-                        height: 1,
-                        background: isActive ? "#C9A04A" : "rgba(31,27,22,0.2)",
-                        transition: "all 0.4s ease",
-                      }} />
-                      <div style={{
-                        position: "absolute",
-                        top: 0,
-                        bottom: 0,
-                        left: "50%",
-                        width: 1,
-                        background: isActive ? "#C9A04A" : "rgba(31,27,22,0.2)",
-                        transform: isActive ? "rotate(90deg) scale(0)" : "rotate(0deg) scale(1)",
-                        transition: "all 0.4s ease",
-                      }} />
-                    </div>
-                  </div>
-
-                  <AnimatePresence initial={false}>
-                    {isActive && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.4, ease: "easeInOut" }}
-                      >
-                        <div style={{ paddingLeft: 38, paddingTop: 22 }}>
-                          <span style={{
-                            fontFamily: "'Cinzel', serif",
-                            fontSize: "0.62rem",
-                            fontWeight: 600,
-                            letterSpacing: "0.18em",
-                            textTransform: "uppercase",
-                            color: "#A07D2E",
-                            padding: "3px 10px",
-                            border: "1px solid rgba(201,160,74,0.25)",
-                            borderRadius: 2,
-                            display: "inline-block",
-                            marginBottom: 14,
-                          }}>
-                            {p.tag}
-                          </span>
-                          <p style={{
-                            margin: "0 0 30px 0",
-                            fontFamily: "'Lora', Georgia, serif",
-                            fontSize: "1rem",
-                            color: "rgba(31,27,22,0.6)",
-                            lineHeight: 1.75,
-                            maxWidth: 480,
-                            fontWeight: 400,
-                          }}>
-                            {p.desc}
-                          </p>
-                          <Link
-                            href="https://calendly.com/hurraymangalam/individualsessions"
-                            target="_blank"
-                            style={{
-                              display: "inline-flex",
-                              alignItems: "center",
-                              gap: 10,
-                              fontFamily: "'Cinzel', serif",
-                              fontSize: "0.78rem",
-                              fontWeight: 600,
-                              letterSpacing: "0.1em",
-                              textTransform: "uppercase",
-                              color: "#FDFCFA",
-                              background: "#C9A04A",
-                              padding: "14px 36px",
-                              borderRadius: 2,
-                              textDecoration: "none",
-                              transition: "all 0.3s ease",
-                            }}
-                            onMouseOver={(e) => { e.currentTarget.style.background = "#A07D2E"; }}
-                            onMouseOut={(e) => { e.currentTarget.style.background = "#C9A04A"; }}
-                          >
-                            Book Session
-                            <svg width="16" height="11" viewBox="0 0 14 8" fill="none">
-                              <path d="M1 4h12M10 1l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
-                          </Link>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              );
-            })}
-          </div>
+    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.5, delay: 0.1 }} onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
+      style={{ position: "relative", borderRadius: 2, overflow: "hidden", background: "#FDFCFA", border: "1px solid rgba(31,27,22,0.06)", height: "100%", display: "flex", flexDirection: "column", boxShadow: hovered ? "0 16px 40px rgba(0,0,0,0.08), 0 0 0 1px rgba(201,160,74,0.1)" : "0 4px 16px rgba(0,0,0,0.03)", transition: "all 0.4s ease", transform: hovered ? "translateY(-4px)" : "translateY(0)" }}>
+      <div style={{ position: "relative", height: 200, overflow: "hidden" }}>
+        <img src={teaching.image || teaching.featured_image || "/sao-gallery-img3.jpg"} alt={teaching.title}
+          style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.6s ease", transform: hovered ? "scale(1.08)" : "scale(1)" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(31,27,22,0.3), transparent 60%)" }} />
+        <span style={{ position: "absolute", bottom: 12, left: 12, fontFamily: "'Cinzel', serif", fontSize: "0.55rem", fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "#C9A04A", background: "rgba(10,16,32,0.5)", backdropFilter: "blur(8px)", padding: "4px 10px", borderRadius: 2, border: "1px solid rgba(201,160,74,0.15)" }}>
+          {teaching.category || teaching.service_type || 'Teaching'}
+        </span>
+      </div>
+      <div style={{ padding: "24px", flex: 1, display: "flex", flexDirection: "column" }}>
+        <h3 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "1.2rem", color: "#1F1B16", fontWeight: 500, margin: "0 0 10px", lineHeight: 1.3 }}>
+          {teaching.title}
+        </h3>
+        <p style={{ fontFamily: "'Lora', Georgia, serif", fontSize: "0.82rem", lineHeight: 1.7, color: "rgba(31,27,22,0.55)", margin: "0 0 16px", flex: 1, fontWeight: 400 }}>
+          {teaching.excerpt}
+        </p>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", borderTop: "1px solid rgba(31,27,22,0.06)", paddingTop: 14 }}>
+          <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.6rem", letterSpacing: "0.08em", color: "rgba(31,27,22,0.4)" }}>
+            {teaching.read_time_minutes || teaching.readTime || '5'} min read
+          </span>
+          <Link href={teaching.link || '/teachings'} style={{ fontFamily: "'Cinzel', serif", fontSize: "0.62rem", fontWeight: 600, color: "#C9A04A", textDecoration: "none", letterSpacing: "0.08em", transition: "color 0.3s" }}
+            onMouseEnter={(e) => e.currentTarget.style.color = "#A07D2E"} onMouseLeave={(e) => e.currentTarget.style.color = "#C9A04A"}>
+            Read More →
+          </Link>
         </div>
       </div>
+    </motion.div>
+  );
+}
 
-      <style>{`
-        @media (max-width: 1024px) {
-          .teachings-section { padding: 80px 4vw !important; }
-          .editorial-container { flex-direction: column !important; }
-          .editorial-image-col { width: 100% !important; height: 50vh !important; min-height: auto !important; position: relative !important; top: 0 !important; margin-bottom: 40px; }
-          .editorial-content-col { padding-top: 0 !important; }
-        }
-        @media (max-width: 768px) {
-          .teachings-section { padding: 60px 20px !important; }
-        }
-      `}</style>
+export default function TeachingsSection({ sanity }: { sanity?: Record<string, any> }) {
+  const [teachings, setTeachings] = useState<any[]>([]);
+  useEffect(() => { getPublishedTeachings().then(setTeachings).catch(() => {}); }, []);
+
+  const eyebrow = sanity?.eyebrow || 'Ancient Wisdom';
+  const heading = sanity?.heading || 'Shamanic';
+  const subheading = sanity?.subheading || 'Teachings';
+  const items = sanity?.teachings || (teachings.length > 0 ? teachings : []);
+
+  if (items.length === 0) return null;
+
+  return (
+    <section style={{ background: "#F5F1EA", overflow: "hidden", position: "relative", zIndex: 20, marginTop: "-1px" }}>
+      <div style={{ position: "absolute", top: "20%", left: "50%", transform: "translateX(-50%)", width: "60%", height: "50%", background: "radial-gradient(ellipse, rgba(201,160,74,0.04) 0%, transparent 70%)", pointerEvents: "none" }} />
+      <div className="teachings-wrapper" style={{ maxWidth: 1400, margin: "0 auto", padding: "clamp(80px, 12vw, 140px) clamp(20px, 5vw, 80px)" }}>
+        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ textAlign: "center", marginBottom: "clamp(40px, 6vh, 64px)" }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 16, marginBottom: 18 }}>
+            <div style={{ width: 40, height: 1, background: "linear-gradient(to right, transparent, #C9A04A)" }} />
+            <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.62rem", fontWeight: 600, letterSpacing: "0.3em", textTransform: "uppercase", color: "#A07D2E" }}>{eyebrow}</span>
+            <div style={{ width: 40, height: 1, background: "linear-gradient(to left, transparent, #C9A04A)" }} />
+          </div>
+          <h2 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 400, fontSize: "clamp(2rem, 5vw, 3.5rem)", color: "#1F1B16", margin: 0, letterSpacing: "-0.02em" }}>
+            {heading}<br /><span style={{ fontStyle: "italic", color: "rgba(31,27,22,0.3)" }}>{subheading}</span>
+          </h2>
+        </motion.div>
+        <div className="teachings-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "clamp(14px, 2vw, 24px)" }}>
+          {items.slice(0, 6).map((t: any, i: number) => (<TeachingCard key={t._id || t.title || i} teaching={t} />))}
+        </div>
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
+          style={{ textAlign: "center", marginTop: 48 }}>
+          <Link href="/teachings" style={{ fontFamily: "'Cinzel', serif", fontSize: "0.75rem", fontWeight: 600, color: "#C9A04A", textDecoration: "none", borderBottom: "1px solid rgba(201,160,74,0.3)", paddingBottom: 4, letterSpacing: "0.1em", transition: "all 0.3s" }}>
+            View All Teachings →
+          </Link>
+        </motion.div>
+      </div>
+      <style>{`@media (max-width: 1024px) { .teachings-wrapper { padding: 60px 24px !important; } .teachings-grid { grid-template-columns: repeat(2, 1fr) !important; } } @media (max-width: 600px) { .teachings-grid { grid-template-columns: 1fr !important; } }`}</style>
     </section>
   );
 }

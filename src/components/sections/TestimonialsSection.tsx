@@ -5,7 +5,7 @@ import Link from "next/link";
 import { getActiveTestimonials } from "@/lib/data";
 import type { Testimonial } from "@/lib/supabase";
 
-export default function TestimonialsSection() {
+export default function TestimonialsSection({ sanity }: { sanity?: Record<string, any> }) {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [cur, setCur] = useState(0);
   const [dir, setDir] = useState(1);
