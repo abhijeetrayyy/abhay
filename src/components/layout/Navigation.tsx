@@ -45,7 +45,7 @@ export default function Navigation() {
         display: 'flex', alignItems: 'center',
         background: scrolled ? '#1F1B16' : 'rgba(10,16,32,0.65)',
         backdropFilter: scrolled ? 'none' : 'blur(10px)',
-        borderBottom: '1px solid rgba(255,255,255,0.04)',
+        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.04)' : 'none',
         transition: 'background 0.4s ease',
       }}>
         <div style={{
@@ -83,7 +83,7 @@ export default function Navigation() {
         paddingBottom: scrolled ? '8px' : '10px',
         background: scrolled ? 'rgba(251,249,245,0.95)' : 'linear-gradient(to bottom, rgba(11,14,26,0.5) 0%, transparent 100%)',
         backdropFilter: scrolled ? 'blur(24px) saturate(180%)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(31,27,22,0.06)' : '1px solid transparent',
+        borderBottom: scrolled ? '1px solid rgba(31,27,22,0.06)' : 'none',
         transition: 'all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1)',
       }}>
         <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 clamp(16px, 4vw, 48px)' }}>
