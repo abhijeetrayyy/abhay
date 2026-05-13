@@ -11,6 +11,7 @@
   "dependencies": {
     "@sanity/client": "^6.29.1",
     "@sanity/image-url": "^2.1.1",
+    "@sanity/ui": "^3.2.0",
     "@supabase/auth-helpers-nextjs": "^0.15.0",
     "@supabase/ssr": "^0.10.3",
     "@supabase/supabase-js": "^2.105.4",
@@ -21,7 +22,9 @@
     "next": "16.1.6",
     "next-sanity": "^12.4.5",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "sanity": "^5.25.0",
+    "styled-components": "^6.4.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.2.1",
