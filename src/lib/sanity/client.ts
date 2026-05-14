@@ -9,6 +9,10 @@ export const client = createClient({
   dataset,
   apiVersion,
   useCdn: process.env.NODE_ENV === "production",
+  stega: {
+    enabled: true,
+    studioUrl: "https://abhayoyun.sanity.studio",
+  },
 });
 
 export const isSanityConfigured = Boolean(projectId);
