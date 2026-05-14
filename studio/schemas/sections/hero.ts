@@ -15,14 +15,14 @@ export const hero = defineType({
       name: 'primaryButton', title: 'Primary Button', type: 'object',
       fields: [
         { name: 'label', title: 'Label', type: 'string', initialValue: 'Book a Session' },
-        { name: 'url', title: 'URL', type: 'url', initialValue: 'https://calendly.com/hurraymangalam/individualsessions' },
+        { name: 'url', title: 'URL', type: 'string', initialValue: 'https://calendly.com/hurraymangalam/individualsessions' },
       ],
     }),
     defineField({
       name: 'secondaryButton', title: 'Secondary Button', type: 'object',
       fields: [
         { name: 'label', title: 'Label', type: 'string', initialValue: 'Join the Webinar' },
-        { name: 'url', title: 'URL', type: 'url', initialValue: 'https://forms.gle/jEDaUrKwbyHd8WvUA' },
+        { name: 'url', title: 'URL', type: 'string', initialValue: 'https://forms.gle/jEDaUrKwbyHd8WvUA' },
       ],
     }),
   ],

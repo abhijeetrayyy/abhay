@@ -19,6 +19,12 @@ export const stats = defineType({
           preview: { select: { title: 'label', subtitle: 'value' } },
         },
       ],
+      initialValue: [
+        { _key: 's1', value: 30, suffix: '+', label: 'Years Experience' },
+        { _key: 's2', value: 5000, suffix: '+', label: 'People Transformed' },
+        { _key: 's3', value: 50, suffix: '+', label: 'Countries' },
+        { _key: 's4', value: 200, suffix: '+', label: 'Ceremonies/Year' },
+      ],
     }),
   ],
   preview: { select: { title: 'heading', subtitle: 'eyebrow' } },

@@ -25,6 +25,11 @@ export const programs = defineType({
           preview: { select: { title: 'title', subtitle: 'price' } },
         },
       ],
+      initialValue: [
+        { _key: 'pr1', title: 'SAMPO System', subtitle: 'Energy Mastery', description: 'Learn the ancient Siberian technique for harnessing and amplifying your personal energy field.', price: '$497', tag: 'Popular', featured: true, link: '/events' },
+        { _key: 'pr2', title: 'Shamanic Training', subtitle: 'Level 1 Certification', description: 'Begin your journey as a practitioner with foundational shamanic knowledge and hands-on experience.', price: '$1,997', featured: false, link: '/events' },
+        { _key: 'pr3', title: 'Mountain Retreat', subtitle: 'Siberia Immersion', description: 'An intensive 10-day journey to the Altai Mountains for deep healing and transformation.', price: '$3,497', tag: 'Premium', featured: false, link: '/events' },
+      ],
     }),
   ],
   preview: { select: { title: 'heading', subtitle: 'eyebrow' } },

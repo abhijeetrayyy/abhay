@@ -20,6 +20,13 @@ export const youtube = defineType({
           preview: { select: { title: 'title', subtitle: 'youtubeId' } },
         },
       ],
+      initialValue: [
+        { _key: 'yt1', youtubeId: 'kjFiyWgyvu0', title: 'Abhay Oyun Teaching', subtitle: 'First Steps of SAMPO' },
+        { _key: 'yt2', youtubeId: 'EqEK-5uJrAA', title: 'Sacred Drum Ceremony', subtitle: 'Sound Healing Practice' },
+        { _key: 'yt3', youtubeId: 'MXW78uQR7xg', title: 'Shamanic Initiation', subtitle: 'Psycho-Energetic Training' },
+        { _key: 'yt4', youtubeId: 'rNviNzWV-e4', title: 'Nature Synchronization', subtitle: 'Siberian Forest Ritual' },
+        { _key: 'yt5', youtubeId: '9ftcHfDEjeI', title: 'The SAMPO System', subtitle: 'Ancient Energy Mastery' },
+      ],
     }),
     defineField({
       name: 'channelLink', title: 'Channel Link', type: 'object',

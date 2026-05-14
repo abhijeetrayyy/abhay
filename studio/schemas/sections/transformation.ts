@@ -28,6 +28,12 @@ export const transformation = defineType({
           preview: { select: { title: 'year', subtitle: 'location', media: 'image' } },
         },
       ],
+      initialValue: [
+        { _key: 'tm1', year: '2004', location: 'Japan — Mount Fuji', text: '2,500 people gathered at the base of Mount Fuji under Abhay\'s guidance. Shaman chiefs from North America and Asian tribes united in ceremony for the first time.' },
+        { _key: 'tm2', year: '2007', location: 'South Russia', text: 'Major peace conferences and large spiritual gatherings where prayers and sacred rituals were held to bring peace and healing to the war-torn region.' },
+        { _key: 'tm3', year: '2015', location: 'Chile', text: 'When earthquakes, volcanic ash, and severe drought converged on Chile, Abhay led ceremonies to shift the collective energetic field and support recovery.' },
+        { _key: 'tm4', year: '2022', location: 'Ukraine', text: 'During the New Year\'s Retreat 2021–2022, Abhay received a vision of the invasion. Sacred ceremonies were organized across Europe to focus healing energy on the region.' },
+      ],
     }),
   ],
   preview: { select: { title: 'eyebrow' } },

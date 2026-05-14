@@ -23,6 +23,11 @@ export const teachings = defineType({
           preview: { select: { title: 'title', subtitle: 'category', media: 'image' } },
         },
       ],
+      initialValue: [
+        { _key: 'th1', title: 'The SAMPO System: Ancient Energy Mastery', excerpt: 'Discover the foundational principles of the SAMPO psycho-energetic system — an ancient Siberian technology for accumulating and directing vital force.', category: 'teaching', readTime: 12 },
+        { _key: 'th2', title: 'Sacred Drum Healing: A Practical Guide', excerpt: 'Learn how the shamanic drum connects you to the spirit world and facilitates deep healing on physical, emotional, and spiritual levels.', category: 'guide', readTime: 8 },
+        { _key: 'th3', title: 'Soul Retrieval: Finding What Was Lost', excerpt: 'Understanding soul fragmentation and the process of soul retrieval — one of the most profound healing practices in the shamanic tradition.', category: 'ceremony', readTime: 15 },
+      ],
     }),
   ],
   preview: { select: { title: 'heading', subtitle: 'eyebrow' } },
