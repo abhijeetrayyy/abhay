@@ -17,7 +17,7 @@ export default defineConfig({
     structureTool(),
     presentationTool({
       previewUrl: {
-        origin: process.env.SANITY_STUDIO_PREVIEW_URL || 'http://localhost:3000',
+        origin: process.env.SANITY_STUDIO_PREVIEW_URL || 'https://abhay-kohl.vercel.app',
         previewMode: {
           enable: '/api/draft/enable',
         },
