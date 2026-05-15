@@ -114,7 +114,7 @@ export default function VideoTestimonialsSection({ sanity }: { sanity?: Record<s
     id: v._key || v.title?.replace(/\s/g, ''),
     title: v.title,
     label: v.label,
-    ...(v.source === 'local' || v.videoFile ? { src: v.videoFile } : { yt: v.youtubeId }),
+    ...(v.source === 'local' || v.videoFile ? { src: v.videoFileUrl || v.videoFile } : { yt: v.youtubeId }),
   })) || defaultVideos;
 
   return (

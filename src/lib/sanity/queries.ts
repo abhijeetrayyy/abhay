@@ -89,7 +89,33 @@ export const galleryQuery = groq`*[_type == "gallery"] | order(order asc) { ${GR
 
 // Page builder query — fetches the homepage with all editable sections
 export const pageQuery = groq`*[_type == "page" && slug.current == $slug][0]`;
-export const homepageQuery = groq`*[_type == "page"][0]`;
+export const homepageQuery = groq`*[_type == "page"][0]{
+  ...,
+  sections[] {
+    ...,
+    _type == "paths" => {
+      ...,
+      paths[] {
+        ...,
+        "previewVideoUrl": previewVideo.asset->url
+      }
+    },
+    _type == "socialReel" => {
+      ...,
+      reels[] {
+        ...,
+        "videoUrl": video.asset->url
+      }
+    },
+    _type == "videoTestimonials" => {
+      ...,
+      videos[] {
+        ...,
+        "videoFileUrl": videoFile.asset->url
+      }
+    },
+  }
+}`;
 
 export async function getPage(slug: string): Promise<SanityPage | null> {
   if (!isSanityConfigured) return null;
