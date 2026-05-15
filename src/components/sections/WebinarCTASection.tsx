@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import Link from "next/link";
 
 const defaultBenefits = [
@@ -10,6 +11,7 @@ const defaultBenefits = [
 ];
 
 export default function WebinarCTASection({ sanity }: { sanity?: Record<string, any> }) {
+  const [hoveredBtn, setHoveredBtn] = useState<'primary' | 'secondary' | null>(null);
   const eyebrow = sanity?.eyebrow || 'Free Webinar';
   const heading = sanity?.heading || 'Your Transformation';
   const subheading = sanity?.subheading || 'Starts Free';
@@ -64,12 +66,14 @@ export default function WebinarCTASection({ sanity }: { sanity?: Record<string, 
                 <div style={{ borderTop: "1px solid rgba(31,27,22,0.06)", paddingTop: 26, marginBottom: 30 }}>
                   <div style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontStyle: "italic", fontSize: "1.05rem", color: "rgba(31,27,22,0.6)", lineHeight: 1.6, fontWeight: 400 }}>&ldquo;{cardQuote}&rdquo;</div>
                 </div>
-                <Link href={primaryUrl} target="_blank" className="webinar-btn"
-                  style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "15px", background: "#C9A04A", color: "#FDFCFA", fontFamily: "'Cinzel', serif", fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase" as const, borderRadius: 2, textDecoration: "none", marginBottom: 8, boxShadow: "0 6px 24px rgba(201,160,74,0.2)", transition: "all 0.3s ease", position: "relative" }}>
+                <Link href={primaryUrl} target="_blank"
+                  onMouseEnter={() => setHoveredBtn('primary')} onMouseLeave={() => setHoveredBtn(null)}
+                  style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "15px", background: "#C9A04A", color: "#FDFCFA", fontFamily: "'Cinzel', serif", fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase" as const, borderRadius: 2, textDecoration: "none", marginBottom: 8, boxShadow: hoveredBtn === 'primary' ? "0 12px 36px rgba(201,160,74,0.35)" : "0 6px 24px rgba(201,160,74,0.2)", transition: "all 0.3s ease", transform: hoveredBtn === 'primary' ? "translateY(-2px)" : "translateY(0)" }}>
                   {primaryLabel}
                 </Link>
-                <Link href={secondaryUrl} target="_blank" className="webinar-secondary-btn"
-                  style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "15px", background: "transparent", color: "rgba(31,27,22,0.55)", fontFamily: "'Cinzel', serif", fontSize: "0.72rem", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase" as const, borderRadius: 2, border: "1px solid rgba(31,27,22,0.12)", textDecoration: "none", transition: "all 0.3s ease" }}>
+                <Link href={secondaryUrl} target="_blank"
+                  onMouseEnter={() => setHoveredBtn('secondary')} onMouseLeave={() => setHoveredBtn(null)}
+                  style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "15px", background: hoveredBtn === 'secondary' ? "rgba(31,27,22,0.04)" : "transparent", color: hoveredBtn === 'secondary' ? "#1F1B16" : "rgba(31,27,22,0.55)", fontFamily: "'Cinzel', serif", fontSize: "0.72rem", fontWeight: 500, letterSpacing: "0.14em", textTransform: "uppercase" as const, borderRadius: 2, border: hoveredBtn === 'secondary' ? "1px solid rgba(31,27,22,0.25)" : "1px solid rgba(31,27,22,0.12)", textDecoration: "none", transition: "all 0.3s ease" }}>
                   {secondaryLabel}
                 </Link>
               </div>
@@ -77,7 +81,7 @@ export default function WebinarCTASection({ sanity }: { sanity?: Record<string, 
           </motion.div>
         </div>
       </div>
-      <style>{`@media (max-width: 1024px) { .webinar-wrapper { padding: 80px 40px !important; } .webinar-grid { grid-template-columns: 1fr !important; gap: 60px !important; } } @media (max-width: 768px) { .webinar-wrapper { padding: 60px 16px !important; } } .webinar-btn { position: relative !important; } .webinar-btn:hover { transform: translateY(-2px) !important; box-shadow: 0 12px 36px rgba(201,160,74,0.35) !important; background: #C9A04A !important; } .webinar-secondary-btn:hover { background: rgba(31,27,22,0.04) !important; color: #1F1B16 !important; border-color: rgba(31,27,22,0.25) !important; }`}</style>
+      <style>{`@media (max-width: 1024px) { .webinar-wrapper { padding: 80px 40px !important; } .webinar-grid { grid-template-columns: 1fr !important; gap: 60px !important; } } @media (max-width: 768px) { .webinar-wrapper { padding: 60px 16px !important; } }`}</style>
     </section>
   );
 }
