@@ -4,13 +4,13 @@ import { useRef, useState, useEffect } from "react";
 
 const defaultVideos = [
   { id: "y1", title: "Meeting with Master", label: "Student Story", yt: "PKpKIkGQGv4" },
-  { id: "l1", title: "Karnudeja", label: "Testimonial", src: "/video-testimonials/Karnudeja-English.mp4" },
+  { id: "l1", title: "Karnudeja", label: "Testimonial", src: "/video-testimonials/Karnudeja-English.webm" },
   { id: "y2", title: "Expanded Consciousness", label: "Teaching", yt: "buldB9zzREs" },
-  { id: "l2", title: "Las Vegas Experience", label: "Testimonial", src: "/video-testimonials/Erfahrungs Bericht in Las Vegas.mp4" },
+  { id: "l2", title: "Las Vegas Experience", label: "Testimonial", src: "/video-testimonials/las-vegas-experience.webm" },
   { id: "y3", title: "Shaman Lead to Happiness", label: "Testimony", yt: "Lw2A4Rbyxm0" },
-  { id: "l3", title: "Doris", label: "Testimonial", src: "/video-testimonials/doris eng.MP4" },
+  { id: "l3", title: "Doris", label: "Testimonial", src: "/video-testimonials/doris-english.webm" },
   { id: "y4", title: "Unlimited Love", label: "Workshop", yt: "6fYzu6ZdKJA" },
-  { id: "l4", title: "Ceci", label: "Testimonial", src: "/video-testimonials/Ceci.MP4" },
+  { id: "l4", title: "Ceci", label: "Testimonial", src: "/video-testimonials/Ceci.webm" },
 ];
 
 function Card({ v, i, onSelect }: { v: any; i: number; onSelect: (v: any) => void }) {
