@@ -1,5 +1,7 @@
 const fs = require('fs');
 
+const TEMPLATES_DIR = '../bricks-templates';
+
 const files = [
   'abhay-oyun-header.json',
   'abhay-oyun-hero.json',
@@ -22,8 +24,9 @@ let combinedContent = [];
 
 files.forEach(file => {
   try {
-    if (fs.existsSync(file)) {
-      const data = JSON.parse(fs.readFileSync(file, 'utf8'));
+    const filePath = `${TEMPLATES_DIR}/${file}`;
+    if (fs.existsSync(filePath)) {
+      const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
       if (data.content && Array.isArray(data.content)) {
         combinedContent = combinedContent.concat(data.content);
         console.log(`Added content from ${file}`);
@@ -49,5 +52,5 @@ const newHomepage = {
   content: combinedContent
 };
 
-fs.writeFileSync('abhay-oyun-combined-homepage.json', JSON.stringify(newHomepage, null, 2));
-console.log('Successfully created abhay-oyun-combined-homepage.json');
+fs.writeFileSync(`${TEMPLATES_DIR}/abhay-oyun-combined-homepage.json`, JSON.stringify(newHomepage, null, 2));
+console.log('Successfully created abhay-oyun-combined-homepage.json in bricks-templates/');

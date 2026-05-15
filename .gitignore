@@ -2,9 +2,9 @@
 
 # dependencies
 /node_modules
-studio/node_modules/
-studio/.sanity/
-studio/dist/
+cms/studio/node_modules/
+cms/studio/.sanity/
+cms/studio/dist/
 /.pnp
 .pnp.*
 .yarn/*

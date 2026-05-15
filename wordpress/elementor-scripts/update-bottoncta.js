@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const data = JSON.parse(fs.readFileSync('bottoncta.json', 'utf8'));
+const data = JSON.parse(fs.readFileSync('../bricks-templates/bottom1cta.json', 'utf8'));
 
 // 1. Remove the custom_css hack from the section
 const section = data.content[0];
@@ -67,5 +67,5 @@ if (innerSection) {
   innerSection.elements[1].elements[0].settings.align_mobile = "left";
 }
 
-fs.writeFileSync('bottoncta.json', JSON.stringify(data, null, 2));
-console.log("Updated bottoncta.json");
+fs.writeFileSync('../bricks-templates/bottom1cta.json', JSON.stringify(data, null, 2));
+console.log("Updated bricks-templates/bottom1cta.json");
