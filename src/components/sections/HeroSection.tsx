@@ -119,15 +119,17 @@ const galleryImages = [
 ];
 
 function GalleryMarquee() {
-  const double = [...galleryImages, ...galleryImages];
+  const double = [...galleryImages, ...galleryImages, ...galleryImages];
   return (
-    <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, zIndex: 8, overflow: 'hidden', height: 120, maskImage: 'linear-gradient(to right, transparent 2%, black 15%, black 85%, transparent 98%)', WebkitMaskImage: 'linear-gradient(to right, transparent 2%, black 15%, black 85%, transparent 98%)' }}>
-      <motion.div animate={{ x: ['0%', '-50%'] }} transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
-        style={{ display: 'flex', gap: 12, width: 'max-content', height: '100%', alignItems: 'center' }}>
+    <div className="hero-marquee" style={{ position: 'absolute', bottom: 0, left: 0, right: 0, zIndex: 8, overflow: 'hidden', height: 160 }}>
+      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(8,12,26,0.6) 0%, transparent 70%)', zIndex: 1, pointerEvents: 'none' }} />
+      <motion.div className="hero-marquee-inner" animate={{ x: ['0%', '-33.33%'] }} transition={{ duration: 80, repeat: Infinity, ease: 'linear' }}
+        style={{ display: 'flex', gap: 14, width: 'max-content', height: '100%', alignItems: 'center', paddingLeft: 14 }}>
         {double.map((src, i) => (
-          <div key={i} style={{ flexShrink: 0, width: 100, height: 80, borderRadius: 4, overflow: 'hidden', opacity: 0.25, border: '1px solid rgba(255,255,255,0.06)', position: 'relative' }}>
-            <Image src={src} alt="" fill style={{ objectFit: 'cover' }} sizes="100px" />
-          </div>
+          <motion.div key={i} whileHover={{ scale: 1.08, opacity: 1, y: -4 }} style={{ flexShrink: 0, width: 130, height: 95, borderRadius: 6, overflow: 'hidden', opacity: 0.45, border: '1px solid rgba(201,160,74,0.12)', position: 'relative', boxShadow: '0 4px 20px rgba(0,0,0,0.2)', transition: 'opacity 0.4s ease' }}>
+            <Image src={src} alt="" fill style={{ objectFit: 'cover' }} sizes="130px" />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(8,12,26,0.3) 0%, transparent 50%)' }} />
+          </motion.div>
         ))}
       </motion.div>
     </div>
@@ -203,7 +205,7 @@ export default function HeroSection({ sanity }: { sanity?: Record<string, any> }
         </motion.div>
       </motion.div>
       <ScrollIn />
-      <style>{`@media (max-width: 768px) { .hero-shaman-img { width: 50vw !important; height: 50vh !important; right: 0 !important; } .hero-shaman-img img { opacity: 0.4 !important; } section > div > h1 { font-size: clamp(2.8rem, 12vw, 3.5rem) !important; } } @media (max-width: 480px) { .hero-shaman-img { display: none !important; } } a[href*="calendly"]:hover { transform: translateY(-3px); box-shadow: 0 16px 46px rgba(201,160,74,0.45) !important; } a[href*="forms.gle"]:hover { background: rgba(255,255,255,0.08) !important; border-color: rgba(255,255,255,0.2) !important; transform: translateY(-3px); }`}</style>
+      <style>{`@media (max-width: 768px) { .hero-shaman-img { width: 50vw !important; height: 50vh !important; right: 0 !important; } .hero-shaman-img img { opacity: 0.4 !important; } } @media (max-width: 640px) { .hero-marquee { height: 100px !important; } .hero-marquee-inner { gap: 10px !important; } .hero-marquee-inner > div { width: 80px !important; height: 65px !important; } } @media (max-width: 480px) { .hero-shaman-img { display: none !important; } .hero-marquee { height: 80px !important; } } a[href*="calendly"]:hover { transform: translateY(-3px); box-shadow: 0 16px 46px rgba(201,160,74,0.45) !important; } a[href*="forms.gle"]:hover { background: rgba(255,255,255,0.08) !important; border-color: rgba(255,255,255,0.2) !important; transform: translateY(-3px); }`}</style>
     </section>
   );
 }
