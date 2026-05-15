@@ -41,8 +41,8 @@ export default function ProgramsSection({ sanity }: { sanity?: Record<string, an
                   <span style={{ fontFamily: "'Cinzel', serif", fontSize: '0.5rem', fontWeight: 600, color: '#A07D2E', letterSpacing: '0.08em', textTransform: 'uppercase' }}>Recommended</span>
                 </div>
               )}
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: 300 }}>
-                <div style={{ position: 'relative', height: '100%', minHeight: 300, overflow: 'hidden' }}>
+              <div className="programs-featured-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', minHeight: 300 }}>
+                <div className="programs-featured-img" style={{ position: 'relative', height: '100%', minHeight: 300, overflow: 'hidden' }}>
                   <img src={featured.image} alt={featured.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, transparent 60%, rgba(31,27,22,0.3) 100%)' }} />
                   <span style={{ position: 'absolute', top: 14, left: 14, background: 'linear-gradient(135deg, #C9A04A, #A07D2E)', color: '#FDFCFA', padding: '5px 12px', borderRadius: 2, fontSize: '0.6rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', fontFamily: "'Cinzel', serif" }}>{featured.tag || 'Popular'}</span>
@@ -60,7 +60,7 @@ export default function ProgramsSection({ sanity }: { sanity?: Record<string, an
             </div>
           </motion.div>
           {rest.length > 0 && (
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 28 }}>
+            <div className="programs-rest-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 28 }}>
               {rest.map((prog: any, i: number) => (
                 <motion.div key={prog.title} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: (i + 1) * 0.12, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}>
                   <div style={{ background: '#FDFCFA', borderRadius: 2, overflow: 'hidden', border: '1px solid rgba(31,27,22,0.06)', boxShadow: '0 4px 30px rgba(0,0,0,0.04)' }}>
@@ -87,7 +87,7 @@ export default function ProgramsSection({ sanity }: { sanity?: Record<string, an
           <Link href="/teachings" style={{ color: '#C9A04A', fontSize: '0.8rem', fontWeight: 600, textDecoration: 'none', borderBottom: '1px solid rgba(201,160,74,0.3)', paddingBottom: 4, fontFamily: "'Cinzel', serif", letterSpacing: '0.1em', transition: 'all 0.3s ease' }}>View All Programs &rarr;</Link>
         </motion.div>
       </div>
-      <style>{`.program-card:hover img { transform: scale(1.05); }`}</style>
+      <style>{`.program-card:hover img { transform: scale(1.05); } @media (max-width: 768px) { .programs-featured-grid { grid-template-columns: 1fr !important; } .programs-featured-img { min-height: 240px !important; } .programs-rest-grid { grid-template-columns: 1fr !important; } }`}</style>
     </section>
   );
 }

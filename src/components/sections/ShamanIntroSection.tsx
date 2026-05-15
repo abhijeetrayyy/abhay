@@ -33,7 +33,7 @@ export default function ShamanIntroSection({ sanity }: { sanity?: Record<string,
       <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 80% 60% at 70% 50%, rgba(201,160,74,0.05) 0%, transparent 70%)", pointerEvents: "none" }} />
       <div style={{ position: "absolute", top: -120, left: -120, width: 450, height: 450, background: "radial-gradient(circle, rgba(155,168,139,0.06) 0%, transparent 70%)", pointerEvents: "none" }} />
       <div style={{ maxWidth: 1400, margin: "0 auto", padding: "clamp(60px, 10vw, 140px) clamp(24px, 5vw, 80px)" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "clamp(40px, 8vw, 100px)", alignItems: "center" }}>
+        <div className="shaman-intro-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "clamp(40px, 8vw, 100px)", alignItems: "center" }}>
           <motion.div style={{ y: shouldReduce ? 0 : textY }} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: shouldReduce ? 0 : 1.1, ease: [0.16, 1, 0.3, 1] }}>
             <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: "clamp(20px, 3vh, 36px)" }}>
@@ -46,11 +46,11 @@ export default function ShamanIntroSection({ sanity }: { sanity?: Record<string,
               ))}
             </h2>
             <p style={{ fontFamily: "'Lora', Georgia, serif", fontSize: "clamp(0.92rem, 1.1vw, 1.05rem)", lineHeight: 1.9, color: "rgba(31,27,22,0.6)", maxWidth: 580, marginBottom: "clamp(36px, 5vh, 52px)", fontWeight: 400, whiteSpace: "pre-line" }}>{description}</p>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", borderTop: "1px solid rgba(201,160,74,0.15)", marginBottom: "clamp(36px, 5vh, 52px)" }}>
+            <div className="stats-row" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", borderTop: "1px solid rgba(201,160,74,0.15)", marginBottom: "clamp(36px, 5vh, 52px)" }}>
               {stats.map((s: any, i: number) => (
                 <motion.div key={s.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                   transition={{ duration: 0.7, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] }}
-                  style={{ padding: "clamp(20px, 3vh, 30px)", borderRight: i < 2 ? "1px solid rgba(201,160,74,0.1)" : "none" }}>
+                  className="stats-col" style={{ padding: "clamp(20px, 3vh, 30px)", borderRight: i < 2 ? "1px solid rgba(201,160,74,0.1)" : "none" }}>
                   <div style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "clamp(1.8rem, 3vw, 2.6rem)", fontWeight: 400, background: "linear-gradient(135deg, #C9A04A, #A07D2E)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{s.number}</div>
                   <div style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(0.52rem, 0.75vw, 0.62rem)", fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(31,27,22,0.35)", marginTop: 8 }}>{s.label}</div>
                 </motion.div>

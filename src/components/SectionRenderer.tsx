@@ -25,7 +25,13 @@ function img(src: unknown) {
   if (!src) return undefined;
   if (typeof src === "string") return src;
   if (typeof src === "object" && src !== null) {
-    return urlFor(src as Parameters<typeof urlFor>[0]).url();
+    const obj = src as Record<string, any>;
+    if (!obj.asset?._ref && !obj._ref) return undefined;
+    try {
+      return urlFor(src as Parameters<typeof urlFor>[0]).url();
+    } catch {
+      return undefined;
+    }
   }
   return undefined;
 }

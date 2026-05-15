@@ -77,7 +77,7 @@ export default function Footer() {
 
       <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 24px' }}>
         {/* Main Grid */}
-        <div style={{
+        <div className="footer-grid" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(4, 1fr)',
           gap: 48,
@@ -359,6 +359,7 @@ export default function Footer() {
           </p>
         </div>
       </div>
+      <style>{`@media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 32px !important; } } @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr !important; gap: 40px !important; } }`}</style>
     </footer>
   );
 }

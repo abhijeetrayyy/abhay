@@ -40,7 +40,7 @@ export default function FinalCTASection({ sanity }: { sanity?: Record<string, an
           {description}
         </motion.p>
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.3 }}
-          style={{ display: 'flex', gap: 18, justifyContent: 'center', flexWrap: 'wrap' }}>
+          className="cta-btn-wrap" style={{ display: 'flex', gap: 18, justifyContent: 'center', flexWrap: 'wrap' }}>
           <Link href={primaryUrl} target="_blank"
             style={{ display: 'inline-flex', alignItems: 'center', gap: 10, padding: '18px 40px', background: 'linear-gradient(135deg, #C9A04A, #A07D2E)', color: '#FDFCFA', fontFamily: "'Cinzel', serif", fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', borderRadius: 2, textDecoration: 'none', boxShadow: '0 8px 36px rgba(201,160,74,0.28)', transition: 'all 0.35s cubic-bezier(0.25, 0.1, 0.25, 1)' }}>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="1.2" /><path d="M6 5l4 3-4 3V5z" fill="currentColor" /></svg>
@@ -54,7 +54,7 @@ export default function FinalCTASection({ sanity }: { sanity?: Record<string, an
           <p style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: '1.4rem', fontStyle: 'italic', color: 'rgba(31,27,22,0.35)', fontWeight: 400 }}>&ldquo;{bottomQuote}&rdquo;</p>
         </motion.div>
       </div>
-      <style>{`a[href*="calendly"]:hover { transform: translateY(-3px); box-shadow: 0 16px 44px rgba(201,160,74,0.45) !important; } a[href*="mailto"]:hover { background: rgba(31,27,22,0.04) !important; border-color: rgba(31,27,22,0.3) !important; transform: translateY(-3px); }`}</style>
+      <style>{`@media (max-width: 480px) { .cta-btn-wrap { flex-direction: column !important; } .cta-btn-wrap a { width: 100% !important; justify-content: center !important; } } a[href*="calendly"]:hover { transform: translateY(-3px); box-shadow: 0 16px 44px rgba(201,160,74,0.45) !important; } a[href*="mailto"]:hover { background: rgba(31,27,22,0.04) !important; border-color: rgba(31,27,22,0.3) !important; transform: translateY(-3px); }`}</style>
     </section>
   );
 }

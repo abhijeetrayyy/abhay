@@ -52,7 +52,7 @@ export default function WebinarCTASection({ sanity }: { sanity?: Record<string, 
             </ul>
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 40, scale: 0.97 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}>
-            <div style={{ background: "#FDFCFA", border: "1px solid rgba(31,27,22,0.06)", borderRadius: 2, padding: "48px", position: "relative", overflow: "hidden", boxShadow: "0 30px 60px rgba(31,27,22,0.05)" }}>
+            <div style={{ background: "#FDFCFA", border: "1px solid rgba(31,27,22,0.06)", borderRadius: 2, padding: "clamp(28px, 4vw, 48px)", position: "relative", overflow: "hidden", boxShadow: "0 30px 60px rgba(31,27,22,0.05)" }}>
               <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 1, background: "linear-gradient(90deg, transparent, rgba(201,160,74,0.4), transparent)" }} />
               <div style={{ position: "absolute", top: -60, left: "50%", transform: "translateX(-50%)", width: 280, height: 180, background: "radial-gradient(ellipse, rgba(201,160,74,0.06), transparent 70%)", pointerEvents: "none" }} />
               <div style={{ position: "relative" }}>

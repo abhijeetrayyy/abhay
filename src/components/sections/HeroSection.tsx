@@ -131,7 +131,7 @@ export default function HeroSection({ sanity }: { sanity?: Record<string, any> }
   const secondaryUrl = sanity?.secondaryButton?.url || 'https://forms.gle/jEDaUrKwbyHd8WvUA';
 
   return (
-    <section ref={ref} style={{ position: 'relative', height: '100svh', minHeight: 800, background: 'linear-gradient(170deg, #080C1A 0%, #0F1A30 40%, #0A1020 100%)', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
+    <section ref={ref} style={{ position: 'relative', height: '100svh', minHeight: 'min(800px, 100dvh)', background: 'linear-gradient(170deg, #080C1A 0%, #0F1A30 40%, #0A1020 100%)', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
       <div style={{ position: 'absolute', inset: 0, zIndex: 1 }}>
         <Image src={bgImage} alt="" fill style={{ objectFit: 'cover', objectPosition: 'center 40%', opacity: 0.3, filter: 'saturate(0.8) brightness(0.6)' }} sizes="100vw" />
       </div>

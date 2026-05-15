@@ -48,7 +48,7 @@ export default function RootLayout({
       <body className="antialiased" suppressHydrationWarning>
         <div className="grain-overlay" aria-hidden="true" />
         <Navigation />
-        <main className="relative">{children}</main>
+        <main style={{ paddingTop: 108 }}>{children}</main>
         <Footer />
       </body>
     </html>
