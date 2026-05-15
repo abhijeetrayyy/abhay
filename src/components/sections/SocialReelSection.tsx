@@ -32,7 +32,7 @@ function ReelCard({ reel, index, shouldReduce }: { reel: any; index: number; sho
       style={{ position: "relative", borderRadius: 2, overflow: "hidden", cursor: "pointer", aspectRatio: "9/16", background: "#1F1B16", display: "block", textDecoration: "none",
         boxShadow: hovered ? "0 28px 72px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,160,74,0.2)" : "0 8px 32px rgba(0,0,0,0.2)", transition: "box-shadow 0.4s ease, transform 0.4s ease",
         transform: hovered ? "scale(1.04) translateY(-4px)" : "scale(1)" }}>
-      <video ref={videoRef} src={reel.videoUrl || reel.video || reel.src} loop muted playsInline preload="none"
+      <video ref={videoRef} src={reel.videoUrl || reel.video || reel.src} loop muted playsInline preload="auto" autoPlay
         style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", filter: hovered ? "saturate(1.1) brightness(0.9)" : "saturate(0.85) brightness(0.8)", transition: "filter 0.45s ease" }} />
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(31,27,22,0.9) 0%, rgba(31,27,22,0.1) 55%, rgba(31,27,22,0.15) 100%)", transition: "opacity 0.4s ease" }} />
       <div style={{ position: "absolute", top: 12, left: 12 }}>

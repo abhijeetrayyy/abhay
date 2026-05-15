@@ -40,7 +40,7 @@ function Card({ v, i, onSelect }: { v: any; i: number; onSelect: (v: any) => voi
           onError={(e) => { (e.target as HTMLImageElement).src = `https://img.youtube.com/vi/${v.yt}/hqdefault.jpg`; }}
           style={{ width: "100%", height: "100%", objectFit: "cover", transition: "all 0.4s, transform 0.4s", transform: hovered ? "scale(1.05)" : "scale(1)" }} />
       ) : (
-        <video ref={vidRef} src={v.src} loop muted playsInline preload="none"
+        <video ref={vidRef} src={v.src} loop muted playsInline preload="auto" autoPlay
           style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 25%", transition: "filter 0.4s" }} />
       )}
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,16,32,0.65) 0%, rgba(10,16,32,0.05) 45%, transparent 70%)" }} />
