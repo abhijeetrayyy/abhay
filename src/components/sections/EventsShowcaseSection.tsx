@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 
 const defaultEvents = [
   { id: "01", tag: "Men's Intensive", title: "Reclaim Your Masculine Power", date: "March 25–29, 2025", location: "Denver, Colorado", seats: "18 spots remaining", price: "From $1,200", desc: "A 5-day immersive for men ready to step fully into their energetic sovereignty.", img: "/sao-gallery-img3.jpg", color: "#1F1B16", highlights: ["Cold Plunge Ceremony", "Sacred Fire Ritual", "Drum Healing", "1-on-1 Session"], badge: "Filling Fast" },
@@ -64,10 +63,10 @@ export default function EventsShowcaseSection({ sanity }: { sanity?: Record<stri
                     </div>
                     <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
                       <span style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "1.3rem", color: "#1F1B16", fontWeight: 400 }}>{ev.price}</span>
-                      <Link href={ev.registerUrl || registerUrl} target="_blank" className="event-btn"
-                        style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "14px 28px", background: "#1F1B16", color: "#FDFCFA", fontFamily: "'Cinzel', serif", fontSize: "0.62rem", fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase" as const, borderRadius: 2, textDecoration: "none", boxShadow: "0 6px 24px rgba(31,27,22,0.12)", transition: "all 0.3s ease" }}>
+                      <a href={ev.registerUrl || registerUrl} target="_blank" rel="noopener noreferrer" className="event-btn"
+                        style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "14px 28px", borderRadius: 2, textDecoration: "none" }}>
                         Register <svg width="12" height="9" viewBox="0 0 14 8" fill="none"><path d="M1 4h12M10 1l3 3-3 3" stroke="#C9A04A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                      </Link>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -81,7 +80,14 @@ export default function EventsShowcaseSection({ sanity }: { sanity?: Record<stri
           ))}
         </div>
       </div>
-      <style>{`@media (max-width: 1024px) { .events-wrapper { padding: 80px 5vw !important; } .event-card-grid { grid-template-columns: 1fr !important; } .event-card-image { order: 1 !important; min-height: 260px !important; } .event-card-content { order: 2 !important; padding: 36px 28px !important; } } @media (max-width: 768px) { .events-wrapper { padding: 60px 20px !important; } .event-card-content { padding: 28px 18px !important; } } .event-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(31,27,22,0.2) !important; }`}</style>
+      <style>{`
+        .event-btn { background: #1F1B16 !important; color: #FDFCFA !important; font-family: 'Cinzel', serif !important; font-size: 0.62rem !important; font-weight: 600 !important; letter-spacing: 0.15em !important; text-transform: uppercase !important; box-shadow: 0 6px 24px rgba(31,27,22,0.12) !important; }
+        .event-btn:hover { background: #1F1B16 !important; color: #FDFCFA !important; transform: translateY(-2px) !important; box-shadow: 0 12px 32px rgba(31,27,22,0.2) !important; }
+        .event-btn:visited { background: #1F1B16 !important; color: #FDFCFA !important; }
+        .event-btn:active { background: #2D2924 !important; color: #FDFCFA !important; }
+        @media (max-width: 1024px) { .events-wrapper { padding: 80px 5vw !important; } .event-card-grid { grid-template-columns: 1fr !important; } .event-card-image { order: 1 !important; min-height: 260px !important; } .event-card-content { order: 2 !important; padding: 36px 28px !important; } }
+        @media (max-width: 768px) { .events-wrapper { padding: 60px 20px !important; } .event-card-content { padding: 28px 18px !important; } }
+      `}</style>
     </section>
   );
 }

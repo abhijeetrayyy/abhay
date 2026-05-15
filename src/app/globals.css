@@ -494,7 +494,7 @@ tbody tr {
 }
 
 a {
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .focus-ring:focus {
