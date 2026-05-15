@@ -67,8 +67,7 @@ export default function WebinarCTASection({ sanity }: { sanity?: Record<string, 
                   <div style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontStyle: "italic", fontSize: "1.05rem", color: "rgba(31,27,22,0.6)", lineHeight: 1.6, fontWeight: 400 }}>&ldquo;{cardQuote}&rdquo;</div>
                 </div>
                 <Link href={primaryUrl} target="_blank"
-                  onMouseEnter={() => setHoveredBtn('primary')} onMouseLeave={() => setHoveredBtn(null)}
-                  style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "15px", background: "#C9A04A", color: "#FDFCFA", fontFamily: "'Cinzel', serif", fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase" as const, borderRadius: 2, textDecoration: "none", marginBottom: 8, boxShadow: hoveredBtn === 'primary' ? "0 12px 36px rgba(201,160,74,0.35)" : "0 6px 24px rgba(201,160,74,0.2)", transform: hoveredBtn === 'primary' ? "translateY(-2px)" : "translateY(0)" }}>
+                  style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "15px", background: "#C9A04A", color: "#FDFCFA", fontFamily: "'Cinzel', serif", fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase" as const, borderRadius: 2, textDecoration: "none", marginBottom: 8, boxShadow: "0 6px 24px rgba(201,160,74,0.2)" }}>
                   {primaryLabel}
                 </Link>
                 <Link href={secondaryUrl} target="_blank"
