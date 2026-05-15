@@ -81,10 +81,6 @@ export default function EventsShowcaseSection({ sanity }: { sanity?: Record<stri
         </div>
       </div>
       <style>{`
-        .event-btn { background: #1F1B16 !important; color: #FDFCFA !important; font-family: 'Cinzel', serif !important; font-size: 0.62rem !important; font-weight: 600 !important; letter-spacing: 0.15em !important; text-transform: uppercase !important; box-shadow: 0 6px 24px rgba(31,27,22,0.12) !important; }
-        .event-btn:hover { background: #1F1B16 !important; color: #FDFCFA !important; transform: translateY(-2px) !important; box-shadow: 0 12px 32px rgba(31,27,22,0.2) !important; }
-        .event-btn:visited { background: #1F1B16 !important; color: #FDFCFA !important; }
-        .event-btn:active { background: #2D2924 !important; color: #FDFCFA !important; }
         @media (max-width: 1024px) { .events-wrapper { padding: 80px 5vw !important; } .event-card-grid { grid-template-columns: 1fr !important; } .event-card-image { order: 1 !important; min-height: 260px !important; } .event-card-content { order: 2 !important; padding: 36px 28px !important; } }
         @media (max-width: 768px) { .events-wrapper { padding: 60px 20px !important; } .event-card-content { padding: 28px 18px !important; } }
       `}</style>

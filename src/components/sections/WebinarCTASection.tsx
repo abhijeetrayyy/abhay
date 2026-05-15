@@ -78,16 +78,6 @@ export default function WebinarCTASection({ sanity }: { sanity?: Record<string, 
           </motion.div>
         </div>
       </div>
-      <style>{`
-        .webinar-primary-btn { background: #C9A04A !important; color: #FDFCFA !important; font-family: 'Cinzel', serif !important; font-size: 0.72rem !important; font-weight: 600 !important; letter-spacing: 0.14em !important; text-transform: uppercase !important; box-shadow: 0 6px 24px rgba(201,160,74,0.2) !important; }
-        .webinar-primary-btn:hover { background: #C9A04A !important; color: #FDFCFA !important; transform: translateY(-2px) !important; box-shadow: 0 12px 36px rgba(201,160,74,0.35) !important; }
-        .webinar-primary-btn:visited { background: #C9A04A !important; color: #FDFCFA !important; }
-        .webinar-primary-btn:active { background: #A07D2E !important; color: #FDFCFA !important; }
-        .webinar-secondary-btn { background: transparent !important; color: rgba(31,27,22,0.55) !important; font-family: 'Cinzel', serif !important; font-size: 0.72rem !important; font-weight: 500 !important; letter-spacing: 0.14em !important; text-transform: uppercase !important; border: 1px solid rgba(31,27,22,0.12) !important; transition: all 0.3s ease !important; }
-        .webinar-secondary-btn:hover { background: rgba(31,27,22,0.04) !important; color: #1F1B16 !important; border-color: rgba(31,27,22,0.25) !important; }
-        @media (max-width: 1024px) { .webinar-wrapper { padding: 80px 40px !important; } .webinar-grid { grid-template-columns: 1fr !important; gap: 60px !important; } }
-        @media (max-width: 768px) { .webinar-wrapper { padding: 60px 16px !important; } }
-      `}</style>
     </section>
   );
 }

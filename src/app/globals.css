@@ -524,3 +524,83 @@ a {
 @media (max-width: 768px) {
   .transformation-section .transform-wrapper { padding: 60px 16px !important; }
 }
+
+/* ===== BUTTON RESETS — prevent any hover flash/disappear ===== */
+.webinar-primary-btn,
+.webinar-secondary-btn,
+.event-btn {
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.webinar-primary-btn {
+  background: #C9A04A !important;
+  color: #FDFCFA !important;
+  font-family: 'Cinzel', serif !important;
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  box-shadow: 0 6px 24px rgba(201,160,74,0.2) !important;
+}
+.webinar-primary-btn:hover,
+.webinar-primary-btn:focus {
+  background: #C9A04A !important;
+  color: #FDFCFA !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 36px rgba(201,160,74,0.35) !important;
+}
+.webinar-primary-btn:visited {
+  background: #C9A04A !important;
+  color: #FDFCFA !important;
+}
+.webinar-primary-btn:active {
+  background: #A07D2E !important;
+  color: #FDFCFA !important;
+}
+
+.webinar-secondary-btn {
+  background: transparent !important;
+  color: rgba(31,27,22,0.55) !important;
+  font-family: 'Cinzel', serif !important;
+  font-size: 0.72rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  border: 1px solid rgba(31,27,22,0.12) !important;
+}
+.webinar-secondary-btn:hover,
+.webinar-secondary-btn:focus {
+  background: rgba(31,27,22,0.04) !important;
+  color: #1F1B16 !important;
+  border-color: rgba(31,27,22,0.25) !important;
+}
+
+.event-btn {
+  background: #1F1B16 !important;
+  color: #FDFCFA !important;
+  font-family: 'Cinzel', serif !important;
+  font-size: 0.62rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  box-shadow: 0 6px 24px rgba(31,27,22,0.12) !important;
+}
+.event-btn:hover,
+.event-btn:focus {
+  background: #1F1B16 !important;
+  color: #FDFCFA !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 32px rgba(31,27,22,0.2) !important;
+}
+.event-btn:visited {
+  background: #1F1B16 !important;
+  color: #FDFCFA !important;
+}
+.event-btn:active {
+  background: #2D2924 !important;
+  color: #FDFCFA !important;
+}
