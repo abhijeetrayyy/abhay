@@ -19,7 +19,7 @@ export default function Navigation() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 80);
+    const handleScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -43,10 +43,10 @@ export default function Navigation() {
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 51,
         height: 38,
         display: 'flex', alignItems: 'center',
-        background: scrolled ? '#1F1B16' : 'rgba(10,16,32,0.65)',
-        backdropFilter: scrolled ? 'none' : 'blur(10px)',
-        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.04)' : 'none',
-        transition: 'background 0.4s ease',
+        background: scrolled ? '#1F1B16' : 'rgba(8,12,26,0.3)',
+        backdropFilter: scrolled ? 'none' : 'blur(8px)',
+        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.04)' : '1px solid rgba(255,255,255,0.04)',
+        transition: 'all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1)',
       }}>
         <div style={{
           maxWidth: 1400, width: '100%', margin: '0 auto',
@@ -79,31 +79,34 @@ export default function Navigation() {
       {/* ─── MAIN NAV ─── */}
       <nav style={{
         position: 'fixed', top: 38, left: 0, right: 0, zIndex: 50,
-        paddingTop: scrolled ? '8px' : '14px',
-        paddingBottom: scrolled ? '8px' : '10px',
-        background: scrolled ? 'rgba(251,249,245,0.95)' : 'linear-gradient(to bottom, rgba(11,14,26,0.5) 0%, transparent 100%)',
-        backdropFilter: scrolled ? 'blur(24px) saturate(180%)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(31,27,22,0.06)' : 'none',
-        transition: 'all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1)',
+        paddingTop: scrolled ? '6px' : '12px',
+        paddingBottom: scrolled ? '6px' : '10px',
+        background: scrolled ? 'rgba(251,249,245,0.97)' : 'rgba(8,12,26,0.2)',
+        backdropFilter: scrolled ? 'blur(24px) saturate(180%)' : 'blur(6px)',
+        borderBottom: scrolled ? '1px solid rgba(31,27,22,0.06)' : '1px solid rgba(255,255,255,0.04)',
+        transition: 'all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1)',
+        boxShadow: scrolled ? '0 4px 30px rgba(0,0,0,0.06)' : 'none',
       }}>
         <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 clamp(16px, 4vw, 48px)' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 56 }}>
             <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 10 }}>
               <Image src="/icon1.png" alt="" width={26} height={26} style={{ objectFit: 'contain' }} />
-              <span style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: '1.2rem', color: scrolled ? '#1F1B16' : '#FDFCFA', fontWeight: 500, letterSpacing: '-0.01em', transition: 'color 0.4s ease' }}>
+              <span style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: scrolled ? '1.15rem' : '1.25rem', color: scrolled ? '#1F1B16' : '#FDFCFA', fontWeight: 500, letterSpacing: '-0.01em', transition: 'all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1)' }}>
                 Abhay Oyun
               </span>
             </Link>
 
-            <div className="nav-links-desktop" style={{ display: 'flex', gap: 24, alignItems: 'center' }}>
+            <div className="nav-links-desktop" style={{ display: 'flex', gap: 28, alignItems: 'center' }}>
               {navLinks.map(link => (
                 <Link key={link.href} href={link.href}
-                  style={{ color: scrolled ? 'rgba(31,27,22,0.65)' : 'rgba(255,255,255,0.55)', fontSize: '0.68rem', fontFamily: "'Cinzel', serif", fontWeight: 500, letterSpacing: '0.12em', textTransform: 'uppercase', textDecoration: 'none' }}>
+                  className="nav-link"
+                  style={{ color: scrolled ? 'rgba(31,27,22,0.7)' : 'rgba(255,255,255,0.6)', fontSize: '0.68rem', fontFamily: "'Cinzel', serif", fontWeight: 500, letterSpacing: '0.12em', textTransform: 'uppercase', textDecoration: 'none', transition: 'color 0.3s ease', borderBottom: pathname === link.href ? (scrolled ? '1px solid #C9A04A' : '1px solid rgba(201,160,74,0.5)') : '1px solid transparent', paddingBottom: 2 }}>
                   {link.label}
                 </Link>
               ))}
               <Link href="/contact"
-                style={{ background: 'linear-gradient(135deg, #C9A04A, #A07D2E)', color: '#FDFCFA', padding: '8px 20px', borderRadius: 2, fontSize: '0.68rem', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', textDecoration: 'none', fontFamily: "'Cinzel', serif", boxShadow: '0 4px 20px rgba(201,160,74,0.25)' }}>
+                className="nav-cta"
+                style={{ background: 'linear-gradient(135deg, #C9A04A, #A07D2E)', color: '#FDFCFA', padding: scrolled ? '7px 18px' : '8px 22px', borderRadius: 2, fontSize: '0.68rem', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', textDecoration: 'none', fontFamily: "'Cinzel', serif", boxShadow: scrolled ? '0 4px 16px rgba(201,160,74,0.2)' : '0 4px 24px rgba(201,160,74,0.3)', transition: 'all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1)' }}>
                 Begin Journey
               </Link>
             </div>
@@ -177,6 +180,8 @@ export default function Navigation() {
           .top-bar-contact { gap: 12px !important; }
           .top-bar-contact a { font-size: 0.5rem !important; }
         }
+        .nav-link:hover { color: #C9A04A !important; }
+        .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 28px rgba(201,160,74,0.4) !important; }
       `}</style>
     </>
   );

@@ -73,13 +73,13 @@ export default function StatsSection({ sanity }: { sanity?: Record<string, any> 
           </div>
           <h3 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 'clamp(1.8rem, 3.5vw, 2.4rem)', fontWeight: 400, color: '#1F1B16', margin: 0, letterSpacing: '-0.01em' }}>{heading}</h3>
         </motion.div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px' }}>
+        <div className="stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px' }}>
           {items.map((stat: any, i: number) => (
             <Counter key={i} value={stat.value || stat.number} suffix={stat.suffix} label={stat.label} />
           ))}
         </div>
       </div>
-      <style>{`@media (max-width: 768px) { section > div > div:nth-child(3) { grid-template-columns: repeat(2, 1fr) !important; } } @media (max-width: 480px) { section > div > div:nth-child(3) { grid-template-columns: 1fr !important; } }`}</style>
+      <style>{`@media (max-width: 768px) { .stats-grid { grid-template-columns: repeat(2, 1fr) !important; } } @media (max-width: 480px) { .stats-grid { grid-template-columns: 1fr !important; gap: 8px !important; } .stats-grid > div { padding: 20px 12px !important; } }`}</style>
     </section>
   );
 }

@@ -33,7 +33,7 @@ export default function TransformationSection({ sanity }: { sanity?: Record<stri
           <Image src="/abhayoyun-banner-top.png" alt="" fill style={{ objectFit: "contain", objectPosition: "bottom" }} sizes="30vw" />
         </motion.div>
       </div>
-      <div className="transform-wrapper" style={{ width: "100%", maxWidth: 1440, margin: "0 auto", padding: "clamp(80px, 8vw, 120px) 80px clamp(120px, 10vw, 160px)", position: "relative", zIndex: 10 }}>
+      <div className="transform-wrapper" style={{ width: "100%", maxWidth: 1440, margin: "0 auto", padding: "clamp(60px, 8vw, 120px) clamp(24px, 6vw, 80px) clamp(80px, 10vw, 160px)", position: "relative", zIndex: 10 }}>
         <div className="transform-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 100, alignItems: "start" }}>
           <div className="sticky-quote" style={{ position: "sticky", top: 140, alignSelf: "start" }}>
             <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}>

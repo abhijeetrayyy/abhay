@@ -167,6 +167,7 @@ export default function HeroSection({ sanity }: { sanity?: Record<string, any> }
       {ready && <SpiritWolf />}
       {ready && <GalleryMarquee />}
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 3, delay: 0.5 }}
+        className="hero-shaman-img"
         style={{ position: 'absolute', bottom: 0, right: '5%', zIndex: 4, pointerEvents: 'none', width: 'min(45vw, 450px)', height: 'min(72vh, 720px)', filter: 'brightness(0.85) contrast(1.1)' }}>
         <Image src={shamImage} alt="Abhay Oyun" fill style={{ objectFit: 'contain', objectPosition: 'center bottom' }} sizes="450px" priority />
         <div style={{ position: 'absolute', bottom: 0, left: '50%', transform: 'translateX(-50%)', width: '120%', height: '60%', background: 'radial-gradient(ellipse at 50% 100%, rgba(201,160,74,0.12) 0%, transparent 60%)', filter: 'blur(60px)' }} />
@@ -202,7 +203,7 @@ export default function HeroSection({ sanity }: { sanity?: Record<string, any> }
         </motion.div>
       </motion.div>
       <ScrollIn />
-      <style>{`a[href*="calendly"]:hover { transform: translateY(-3px); box-shadow: 0 16px 46px rgba(201,160,74,0.45) !important; } a[href*="forms.gle"]:hover { background: rgba(255,255,255,0.08) !important; border-color: rgba(255,255,255,0.2) !important; transform: translateY(-3px); }`}</style>
+      <style>{`@media (max-width: 768px) { .hero-shaman-img { width: 50vw !important; height: 50vh !important; right: 0 !important; } .hero-shaman-img img { opacity: 0.4 !important; } section > div > h1 { font-size: clamp(2.8rem, 12vw, 3.5rem) !important; } } @media (max-width: 480px) { .hero-shaman-img { display: none !important; } } a[href*="calendly"]:hover { transform: translateY(-3px); box-shadow: 0 16px 46px rgba(201,160,74,0.45) !important; } a[href*="forms.gle"]:hover { background: rgba(255,255,255,0.08) !important; border-color: rgba(255,255,255,0.2) !important; transform: translateY(-3px); }`}</style>
     </section>
   );
 }

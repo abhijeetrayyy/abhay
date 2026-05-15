@@ -21,8 +21,8 @@ const defaultImagesR2 = [
 
 function GalleryImage({ img }: { img: { src: string; alt: string; aspect: string } }) {
   return (
-    <motion.div whileHover={{ scale: 1.02, y: -4 }} style={{ flexShrink: 0, borderRadius: 2, overflow: "hidden", position: "relative", aspectRatio: img.aspect, width: "clamp(260px, 30vw, 420px)", boxShadow: "0 16px 40px rgba(31,27,22,0.08)", border: "1px solid rgba(31,27,22,0.04)", transition: "box-shadow 0.4s ease", background: "#FDFCFA" }}>
-      <Image src={img.src} alt={img.alt} fill style={{ objectFit: "cover" }} sizes="420px" />
+    <motion.div whileHover={{ scale: 1.02, y: -4 }} style={{ flexShrink: 0, borderRadius: 2, overflow: "hidden", position: "relative", aspectRatio: img.aspect, width: "clamp(200px, 40vw, 420px)", boxShadow: "0 16px 40px rgba(31,27,22,0.08)", border: "1px solid rgba(31,27,22,0.04)", transition: "box-shadow 0.4s ease", background: "#FDFCFA" }}>
+      <Image src={img.src} alt={img.alt} fill style={{ objectFit: "cover" }} sizes="(max-width: 768px) 200px, 420px" />
     </motion.div>
   );
 }
@@ -54,18 +54,18 @@ export default function GallerySection({ sanity }: { sanity?: Record<string, any
         </motion.div>
       </div>
       <div style={{ position: "relative", marginBottom: "28px", width: "100%" }}>
-        <motion.div animate={shouldReduce || !inView ? {} : { x: ["0%", "-50%"] }} transition={{ duration: 40, ease: "linear", repeat: Infinity }}
+        <motion.div className="gallery-marquee" animate={shouldReduce || !inView ? {} : { x: ["0%", "-50%"] }} transition={{ duration: 40, ease: "linear", repeat: Infinity }}
           style={{ display: "flex", gap: "22px", width: "max-content", paddingLeft: "22px" }}>
           {[...row1, ...row1].map((img: any, i: number) => (<GalleryImage key={`r1-${i}`} img={{ src: img.image || img.src, alt: img.alt, aspect: img.aspect || "4/3" }} />))}
         </motion.div>
       </div>
       <div style={{ position: "relative", width: "100%" }}>
-        <motion.div animate={shouldReduce || !inView ? {} : { x: ["-50%", "0%"] }} transition={{ duration: 45, ease: "linear", repeat: Infinity }}
+        <motion.div className="gallery-marquee" animate={shouldReduce || !inView ? {} : { x: ["-50%", "0%"] }} transition={{ duration: 45, ease: "linear", repeat: Infinity }}
           style={{ display: "flex", gap: "22px", width: "max-content", paddingLeft: "22px" }}>
           {[...row2, ...row2].map((img: any, i: number) => (<GalleryImage key={`r2-${i}`} img={{ src: img.image || img.src, alt: img.alt, aspect: img.aspect || "3/4" }} />))}
         </motion.div>
       </div>
-      <style jsx>{`@media (max-width: 768px) { .gallery-header { padding: 0 24px !important; } }`}</style>
+      <style>{`@media (max-width: 768px) { .gallery-header { padding: 0 24px !important; } .gallery-marquee { gap: 12px !important; } }`}</style>
     </section>
   );
 }
