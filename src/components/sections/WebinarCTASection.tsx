@@ -68,7 +68,7 @@ export default function WebinarCTASection({ sanity }: { sanity?: Record<string, 
                 </div>
                 <Link href={primaryUrl} target="_blank"
                   onMouseEnter={() => setHoveredBtn('primary')} onMouseLeave={() => setHoveredBtn(null)}
-                  style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "15px", background: "#C9A04A", color: "#FDFCFA", fontFamily: "'Cinzel', serif", fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase" as const, borderRadius: 2, textDecoration: "none", marginBottom: 8, boxShadow: hoveredBtn === 'primary' ? "0 12px 36px rgba(201,160,74,0.35)" : "0 6px 24px rgba(201,160,74,0.2)", transition: "all 0.3s ease", transform: hoveredBtn === 'primary' ? "translateY(-2px)" : "translateY(0)" }}>
+                  style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "15px", background: "#C9A04A", color: "#FDFCFA", fontFamily: "'Cinzel', serif", fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase" as const, borderRadius: 2, textDecoration: "none", marginBottom: 8, boxShadow: hoveredBtn === 'primary' ? "0 12px 36px rgba(201,160,74,0.35)" : "0 6px 24px rgba(201,160,74,0.2)", transform: hoveredBtn === 'primary' ? "translateY(-2px)" : "translateY(0)" }}>
                   {primaryLabel}
                 </Link>
                 <Link href={secondaryUrl} target="_blank"
