@@ -29,7 +29,7 @@ export default function ShamanIntroSection({ sanity }: { sanity?: Record<string,
   const secondaryUrl = sanity?.secondaryButton?.url || '/about';
 
   return (
-    <section ref={ref} style={{ position: "relative", background: "#FBF9F5", overflow: "hidden", zIndex: 10 }}>
+    <section ref={ref} className="shaman-intro-section" style={{ position: "relative", background: "#FBF9F5", overflow: "hidden", zIndex: 10 }}>
       <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 80% 60% at 70% 50%, rgba(201,160,74,0.05) 0%, transparent 70%)", pointerEvents: "none" }} />
       <div style={{ position: "absolute", top: -120, left: -120, width: 450, height: 450, background: "radial-gradient(circle, rgba(155,168,139,0.06) 0%, transparent 70%)", pointerEvents: "none" }} />
       <div style={{ maxWidth: 1400, margin: "0 auto", padding: "clamp(60px, 10vw, 140px) clamp(24px, 5vw, 80px)" }}>
@@ -91,7 +91,7 @@ export default function ShamanIntroSection({ sanity }: { sanity?: Record<string,
           </div>
         </div>
       </div>
-      <style>{`@media (max-width: 900px) { .shaman-intro-grid { grid-template-columns: 1fr !important; gap: 48px !important; } } @media (max-width: 600px) { .stats-row { grid-template-columns: 1fr !important; gap: 24px; } .stats-col { border-right: none !important; border-bottom: 1px solid rgba(201,160,74,0.15); padding: 24px 0 !important; } } a[href*="calendly"]:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(31,27,22,0.25) !important; } a[href*="#about"]:hover { background: rgba(31,27,22,0.04) !important; border-color: rgba(31,27,22,0.3) !important; transform: translateY(-3px); }`}</style>
+      <style>{`@media (max-width: 900px) { .shaman-intro-grid { grid-template-columns: 1fr !important; gap: 48px !important; } } @media (max-width: 600px) { .stats-row { grid-template-columns: 1fr !important; gap: 24px; } .stats-col { border-right: none !important; border-bottom: 1px solid rgba(201,160,74,0.15); padding: 24px 0 !important; } } .shaman-intro-section a[href*="calendly"]:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(31,27,22,0.25) !important; } .shaman-intro-section a[href*="#about"]:hover { background: rgba(31,27,22,0.04) !important; border-color: rgba(31,27,22,0.3) !important; transform: translateY(-3px); }`}</style>
     </section>
   );
 }

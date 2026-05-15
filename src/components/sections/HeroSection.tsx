@@ -155,7 +155,7 @@ export default function HeroSection({ sanity }: { sanity?: Record<string, any> }
   const secondaryUrl = sanity?.secondaryButton?.url || 'https://forms.gle/jEDaUrKwbyHd8WvUA';
 
   return (
-    <section ref={ref} style={{ position: 'relative', height: '100svh', minHeight: 'min(800px, 100dvh)', background: 'linear-gradient(170deg, #080C1A 0%, #0F1A30 40%, #0A1020 100%)', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
+    <section ref={ref} className="hero-section" style={{ position: 'relative', height: '100svh', minHeight: 'min(800px, 100dvh)', background: 'linear-gradient(170deg, #080C1A 0%, #0F1A30 40%, #0A1020 100%)', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
       <div style={{ position: 'absolute', inset: 0, zIndex: 1 }}>
         <Image src={bgImage} alt="" fill style={{ objectFit: 'cover', objectPosition: 'center 40%', opacity: 0.3, filter: 'saturate(0.8) brightness(0.6)' }} sizes="100vw" />
       </div>
@@ -205,7 +205,7 @@ export default function HeroSection({ sanity }: { sanity?: Record<string, any> }
         </motion.div>
       </motion.div>
       <ScrollIn />
-      <style>{`@media (max-width: 768px) { .hero-shaman-img { width: 50vw !important; height: 50vh !important; right: 0 !important; bottom: 120px !important; } .hero-shaman-img img { opacity: 0.4 !important; } } @media (max-width: 640px) { .hero-marquee { height: 100px !important; } .hero-marquee-inner { gap: 10px !important; } .hero-marquee-inner > div { width: 80px !important; height: 65px !important; } .hero-shaman-img { bottom: 100px !important; } } @media (max-width: 480px) { .hero-shaman-img { display: none !important; } .hero-marquee { height: 80px !important; } } a[href*="calendly"]:hover { transform: translateY(-3px); box-shadow: 0 16px 46px rgba(201,160,74,0.45) !important; } a[href*="forms.gle"]:hover { background: rgba(255,255,255,0.08) !important; border-color: rgba(255,255,255,0.2) !important; transform: translateY(-3px); }`}</style>
+      <style>{`@media (max-width: 768px) { .hero-shaman-img { width: 50vw !important; height: 50vh !important; right: 0 !important; bottom: 120px !important; } .hero-shaman-img img { opacity: 0.4 !important; } } @media (max-width: 640px) { .hero-marquee { height: 100px !important; } .hero-marquee-inner { gap: 10px !important; } .hero-marquee-inner > div { width: 80px !important; height: 65px !important; } .hero-shaman-img { bottom: 100px !important; } } @media (max-width: 480px) { .hero-shaman-img { display: none !important; } .hero-marquee { height: 80px !important; } } .hero-section a[href*="calendly"]:hover { transform: translateY(-3px); box-shadow: 0 16px 46px rgba(201,160,74,0.45) !important; } .hero-section a[href*="forms.gle"]:hover { background: rgba(255,255,255,0.08) !important; border-color: rgba(255,255,255,0.2) !important; transform: translateY(-3px); }`}</style>
     </section>
   );
 }

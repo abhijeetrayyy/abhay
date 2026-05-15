@@ -12,7 +12,7 @@ export default function FinalCTASection({ sanity }: { sanity?: Record<string, an
   const bottomQuote = sanity?.bottomQuote || 'Walk in Power. Walk in Light.';
 
   return (
-    <section style={{ position: "relative", background: '#F5F1EA', overflow: 'hidden', borderTop: '1px solid rgba(31,27,22,0.04)' }}>
+    <section className="final-cta-section" style={{ position: "relative", background: '#F5F1EA', overflow: 'hidden', borderTop: '1px solid rgba(31,27,22,0.04)' }}>
       <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 50% 100%, rgba(201,160,74,0.1) 0%, transparent 50%)', pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', top: '15%', right: '-8%', width: 550, height: 550, background: 'radial-gradient(circle, rgba(201,160,74,0.06) 0%, transparent 70%)', borderRadius: '50%', pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', bottom: '-10%', left: '-5%', width: 450, height: 450, background: 'radial-gradient(circle, rgba(155,168,139,0.05) 0%, transparent 70%)', borderRadius: '50%', pointerEvents: 'none' }} />
@@ -54,7 +54,7 @@ export default function FinalCTASection({ sanity }: { sanity?: Record<string, an
           <p style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: '1.4rem', fontStyle: 'italic', color: 'rgba(31,27,22,0.35)', fontWeight: 400 }}>&ldquo;{bottomQuote}&rdquo;</p>
         </motion.div>
       </div>
-      <style>{`@media (max-width: 480px) { .cta-btn-wrap { flex-direction: column !important; } .cta-btn-wrap a { width: 100% !important; justify-content: center !important; } } a[href*="calendly"]:hover { transform: translateY(-3px); box-shadow: 0 16px 44px rgba(201,160,74,0.45) !important; } a[href*="mailto"]:hover { background: rgba(31,27,22,0.04) !important; border-color: rgba(31,27,22,0.3) !important; transform: translateY(-3px); }`}</style>
+      <style>{`@media (max-width: 480px) { .cta-btn-wrap { flex-direction: column !important; } .cta-btn-wrap a { width: 100% !important; justify-content: center !important; } } .final-cta-section a[href*="calendly"]:hover { transform: translateY(-3px); box-shadow: 0 16px 44px rgba(201,160,74,0.45) !important; } .final-cta-section a[href*="mailto"]:hover { background: rgba(31,27,22,0.04) !important; border-color: rgba(31,27,22,0.3) !important; transform: translateY(-3px); }`}</style>
     </section>
   );
 }
