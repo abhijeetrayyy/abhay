@@ -43,9 +43,9 @@ export default function Navigation() {
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 51,
         height: 38,
         display: 'flex', alignItems: 'center',
-        background: scrolled ? '#1F1B16' : 'rgba(8,12,26,0.3)',
-        backdropFilter: scrolled ? 'none' : 'blur(8px)',
-        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.04)' : '1px solid rgba(255,255,255,0.04)',
+        background: scrolled ? '#1F1B16' : 'rgba(8,12,26,0.75)',
+        backdropFilter: scrolled ? 'none' : 'blur(12px)',
+        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.04)' : '1px solid rgba(201,160,74,0.08)',
         transition: 'all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1)',
       }}>
         <div style={{
@@ -60,15 +60,15 @@ export default function Navigation() {
               contact@earthforpeace.com
             </a>
             <a href="tel:+12122561366"
-              style={{ fontFamily: "'Cinzel', serif", fontSize: '0.55rem', fontWeight: 500, letterSpacing: '0.06em', color: 'rgba(255,255,255,0.4)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 6 }}>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                style={{ fontFamily: "'Cinzel', serif", fontSize: '0.55rem', fontWeight: 500, letterSpacing: '0.06em', color: scrolled ? 'rgba(255,255,255,0.4)' : 'rgba(255,255,255,0.6)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 6 }}>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               +1 (212) 256 1366
             </a>
           </div>
           <div className="top-bar-social" style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
             {SOCIAL.map(s => (
               <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
-                style={{ fontFamily: "'Cinzel', serif", fontSize: '0.52rem', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', textDecoration: 'none' }}>
+                style={{ fontFamily: "'Cinzel', serif", fontSize: '0.52rem', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: scrolled ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.5)', textDecoration: 'none' }}>
                 {s.label}
               </a>
             ))}
@@ -81,9 +81,9 @@ export default function Navigation() {
         position: 'fixed', top: 38, left: 0, right: 0, zIndex: 50,
         paddingTop: scrolled ? '6px' : '12px',
         paddingBottom: scrolled ? '6px' : '10px',
-        background: scrolled ? 'rgba(251,249,245,0.97)' : 'rgba(8,12,26,0.2)',
-        backdropFilter: scrolled ? 'blur(24px) saturate(180%)' : 'blur(6px)',
-        borderBottom: scrolled ? '1px solid rgba(31,27,22,0.06)' : '1px solid rgba(255,255,255,0.04)',
+        background: scrolled ? 'rgba(251,249,245,0.97)' : 'rgba(8,12,26,0.7)',
+        backdropFilter: scrolled ? 'blur(24px) saturate(180%)' : 'blur(12px)',
+        borderBottom: scrolled ? '1px solid rgba(31,27,22,0.06)' : '1px solid rgba(201,160,74,0.1)',
         transition: 'all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1)',
         boxShadow: scrolled ? '0 4px 30px rgba(0,0,0,0.06)' : 'none',
       }}>
@@ -100,7 +100,7 @@ export default function Navigation() {
               {navLinks.map(link => (
                 <Link key={link.href} href={link.href}
                   className="nav-link"
-                  style={{ color: scrolled ? 'rgba(31,27,22,0.7)' : 'rgba(255,255,255,0.6)', fontSize: '0.68rem', fontFamily: "'Cinzel', serif", fontWeight: 500, letterSpacing: '0.12em', textTransform: 'uppercase', textDecoration: 'none', transition: 'color 0.3s ease', borderBottom: pathname === link.href ? (scrolled ? '1px solid #C9A04A' : '1px solid rgba(201,160,74,0.5)') : '1px solid transparent', paddingBottom: 2 }}>
+                  style={{ color: scrolled ? 'rgba(31,27,22,0.7)' : 'rgba(255,255,255,0.8)', fontSize: '0.68rem', fontFamily: "'Cinzel', serif", fontWeight: 500, letterSpacing: '0.12em', textTransform: 'uppercase', textDecoration: 'none', transition: 'color 0.3s ease', borderBottom: pathname === link.href ? (scrolled ? '1px solid #C9A04A' : '1px solid #C9A04A') : '1px solid transparent', paddingBottom: 2 }}>
                   {link.label}
                 </Link>
               ))}
