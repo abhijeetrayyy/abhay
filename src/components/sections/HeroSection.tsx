@@ -112,6 +112,28 @@ function ScrollIn() {
   );
 }
 
+const galleryImages = [
+  '/sao-gallery-img1.jpg', '/sao-gallery-img2.jpg', '/sao-gallery-img3.jpg',
+  '/sao-gallery-img4.jpg', '/sao-gallery-img5.jpg', '/sao-gallery-img6.jpg',
+  '/sao-gallery-img7.jpg', '/sao-gallery-img8.jpg', '/sao-gallery-img9.jpg',
+];
+
+function GalleryMarquee() {
+  const double = [...galleryImages, ...galleryImages];
+  return (
+    <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, zIndex: 8, overflow: 'hidden', height: 120, maskImage: 'linear-gradient(to right, transparent 2%, black 15%, black 85%, transparent 98%)', WebkitMaskImage: 'linear-gradient(to right, transparent 2%, black 15%, black 85%, transparent 98%)' }}>
+      <motion.div animate={{ x: ['0%', '-50%'] }} transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
+        style={{ display: 'flex', gap: 12, width: 'max-content', height: '100%', alignItems: 'center' }}>
+        {double.map((src, i) => (
+          <div key={i} style={{ flexShrink: 0, width: 100, height: 80, borderRadius: 4, overflow: 'hidden', opacity: 0.25, border: '1px solid rgba(255,255,255,0.06)', position: 'relative' }}>
+            <Image src={src} alt="" fill style={{ objectFit: 'cover' }} sizes="100px" />
+          </div>
+        ))}
+      </motion.div>
+    </div>
+  );
+}
+
 export default function HeroSection({ sanity }: { sanity?: Record<string, any> }) {
   const [ready, setReady] = useState(false);
   const ref = useRef<HTMLElement>(null);
@@ -143,6 +165,7 @@ export default function HeroSection({ sanity }: { sanity?: Record<string, any> }
       {ready && <LightSweep />}
       {ready && <FloatingRunes />}
       {ready && <SpiritWolf />}
+      {ready && <GalleryMarquee />}
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 3, delay: 0.5 }}
         style={{ position: 'absolute', bottom: 0, right: '5%', zIndex: 4, pointerEvents: 'none', width: 'min(45vw, 450px)', height: 'min(72vh, 720px)', filter: 'brightness(0.85) contrast(1.1)' }}>
         <Image src={shamImage} alt="Abhay Oyun" fill style={{ objectFit: 'contain', objectPosition: 'center bottom' }} sizes="450px" priority />
