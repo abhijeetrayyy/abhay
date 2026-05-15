@@ -60,7 +60,20 @@ export default function SocialReelSection({ sanity }: { sanity?: Record<string, 
   const handle = sanity?.handle || '@EarthForPeace';
   const heading = sanity?.heading || 'Sacred Moments.';
   const subheading = sanity?.subheading || 'Witnessed.';
-  const reels = sanity?.reels || defaultReels;
+  const sanityReels = sanity?.reels;
+  const reels = sanityReels && sanityReels.length > 0
+    ? sanityReels.map((sr: any, i: number) => {
+        const def = defaultReels[i] || defaultReels[0];
+        return {
+          src: sr.videoUrl || def.src,
+          label: sr.label || def.label,
+          platform: sr.platform || def.platform,
+          views: sr.views || def.views,
+          duration: sr.duration || def.duration,
+          link: sr.link || def.link,
+        };
+      })
+    : defaultReels;
   const socialLinks = sanity?.socialLinks || defaultSocialLinks;
 
   return (

@@ -33,7 +33,7 @@ function PathCard({ path, index }: { path: any; index: number }) {
       transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: index * 0.12 }} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}
       style={{ position: "relative", borderRadius: 2, overflow: "hidden", cursor: "pointer", minHeight: 380, background: "#0A1020", border: "1px solid rgba(255,255,255,0.03)",
         boxShadow: hovered ? "0 40px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,160,74,0.12)" : "0 20px 50px rgba(0,0,0,0.3)", transition: "box-shadow 0.5s ease, transform 0.5s ease", transform: hovered ? "translateY(-4px)" : "translateY(0)" }}>
-      <video ref={videoRef} src={path.previewVideoUrl || path.previewVideo || path.video} loop muted playsInline preload="none"
+      <video ref={videoRef} src={path.previewVideoUrl || path.video} loop muted playsInline preload="none"
         style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", filter: hovered ? "saturate(1.1) brightness(0.6)" : "saturate(0.9) brightness(0.7)", transition: "filter 0.6s ease, transform 0.6s ease", transform: hovered ? "scale(1.06)" : "scale(1)" }} />
       <div style={{ position: "absolute", inset: 0, background: hovered ? "linear-gradient(to top, rgba(10,16,32,0.65) 0%, rgba(10,16,32,0.1) 40%, rgba(10,16,32,0.25) 100%)" : "linear-gradient(to top, rgba(10,16,32,0.65) 0%, rgba(10,16,32,0.15) 50%, rgba(10,16,32,0.05) 100%)", transition: "background 0.6s ease" }} />
       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 2, background: `linear-gradient(90deg, transparent, ${path.color}, transparent)`, opacity: hovered ? 0.5 : 0.15, transition: "opacity 0.5s ease" }} />
@@ -74,7 +74,24 @@ export default function PathsSection({ sanity }: { sanity?: Record<string, any> 
   const heading = sanity?.heading || 'Choose Your';
   const subheading = sanity?.subheading || 'Path to Power';
   const description = sanity?.description || 'Four sacred doors into the ancient Siberian tradition. Each path is guarded by a spirit — choose the one that calls to you.';
-  const paths = sanity?.paths || defaultPaths;
+
+  const sanityPaths = sanity?.paths;
+  const paths = sanityPaths && sanityPaths.length > 0
+    ? sanityPaths.map((sp: any, i: number) => {
+        const def = defaultPaths[i] || defaultPaths[0];
+        return {
+          id: sp._key || sp.title?.toLowerCase().replace(/\s+/g, '-') || def.id,
+          title: sp.title || def.title,
+          subtitle: sp.subtitle || def.subtitle,
+          description: sp.description || def.description,
+          link: sp.link || def.link,
+          color: sp.color || def.color,
+          number: sp.number || String(i + 1).padStart(2, '0'),
+          previewVideoUrl: sp.previewVideoUrl || null,
+          video: sp.previewVideoUrl || def.video,
+        };
+      })
+    : defaultPaths;
 
   if (paths.length === 0) return null;
 

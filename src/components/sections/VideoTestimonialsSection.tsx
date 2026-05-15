@@ -110,12 +110,15 @@ export default function VideoTestimonialsSection({ sanity }: { sanity?: Record<s
   const heading = sanity?.heading || 'Real Voices';
   const subheading = sanity?.subheading || 'of Transformation';
 
-  const videos = sanity?.videos?.map((v: any) => ({
-    id: v._key || v.title?.replace(/\s/g, ''),
-    title: v.title,
-    label: v.label,
-    ...(v.source === 'local' || v.videoFile ? { src: v.videoFileUrl || v.videoFile } : { yt: v.youtubeId }),
-  })) || defaultVideos;
+  const sanityVideos = sanity?.videos;
+  const videos = sanityVideos && sanityVideos.length > 0
+    ? sanityVideos.map((v: any) => ({
+        id: v._key || v.title?.replace(/\s/g, ''),
+        title: v.title,
+        label: v.label,
+        ...(v.source === 'local' || v.videoFile ? { src: v.videoFileUrl } : { yt: v.youtubeId }),
+      }))
+    : defaultVideos;
 
   return (
     <section style={{ background: "#FBF9F5", padding: "clamp(60px, 8vw, 100px) 0" }}>
