@@ -35,10 +35,10 @@ export function useSectionStyling(sanity?: Record<string, any> & SectionStylingD
 
   const containerClass = useMemo(() => {
     const l = result.layout;
-    if (l === 'full') return 'w-full';
-    if (l === 'narrow') return 'max-w-4xl mx-auto';
-    if (l === 'split') return 'max-w-7xl mx-auto grid md:grid-cols-2 gap-12';
-    return `mx-auto`;
+    if (l === 'full') return 'w-full px-6';
+    if (l === 'narrow') return 'max-w-4xl mx-auto px-6';
+    if (l === 'split') return 'max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12';
+    return 'max-w-[1440px] mx-auto px-6';
   }, [result.layout]);
 
   const overlayStyle = useMemo(() => getOverlayStyle(result.overlay), [result.overlay]);

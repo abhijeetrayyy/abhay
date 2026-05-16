@@ -332,13 +332,12 @@ export function getSectionStyles(styling?: SectionStylingData['sectionStyling'])
 }
 
 // ── HELPER: Get container classes ───────────────────────────────
-export function getContainerClass(layout?: string, maxWidth?: string) {
+export function getContainerClass(layout?: string) {
   const l = layout || 'contained';
-  if (l === 'full') return 'w-full';
-  if (l === 'narrow') return 'max-w-4xl mx-auto';
-  if (l === 'split') return 'max-w-7xl mx-auto grid md:grid-cols-2 gap-12';
-  const width = maxWidth || '1440px';
-  return `mx-auto`;
+  if (l === 'full') return 'w-full px-6';
+  if (l === 'narrow') return 'max-w-4xl mx-auto px-6';
+  if (l === 'split') return 'max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12';
+  return 'max-w-[1440px] mx-auto px-6';
 }
 
 // ── HELPER: Generate responsive CSS ─────────────────────────────
@@ -445,7 +444,7 @@ export function getSectionStyleClasses(styling?: SectionStylingData['sectionStyl
   const result = getSectionStyles(styling);
   return {
     style: result.style,
-    containerClass: getContainerClass(result.layout, styling?.maxWidth),
+    containerClass: getContainerClass(result.layout),
     accent: result.theme.accent,
   };
 }
