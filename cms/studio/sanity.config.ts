@@ -37,19 +37,5 @@ export default defineConfig({
       page,
       ...sectionTypes,
     ],
-    templates: [
-      {
-        id: 'section-with-styling',
-        title: 'Section with Styling',
-        schemaType: 'heroSection',
-        value: {
-          sectionStyling: {
-            theme: 'default',
-            layout: 'contained',
-            animation: 'fade-up',
-          },
-        },
-      },
-    ],
   },
 });
