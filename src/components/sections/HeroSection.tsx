@@ -4,6 +4,7 @@ import { useRef, useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { getSectionStyleClasses, SectionStylingData } from "@/lib/section-styling";
+import { useSectionStyling } from "@/hooks/useSectionStyling";
 
 function seededRandom(seed: number) {
   let s = seed;
@@ -144,7 +145,7 @@ export default function HeroSection({ sanity }: { sanity?: Record<string, any> &
   const textY = useTransform(scrollYProgress, [0, 1], ['0%', '10%']);
   useEffect(() => { setReady(true); }, []);
 
-  const { style: sectionStyle, accent } = getSectionStyleClasses(sanity?.sectionStyling);
+  const { sectionStyle, accent, overlayStyle, dividerJSX, responsiveCSS, id, dataAttributes } = useSectionStyling(sanity, 'hero');
   const accentColor = accent || '#C9A04A';
 
   const tagline = sanity?.tagline || 'Siberian Shaman & Guardian of Our Planet';
@@ -159,12 +160,14 @@ export default function HeroSection({ sanity }: { sanity?: Record<string, any> &
   const secondaryUrl = sanity?.secondaryButton?.url || 'https://forms.gle/jEDaUrKwbyHd8WvUA';
 
   return (
-    <section ref={ref} className="hero-section" style={{ position: 'relative', height: '100svh', minHeight: 'min(800px, 100dvh)', background: 'linear-gradient(170deg, #080C1A 0%, #0F1A30 40%, #0A1020 100%)', display: 'flex', alignItems: 'center', overflow: 'hidden', ...sectionStyle }}>
+    <section ref={ref} className={`hero-section ${id}`} id={id} {...dataAttributes} style={{ position: 'relative', height: '100svh', minHeight: 'min(800px, 100dvh)', background: 'linear-gradient(170deg, #080C1A 0%, #0F1A30 40%, #0A1020 100%)', display: 'flex', alignItems: 'center', overflow: 'hidden', ...sectionStyle }}>
       <div style={{ position: 'absolute', inset: 0, zIndex: 1 }}>
         <Image src={bgImage} alt="" fill style={{ objectFit: 'cover', objectPosition: 'center 40%', opacity: 0.3, filter: 'saturate(0.8) brightness(0.6)' }} sizes="100vw" />
       </div>
       <div style={{ position: 'absolute', inset: 0, zIndex: 2, background: 'radial-gradient(ellipse at 60% 50%, rgba(201,160,74,0.06) 0%, transparent 60%)' }} />
       <div style={{ position: 'absolute', inset: 0, zIndex: 3, background: 'linear-gradient(to right, rgba(8,12,26,0.7) 0%, rgba(8,12,26,0.2) 50%, rgba(8,12,26,0.5) 100%)' }} />
+      {overlayStyle && <div style={overlayStyle} />}
+      {dividerJSX}
       {ready && <Aurora />}
       {ready && <Stars accentColor={accentColor} />}
       {ready && <SacredGeometry accentColor={accentColor} />}
@@ -209,7 +212,7 @@ export default function HeroSection({ sanity }: { sanity?: Record<string, any> &
         </motion.div>
       </motion.div>
       <ScrollIn accentColor={accentColor} />
-      <style>{`@media (max-width: 768px) { .hero-shaman-img { width: 50vw !important; height: 50vh !important; right: 0 !important; bottom: 120px !important; } .hero-shaman-img img { opacity: 0.4 !important; } } @media (max-width: 640px) { .hero-marquee { height: 100px !important; } .hero-marquee-inner { gap: 10px !important; } .hero-marquee-inner > div { width: 80px !important; height: 65px !important; } .hero-shaman-img { bottom: 100px !important; } } @media (max-width: 480px) { .hero-shaman-img { display: none !important; } .hero-marquee { height: 80px !important; } } .hero-section a[href*="calendly"]:hover { transform: translateY(-3px); box-shadow: 0 16px 46px ${accentColor}73 !important; } .hero-section a[href*="forms.gle"]:hover { background: rgba(255,255,255,0.08) !important; border-color: rgba(255,255,255,0.2) !important; transform: translateY(-3px); }`}</style>
+      <style>{`${responsiveCSS} @media (max-width: 768px) { .hero-shaman-img { width: 50vw !important; height: 50vh !important; right: 0 !important; bottom: 120px !important; } .hero-shaman-img img { opacity: 0.4 !important; } } @media (max-width: 640px) { .hero-marquee { height: 100px !important; } .hero-marquee-inner { gap: 10px !important; } .hero-marquee-inner > div { width: 80px !important; height: 65px !important; } .hero-shaman-img { bottom: 100px !important; } } @media (max-width: 480px) { .hero-shaman-img { display: none !important; } .hero-marquee { height: 80px !important; } } .hero-section a[href*="calendly"]:hover { transform: translateY(-3px); box-shadow: 0 16px 46px ${accentColor}73 !important; } .hero-section a[href*="forms.gle"]:hover { background: rgba(255,255,255,0.08) !important; border-color: rgba(255,255,255,0.2) !important; transform: translateY(-3px); }`}</style>
     </section>
   );
 }

@@ -5,6 +5,7 @@ import { presentationTool } from 'sanity/presentation';
 import { blockContent, testimonial, event, teaching, gallery } from './schemas/documents';
 import { page } from './schemas/page';
 import { sectionTypes } from './schemas/sections';
+import { SectionStylingPreview } from './components/SectionStylingPreview';
 
 const projectId = process.env.SANITY_STUDIO_PROJECT_ID || 'wr0ipccq';
 const dataset = process.env.SANITY_STUDIO_DATASET || 'production';
@@ -35,6 +36,20 @@ export default defineConfig({
       gallery,
       page,
       ...sectionTypes,
+    ],
+    templates: [
+      {
+        id: 'section-with-styling',
+        title: 'Section with Styling',
+        schemaType: 'heroSection',
+        value: {
+          sectionStyling: {
+            theme: 'default',
+            layout: 'contained',
+            animation: 'fade-up',
+          },
+        },
+      },
     ],
   },
 });

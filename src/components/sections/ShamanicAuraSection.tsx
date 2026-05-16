@@ -1,12 +1,16 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useSectionStyling } from "@/hooks/useSectionStyling";
 
-export default function ShamanicAuraSection() {
+export default function ShamanicAuraSection({ sanity }: { sanity?: Record<string, any> }) {
+  const { sectionStyle, accent, overlayStyle, dividerJSX, responsiveCSS, id, dataAttributes } = useSectionStyling(sanity, 'shamanic-aura');
   const particles = Array.from({ length: 15 });
 
   return (
     <section
+      id={id}
+      {...dataAttributes}
       className="shamanic-aura-section"
       style={{
         position: "relative",
@@ -18,8 +22,11 @@ export default function ShamanicAuraSection() {
         alignItems: "center",
         zIndex: 5,
         marginTop: "-1px",
+        ...sectionStyle,
       }}
     >
+      {overlayStyle && <div style={overlayStyle} />}
+      {dividerJSX}
       {/* 1. Animated Aura Background */}
       <div
         style={{
@@ -298,6 +305,7 @@ export default function ShamanicAuraSection() {
           </a>
         </motion.div>
       </div>
+      <style>{responsiveCSS}</style>
     </section>
   );
 }

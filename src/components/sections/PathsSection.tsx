@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import { getSectionStyleClasses, SectionStylingData } from "@/lib/section-styling";
+import { useSectionStyling } from "@/hooks/useSectionStyling";
 
 const defaultPaths = [
   { id: "tengri", title: "The SAMPO System", subtitle: "Tengri — Sky Father", description: "The foundational energy mastery system. Learn to accumulate, protect, and direct your vital force using ancient Siberian techniques passed down from the celestial realms.", video: "/paths/tengri-sky-father.mp4", link: "/teachings", color: "#C9A04A", number: "01" },
@@ -72,7 +73,7 @@ function PathCard({ path, index }: { path: any; index: number }) {
 }
 
 export default function PathsSection({ sanity }: { sanity?: Record<string, any> & SectionStylingData }) {
-  const { style: sectionStyle, containerClass, accent } = getSectionStyleClasses(sanity?.sectionStyling);
+  const { sectionStyle, accent, overlayStyle, dividerJSX, responsiveCSS, id, dataAttributes, containerClass } = useSectionStyling(sanity, 'paths');
   const accentColor = accent || '#C9A04A';
 
   const heading = sanity?.heading || 'Choose Your';
@@ -100,8 +101,10 @@ export default function PathsSection({ sanity }: { sanity?: Record<string, any> 
   if (paths.length === 0) return null;
 
   return (
-    <section style={{ position: "relative", background: "#FBF9F5", overflow: "hidden", padding: "clamp(40px, 6vw, 80px) 0", ...sectionStyle }}>
+    <section id={id} {...dataAttributes} style={{ position: "relative", background: "#FBF9F5", overflow: "hidden", padding: "clamp(40px, 6vw, 80px) 0", ...sectionStyle }}>
       <div style={{ position: "absolute", top: "20%", left: "50%", transform: "translateX(-50%)", width: "80%", height: "60%", background: `radial-gradient(ellipse, ${accentColor}0A 0%, transparent 70%)`, pointerEvents: "none" }} />
+      {overlayStyle && <div style={overlayStyle} />}
+      {dividerJSX}
       <div className={containerClass}>
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ textAlign: "center", marginBottom: "clamp(36px, 6vh, 64px)" }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 16, marginBottom: 20 }}>
@@ -123,7 +126,7 @@ export default function PathsSection({ sanity }: { sanity?: Record<string, any> 
           Hover to preview · Click to explore the path
         </motion.p>
       </div>
-      <style>{`@media (max-width: 1200px) { .paths-grid { grid-template-columns: repeat(2, 1fr) !important; } .paths-grid > * { min-height: 320px !important; } } @media (max-width: 700px) { .paths-grid { grid-template-columns: 1fr !important; } .paths-grid > * { min-height: 280px !important; } }`}</style>
+      <style>{`${responsiveCSS} @media (max-width: 1200px) { .paths-grid { grid-template-columns: repeat(2, 1fr) !important; } .paths-grid > * { min-height: 320px !important; } } @media (max-width: 700px) { .paths-grid { grid-template-columns: 1fr !important; } .paths-grid > * { min-height: 280px !important; } }`}</style>
     </section>
   );
 }

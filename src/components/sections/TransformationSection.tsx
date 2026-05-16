@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 import { getSectionStyleClasses, SectionStylingData } from "@/lib/section-styling";
+import { useSectionStyling } from "@/hooks/useSectionStyling";
 
 const defaultMilestones = [
   { year: "2004", loc: "Japan — Mount Fuji", text: "2,500 people gathered at the base of Mount Fuji under Abhay's guidance. Shaman chiefs from North America and Asian tribes united in ceremony for the first time.", img: "/sao-gallery-img4.jpg" },
@@ -16,7 +17,7 @@ export default function TransformationSection({ sanity }: { sanity?: Record<stri
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "10%"]);
   const shamY = useTransform(scrollYProgress, [0, 1], ["0%", "-6%"]);
-  const { style: sectionStyle, containerClass, accent } = getSectionStyleClasses(sanity?.sectionStyling);
+  const { sectionStyle, accent, overlayStyle, dividerJSX, responsiveCSS, id, dataAttributes, containerClass } = useSectionStyling(sanity, 'transformation');
   const accentColor = accent || '#C9A04A';
 
   const eyebrow = sanity?.eyebrow || 'Global Impact';
@@ -26,7 +27,7 @@ export default function TransformationSection({ sanity }: { sanity?: Record<stri
   const milestones = sanity?.milestones || defaultMilestones;
 
   return (
-    <section ref={ref} id="transformation" className="transformation-section" style={{ position: "relative", background: "#FBF9F5", marginTop: "-1px", zIndex: 20, ...sectionStyle }}>
+    <section ref={ref} id={id} {...dataAttributes} className="transformation-section" style={{ position: "relative", background: "#FBF9F5", marginTop: "-1px", zIndex: 20, ...sectionStyle }}>
       <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none" }}>
         <motion.div style={{ position: "absolute", inset: "-10% 0", y: bgY }}>
           <Image src="/forest-mist.png" alt="" fill style={{ objectFit: "cover", opacity: 0.12 }} sizes="100vw" />
@@ -36,6 +37,8 @@ export default function TransformationSection({ sanity }: { sanity?: Record<stri
           <Image src="/abhayoyun-banner-top.png" alt="" fill style={{ objectFit: "contain", objectPosition: "bottom" }} sizes="30vw" />
         </motion.div>
       </div>
+      {overlayStyle && <div style={overlayStyle} />}
+      {dividerJSX}
       <div className="transform-wrapper" style={{ width: "100%", maxWidth: 1440, margin: "0 auto", padding: "clamp(40px, 6vw, 80px) clamp(24px, 6vw, 80px) clamp(48px, 8vw, 100px)", position: "relative", zIndex: 10 }}>
         <div className="transform-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(40px, 6vw, 100px)", alignItems: "start" }}>
           <div className="sticky-quote" style={{ position: "sticky", top: 140, alignSelf: "start" }}>
@@ -81,7 +84,7 @@ export default function TransformationSection({ sanity }: { sanity?: Record<stri
           </motion.div>
         </div>
       </div>
-      <style>{`@media (max-width: 900px) { .transform-grid { grid-template-columns: 1fr !important; gap: 40px !important; } .sticky-quote { position: static !important; } .timeline-col { padding-left: 24px !important; } .timeline-col > div > div:first-child { left: -32px !important; } }`}</style>
+      <style>{`${responsiveCSS} @media (max-width: 900px) { .transform-grid { grid-template-columns: 1fr !important; gap: 40px !important; } .sticky-quote { position: static !important; } .timeline-col { padding-left: 24px !important; } .timeline-col > div > div:first-child { left: -32px !important; } }`}</style>
     </section>
   );
 }

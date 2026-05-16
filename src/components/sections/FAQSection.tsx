@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { getSectionStyleClasses, SectionStylingData } from "@/lib/section-styling";
+import { useSectionStyling } from "@/hooks/useSectionStyling";
 
 const defaultFaqs = [
   { question: "What can I expect from a session with Abhay?", answer: "Each session is a unique healing journey tailored to your specific needs. Through ancient Siberian techniques, Abhay helps clear energetic blockages, retrieve lost soul fragments, and restore your natural vitality. Clients often report profound shifts in their physical, emotional, and spiritual well-being." },
@@ -30,7 +31,7 @@ function FAQItem({ question, answer, isOpen, onToggle, accent = '#C9A04A' }: { q
 
 export default function FAQSection({ sanity }: { sanity?: Record<string, any> & SectionStylingData }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
-  const { style: sectionStyle, containerClass, accent } = getSectionStyleClasses(sanity?.sectionStyling);
+  const { sectionStyle, accent, overlayStyle, dividerJSX, responsiveCSS, id, dataAttributes, containerClass } = useSectionStyling(sanity, 'faq');
   const accentColor = accent || '#C9A04A';
 
   const eyebrow = sanity?.eyebrow || 'FAQ';
@@ -38,7 +39,9 @@ export default function FAQSection({ sanity }: { sanity?: Record<string, any> & 
   const faqs = sanity?.faqs || defaultFaqs;
 
   return (
-    <section style={{ background: "#FDFCFA", padding: "clamp(36px, 6vw, 72px) 0", ...sectionStyle }}>
+    <section id={id} {...dataAttributes} style={{ background: "#FDFCFA", padding: "clamp(36px, 6vw, 72px) 0", ...sectionStyle }}>
+      {overlayStyle && <div style={overlayStyle} />}
+      {dividerJSX}
       <div className={containerClass}>
         <div style={{ textAlign: "center", marginBottom: 48 }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 16, marginBottom: 18 }}>

@@ -3,6 +3,7 @@ import { motion, useReducedMotion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 import { getSectionStyleClasses, SectionStylingData } from "@/lib/section-styling";
+import { useSectionStyling } from "@/hooks/useSectionStyling";
 
 const defaultImagesR1 = [
   { src: "/sao-gallery-img1.jpg", alt: "Gathering", aspect: "4/3" },
@@ -32,7 +33,7 @@ export default function GallerySection({ sanity }: { sanity?: Record<string, any
   const shouldReduce = useReducedMotion();
   const sectionRef = useRef<HTMLElement>(null);
   const inView = useInView(sectionRef, { margin: "-200px", once: false });
-  const { style: sectionStyle, accent } = getSectionStyleClasses(sanity?.sectionStyling);
+  const { sectionStyle, accent, overlayStyle, dividerJSX, responsiveCSS, id, dataAttributes } = useSectionStyling(sanity, 'gallery');
   const accentColor = accent || '#C9A04A';
 
   const eyebrow = sanity?.eyebrow || 'Shamanic Retreats';
@@ -44,7 +45,9 @@ export default function GallerySection({ sanity }: { sanity?: Record<string, any
   const row2 = allImages.length > 0 ? allImages.filter((_: any, i: number) => i % 2 === 1) : defaultImagesR2;
 
   return (
-    <section ref={sectionRef} style={{ position: "relative", background: "#FBF9F5", overflow: "hidden", padding: "clamp(48px, 8vw, 96px) 0", zIndex: 20, ...sectionStyle }}>
+    <section ref={sectionRef} id={id} {...dataAttributes} style={{ position: "relative", background: "#FBF9F5", overflow: "hidden", padding: "clamp(48px, 8vw, 96px) 0", zIndex: 20, ...sectionStyle }}>
+      {overlayStyle && <div style={overlayStyle} />}
+      {dividerJSX}
       <div className="gallery-header" style={{ maxWidth: 1440, margin: "0 auto", padding: "0 clamp(20px, 6vw, 80px)", marginBottom: "clamp(32px, 5vh, 56px)", position: "relative", zIndex: 3 }}>
         <motion.div initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: "16px" }}>
@@ -68,7 +71,7 @@ export default function GallerySection({ sanity }: { sanity?: Record<string, any
           {[...row2, ...row2].map((img: any, i: number) => (<GalleryImage key={`r2-${i}`} img={{ src: img.image || img.src, alt: img.alt, aspect: img.aspect || "3/4" }} />))}
         </motion.div>
       </div>
-      <style>{`@media (max-width: 768px) { .gallery-header { padding: 0 24px !important; } .gallery-marquee { gap: 12px !important; } }`}</style>
+      <style>{`${responsiveCSS} @media (max-width: 768px) { .gallery-header { padding: 0 24px !important; } .gallery-marquee { gap: 12px !important; } }`}</style>
     </section>
   );
 }

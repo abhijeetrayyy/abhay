@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
 import { getSectionStyleClasses, SectionStylingData } from "@/lib/section-styling";
+import { useSectionStyling } from "@/hooks/useSectionStyling";
 
 const defaultStats = [
   { value: 30, suffix: "+", label: "Years Experience" },
@@ -57,7 +58,7 @@ function Counter({ value, suffix = "", label, accent = '#C9A04A' }: { value: num
 }
 
 export default function StatsSection({ sanity }: { sanity?: Record<string, any> & SectionStylingData }) {
-  const { style: sectionStyle, containerClass, accent } = getSectionStyleClasses(sanity?.sectionStyling);
+  const { sectionStyle, accent, overlayStyle, dividerJSX, responsiveCSS, id, dataAttributes, containerClass } = useSectionStyling(sanity, 'stats');
   const accentColor = accent || '#C9A04A';
 
   const eyebrow = sanity?.eyebrow || 'Proven Results';
@@ -65,9 +66,11 @@ export default function StatsSection({ sanity }: { sanity?: Record<string, any> 
   const items = sanity?.stats || defaultStats;
 
   return (
-    <section style={{ background: '#FBF9F5', padding: 'clamp(40px, 6vw, 72px) 0', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(31,27,22,0.04)', ...sectionStyle }}>
+    <section id={id} {...dataAttributes} style={{ background: '#FBF9F5', padding: 'clamp(40px, 6vw, 72px) 0', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(31,27,22,0.04)', ...sectionStyle }}>
       <div style={{ position: 'absolute', inset: 0, background: `radial-gradient(ellipse at 50% 0%, ${accentColor}0F 0%, transparent 60%)`, pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', top: '50%', left: '-5%', width: 350, height: 350, background: 'radial-gradient(circle, rgba(155,168,139,0.05) 0%, transparent 70%)', borderRadius: '50%', pointerEvents: 'none' }} />
+      {overlayStyle && <div style={overlayStyle} />}
+      {dividerJSX}
       <div className={containerClass} style={{ position: 'relative' }}>
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ textAlign: 'center', marginBottom: 56 }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16, marginBottom: 16 }}>
@@ -83,7 +86,7 @@ export default function StatsSection({ sanity }: { sanity?: Record<string, any> 
           ))}
         </div>
       </div>
-      <style>{`@media (max-width: 768px) { .stats-grid { grid-template-columns: repeat(2, 1fr) !important; } } @media (max-width: 480px) { .stats-grid { grid-template-columns: 1fr !important; gap: 8px !important; } .stats-grid > div { padding: 20px 12px !important; } }`}</style>
+      <style>{`${responsiveCSS} @media (max-width: 768px) { .stats-grid { grid-template-columns: repeat(2, 1fr) !important; } } @media (max-width: 480px) { .stats-grid { grid-template-columns: 1fr !important; gap: 8px !important; } .stats-grid > div { padding: 20px 12px !important; } }`}</style>
     </section>
   );
 }

@@ -2,6 +2,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { useState, useRef } from "react";
 import { getSectionStyleClasses, SectionStylingData } from "@/lib/section-styling";
+import { useSectionStyling } from "@/hooks/useSectionStyling";
 
 const defaultReels = [
   { src: "/IMG_1651.MOV", label: "Shamanic Ceremony", platform: "Instagram", views: "24K", duration: "0:58", link: "https://www.instagram.com/earthforpeace/" },
@@ -58,7 +59,7 @@ function ReelCard({ reel, index, shouldReduce, accent = '#C9A04A' }: { reel: any
 
 export default function SocialReelSection({ sanity }: { sanity?: Record<string, any> & SectionStylingData }) {
   const shouldReduce = useReducedMotion();
-  const { style: sectionStyle, containerClass, accent } = getSectionStyleClasses(sanity?.sectionStyling);
+  const { sectionStyle, accent, overlayStyle, dividerJSX, responsiveCSS, id, dataAttributes, containerClass } = useSectionStyling(sanity, 'social-reel');
   const accentColor = accent || '#C9A04A';
 
   const handle = sanity?.handle || '@EarthForPeace';
@@ -81,8 +82,10 @@ export default function SocialReelSection({ sanity }: { sanity?: Record<string, 
   const socialLinks = sanity?.socialLinks || defaultSocialLinks;
 
   return (
-    <section style={{ background: "#F5F1EA", overflow: "hidden", position: "relative", marginTop: "-1px", zIndex: 20, ...sectionStyle }}>
+    <section id={id} {...dataAttributes} style={{ background: "#F5F1EA", overflow: "hidden", position: "relative", marginTop: "-1px", zIndex: 20, ...sectionStyle }}>
       <div style={{ position: "absolute", top: "30%", left: "50%", transform: "translate(-50%, -50%)", width: "60%", height: "40%", background: `radial-gradient(ellipse, ${accentColor}0F 0%, transparent 70%)`, pointerEvents: "none" }} />
+      {overlayStyle && <div style={overlayStyle} />}
+      {dividerJSX}
       <div className={containerClass}>
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: shouldReduce ? 0 : 0.9 }} className="reel-header">
           <div>
@@ -115,7 +118,7 @@ export default function SocialReelSection({ sanity }: { sanity?: Record<string, 
           Hover to preview &middot; Click to watch full
         </motion.p>
       </div>
-      <style>{`.reel-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: clamp(40px, 6vh, 64px); flex-wrap: wrap; gap: 24px; } .reel-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(10px, 1.2vw, 16px); } @media (max-width: 1100px) { .reel-grid { grid-template-columns: repeat(3, 1fr); } } @media (max-width: 680px) { .reel-grid { grid-template-columns: repeat(2, 1fr); } .reel-header { flex-direction: column; align-items: flex-start; } } @media (max-width: 420px) { .reel-grid { grid-template-columns: 1fr 1fr; gap: 10px; } }`}</style>
+      <style>{`${responsiveCSS} .reel-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: clamp(40px, 6vh, 64px); flex-wrap: wrap; gap: 24px; } .reel-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: clamp(10px, 1.2vw, 16px); } @media (max-width: 1100px) { .reel-grid { grid-template-columns: repeat(3, 1fr); } } @media (max-width: 680px) { .reel-grid { grid-template-columns: repeat(2, 1fr); } .reel-header { flex-direction: column; align-items: flex-start; } } @media (max-width: 420px) { .reel-grid { grid-template-columns: 1fr 1fr; gap: 10px; } }`}</style>
     </section>
   );
 }

@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { getSectionStyleClasses, SectionStylingData } from "@/lib/section-styling";
+import { useSectionStyling } from "@/hooks/useSectionStyling";
 
 const defaultEvents = [
   { id: "01", tag: "Men's Intensive", title: "Reclaim Your Masculine Power", date: "March 25–29, 2025", location: "Denver, Colorado", seats: "18 spots remaining", price: "From $1,200", desc: "A 5-day immersive for men ready to step fully into their energetic sovereignty.", img: "/sao-gallery-img3.jpg", color: "#1F1B16", highlights: ["Cold Plunge Ceremony", "Sacred Fire Ritual", "Drum Healing", "1-on-1 Session"], badge: "Filling Fast" },
@@ -10,7 +11,7 @@ const defaultEvents = [
 ];
 
 export default function EventsShowcaseSection({ sanity }: { sanity?: Record<string, any> & SectionStylingData }) {
-  const { style: sectionStyle, containerClass, accent } = getSectionStyleClasses(sanity?.sectionStyling);
+  const { sectionStyle, accent, overlayStyle, dividerJSX, responsiveCSS, id, dataAttributes, containerClass } = useSectionStyling(sanity, 'events-showcase');
   const accentColor = accent || '#C9A04A';
 
   const eyebrow = sanity?.eyebrow || 'Upcoming Events';
@@ -23,8 +24,10 @@ export default function EventsShowcaseSection({ sanity }: { sanity?: Record<stri
   if (events.length === 0) return null;
 
   return (
-    <section id="events" style={{ background: "#F5F1EA", overflow: "hidden", position: "relative", ...sectionStyle }}>
+    <section id={id} {...dataAttributes} style={{ background: "#F5F1EA", overflow: "hidden", position: "relative", ...sectionStyle }}>
       <div style={{ position: "absolute", inset: 0, opacity: 0.02, backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E\")", backgroundRepeat: "repeat", backgroundSize: "200px", pointerEvents: "none" }} />
+      {overlayStyle && <div style={overlayStyle} />}
+      {dividerJSX}
       <div className="events-wrapper" style={{ maxWidth: 1440, margin: "0 auto", padding: "clamp(48px, 8vw, 88px) clamp(20px, 5vw, 7vw)" }}>
         <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.9 }}
           style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 80, flexWrap: "wrap" as const, gap: 32 }}>
@@ -84,7 +87,7 @@ export default function EventsShowcaseSection({ sanity }: { sanity?: Record<stri
           ))}
         </div>
       </div>
-      <style>{`
+      <style>{`${responsiveCSS}
         @media (max-width: 1024px) { .events-wrapper { padding: 48px 5vw !important; } .event-card-grid { grid-template-columns: 1fr !important; } .event-card-image { order: 1 !important; min-height: 260px !important; } .event-card-content { order: 2 !important; padding: 28px 24px !important; } }
         @media (max-width: 768px) { .events-wrapper { padding: 36px 20px !important; } .event-card-content { padding: 24px 16px !important; } }
       `}</style>

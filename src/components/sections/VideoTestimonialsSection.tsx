@@ -2,6 +2,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { getSectionStyleClasses, SectionStylingData } from "@/lib/section-styling";
+import { useSectionStyling } from "@/hooks/useSectionStyling";
 
 const defaultVideos = [
   { id: "y1", title: "Meeting with Master", label: "Student Story", yt: "PKpKIkGQGv4" },
@@ -107,7 +108,7 @@ function Viewer({ v, onClose }: { v: any; onClose: () => void }) {
 
 export default function VideoTestimonialsSection({ sanity }: { sanity?: Record<string, any> & SectionStylingData }) {
   const [selected, setSelected] = useState<any>(null);
-  const { style: sectionStyle, containerClass, accent } = getSectionStyleClasses(sanity?.sectionStyling);
+  const { sectionStyle, accent, overlayStyle, dividerJSX, responsiveCSS, id, dataAttributes, containerClass } = useSectionStyling(sanity, 'video-testimonials');
   const accentColor = accent || '#C9A04A';
 
   const eyebrow = sanity?.eyebrow || 'Video Stories';
@@ -125,7 +126,9 @@ export default function VideoTestimonialsSection({ sanity }: { sanity?: Record<s
     : defaultVideos;
 
   return (
-    <section style={{ background: "#FBF9F5", padding: "clamp(40px, 6vw, 72px) 0", ...sectionStyle }}>
+    <section id={id} {...dataAttributes} style={{ background: "#FBF9F5", padding: "clamp(40px, 6vw, 72px) 0", ...sectionStyle }}>
+      {overlayStyle && <div style={overlayStyle} />}
+      {dividerJSX}
       <div className={containerClass}>
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ textAlign: "center", marginBottom: 36 }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14, marginBottom: 14 }}>
@@ -143,7 +146,7 @@ export default function VideoTestimonialsSection({ sanity }: { sanity?: Record<s
         <p style={{ textAlign: "center", marginTop: 24, fontFamily: "'Cinzel', serif", fontSize: "0.55rem", color: "rgba(31,27,22,0.2)" }}>Click to watch in fullscreen</p>
       </div>
       <AnimatePresence>{selected && <Viewer v={selected} onClose={() => setSelected(null)} />}</AnimatePresence>
-      <style>{`@media (max-width: 900px) { .vg { grid-template-columns: repeat(2, 1fr) !important; } } @media (max-width: 500px) { .vg { grid-template-columns: 1fr !important; } }`}</style>
+      <style>{`${responsiveCSS} @media (max-width: 900px) { .vg { grid-template-columns: repeat(2, 1fr) !important; } } @media (max-width: 500px) { .vg { grid-template-columns: 1fr !important; } }`}</style>
     </section>
   );
 }

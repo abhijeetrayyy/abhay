@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { getSectionStyleClasses, SectionStylingData } from "@/lib/section-styling";
+import { useSectionStyling } from "@/hooks/useSectionStyling";
 
 const defaultVideos = [
   { id: "kjFiyWgyvu0", title: "Abhay Oyun Teaching", subtitle: "First Steps of SAMPO" },
@@ -51,7 +52,7 @@ function VideoCard({ video, index, accent = '#C9A04A' }: { video: { id: string; 
 }
 
 export default function YouTubeSection({ sanity }: { sanity?: Record<string, any> & SectionStylingData }) {
-  const { style: sectionStyle, containerClass, accent } = getSectionStyleClasses(sanity?.sectionStyling);
+  const { sectionStyle, accent, overlayStyle, dividerJSX, responsiveCSS, id, dataAttributes, containerClass } = useSectionStyling(sanity, 'youtube');
   const accentColor = accent || '#C9A04A';
 
   const eyebrow = sanity?.eyebrow || 'Watch & Learn';
@@ -62,7 +63,9 @@ export default function YouTubeSection({ sanity }: { sanity?: Record<string, any
   const videos = sanity?.videos?.map((v: any) => ({ id: v.youtubeId, title: v.title, subtitle: v.subtitle })) || defaultVideos;
 
   return (
-    <section style={{ background: "#F5F1EA", overflow: "hidden", position: "relative", marginTop: "-1px", zIndex: 20, ...sectionStyle }}>
+    <section id={id} {...dataAttributes} style={{ background: "#F5F1EA", overflow: "hidden", position: "relative", marginTop: "-1px", zIndex: 20, ...sectionStyle }}>
+      {overlayStyle && <div style={overlayStyle} />}
+      {dividerJSX}
       <div className="yt-wrapper" style={{ maxWidth: 1440, margin: "0 auto", padding: "clamp(48px, 8vw, 88px) clamp(20px, 5vw, 7vw)" }}>
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.9 }}
           style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 64, flexWrap: "wrap" as const, gap: 24 }}>
@@ -88,7 +91,7 @@ export default function YouTubeSection({ sanity }: { sanity?: Record<string, any
           {videos.slice(3).map((v: any, i: number) => (<VideoCard key={v.id} video={v} index={i + 3} accent={accentColor} />))}
         </div>
       </div>
-      <style>{`@media (max-width: 1024px) { .yt-wrapper { padding: 48px 5vw !important; } } @media (max-width: 900px) { .yt-grid-top, .yt-grid-bottom { grid-template-columns: 1fr !important; } } @media (max-width: 768px) { .yt-wrapper { padding: 36px 20px !important; } } .yt-btn:hover { transform: translateY(-2px); background: rgba(31,27,22,0.07) !important; }`}</style>
+      <style>{`${responsiveCSS} @media (max-width: 1024px) { .yt-wrapper { padding: 48px 5vw !important; } } @media (max-width: 900px) { .yt-grid-top, .yt-grid-bottom { grid-template-columns: 1fr !important; } } @media (max-width: 768px) { .yt-wrapper { padding: 36px 20px !important; } } .yt-btn:hover { transform: translateY(-2px); background: rgba(31,27,22,0.07) !important; }`}</style>
     </section>
   );
 }

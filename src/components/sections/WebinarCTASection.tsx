@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { getSectionStyleClasses, SectionStylingData } from "@/lib/section-styling";
+import { useSectionStyling } from "@/hooks/useSectionStyling";
 
 const defaultBenefits = [
   "Live introduction to the SAMPO psycho-energetic system",
@@ -10,7 +11,7 @@ const defaultBenefits = [
 ];
 
 export default function WebinarCTASection({ sanity }: { sanity?: Record<string, any> & SectionStylingData }) {
-  const { style: sectionStyle, containerClass, accent } = getSectionStyleClasses(sanity?.sectionStyling);
+  const { sectionStyle, accent, overlayStyle, dividerJSX, responsiveCSS, id, dataAttributes, containerClass } = useSectionStyling(sanity, 'webinar-cta');
   const accentColor = accent || '#C9A04A';
 
   const eyebrow = sanity?.eyebrow || 'Free Webinar';
@@ -29,8 +30,10 @@ export default function WebinarCTASection({ sanity }: { sanity?: Record<string, 
   const secondaryUrl = card.secondaryUrl || 'https://calendly.com/hurraymangalam/individualsessions';
 
   return (
-    <section style={{ background: "#FBF9F5", position: "relative", marginTop: "-1px", zIndex: 20, ...sectionStyle }}>
+    <section id={id} {...dataAttributes} style={{ background: "#FBF9F5", position: "relative", marginTop: "-1px", zIndex: 20, ...sectionStyle }}>
       <div style={{ position: "absolute", inset: 0, background: `radial-gradient(ellipse 80% 60% at 70% 50%, ${accentColor}0F 0%, transparent 70%)`, pointerEvents: "none" }} />
+      {overlayStyle && <div style={overlayStyle} />}
+      {dividerJSX}
       <div className="webinar-wrapper" style={{ maxWidth: 1440, margin: "0 auto", padding: "clamp(48px, 8vw, 88px) clamp(20px, 5vw, 7vw)", position: "relative", zIndex: 5 }}>
         <div className="webinar-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(40px, 6vw, 100px)", alignItems: "center" }}>
           <motion.div initial={{ opacity: 0, y: 36 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}>
@@ -82,7 +85,7 @@ export default function WebinarCTASection({ sanity }: { sanity?: Record<string, 
           </motion.div>
         </div>
       </div>
-      <style>{`@media (max-width: 900px) { .webinar-grid { grid-template-columns: 1fr !important; gap: 40px !important; } .webinar-wrapper { padding: 48px 24px !important; } } @media (max-width: 480px) { .webinar-wrapper { padding: 36px 16px !important; } }`}</style>
+      <style>{`${responsiveCSS} @media (max-width: 900px) { .webinar-grid { grid-template-columns: 1fr !important; gap: 40px !important; } .webinar-wrapper { padding: 48px 24px !important; } } @media (max-width: 480px) { .webinar-wrapper { padding: 36px 16px !important; } }`}</style>
     </section>
   );
 }

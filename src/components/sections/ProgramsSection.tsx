@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { getSectionStyleClasses, SectionStylingData } from "@/lib/section-styling";
+import { useSectionStyling } from "@/hooks/useSectionStyling";
 
 const defaultPrograms = [
   { title: "SAMPO System", subtitle: "Energy Mastery", description: "Learn the ancient Siberian technique for harnessing and amplifying your personal energy field.", price: "$497", image: "/sao-gallery-img1.jpg", tag: "Popular", featured: true, link: "/events" },
@@ -10,7 +11,7 @@ const defaultPrograms = [
 ];
 
 export default function ProgramsSection({ sanity }: { sanity?: Record<string, any> & SectionStylingData }) {
-  const { style: sectionStyle, containerClass, accent } = getSectionStyleClasses(sanity?.sectionStyling);
+  const { sectionStyle, accent, overlayStyle, dividerJSX, responsiveCSS, id, dataAttributes, containerClass } = useSectionStyling(sanity, 'programs');
   const accentColor = accent || '#C9A04A';
 
   const eyebrow = sanity?.eyebrow || 'Programs';
@@ -23,9 +24,11 @@ export default function ProgramsSection({ sanity }: { sanity?: Record<string, an
   if (programs.length === 0) return null;
 
   return (
-    <section style={{ background: '#FBF9F5', padding: 'clamp(48px, 7vw, 88px) 0', position: 'relative', ...sectionStyle }}>
+    <section id={id} {...dataAttributes} style={{ background: '#FBF9F5', padding: 'clamp(48px, 7vw, 88px) 0', position: 'relative', ...sectionStyle }}>
       <div style={{ position: 'absolute', top: 0, right: 0, width: 500, height: 500, background: `radial-gradient(circle, ${accentColor}0F 0%, transparent 70%)`, pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', bottom: 0, left: 0, width: 400, height: 400, background: 'radial-gradient(circle, rgba(155,168,139,0.04) 0%, transparent 70%)', pointerEvents: 'none' }} />
+      {overlayStyle && <div style={overlayStyle} />}
+      {dividerJSX}
       <div className={containerClass}>
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} style={{ textAlign: 'center', marginBottom: 'clamp(40px, 6vw, 64px)' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16, marginBottom: 18 }}>
@@ -91,7 +94,7 @@ export default function ProgramsSection({ sanity }: { sanity?: Record<string, an
           <Link href="/teachings" style={{ color: accentColor, fontSize: '0.8rem', fontWeight: 600, textDecoration: 'none', borderBottom: `1px solid ${accentColor}4D`, paddingBottom: 4, fontFamily: "'Cinzel', serif", letterSpacing: '0.1em', transition: 'all 0.3s ease' }}>View All Programs &rarr;</Link>
         </motion.div>
       </div>
-      <style>{`.program-card:hover img { transform: scale(1.05); } @media (max-width: 768px) { .programs-featured-grid { grid-template-columns: 1fr !important; } .programs-featured-img { min-height: 240px !important; } .programs-rest-grid { grid-template-columns: 1fr !important; } }`}</style>
+      <style>{`${responsiveCSS} .program-card:hover img { transform: scale(1.05); } @media (max-width: 768px) { .programs-featured-grid { grid-template-columns: 1fr !important; } .programs-featured-img { min-height: 240px !important; } .programs-rest-grid { grid-template-columns: 1fr !important; } }`}</style>
     </section>
   );
 }

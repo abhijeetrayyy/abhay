@@ -5,12 +5,13 @@ import Link from "next/link";
 import { getActiveTestimonials } from "@/lib/data";
 import type { Testimonial } from "@/lib/supabase";
 import { getSectionStyleClasses, SectionStylingData } from "@/lib/section-styling";
+import { useSectionStyling } from "@/hooks/useSectionStyling";
 
 export default function TestimonialsSection({ sanity }: { sanity?: Record<string, any> & SectionStylingData }) {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [cur, setCur] = useState(0);
   const [dir, setDir] = useState(1);
-  const { style: sectionStyle, containerClass, accent } = getSectionStyleClasses(sanity?.sectionStyling);
+  const { sectionStyle, accent, overlayStyle, dividerJSX, responsiveCSS, id, dataAttributes, containerClass } = useSectionStyling(sanity, 'testimonials');
   const accentColor = accent || '#C9A04A';
 
   useEffect(() => {
@@ -36,10 +37,11 @@ export default function TestimonialsSection({ sanity }: { sanity?: Record<string
   }
 
   return (
-    <section style={{ position: "relative", background: "#F5F1EA", overflow: "hidden", ...sectionStyle }}>
+    <section id={id} {...dataAttributes} style={{ position: "relative", background: "#F5F1EA", overflow: "hidden", ...sectionStyle }}>
       <div style={{ position: "absolute", inset: 0, background: `radial-gradient(ellipse at 20% 80%, ${accentColor}0F 0%, transparent 50%)`, pointerEvents: "none" }} />
       <div style={{ position: "absolute", top: 40, left: 30, fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "18rem", color: `${accentColor}0D`, lineHeight: 1, userSelect: "none", pointerEvents: "none", fontWeight: 400 }}>&ldquo;</div>
-
+      {overlayStyle && <div style={overlayStyle} />}
+      {dividerJSX}
       <div className={containerClass} style={{ padding: "clamp(48px, 7vw, 88px) 24px", position: "relative" }}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}

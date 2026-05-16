@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getPublishedTeachings } from "@/lib/data";
 import { getSectionStyleClasses, SectionStylingData } from "@/lib/section-styling";
+import { useSectionStyling } from "@/hooks/useSectionStyling";
 
 function TeachingCard({ teaching, accent = '#C9A04A' }: { teaching: any; accent?: string }) {
   const [hovered, setHovered] = useState(false);
@@ -44,7 +45,7 @@ function TeachingCard({ teaching, accent = '#C9A04A' }: { teaching: any; accent?
 export default function TeachingsSection({ sanity }: { sanity?: Record<string, any> & SectionStylingData }) {
   const [teachings, setTeachings] = useState<any[]>([]);
   useEffect(() => { getPublishedTeachings().then(setTeachings).catch(() => {}); }, []);
-  const { style: sectionStyle, containerClass, accent } = getSectionStyleClasses(sanity?.sectionStyling);
+  const { sectionStyle, accent, overlayStyle, dividerJSX, responsiveCSS, id, dataAttributes, containerClass } = useSectionStyling(sanity, 'teachings');
   const accentColor = accent || '#C9A04A';
 
   const eyebrow = sanity?.eyebrow || 'Ancient Wisdom';
@@ -55,8 +56,10 @@ export default function TeachingsSection({ sanity }: { sanity?: Record<string, a
   if (items.length === 0) return null;
 
   return (
-    <section style={{ background: "#F5F1EA", overflow: "hidden", position: "relative", zIndex: 20, marginTop: "-1px", ...sectionStyle }}>
+    <section id={id} {...dataAttributes} style={{ background: "#F5F1EA", overflow: "hidden", position: "relative", zIndex: 20, marginTop: "-1px", ...sectionStyle }}>
       <div style={{ position: "absolute", top: "20%", left: "50%", transform: "translateX(-50%)", width: "60%", height: "50%", background: `radial-gradient(ellipse, ${accentColor}0A 0%, transparent 70%)`, pointerEvents: "none" }} />
+      {overlayStyle && <div style={overlayStyle} />}
+      {dividerJSX}
       <div className="teachings-wrapper" style={{ maxWidth: 1400, margin: "0 auto", padding: "clamp(48px, 8vw, 88px) clamp(20px, 5vw, 80px)" }}>
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ textAlign: "center", marginBottom: "clamp(40px, 6vh, 64px)" }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 16, marginBottom: 18 }}>
@@ -78,7 +81,7 @@ export default function TeachingsSection({ sanity }: { sanity?: Record<string, a
           </Link>
         </motion.div>
       </div>
-      <style>{`@media (max-width: 1024px) { .teachings-wrapper { padding: 48px 24px !important; } .teachings-grid { grid-template-columns: repeat(2, 1fr) !important; } } @media (max-width: 600px) { .teachings-grid { grid-template-columns: 1fr !important; } }`}</style>
+      <style>{`${responsiveCSS} @media (max-width: 1024px) { .teachings-wrapper { padding: 48px 24px !important; } .teachings-grid { grid-template-columns: repeat(2, 1fr) !important; } } @media (max-width: 600px) { .teachings-grid { grid-template-columns: 1fr !important; } }`}</style>
     </section>
   );
 }

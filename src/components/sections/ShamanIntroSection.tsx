@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion
 import { useRef } from "react";
 import Link from "next/link";
 import { getSectionStyleClasses, SectionStylingData } from "@/lib/section-styling";
+import { useSectionStyling } from "@/hooks/useSectionStyling";
 
 const defaultStats = [
   { number: "5,000+", label: "Healed" },
@@ -16,7 +17,7 @@ export default function ShamanIntroSection({ sanity }: { sanity?: Record<string,
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const imgY = useTransform(scrollYProgress, [0, 1], ["-4%", "6%"]);
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-4%"]);
-  const { style: sectionStyle, accent } = getSectionStyleClasses(sanity?.sectionStyling);
+  const { sectionStyle, accent, overlayStyle, dividerJSX, responsiveCSS, id, dataAttributes } = useSectionStyling(sanity, 'shaman-intro');
   const accentColor = accent || '#C9A04A';
 
   const eyebrow = sanity?.eyebrow || 'The Shaman';
@@ -32,9 +33,11 @@ export default function ShamanIntroSection({ sanity }: { sanity?: Record<string,
   const secondaryUrl = sanity?.secondaryButton?.url || '/about';
 
   return (
-    <section ref={ref} className="shaman-intro-section" style={{ position: "relative", background: "#FBF9F5", overflow: "hidden", zIndex: 10, ...sectionStyle }}>
+    <section ref={ref} className="shaman-intro-section" id={id} {...dataAttributes} style={{ position: "relative", background: "#FBF9F5", overflow: "hidden", zIndex: 10, ...sectionStyle }}>
       <div style={{ position: "absolute", inset: 0, background: `radial-gradient(ellipse 80% 60% at 70% 50%, ${accentColor}0D 0%, transparent 70%)`, pointerEvents: "none" }} />
       <div style={{ position: "absolute", top: -120, left: -120, width: 450, height: 450, background: "radial-gradient(circle, rgba(155,168,139,0.06) 0%, transparent 70%)", pointerEvents: "none" }} />
+      {overlayStyle && <div style={overlayStyle} />}
+      {dividerJSX}
       <div style={{ maxWidth: 1400, margin: "0 auto", padding: "clamp(48px, 7vw, 88px) clamp(24px, 5vw, 80px)" }}>
         <div className="shaman-intro-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "clamp(40px, 8vw, 100px)", alignItems: "center" }}>
           <motion.div style={{ y: shouldReduce ? 0 : textY }} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }}
@@ -94,7 +97,7 @@ export default function ShamanIntroSection({ sanity }: { sanity?: Record<string,
           </div>
         </div>
       </div>
-      <style>{`@media (max-width: 900px) { .shaman-intro-grid { grid-template-columns: 1fr !important; gap: 40px !important; } } @media (max-width: 600px) { .stats-row { grid-template-columns: 1fr !important; gap: 24px; } .stats-col { border-right: none !important; border-bottom: 1px solid ${accentColor}26; padding: 24px 0 !important; } } .shaman-intro-section a[href*="calendly"]:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(31,27,22,0.25) !important; } .shaman-intro-section a[href*="#about"]:hover { background: rgba(31,27,22,0.04) !important; border-color: rgba(31,27,22,0.3) !important; transform: translateY(-3px); }`}</style>
+      <style>{`${responsiveCSS} @media (max-width: 900px) { .shaman-intro-grid { grid-template-columns: 1fr !important; gap: 40px !important; } } @media (max-width: 600px) { .stats-row { grid-template-columns: 1fr !important; gap: 24px; } .stats-col { border-right: none !important; border-bottom: 1px solid ${accentColor}26; padding: 24px 0 !important; } } .shaman-intro-section a[href*="calendly"]:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(31,27,22,0.25) !important; } .shaman-intro-section a[href*="#about"]:hover { background: rgba(31,27,22,0.04) !important; border-color: rgba(31,27,22,0.3) !important; transform: translateY(-3px); }`}</style>
     </section>
   );
 }

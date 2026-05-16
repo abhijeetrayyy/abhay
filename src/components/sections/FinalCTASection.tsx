@@ -2,9 +2,10 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { getSectionStyleClasses, SectionStylingData } from "@/lib/section-styling";
+import { useSectionStyling } from "@/hooks/useSectionStyling";
 
 export default function FinalCTASection({ sanity }: { sanity?: Record<string, any> & SectionStylingData }) {
-  const { style: sectionStyle, containerClass, accent } = getSectionStyleClasses(sanity?.sectionStyling);
+  const { sectionStyle, accent, overlayStyle, dividerJSX, responsiveCSS, id, dataAttributes, containerClass } = useSectionStyling(sanity, 'final-cta');
   const accentColor = accent || '#C9A04A';
 
   const heading = sanity?.heading || 'Ready to Begin Your Journey?';
@@ -16,7 +17,7 @@ export default function FinalCTASection({ sanity }: { sanity?: Record<string, an
   const bottomQuote = sanity?.bottomQuote || 'Walk in Power. Walk in Light.';
 
   return (
-    <section className="final-cta-section" style={{ position: "relative", background: '#F5F1EA', overflow: 'hidden', borderTop: '1px solid rgba(31,27,22,0.04)', ...sectionStyle }}>
+    <section id={id} {...dataAttributes} className="final-cta-section" style={{ position: "relative", background: '#F5F1EA', overflow: 'hidden', borderTop: '1px solid rgba(31,27,22,0.04)', ...sectionStyle }}>
       <div style={{ position: 'absolute', inset: 0, background: `radial-gradient(ellipse at 50% 100%, ${accentColor}1A 0%, transparent 50%)`, pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', top: '15%', right: '-8%', width: 550, height: 550, background: `radial-gradient(circle, ${accentColor}0F 0%, transparent 70%)`, borderRadius: '50%', pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', bottom: '-10%', left: '-5%', width: 450, height: 450, background: 'radial-gradient(circle, rgba(155,168,139,0.05) 0%, transparent 70%)', borderRadius: '50%', pointerEvents: 'none' }} />
@@ -26,6 +27,8 @@ export default function FinalCTASection({ sanity }: { sanity?: Record<string, an
           <polygon points="100,10 120,70 180,70 130,105 150,170 100,135 50,170 70,105 20,70 80,70" />
         </svg>
       </div>
+      {overlayStyle && <div style={overlayStyle} />}
+      {dividerJSX}
       <div className={containerClass} style={{ padding: 'clamp(48px, 8vw, 88px) 24px', position: 'relative', textAlign: 'center' }}>
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
           style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 20, marginBottom: 44 }}>
@@ -58,7 +61,7 @@ export default function FinalCTASection({ sanity }: { sanity?: Record<string, an
           <p style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: '1.4rem', fontStyle: 'italic', color: 'rgba(31,27,22,0.35)', fontWeight: 400 }}>&ldquo;{bottomQuote}&rdquo;</p>
         </motion.div>
       </div>
-      <style>{`@media (max-width: 480px) { .cta-btn-wrap { flex-direction: column !important; } .cta-btn-wrap a { width: 100% !important; justify-content: center !important; } } .final-cta-section a[href*="calendly"]:hover { transform: translateY(-3px); box-shadow: 0 16px 44px ${accentColor}73 !important; } .final-cta-section a[href*="mailto"]:hover { background: rgba(31,27,22,0.04) !important; border-color: rgba(31,27,22,0.3) !important; transform: translateY(-3px); }`}</style>
+      <style>{`${responsiveCSS} @media (max-width: 480px) { .cta-btn-wrap { flex-direction: column !important; } .cta-btn-wrap a { width: 100% !important; justify-content: center !important; } } .final-cta-section a[href*="calendly"]:hover { transform: translateY(-3px); box-shadow: 0 16px 44px ${accentColor}73 !important; } .final-cta-section a[href*="mailto"]:hover { background: rgba(31,27,22,0.04) !important; border-color: rgba(31,27,22,0.3) !important; transform: translateY(-3px); }`}</style>
     </section>
   );
 }
