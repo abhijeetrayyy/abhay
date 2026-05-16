@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
+import { getSectionStyleClasses, SectionStylingData } from "@/lib/section-styling";
 
 const defaultPaths = [
   { id: "tengri", title: "The SAMPO System", subtitle: "Tengri — Sky Father", description: "The foundational energy mastery system. Learn to accumulate, protect, and direct your vital force using ancient Siberian techniques passed down from the celestial realms.", video: "/paths/tengri-sky-father.mp4", link: "/teachings", color: "#C9A04A", number: "01" },
@@ -70,7 +71,10 @@ function PathCard({ path, index }: { path: any; index: number }) {
   );
 }
 
-export default function PathsSection({ sanity }: { sanity?: Record<string, any> }) {
+export default function PathsSection({ sanity }: { sanity?: Record<string, any> & SectionStylingData }) {
+  const { style: sectionStyle, containerClass, accent } = getSectionStyleClasses(sanity?.sectionStyling);
+  const accentColor = accent || '#C9A04A';
+
   const heading = sanity?.heading || 'Choose Your';
   const subheading = sanity?.subheading || 'Path to Power';
   const description = sanity?.description || 'Four sacred doors into the ancient Siberian tradition. Each path is guarded by a spirit — choose the one that calls to you.';
@@ -96,18 +100,18 @@ export default function PathsSection({ sanity }: { sanity?: Record<string, any> 
   if (paths.length === 0) return null;
 
   return (
-    <section style={{ position: "relative", background: "#FBF9F5", overflow: "hidden", padding: "clamp(60px, 8vw, 120px) 0" }}>
-      <div style={{ position: "absolute", top: "20%", left: "50%", transform: "translateX(-50%)", width: "80%", height: "60%", background: "radial-gradient(ellipse, rgba(201,160,74,0.04) 0%, transparent 70%)", pointerEvents: "none" }} />
-      <div style={{ maxWidth: 1440, margin: "0 auto", padding: "0 clamp(20px, 5vw, 80px)" }}>
+    <section style={{ position: "relative", background: "#FBF9F5", overflow: "hidden", padding: "clamp(60px, 8vw, 120px) 0", ...sectionStyle }}>
+      <div style={{ position: "absolute", top: "20%", left: "50%", transform: "translateX(-50%)", width: "80%", height: "60%", background: `radial-gradient(ellipse, ${accentColor}0A 0%, transparent 70%)`, pointerEvents: "none" }} />
+      <div className={containerClass}>
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ textAlign: "center", marginBottom: "clamp(36px, 6vh, 64px)" }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 16, marginBottom: 20 }}>
-            <div style={{ width: 40, height: 1, background: "linear-gradient(to right, transparent, #C9A04A)" }} />
-            <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.6rem", fontWeight: 600, letterSpacing: "0.35em", textTransform: "uppercase", color: "#A07D2E" }}>The Four Paths</span>
-            <div style={{ width: 40, height: 1, background: "linear-gradient(to left, transparent, #C9A04A)" }} />
+            <div style={{ width: 40, height: 1, background: `linear-gradient(to right, transparent, ${accentColor})` }} />
+            <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.6rem", fontWeight: 600, letterSpacing: "0.35em", textTransform: "uppercase", color: accentColor }}>The Four Paths</span>
+            <div style={{ width: 40, height: 1, background: `linear-gradient(to left, transparent, ${accentColor})` }} />
           </div>
-          <h2 style={{ margin: 0, fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 200, fontSize: "clamp(2.2rem, 5vw, 4rem)", color: "#1F1B16", letterSpacing: "-0.02em", lineHeight: 1.1 }}>
+          <h2 style={{ margin: 0, fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 200, fontSize: "clamp(2.2rem, 5vw, 4rem)", color: "inherit", letterSpacing: "-0.02em", lineHeight: 1.1 }}>
             {heading}<br />
-            <span style={{ fontStyle: "italic", backgroundImage: "linear-gradient(135deg, #F9D58B, #C9A04A, #A07D2E)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{subheading}</span>
+            <span style={{ fontStyle: "italic", backgroundImage: `linear-gradient(135deg, #F9D58B, ${accentColor}, #A07D2E)`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{subheading}</span>
           </h2>
           <p style={{ fontFamily: "'Lora', Georgia, serif", fontSize: "clamp(0.9rem, 1.2vw, 1rem)", color: "rgba(31,27,22,0.5)", maxWidth: 520, margin: "16px auto 0", lineHeight: 1.8, fontWeight: 400 }}>{description}</p>
         </motion.div>

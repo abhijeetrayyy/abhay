@@ -1,6 +1,7 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import { getSectionStyleClasses, SectionStylingData } from "@/lib/section-styling";
 
 const defaultVideos = [
   { id: "y1", title: "Meeting with Master", label: "Student Story", yt: "PKpKIkGQGv4" },
@@ -13,7 +14,7 @@ const defaultVideos = [
   { id: "l4", title: "Ceci", label: "Testimonial", src: "/video-testimonials/Ceci.webm" },
 ];
 
-function Card({ v, i, onSelect }: { v: any; i: number; onSelect: (v: any) => void }) {
+function Card({ v, i, onSelect, accent = '#C9A04A' }: { v: any; i: number; onSelect: (v: any) => void; accent?: string }) {
   const [hovered, setHovered] = useState(false);
   const [inView, setInView] = useState(false);
   const vidRef = useRef<HTMLVideoElement>(null);
@@ -32,8 +33,8 @@ function Card({ v, i, onSelect }: { v: any; i: number; onSelect: (v: any) => voi
     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
       transition={{ duration: 0.5, delay: i * 0.05 }} onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
       onClick={() => onSelect(v)} style={{ position: "relative", borderRadius: 2, overflow: "hidden", cursor: "pointer", aspectRatio: "16/9", background: "#0A1020",
-        border: "1px solid", borderColor: hovered ? "rgba(201,160,74,0.25)" : "rgba(31,27,22,0.04)",
-        boxShadow: hovered ? "0 20px 48px rgba(31,27,22,0.1), 0 0 0 1px rgba(201,160,74,0.08)" : "0 4px 16px rgba(31,27,22,0.03)",
+        border: "1px solid", borderColor: hovered ? `${accent}40` : "rgba(31,27,22,0.04)",
+        boxShadow: hovered ? `0 20px 48px rgba(31,27,22,0.1), 0 0 0 1px ${accent}14` : "0 4px 16px rgba(31,27,22,0.03)",
         transition: "all 0.3s ease", transform: hovered ? "translateY(-4px)" : "translateY(0)" }}>
       {isYT ? (
         <img src={`https://img.youtube.com/vi/${v.yt}/maxresdefault.jpg`} alt={v.title}
@@ -44,12 +45,12 @@ function Card({ v, i, onSelect }: { v: any; i: number; onSelect: (v: any) => voi
           style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 25%", transition: "filter 0.4s" }} />
       )}
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,16,32,0.65) 0%, rgba(10,16,32,0.05) 45%, transparent 70%)" }} />
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 2, zIndex: 3, background: "linear-gradient(90deg, transparent, rgba(201,160,74,0.25), transparent)", opacity: hovered ? 0.8 : 0.15, transition: "opacity 0.4s ease" }} />
-      <span style={{ position: "absolute", top: 12, left: 12, zIndex: 2, fontFamily: "'Cinzel', serif", fontSize: "0.42rem", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: "#C9A04A", padding: "3px 9px", borderRadius: 2, background: "rgba(10,16,32,0.45)", backdropFilter: "blur(6px)", border: "1px solid rgba(201,160,74,0.15)" }}>{v.label}</span>
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 2, zIndex: 3, background: `linear-gradient(90deg, transparent, ${accent}40, transparent)`, opacity: hovered ? 0.8 : 0.15, transition: "opacity 0.4s ease" }} />
+      <span style={{ position: "absolute", top: 12, left: 12, zIndex: 2, fontFamily: "'Cinzel', serif", fontSize: "0.42rem", fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: accent, padding: "3px 9px", borderRadius: 2, background: "rgba(10,16,32,0.45)", backdropFilter: "blur(6px)", border: `1px solid ${accent}26` }}>{v.label}</span>
       <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", zIndex: 2, width: 50, height: 50, borderRadius: "50%",
-        background: hovered ? "rgba(201,160,74,0.18)" : "rgba(201,160,74,0.1)", border: "1.5px solid", borderColor: hovered ? "rgba(201,160,74,0.35)" : "rgba(201,160,74,0.2)",
+        background: hovered ? `${accent}2E` : `${accent}1A`, border: "1.5px solid", borderColor: hovered ? `${accent}59` : `${accent}33`,
         backdropFilter: "blur(10px)", display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.3s ease" }}>
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 2.5l9 5.5-9 5.5V2.5z" fill="#C9A04A" /></svg>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M5 2.5l9 5.5-9 5.5V2.5z" fill={accent} /></svg>
       </div>
       <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "14px 18px", zIndex: 2 }}>
         <p style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "1.05rem", color: "#FDFCFA", margin: 0, fontWeight: 400, lineHeight: 1.15 }}>{v.title}</p>
@@ -104,8 +105,11 @@ function Viewer({ v, onClose }: { v: any; onClose: () => void }) {
   );
 }
 
-export default function VideoTestimonialsSection({ sanity }: { sanity?: Record<string, any> }) {
+export default function VideoTestimonialsSection({ sanity }: { sanity?: Record<string, any> & SectionStylingData }) {
   const [selected, setSelected] = useState<any>(null);
+  const { style: sectionStyle, containerClass, accent } = getSectionStyleClasses(sanity?.sectionStyling);
+  const accentColor = accent || '#C9A04A';
+
   const eyebrow = sanity?.eyebrow || 'Video Stories';
   const heading = sanity?.heading || 'Real Voices';
   const subheading = sanity?.subheading || 'of Transformation';
@@ -121,20 +125,20 @@ export default function VideoTestimonialsSection({ sanity }: { sanity?: Record<s
     : defaultVideos;
 
   return (
-    <section style={{ background: "#FBF9F5", padding: "clamp(60px, 8vw, 100px) 0" }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
+    <section style={{ background: "#FBF9F5", padding: "clamp(60px, 8vw, 100px) 0", ...sectionStyle }}>
+      <div className={containerClass}>
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ textAlign: "center", marginBottom: 36 }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14, marginBottom: 14 }}>
-            <div style={{ width: 36, height: 1, background: "linear-gradient(to right, transparent, #C9A04A)" }} />
-            <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.58rem", fontWeight: 600, letterSpacing: "0.35em", textTransform: "uppercase", color: "#A07D2E" }}>{eyebrow}</span>
-            <div style={{ width: 36, height: 1, background: "linear-gradient(to left, transparent, #C9A04A)" }} />
+            <div style={{ width: 36, height: 1, background: `linear-gradient(to right, transparent, ${accentColor})` }} />
+            <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.58rem", fontWeight: 600, letterSpacing: "0.35em", textTransform: "uppercase", color: accentColor }}>{eyebrow}</span>
+            <div style={{ width: 36, height: 1, background: `linear-gradient(to left, transparent, ${accentColor})` }} />
           </div>
-          <h2 style={{ margin: 0, fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 400, fontSize: "clamp(2rem, 4.5vw, 3rem)", color: "#1F1B16" }}>
+          <h2 style={{ margin: 0, fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 400, fontSize: "clamp(2rem, 4.5vw, 3rem)", color: "inherit" }}>
             {heading}<span style={{ fontStyle: "italic", color: "rgba(31,27,22,0.3)" }}> {subheading}</span>
           </h2>
         </motion.div>
         <div className="vg" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 14 }}>
-          {videos.map((v: any, i: number) => (<Card key={v.id} v={v} i={i} onSelect={setSelected} />))}
+          {videos.map((v: any, i: number) => (<Card key={v.id} v={v} i={i} onSelect={setSelected} accent={accentColor} />))}
         </div>
         <p style={{ textAlign: "center", marginTop: 24, fontFamily: "'Cinzel', serif", fontSize: "0.55rem", color: "rgba(31,27,22,0.2)" }}>Click to watch in fullscreen</p>
       </div>

@@ -1,9 +1,11 @@
 import { defineType, defineField } from 'sanity';
+import { sectionStyling } from '../objects/sectionStyling';
 
 export const programs = defineType({
   name: 'programs',
   title: 'Programs Section',
   type: 'object',
+  groups: [{ name: 'styling', title: 'Styling' }],
   fields: [
     defineField({ name: 'eyebrow', title: 'Eyebrow Text', type: 'string', initialValue: 'Programs' }),
     defineField({ name: 'heading', title: 'Heading', type: 'string', initialValue: 'Transform Your Life' }),
@@ -26,6 +28,7 @@ export const programs = defineType({
         },
       ],
     }),
+    sectionStyling,
   ],
   preview: { select: { title: 'heading', subtitle: 'eyebrow' } },
 });

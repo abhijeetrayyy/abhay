@@ -1,9 +1,11 @@
 import { defineType, defineField } from 'sanity';
+import { sectionStyling } from '../objects/sectionStyling';
 
 export const hero = defineType({
   name: 'hero',
   title: 'Hero Section',
   type: 'object',
+  groups: [{ name: 'styling', title: 'Styling' }],
   fields: [
     defineField({ name: 'tagline', title: 'Tagline', type: 'string', initialValue: 'Siberian Shaman & Guardian of Our Planet' }),
     defineField({ name: 'heading', title: 'Heading', type: 'string', initialValue: 'Between Worlds' }),
@@ -25,6 +27,7 @@ export const hero = defineType({
         { name: 'url', title: 'URL', type: 'string', initialValue: 'https://forms.gle/jEDaUrKwbyHd8WvUA' },
       ],
     }),
+    sectionStyling,
   ],
   preview: { select: { title: 'heading', subtitle: 'tagline' } },
 });

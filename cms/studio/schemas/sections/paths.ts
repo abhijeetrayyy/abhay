@@ -1,9 +1,11 @@
 import { defineType, defineField } from 'sanity';
+import { sectionStyling } from '../objects/sectionStyling';
 
 export const paths = defineType({
   name: 'paths',
   title: 'Paths Section',
   type: 'object',
+  groups: [{ name: 'styling', title: 'Styling' }],
   fields: [
     defineField({ name: 'heading', title: 'Heading', type: 'string', initialValue: 'Choose Your' }),
     defineField({ name: 'subheading', title: 'Subheading', type: 'string', initialValue: 'Path to Power' }),
@@ -30,6 +32,7 @@ export const paths = defineType({
         { _key: 'p4', title: 'Shadow & Ancestral Work', subtitle: 'Erlik — Lord of Depths', description: 'Deep transformational work for those ready to face the shadow. Ancestral lineage healing, soul fragment recovery, and karmic release through guided ceremonies.', link: '/teachings', color: '#A07D2E' },
       ],
     }),
+    sectionStyling,
   ],
   preview: { select: { title: 'heading', subtitle: 'subheading' } },
 });

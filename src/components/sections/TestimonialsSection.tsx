@@ -4,11 +4,14 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { getActiveTestimonials } from "@/lib/data";
 import type { Testimonial } from "@/lib/supabase";
+import { getSectionStyleClasses, SectionStylingData } from "@/lib/section-styling";
 
-export default function TestimonialsSection({ sanity }: { sanity?: Record<string, any> }) {
+export default function TestimonialsSection({ sanity }: { sanity?: Record<string, any> & SectionStylingData }) {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [cur, setCur] = useState(0);
   const [dir, setDir] = useState(1);
+  const { style: sectionStyle, containerClass, accent } = getSectionStyleClasses(sanity?.sectionStyling);
+  const accentColor = accent || '#C9A04A';
 
   useEffect(() => {
     getActiveTestimonials().then(data => setTestimonials(data));
@@ -33,11 +36,11 @@ export default function TestimonialsSection({ sanity }: { sanity?: Record<string
   }
 
   return (
-    <section style={{ position: "relative", background: "#F5F1EA", overflow: "hidden" }}>
-      <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 20% 80%, rgba(201,160,74,0.06) 0%, transparent 50%)", pointerEvents: "none" }} />
-      <div style={{ position: "absolute", top: 40, left: 30, fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "18rem", color: "rgba(201,160,74,0.05)", lineHeight: 1, userSelect: "none", pointerEvents: "none", fontWeight: 400 }}>&ldquo;</div>
+    <section style={{ position: "relative", background: "#F5F1EA", overflow: "hidden", ...sectionStyle }}>
+      <div style={{ position: "absolute", inset: 0, background: `radial-gradient(ellipse at 20% 80%, ${accentColor}0F 0%, transparent 50%)`, pointerEvents: "none" }} />
+      <div style={{ position: "absolute", top: 40, left: 30, fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "18rem", color: `${accentColor}0D`, lineHeight: 1, userSelect: "none", pointerEvents: "none", fontWeight: 400 }}>&ldquo;</div>
 
-      <div style={{ maxWidth: 1100, margin: "0 auto", padding: "clamp(80px, 10vw, 140px) 24px", position: "relative" }}>
+      <div className={containerClass} style={{ padding: "clamp(80px, 10vw, 140px) 24px", position: "relative" }}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -46,18 +49,18 @@ export default function TestimonialsSection({ sanity }: { sanity?: Record<string
           style={{ textAlign: 'center', marginBottom: 56 }}
         >
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16, marginBottom: 18 }}>
-            <div style={{ width: 40, height: 1, background: 'linear-gradient(to right, #C9A04A, transparent)' }} />
-            <span style={{ color: '#A07D2E', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.3em', textTransform: 'uppercase', fontFamily: "'Cinzel', serif" }}>
+            <div style={{ width: 40, height: 1, background: `linear-gradient(to right, ${accentColor}, transparent)` }} />
+            <span style={{ color: accentColor, fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.3em', textTransform: 'uppercase', fontFamily: "'Cinzel', serif" }}>
               Testimonials
             </span>
-            <div style={{ width: 40, height: 1, background: 'linear-gradient(to left, #C9A04A, transparent)' }} />
+            <div style={{ width: 40, height: 1, background: `linear-gradient(to left, ${accentColor}, transparent)` }} />
           </div>
           <h2 style={{
             margin: 0,
             fontFamily: "'Cormorant Garamond', Georgia, serif",
             fontSize: 'clamp(2rem, 4.5vw, 2.8rem)',
             fontWeight: 400,
-            color: '#1F1B16',
+            color: 'inherit',
             letterSpacing: '-0.01em',
           }}>
             Stories of Transformation
@@ -80,7 +83,7 @@ export default function TestimonialsSection({ sanity }: { sanity?: Record<string
                 fontWeight: 400,
                 fontStyle: 'italic',
                 lineHeight: 1.7,
-                color: '#1F1B16',
+                color: 'inherit',
                 marginBottom: 36,
               }}>
                 &ldquo;{testimonials[cur].content}&rdquo;
@@ -93,7 +96,7 @@ export default function TestimonialsSection({ sanity }: { sanity?: Record<string
                   borderRadius: '50%',
                   overflow: 'hidden',
                   background: '#F5F1EA',
-                  border: '2px solid rgba(201,160,74,0.3)',
+                  border: `2px solid ${accentColor}4D`,
                 }}>
                   <img
                     src={testimonials[cur].client_image || '/sao-gallery-img5.jpg'}
@@ -105,7 +108,7 @@ export default function TestimonialsSection({ sanity }: { sanity?: Record<string
                   <div style={{
                     fontFamily: "'Cormorant Garamond', Georgia, serif",
                     fontSize: '1.05rem',
-                    color: '#1F1B16',
+                    color: 'inherit',
                     fontWeight: 500,
                   }}>
                     {testimonials[cur].client_name}
@@ -113,7 +116,7 @@ export default function TestimonialsSection({ sanity }: { sanity?: Record<string
                   <div style={{
                     fontFamily: "'Cinzel', serif",
                     fontSize: '0.65rem',
-                    color: '#A07D2E',
+                    color: accentColor,
                     letterSpacing: '0.1em',
                     textTransform: 'uppercase',
                     fontWeight: 600,
@@ -134,7 +137,7 @@ export default function TestimonialsSection({ sanity }: { sanity?: Record<string
                   width: i === cur ? 28 : 8,
                   height: 8,
                   borderRadius: 4,
-                  background: i === cur ? '#C9A04A' : 'rgba(201,160,74,0.25)',
+                  background: i === cur ? accentColor : `${accentColor}40`,
                   border: 'none',
                   cursor: 'pointer',
                   transition: 'all 0.35s cubic-bezier(0.25, 0.1, 0.25, 1)',

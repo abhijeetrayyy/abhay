@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { getSectionStyleClasses, SectionStylingData } from "@/lib/section-styling";
 
 const defaultEvents = [
   { id: "01", tag: "Men's Intensive", title: "Reclaim Your Masculine Power", date: "March 25–29, 2025", location: "Denver, Colorado", seats: "18 spots remaining", price: "From $1,200", desc: "A 5-day immersive for men ready to step fully into their energetic sovereignty.", img: "/sao-gallery-img3.jpg", color: "#1F1B16", highlights: ["Cold Plunge Ceremony", "Sacred Fire Ritual", "Drum Healing", "1-on-1 Session"], badge: "Filling Fast" },
@@ -8,7 +9,10 @@ const defaultEvents = [
   { id: "03", tag: "Free Webinar", title: "Your First Step Into the SAMPO System", date: "March 19, 2025", location: "Online · Global", seats: "Open registration", price: "Free", desc: "Experience the SAMPO System from anywhere in the world. A live initiation into shamanic energy work.", img: "/healing-global-harmony.jpg", color: "#8B7E6E", highlights: ["Live Q&A", "Energy Practice", "SAMPO Intro", "Worldwide Access"], badge: "Free Entry" },
 ];
 
-export default function EventsShowcaseSection({ sanity }: { sanity?: Record<string, any> }) {
+export default function EventsShowcaseSection({ sanity }: { sanity?: Record<string, any> & SectionStylingData }) {
+  const { style: sectionStyle, containerClass, accent } = getSectionStyleClasses(sanity?.sectionStyling);
+  const accentColor = accent || '#C9A04A';
+
   const eyebrow = sanity?.eyebrow || 'Upcoming Events';
   const heading = sanity?.heading || 'Join Abhay';
   const subheading = sanity?.subheading || 'in the Field.';
@@ -19,18 +23,18 @@ export default function EventsShowcaseSection({ sanity }: { sanity?: Record<stri
   if (events.length === 0) return null;
 
   return (
-    <section id="events" style={{ background: "#F5F1EA", overflow: "hidden", position: "relative" }}>
+    <section id="events" style={{ background: "#F5F1EA", overflow: "hidden", position: "relative", ...sectionStyle }}>
       <div style={{ position: "absolute", inset: 0, opacity: 0.02, backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E\")", backgroundRepeat: "repeat", backgroundSize: "200px", pointerEvents: "none" }} />
       <div className="events-wrapper" style={{ maxWidth: 1440, margin: "0 auto", padding: "140px 7vw" }}>
         <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.9 }}
           style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 80, flexWrap: "wrap" as const, gap: 32 }}>
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 18 }}>
-              <div style={{ width: 26, height: 1, background: "#C9A04A" }} />
-              <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.58rem", fontWeight: 600, letterSpacing: "0.35em", textTransform: "uppercase" as const, color: "#A07D2E" }}>{eyebrow}</span>
+              <div style={{ width: 26, height: 1, background: accentColor }} />
+              <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.58rem", fontWeight: 600, letterSpacing: "0.35em", textTransform: "uppercase" as const, color: accentColor }}>{eyebrow}</span>
             </div>
-            <h2 style={{ margin: 0, fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 400, fontSize: "clamp(2rem, 7vw, 4.5rem)", letterSpacing: "-0.03em", color: "#1F1B16", lineHeight: 0.95 }}>
-              {heading}<br /><span style={{ fontStyle: "italic", color: "#C9A04A" }}>{subheading}</span>
+            <h2 style={{ margin: 0, fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 400, fontSize: "clamp(2rem, 7vw, 4.5rem)", letterSpacing: "-0.03em", color: "inherit", lineHeight: 0.95 }}>
+              {heading}<br /><span style={{ fontStyle: "italic", color: accentColor }}>{subheading}</span>
             </h2>
           </div>
           <p style={{ fontFamily: "'Lora', Georgia, serif", fontSize: "0.9rem", lineHeight: 1.85, color: "rgba(31,27,22,0.5)", maxWidth: 320, fontWeight: 400 }}>{description}</p>
@@ -65,7 +69,7 @@ export default function EventsShowcaseSection({ sanity }: { sanity?: Record<stri
                       <span style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "1.3rem", color: "#1F1B16", fontWeight: 400 }}>{ev.price}</span>
                       <a href={ev.registerUrl || registerUrl} target="_blank" rel="noopener noreferrer" className="event-btn"
                         style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "14px 28px", borderRadius: 2, textDecoration: "none" }}>
-                        Register <svg width="12" height="9" viewBox="0 0 14 8" fill="none"><path d="M1 4h12M10 1l3 3-3 3" stroke="#C9A04A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                        Register <svg width="12" height="9" viewBox="0 0 14 8" fill="none"><path d="M1 4h12M10 1l3 3-3 3" stroke={accentColor} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
                       </a>
                     </div>
                   </div>

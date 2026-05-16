@@ -1,9 +1,11 @@
 import { defineType, defineField } from 'sanity';
+import { sectionStyling } from '../objects/sectionStyling';
 
 export const socialReel = defineType({
   name: 'socialReel',
   title: 'Social Reel Section',
   type: 'object',
+  groups: [{ name: 'styling', title: 'Styling' }],
   fields: [
     defineField({ name: 'handle', title: 'Social Handle', type: 'string', initialValue: '@EarthForPeace' }),
     defineField({ name: 'heading', title: 'Heading', type: 'string', initialValue: 'Sacred Moments.' }),
@@ -50,6 +52,7 @@ export const socialReel = defineType({
         { _key: 'r5', label: 'Nature Synchronization', platform: 'YouTube', views: '19K', duration: '1:55', link: 'https://www.youtube.com/@earthforpeace' },
       ],
     }),
+    sectionStyling,
   ],
   preview: { select: { title: 'heading', subtitle: 'handle' } },
 });

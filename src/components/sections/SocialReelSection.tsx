@@ -1,6 +1,7 @@
 "use client";
 import { motion, useReducedMotion } from "framer-motion";
 import { useState, useRef } from "react";
+import { getSectionStyleClasses, SectionStylingData } from "@/lib/section-styling";
 
 const defaultReels = [
   { src: "/IMG_1651.MOV", label: "Shamanic Ceremony", platform: "Instagram", views: "24K", duration: "0:58", link: "https://www.instagram.com/earthforpeace/" },
@@ -18,7 +19,7 @@ const defaultSocialLinks = [
   { label: "WhatsApp", url: "https://wa.me/12122561366" },
 ];
 
-function ReelCard({ reel, index, shouldReduce }: { reel: any; index: number; shouldReduce: boolean | null }) {
+function ReelCard({ reel, index, shouldReduce, accent = '#C9A04A' }: { reel: any; index: number; shouldReduce: boolean | null; accent?: string }) {
   const [hovered, setHovered] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const onEnter = () => { setHovered(true); videoRef.current?.play(); };
@@ -30,13 +31,13 @@ function ReelCard({ reel, index, shouldReduce }: { reel: any; index: number; sho
       transition={{ duration: shouldReduce ? 0 : 0.85, ease: [0.16, 1, 0.3, 1], delay: shouldReduce ? 0 : index * 0.07 }}
       onMouseEnter={onEnter} onMouseLeave={onLeave}
       style={{ position: "relative", borderRadius: 2, overflow: "hidden", cursor: "pointer", aspectRatio: "9/16", background: "#1F1B16", display: "block", textDecoration: "none",
-        boxShadow: hovered ? "0 28px 72px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,160,74,0.2)" : "0 8px 32px rgba(0,0,0,0.2)", transition: "box-shadow 0.4s ease, transform 0.4s ease",
+        boxShadow: hovered ? `0 28px 72px rgba(0,0,0,0.5), 0 0 0 1px ${accent}33` : "0 8px 32px rgba(0,0,0,0.2)", transition: "box-shadow 0.4s ease, transform 0.4s ease",
         transform: hovered ? "scale(1.04) translateY(-4px)" : "scale(1)" }}>
       <video ref={videoRef} src={reel.videoUrl || reel.video || reel.src} loop muted playsInline preload="auto" autoPlay
         style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", filter: hovered ? "saturate(1.1) brightness(0.9)" : "saturate(0.85) brightness(0.8)", transition: "filter 0.45s ease" }} />
       <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(31,27,22,0.9) 0%, rgba(31,27,22,0.1) 55%, rgba(31,27,22,0.15) 100%)", transition: "opacity 0.4s ease" }} />
       <div style={{ position: "absolute", top: 12, left: 12 }}>
-        <span style={{ background: "rgba(31,27,22,0.5)", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)", borderRadius: 2, padding: "3px 9px", fontFamily: "'Cinzel', serif", fontSize: "0.55rem", fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "#C9A04A", border: "1px solid rgba(201,160,74,0.2)" }}>{reel.platform}</span>
+        <span style={{ background: "rgba(31,27,22,0.5)", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)", borderRadius: 2, padding: "3px 9px", fontFamily: "'Cinzel', serif", fontSize: "0.55rem", fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase" as const, color: accent, border: `1px solid ${accent}33` }}>{reel.platform}</span>
       </div>
       <div style={{ position: "absolute", top: 12, right: 12 }}>
         <span style={{ background: "rgba(31,27,22,0.5)", backdropFilter: "blur(6px)", borderRadius: 2, padding: "3px 7px", fontFamily: "'Cinzel', serif", fontSize: "0.6rem", fontWeight: 500, color: "#FDFCFA" }}>{reel.duration}</span>
@@ -55,8 +56,11 @@ function ReelCard({ reel, index, shouldReduce }: { reel: any; index: number; sho
   );
 }
 
-export default function SocialReelSection({ sanity }: { sanity?: Record<string, any> }) {
+export default function SocialReelSection({ sanity }: { sanity?: Record<string, any> & SectionStylingData }) {
   const shouldReduce = useReducedMotion();
+  const { style: sectionStyle, containerClass, accent } = getSectionStyleClasses(sanity?.sectionStyling);
+  const accentColor = accent || '#C9A04A';
+
   const handle = sanity?.handle || '@EarthForPeace';
   const heading = sanity?.heading || 'Sacred Moments.';
   const subheading = sanity?.subheading || 'Witnessed.';
@@ -77,16 +81,16 @@ export default function SocialReelSection({ sanity }: { sanity?: Record<string, 
   const socialLinks = sanity?.socialLinks || defaultSocialLinks;
 
   return (
-    <section style={{ background: "#F5F1EA", overflow: "hidden", position: "relative", marginTop: "-1px", zIndex: 20 }}>
-      <div style={{ position: "absolute", top: "30%", left: "50%", transform: "translate(-50%, -50%)", width: "60%", height: "40%", background: "radial-gradient(ellipse, rgba(201,160,74,0.06) 0%, transparent 70%)", pointerEvents: "none" }} />
-      <div style={{ maxWidth: 1440, margin: "0 auto", padding: "clamp(72px, 10vw, 140px) clamp(20px, 7vw, 100px) clamp(64px, 8vw, 120px)" }}>
+    <section style={{ background: "#F5F1EA", overflow: "hidden", position: "relative", marginTop: "-1px", zIndex: 20, ...sectionStyle }}>
+      <div style={{ position: "absolute", top: "30%", left: "50%", transform: "translate(-50%, -50%)", width: "60%", height: "40%", background: `radial-gradient(ellipse, ${accentColor}0F 0%, transparent 70%)`, pointerEvents: "none" }} />
+      <div className={containerClass}>
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: shouldReduce ? 0 : 0.9 }} className="reel-header">
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: "clamp(14px, 2vh, 18px)" }}>
-              <div style={{ width: 26, height: 1, background: "linear-gradient(to right, #C9A04A, transparent)", flexShrink: 0 }} />
-              <span style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(0.55rem, 0.7vw, 0.62rem)", fontWeight: 600, letterSpacing: "0.35em", textTransform: "uppercase" as const, color: "#A07D2E" }}>{handle}</span>
+              <div style={{ width: 26, height: 1, background: `linear-gradient(to right, ${accentColor}, transparent)`, flexShrink: 0 }} />
+              <span style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(0.55rem, 0.7vw, 0.62rem)", fontWeight: 600, letterSpacing: "0.35em", textTransform: "uppercase" as const, color: accentColor }}>{handle}</span>
             </div>
-            <h2 style={{ margin: 0, fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 400, fontSize: "clamp(2.2rem, 3.8vw, 4.2rem)", letterSpacing: "-0.02em", color: "#1F1B16", lineHeight: 0.95 }}>
+            <h2 style={{ margin: 0, fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 400, fontSize: "clamp(2.2rem, 3.8vw, 4.2rem)", letterSpacing: "-0.02em", color: "inherit", lineHeight: 0.95 }}>
               {heading}<br /><span style={{ fontStyle: "italic", color: "rgba(31,27,22,0.2)" }}>{subheading}</span>
             </h2>
           </div>
@@ -95,7 +99,7 @@ export default function SocialReelSection({ sanity }: { sanity?: Record<string, 
               {socialLinks.map((s: any) => (
                 <a key={s.label} href={s.url} target="_blank" rel="noopener noreferrer"
                   style={{ display: "inline-flex", alignItems: "center", gap: 5, padding: "6px 12px", borderRadius: 2, textDecoration: "none", fontFamily: "'Cinzel', serif", fontSize: "0.55rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(31,27,22,0.35)", background: "rgba(31,27,22,0.03)", border: "1px solid rgba(31,27,22,0.06)", transition: "all 0.3s ease" }}
-                  onMouseEnter={(e) => { e.currentTarget.style.color = "#C9A04A"; e.currentTarget.style.borderColor = "rgba(201,160,74,0.3)"; e.currentTarget.style.background = "rgba(201,160,74,0.05)"; }}
+                  onMouseEnter={(e) => { e.currentTarget.style.color = accentColor; e.currentTarget.style.borderColor = `${accentColor}4D`; e.currentTarget.style.background = `${accentColor}0D`; }}
                   onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(31,27,22,0.35)"; e.currentTarget.style.borderColor = "rgba(31,27,22,0.06)"; e.currentTarget.style.background = "rgba(31,27,22,0.03)"; }}>
                   {s.label}
                 </a>
@@ -104,7 +108,7 @@ export default function SocialReelSection({ sanity }: { sanity?: Record<string, 
           </div>
         </motion.div>
         <div className="reel-grid">
-          {reels.map((r: any, i: number) => (<ReelCard key={`${r.label}-${i}`} reel={r} index={i} shouldReduce={shouldReduce} />))}
+          {reels.map((r: any, i: number) => (<ReelCard key={`${r.label}-${i}`} reel={r} index={i} shouldReduce={shouldReduce} accent={accentColor} />))}
         </div>
         <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: shouldReduce ? 0 : 0.6 }}
           style={{ textAlign: "center", marginTop: "clamp(20px, 3vh, 32px)", fontFamily: "'Cinzel', serif", fontSize: "0.68rem", color: "rgba(31,27,22,0.25)", letterSpacing: "0.12em" }}>

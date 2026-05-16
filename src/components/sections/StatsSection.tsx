@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
+import { getSectionStyleClasses, SectionStylingData } from "@/lib/section-styling";
 
 const defaultStats = [
   { value: 30, suffix: "+", label: "Years Experience" },
@@ -9,7 +10,7 @@ const defaultStats = [
   { value: 200, suffix: "+", label: "Ceremonies/Year" },
 ];
 
-function Counter({ value, suffix = "", label }: { value: number; suffix?: string; label: string }) {
+function Counter({ value, suffix = "", label, accent = '#C9A04A' }: { value: number; suffix?: string; label: string; accent?: string }) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const [inView, setInView] = useState(false);
@@ -40,14 +41,14 @@ function Counter({ value, suffix = "", label }: { value: number; suffix?: string
     <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }} style={{ textAlign: 'center', padding: '28px 20px' }}>
       <span ref={ref} style={{
-        display: 'block', background: 'linear-gradient(135deg, #C9A04A 0%, #A07D2E 100%)',
+        display: 'block', background: `linear-gradient(135deg, ${accent} 0%, #A07D2E 100%)`,
         WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
         fontSize: 'clamp(2.5rem, 5vw, 3.8rem)', fontWeight: 300,
         fontFamily: "'Cormorant Garamond', Georgia, serif", lineHeight: 1,
       }}>
         {count.toLocaleString()}{suffix}
       </span>
-      <div style={{ width: 36, height: 1, background: 'linear-gradient(90deg, transparent, #C9A04A, transparent)', margin: '14px auto' }} />
+      <div style={{ width: 36, height: 1, background: `linear-gradient(90deg, transparent, ${accent}, transparent)`, margin: '14px auto' }} />
       <span style={{ display: 'block', color: 'rgba(31,27,22,0.5)', fontSize: 'clamp(0.65rem, 0.8vw, 0.72rem)', fontWeight: 600, letterSpacing: '0.22em', textTransform: 'uppercase', fontFamily: "'Cinzel', serif" }}>
         {label}
       </span>
@@ -55,27 +56,30 @@ function Counter({ value, suffix = "", label }: { value: number; suffix?: string
   );
 }
 
-export default function StatsSection({ sanity }: { sanity?: Record<string, any> }) {
+export default function StatsSection({ sanity }: { sanity?: Record<string, any> & SectionStylingData }) {
+  const { style: sectionStyle, containerClass, accent } = getSectionStyleClasses(sanity?.sectionStyling);
+  const accentColor = accent || '#C9A04A';
+
   const eyebrow = sanity?.eyebrow || 'Proven Results';
   const heading = sanity?.heading || 'Transforming Lives Worldwide';
   const items = sanity?.stats || defaultStats;
 
   return (
-    <section style={{ background: '#FBF9F5', padding: 'clamp(60px, 10vw, 100px) 0', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(31,27,22,0.04)' }}>
-      <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 50% 0%, rgba(201,160,74,0.06) 0%, transparent 60%)', pointerEvents: 'none' }} />
+    <section style={{ background: '#FBF9F5', padding: 'clamp(60px, 10vw, 100px) 0', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(31,27,22,0.04)', ...sectionStyle }}>
+      <div style={{ position: 'absolute', inset: 0, background: `radial-gradient(ellipse at 50% 0%, ${accentColor}0F 0%, transparent 60%)`, pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', top: '50%', left: '-5%', width: 350, height: 350, background: 'radial-gradient(circle, rgba(155,168,139,0.05) 0%, transparent 70%)', borderRadius: '50%', pointerEvents: 'none' }} />
-      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px', position: 'relative' }}>
+      <div className={containerClass} style={{ position: 'relative' }}>
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ textAlign: 'center', marginBottom: 56 }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16, marginBottom: 16 }}>
-            <div style={{ width: 56, height: 1, background: 'linear-gradient(to right, transparent, #C9A04A)' }} />
-            <span style={{ color: '#A07D2E', fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.3em', textTransform: 'uppercase', fontFamily: "'Cinzel', serif" }}>{eyebrow}</span>
-            <div style={{ width: 56, height: 1, background: 'linear-gradient(to left, transparent, #C9A04A)' }} />
+            <div style={{ width: 56, height: 1, background: `linear-gradient(to right, transparent, ${accentColor})` }} />
+            <span style={{ color: accentColor, fontSize: '0.7rem', fontWeight: 600, letterSpacing: '0.3em', textTransform: 'uppercase', fontFamily: "'Cinzel', serif" }}>{eyebrow}</span>
+            <div style={{ width: 56, height: 1, background: `linear-gradient(to left, transparent, ${accentColor})` }} />
           </div>
-          <h3 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 'clamp(1.8rem, 3.5vw, 2.4rem)', fontWeight: 400, color: '#1F1B16', margin: 0, letterSpacing: '-0.01em' }}>{heading}</h3>
+          <h3 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 'clamp(1.8rem, 3.5vw, 2.4rem)', fontWeight: 400, color: 'inherit', margin: 0, letterSpacing: '-0.01em' }}>{heading}</h3>
         </motion.div>
         <div className="stats-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px' }}>
           {items.map((stat: any, i: number) => (
-            <Counter key={i} value={stat.value || stat.number} suffix={stat.suffix} label={stat.label} />
+            <Counter key={i} value={stat.value || stat.number} suffix={stat.suffix} label={stat.label} accent={accentColor} />
           ))}
         </div>
       </div>

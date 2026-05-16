@@ -1,9 +1,11 @@
 import { defineType, defineField } from 'sanity';
+import { sectionStyling } from '../objects/sectionStyling';
 
 export const webinarCta = defineType({
   name: 'webinarCta',
   title: 'Webinar CTA Section',
   type: 'object',
+  groups: [{ name: 'styling', title: 'Styling' }],
   fields: [
     defineField({ name: 'eyebrow', title: 'Eyebrow Text', type: 'string', initialValue: 'Free Webinar' }),
     defineField({ name: 'heading', title: 'Heading', type: 'string', initialValue: 'Your Transformation' }),
@@ -31,6 +33,7 @@ export const webinarCta = defineType({
         { name: 'secondaryUrl', title: 'Secondary Button URL', type: 'string', initialValue: 'https://calendly.com/hurraymangalam/individualsessions' },
       ],
     }),
+    sectionStyling,
   ],
   preview: { select: { title: 'heading', subtitle: 'eyebrow' } },
 });

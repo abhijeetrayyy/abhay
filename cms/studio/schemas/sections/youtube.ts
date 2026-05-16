@@ -1,9 +1,11 @@
 import { defineType, defineField } from 'sanity';
+import { sectionStyling } from '../objects/sectionStyling';
 
 export const youtube = defineType({
   name: 'youtubeSection',
   title: 'YouTube Videos Section',
   type: 'object',
+  groups: [{ name: 'styling', title: 'Styling' }],
   fields: [
     defineField({ name: 'eyebrow', title: 'Eyebrow Text', type: 'string', initialValue: 'Watch & Learn' }),
     defineField({ name: 'heading', title: 'Heading', type: 'string', initialValue: 'Abhay Oyun' }),
@@ -35,6 +37,7 @@ export const youtube = defineType({
         { name: 'url', title: 'URL', type: 'url', initialValue: 'https://www.youtube.com/@AbhayOyun' },
       ],
     }),
+    sectionStyling,
   ],
   preview: { select: { title: 'heading', subtitle: 'eyebrow' } },
 });

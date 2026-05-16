@@ -1,9 +1,11 @@
 import { defineType, defineField } from 'sanity';
+import { sectionStyling } from '../objects/sectionStyling';
 
 export const transformation = defineType({
   name: 'transformation',
   title: 'Transformation / Timeline Section',
   type: 'object',
+  groups: [{ name: 'styling', title: 'Styling' }],
   fields: [
     defineField({ name: 'eyebrow', title: 'Eyebrow Text', type: 'string', initialValue: 'Global Impact' }),
     defineField({
@@ -29,6 +31,7 @@ export const transformation = defineType({
         },
       ],
     }),
+    sectionStyling,
   ],
   preview: { select: { title: 'eyebrow' } },
 });

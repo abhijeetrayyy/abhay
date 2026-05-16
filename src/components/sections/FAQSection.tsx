@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { getSectionStyleClasses, SectionStylingData } from "@/lib/section-styling";
 
 const defaultFaqs = [
   { question: "What can I expect from a session with Abhay?", answer: "Each session is a unique healing journey tailored to your specific needs. Through ancient Siberian techniques, Abhay helps clear energetic blockages, retrieve lost soul fragments, and restore your natural vitality. Clients often report profound shifts in their physical, emotional, and spiritual well-being." },
@@ -9,12 +10,12 @@ const defaultFaqs = [
   { question: "What's included in the Shamanic Training program?", answer: "The training includes foundational knowledge of shamanic principles, hands-on practice with energy techniques, personal healing sessions, group ceremonies, and ongoing support. You'll learn the SAMPO System and leave equipped to begin your own practice." },
 ];
 
-function FAQItem({ question, answer, isOpen, onToggle }: { question: string; answer: string; isOpen: boolean; onToggle: () => void }) {
+function FAQItem({ question, answer, isOpen, onToggle, accent = '#C9A04A' }: { question: string; answer: string; isOpen: boolean; onToggle: () => void; accent?: string }) {
   return (
     <div style={{ borderBottom: "1px solid rgba(31,27,22,0.06)" }}>
       <button onClick={onToggle} style={{ width: "100%", textAlign: "left", padding: "22px 0", background: "none", border: "none", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16 }}>
         <span style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "1.1rem", color: "#1F1B16", fontWeight: 400, lineHeight: 1.4 }}>{question}</span>
-        <span style={{ fontSize: "1.4rem", color: "#C9A04A", transform: isOpen ? "rotate(45deg)" : "rotate(0)", transition: "transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1)", flexShrink: 0 }}>+</span>
+        <span style={{ fontSize: "1.4rem", color: accent, transform: isOpen ? "rotate(45deg)" : "rotate(0)", transition: "transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1)", flexShrink: 0 }}>+</span>
       </button>
       <AnimatePresence>
         {isOpen && (
@@ -27,26 +28,29 @@ function FAQItem({ question, answer, isOpen, onToggle }: { question: string; ans
   );
 }
 
-export default function FAQSection({ sanity }: { sanity?: Record<string, any> }) {
+export default function FAQSection({ sanity }: { sanity?: Record<string, any> & SectionStylingData }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const { style: sectionStyle, containerClass, accent } = getSectionStyleClasses(sanity?.sectionStyling);
+  const accentColor = accent || '#C9A04A';
+
   const eyebrow = sanity?.eyebrow || 'FAQ';
   const heading = sanity?.heading || 'Common Questions';
   const faqs = sanity?.faqs || defaultFaqs;
 
   return (
-    <section style={{ background: "#FDFCFA", padding: "clamp(48px, 10vw, 100px) 0" }}>
-      <div style={{ maxWidth: 780, margin: "0 auto", padding: "0 24px" }}>
+    <section style={{ background: "#FDFCFA", padding: "clamp(48px, 10vw, 100px) 0", ...sectionStyle }}>
+      <div className={containerClass}>
         <div style={{ textAlign: "center", marginBottom: 48 }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 16, marginBottom: 18 }}>
-            <div style={{ width: 36, height: 1, background: "linear-gradient(to right, #C9A04A, transparent)" }} />
-            <span style={{ color: "#A07D2E", fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.3em", textTransform: "uppercase", fontFamily: "'Cinzel', serif" }}>{eyebrow}</span>
-            <div style={{ width: 36, height: 1, background: "linear-gradient(to left, #C9A04A, transparent)" }} />
+            <div style={{ width: 36, height: 1, background: `linear-gradient(to right, ${accentColor}, transparent)` }} />
+            <span style={{ color: accentColor, fontSize: "0.7rem", fontWeight: 600, letterSpacing: "0.3em", textTransform: "uppercase", fontFamily: "'Cinzel', serif" }}>{eyebrow}</span>
+            <div style={{ width: 36, height: 1, background: `linear-gradient(to left, ${accentColor}, transparent)` }} />
           </div>
-          <h2 style={{ margin: 0, fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 400, fontSize: "clamp(1.8rem, 3.5vw, 2.4rem)", color: "#1F1B16", letterSpacing: "-0.01em" }}>{heading}</h2>
+          <h2 style={{ margin: 0, fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 400, fontSize: "clamp(1.8rem, 3.5vw, 2.4rem)", color: "inherit", letterSpacing: "-0.01em" }}>{heading}</h2>
         </div>
         <div>
           {faqs.map((faq: any, i: number) => (
-            <FAQItem key={i} question={faq.question} answer={faq.answer} isOpen={openIndex === i} onToggle={() => setOpenIndex(openIndex === i ? null : i)} />
+            <FAQItem key={i} question={faq.question} answer={faq.answer} isOpen={openIndex === i} onToggle={() => setOpenIndex(openIndex === i ? null : i)} accent={accentColor} />
           ))}
         </div>
       </div>

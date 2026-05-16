@@ -1,9 +1,11 @@
 import { defineType, defineField } from 'sanity';
+import { sectionStyling } from '../objects/sectionStyling';
 
 export const faq = defineType({
   name: 'faqSection',
   title: 'FAQ Section',
   type: 'object',
+  groups: [{ name: 'styling', title: 'Styling' }],
   fields: [
     defineField({ name: 'eyebrow', title: 'Eyebrow Text', type: 'string', initialValue: 'FAQ' }),
     defineField({ name: 'heading', title: 'Heading', type: 'string', initialValue: 'Common Questions' }),
@@ -25,6 +27,7 @@ export const faq = defineType({
         { _key: 'f4', question: 'What\'s included in the Shamanic Training program?', answer: 'The training includes foundational knowledge of shamanic principles, hands-on practice with energy techniques, personal healing sessions, group ceremonies, and ongoing support. You\'ll learn the SAMPO System and leave equipped to begin your own practice.' },
       ],
     }),
+    sectionStyling,
   ],
   preview: { select: { title: 'heading', subtitle: 'eyebrow' } },
 });

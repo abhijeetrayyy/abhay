@@ -2,6 +2,7 @@
 import { motion, useReducedMotion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
+import { getSectionStyleClasses, SectionStylingData } from "@/lib/section-styling";
 
 const defaultImagesR1 = [
   { src: "/sao-gallery-img1.jpg", alt: "Gathering", aspect: "4/3" },
@@ -27,10 +28,12 @@ function GalleryImage({ img }: { img: { src: string; alt: string; aspect: string
   );
 }
 
-export default function GallerySection({ sanity }: { sanity?: Record<string, any> }) {
+export default function GallerySection({ sanity }: { sanity?: Record<string, any> & SectionStylingData }) {
   const shouldReduce = useReducedMotion();
   const sectionRef = useRef<HTMLElement>(null);
   const inView = useInView(sectionRef, { margin: "-200px", once: false });
+  const { style: sectionStyle, accent } = getSectionStyleClasses(sanity?.sectionStyling);
+  const accentColor = accent || '#C9A04A';
 
   const eyebrow = sanity?.eyebrow || 'Shamanic Retreats';
   const heading = sanity?.heading || 'Join our';
@@ -41,14 +44,14 @@ export default function GallerySection({ sanity }: { sanity?: Record<string, any
   const row2 = allImages.length > 0 ? allImages.filter((_: any, i: number) => i % 2 === 1) : defaultImagesR2;
 
   return (
-    <section ref={sectionRef} style={{ position: "relative", background: "#FBF9F5", overflow: "hidden", padding: "clamp(80px, 12vw, 160px) 0", zIndex: 20 }}>
+    <section ref={sectionRef} style={{ position: "relative", background: "#FBF9F5", overflow: "hidden", padding: "clamp(80px, 12vw, 160px) 0", zIndex: 20, ...sectionStyle }}>
       <div className="gallery-header" style={{ maxWidth: 1440, margin: "0 auto", padding: "0 clamp(20px, 6vw, 80px)", marginBottom: "clamp(48px, 8vh, 80px)", position: "relative", zIndex: 3 }}>
         <motion.div initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: "16px" }}>
-            <div style={{ width: 32, height: 1, background: "linear-gradient(to right, #C9A04A, transparent)" }} />
-            <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.62rem", fontWeight: 600, letterSpacing: "0.3em", textTransform: "uppercase", color: "#A07D2E" }}>{eyebrow}</span>
+            <div style={{ width: 32, height: 1, background: `linear-gradient(to right, ${accentColor}, transparent)` }} />
+            <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.62rem", fontWeight: 600, letterSpacing: "0.3em", textTransform: "uppercase", color: accentColor }}>{eyebrow}</span>
           </div>
-          <h2 style={{ margin: 0, fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 400, fontSize: "clamp(2.4rem, 5.5vw, 4.2rem)", letterSpacing: "-0.02em", color: "#1F1B16", lineHeight: 1.1 }}>
+          <h2 style={{ margin: 0, fontFamily: "'Cormorant Garamond', Georgia, serif", fontWeight: 400, fontSize: "clamp(2.4rem, 5.5vw, 4.2rem)", letterSpacing: "-0.02em", color: "inherit", lineHeight: 1.1 }}>
             {heading}<br /><span style={{ fontStyle: "italic", color: "rgba(31,27,22,0.3)" }}>{subheading}</span>
           </h2>
         </motion.div>
