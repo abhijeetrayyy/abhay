@@ -1,3 +1,4 @@
+'use client';
 import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
 import { presentationTool } from 'sanity/presentation';
@@ -13,6 +14,7 @@ export default defineConfig({
   title: 'Abhay Oyun',
   projectId,
   dataset,
+  basePath: '/edit-here',
   plugins: [
     structureTool(),
     presentationTool({

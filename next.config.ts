@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  turbopack: {},
+  compiler: {
+    styledComponents: true,
+  },
+  serverExternalPackages: ['styled-components'],
   images: {
     unoptimized: process.env.NODE_ENV === "development",
     formats: ["image/avif", "image/webp"],
