@@ -49,6 +49,7 @@ export default function EventsSection() {
       <div style={{ maxWidth: 1440, margin: "0 auto", padding: "clamp(48px, 8vw, 88px) clamp(20px, 5vw, 80px)" }}>
         {/* Header */}
         <div
+          className="events-header-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
@@ -139,6 +140,7 @@ export default function EventsSection() {
               }}
             >
               <div
+                className="event-card-row"
                 style={{
                   display: "grid",
                   gridTemplateColumns:
@@ -153,6 +155,7 @@ export default function EventsSection() {
                   <>
                     {/* Image */}
                     <div
+                      className="event-card-image"
                       style={{
                         position: "relative",
                         height: 220,
@@ -235,7 +238,7 @@ export default function EventsSection() {
                       </p>
                     </div>
                     {/* CTA */}
-                    <div style={{ textAlign: "right" }}>
+                    <div className="event-card-cta" style={{ textAlign: "right" }}>
                       <Link
                         href={ev.href}
                         target="_blank"
@@ -262,7 +265,7 @@ export default function EventsSection() {
                 ) : (
                   <>
                     {/* CTA */}
-                    <div style={{ textAlign: "left" }}>
+                    <div className="event-card-cta" style={{ textAlign: "left" }}>
                       <Link
                         href={ev.href}
                         target="_blank"
@@ -327,6 +330,7 @@ export default function EventsSection() {
                     </div>
                     {/* Image */}
                     <div
+                      className="event-card-image"
                       style={{
                         position: "relative",
                         height: 220,
@@ -376,6 +380,7 @@ export default function EventsSection() {
           <div style={{ borderTop: "1px solid rgba(13,17,23,0.08)" }} />
         </div>
       </div>
+      <style>{`@media (max-width: 900px) { .events-header-grid { grid-template-columns: 1fr !important; gap: 24px !important; margin-bottom: 48px !important; } .events-header-grid p { margin-left: 0 !important; max-width: 100% !important; } .event-card-row { grid-template-columns: 1fr !important; gap: 24px !important; padding: 32px 0 !important; } .event-card-row > div { margin: 0 !important; } .event-card-image { height: 200px !important; margin-bottom: 16px !important; } .event-card-cta { text-align: left !important; margin-top: 16px !important; } }`}</style>
     </section>
   );
 }

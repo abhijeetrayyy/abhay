@@ -37,7 +37,7 @@ export default function TransformationSection({ sanity }: { sanity?: Record<stri
         </motion.div>
       </div>
       <div className="transform-wrapper" style={{ width: "100%", maxWidth: 1440, margin: "0 auto", padding: "clamp(40px, 6vw, 80px) clamp(24px, 6vw, 80px) clamp(48px, 8vw, 100px)", position: "relative", zIndex: 10 }}>
-        <div className="transform-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 100, alignItems: "start" }}>
+        <div className="transform-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(40px, 6vw, 100px)", alignItems: "start" }}>
           <div className="sticky-quote" style={{ position: "sticky", top: 140, alignSelf: "start" }}>
             <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}>
               <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 40 }}>
@@ -55,10 +55,11 @@ export default function TransformationSection({ sanity }: { sanity?: Record<stri
               </div>
             </motion.div>
           </div>
-          <motion.div initial={{ opacity: 0, x: 32 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 1.1, delay: 0.15 }}
+          <motion.div initial={{ opacity: 0, y: 32, x: 0 }} whileInView={{ opacity: 1, y: 0, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 1.1, delay: 0.15 }}
+            className="timeline-col"
             style={{ position: "relative", paddingLeft: 30, borderLeft: "1px solid rgba(31,27,22,0.06)" }}>
             {milestones.map((m: any, i: number) => (
-              <motion.div key={m.year || i} initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
+              <motion.div key={m.year || i} initial={{ opacity: 0, y: 20, x: 0 }} whileInView={{ opacity: 1, y: 0, x: 0 }} viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: 0.2 + i * 0.1 }} style={{ marginBottom: i < milestones.length - 1 ? 48 : 0, position: "relative" }}>
                 <div style={{ position: "absolute", left: -38, top: 7, width: 14, height: 14, borderRadius: "50%", border: `1.5px solid ${accentColor}4D`, background: "#FBF9F5", display: "flex", alignItems: "center", justifyContent: "center" }}>
                   <div style={{ width: 5, height: 5, borderRadius: "50%", background: accentColor }} />
@@ -80,6 +81,7 @@ export default function TransformationSection({ sanity }: { sanity?: Record<stri
           </motion.div>
         </div>
       </div>
+      <style>{`@media (max-width: 900px) { .transform-grid { grid-template-columns: 1fr !important; gap: 40px !important; } .sticky-quote { position: static !important; } .timeline-col { padding-left: 24px !important; } .timeline-col > div > div:first-child { left: -32px !important; } }`}</style>
     </section>
   );
 }
