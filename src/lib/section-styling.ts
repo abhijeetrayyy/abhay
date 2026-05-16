@@ -37,10 +37,11 @@ export function getSectionStyleClasses(styling?: SectionStylingData['sectionStyl
   const style: React.CSSProperties = {
     backgroundColor: bg,
     color: text,
-    paddingTop: styling?.paddingTop || '140px',
-    paddingBottom: styling?.paddingBottom || '140px',
     ['--accent' as string]: accent,
   };
+
+  if (styling?.paddingTop) style.paddingTop = styling.paddingTop;
+  if (styling?.paddingBottom) style.paddingBottom = styling.paddingBottom;
 
   if (maxWidth) {
     style.maxWidth = maxWidth;

@@ -46,7 +46,7 @@ export default function EventsSection() {
         position: "relative",
       }}
     >
-      <div style={{ maxWidth: 1440, margin: "0 auto", padding: "140px 80px" }}>
+      <div style={{ maxWidth: 1440, margin: "0 auto", padding: "clamp(48px, 8vw, 88px) clamp(20px, 5vw, 80px)" }}>
         {/* Header */}
         <div
           style={{
@@ -145,7 +145,7 @@ export default function EventsSection() {
                     i % 2 === 0 ? "300px 1fr auto" : "auto 1fr 300px",
                   gap: 0,
                   borderTop: "1px solid rgba(13,17,23,0.08)",
-                  padding: "40px 0",
+                  padding: "clamp(24px, 4vw, 40px) 0",
                   alignItems: "center",
                 }}
               >
@@ -158,7 +158,7 @@ export default function EventsSection() {
                         height: 220,
                         borderRadius: 14,
                         overflow: "hidden",
-                        marginRight: 48,
+                        marginRight: "clamp(24px, 4vw, 48px)",
                       }}
                     >
                       <Image
@@ -195,7 +195,7 @@ export default function EventsSection() {
                       </div>
                     </div>
                     {/* Content */}
-                    <div style={{ padding: "0 48px 0 0" }}>
+                    <div style={{ padding: "0 clamp(24px, 3vw, 48px) 0 0" }}>
                       <div
                         style={{
                           fontFamily: "'Cinzel', serif",
@@ -286,7 +286,7 @@ export default function EventsSection() {
                       </Link>
                     </div>
                     {/* Content */}
-                    <div style={{ padding: "0 48px" }}>
+                    <div style={{ padding: "0 clamp(24px, 3vw, 48px)" }}>
                       <div
                         style={{
                           fontFamily: "'Cinzel', serif",
@@ -332,7 +332,7 @@ export default function EventsSection() {
                         height: 220,
                         borderRadius: 14,
                         overflow: "hidden",
-                        marginLeft: 48,
+                        marginLeft: "clamp(24px, 4vw, 48px)",
                       }}
                     >
                       <Image

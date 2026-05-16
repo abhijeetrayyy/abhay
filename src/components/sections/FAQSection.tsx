@@ -38,7 +38,7 @@ export default function FAQSection({ sanity }: { sanity?: Record<string, any> & 
   const faqs = sanity?.faqs || defaultFaqs;
 
   return (
-    <section style={{ background: "#FDFCFA", padding: "clamp(48px, 10vw, 100px) 0", ...sectionStyle }}>
+    <section style={{ background: "#FDFCFA", padding: "clamp(36px, 6vw, 72px) 0", ...sectionStyle }}>
       <div className={containerClass}>
         <div style={{ textAlign: "center", marginBottom: 48 }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 16, marginBottom: 18 }}>

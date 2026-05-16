@@ -44,8 +44,8 @@ export default function GallerySection({ sanity }: { sanity?: Record<string, any
   const row2 = allImages.length > 0 ? allImages.filter((_: any, i: number) => i % 2 === 1) : defaultImagesR2;
 
   return (
-    <section ref={sectionRef} style={{ position: "relative", background: "#FBF9F5", overflow: "hidden", padding: "clamp(80px, 12vw, 160px) 0", zIndex: 20, ...sectionStyle }}>
-      <div className="gallery-header" style={{ maxWidth: 1440, margin: "0 auto", padding: "0 clamp(20px, 6vw, 80px)", marginBottom: "clamp(48px, 8vh, 80px)", position: "relative", zIndex: 3 }}>
+    <section ref={sectionRef} style={{ position: "relative", background: "#FBF9F5", overflow: "hidden", padding: "clamp(48px, 8vw, 96px) 0", zIndex: 20, ...sectionStyle }}>
+      <div className="gallery-header" style={{ maxWidth: 1440, margin: "0 auto", padding: "0 clamp(20px, 6vw, 80px)", marginBottom: "clamp(32px, 5vh, 56px)", position: "relative", zIndex: 3 }}>
         <motion.div initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: "16px" }}>
             <div style={{ width: 32, height: 1, background: `linear-gradient(to right, ${accentColor}, transparent)` }} />

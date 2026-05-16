@@ -100,7 +100,7 @@ export default function PathsSection({ sanity }: { sanity?: Record<string, any> 
   if (paths.length === 0) return null;
 
   return (
-    <section style={{ position: "relative", background: "#FBF9F5", overflow: "hidden", padding: "clamp(60px, 8vw, 120px) 0", ...sectionStyle }}>
+    <section style={{ position: "relative", background: "#FBF9F5", overflow: "hidden", padding: "clamp(40px, 6vw, 80px) 0", ...sectionStyle }}>
       <div style={{ position: "absolute", top: "20%", left: "50%", transform: "translateX(-50%)", width: "80%", height: "60%", background: `radial-gradient(ellipse, ${accentColor}0A 0%, transparent 70%)`, pointerEvents: "none" }} />
       <div className={containerClass}>
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ textAlign: "center", marginBottom: "clamp(36px, 6vh, 64px)" }}>

@@ -57,7 +57,7 @@ export default function TeachingsSection({ sanity }: { sanity?: Record<string, a
   return (
     <section style={{ background: "#F5F1EA", overflow: "hidden", position: "relative", zIndex: 20, marginTop: "-1px", ...sectionStyle }}>
       <div style={{ position: "absolute", top: "20%", left: "50%", transform: "translateX(-50%)", width: "60%", height: "50%", background: `radial-gradient(ellipse, ${accentColor}0A 0%, transparent 70%)`, pointerEvents: "none" }} />
-      <div className="teachings-wrapper" style={{ maxWidth: 1400, margin: "0 auto", padding: "clamp(80px, 12vw, 140px) clamp(20px, 5vw, 80px)" }}>
+      <div className="teachings-wrapper" style={{ maxWidth: 1400, margin: "0 auto", padding: "clamp(48px, 8vw, 88px) clamp(20px, 5vw, 80px)" }}>
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} style={{ textAlign: "center", marginBottom: "clamp(40px, 6vh, 64px)" }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 16, marginBottom: 18 }}>
             <div style={{ width: 40, height: 1, background: `linear-gradient(to right, transparent, ${accentColor})` }} />
@@ -78,7 +78,7 @@ export default function TeachingsSection({ sanity }: { sanity?: Record<string, a
           </Link>
         </motion.div>
       </div>
-      <style>{`@media (max-width: 1024px) { .teachings-wrapper { padding: 60px 24px !important; } .teachings-grid { grid-template-columns: repeat(2, 1fr) !important; } } @media (max-width: 600px) { .teachings-grid { grid-template-columns: 1fr !important; } }`}</style>
+      <style>{`@media (max-width: 1024px) { .teachings-wrapper { padding: 48px 24px !important; } .teachings-grid { grid-template-columns: repeat(2, 1fr) !important; } } @media (max-width: 600px) { .teachings-grid { grid-template-columns: 1fr !important; } }`}</style>
     </section>
   );
 }

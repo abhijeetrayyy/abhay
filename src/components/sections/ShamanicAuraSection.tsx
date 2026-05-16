@@ -11,7 +11,7 @@ export default function ShamanicAuraSection() {
       style={{
         position: "relative",
         backgroundColor: "#F5F0E8",
-        padding: "120px 4vw",
+        padding: "clamp(60px, 8vw, 96px) 4vw",
         overflow: "hidden",
         display: "flex",
         flexDirection: "column",

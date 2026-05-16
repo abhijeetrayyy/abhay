@@ -25,7 +25,7 @@ export default function EventsShowcaseSection({ sanity }: { sanity?: Record<stri
   return (
     <section id="events" style={{ background: "#F5F1EA", overflow: "hidden", position: "relative", ...sectionStyle }}>
       <div style={{ position: "absolute", inset: 0, opacity: 0.02, backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E\")", backgroundRepeat: "repeat", backgroundSize: "200px", pointerEvents: "none" }} />
-      <div className="events-wrapper" style={{ maxWidth: 1440, margin: "0 auto", padding: "140px 7vw" }}>
+      <div className="events-wrapper" style={{ maxWidth: 1440, margin: "0 auto", padding: "clamp(48px, 8vw, 88px) clamp(20px, 5vw, 7vw)" }}>
         <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.9 }}
           style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 80, flexWrap: "wrap" as const, gap: 32 }}>
           <div>
@@ -45,7 +45,7 @@ export default function EventsShowcaseSection({ sanity }: { sanity?: Record<stri
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 }}
               style={{ position: "relative", borderRadius: 2, overflow: "hidden", background: "#FDFCFA", boxShadow: "0 12px 40px rgba(31,27,22,0.04)", border: "1px solid rgba(31,27,22,0.04)" }}>
               <div className="event-card-grid" style={{ display: "grid", gridTemplateColumns: i % 2 === 0 ? "1fr 420px" : "420px 1fr" }}>
-                <div className="event-card-content" style={{ padding: "52px 60px", display: "flex", flexDirection: "column" as const, justifyContent: "center", order: i % 2 === 0 ? 0 : 1 }}>
+                <div className="event-card-content" style={{ padding: "clamp(28px, 4vw, 48px) clamp(28px, 4vw, 52px)", display: "flex", flexDirection: "column" as const, justifyContent: "center", order: i % 2 === 0 ? 0 : 1 }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 26 }}>
                     <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.58rem", fontWeight: 600, letterSpacing: "0.25em", textTransform: "uppercase" as const, color: ev.color, background: `${ev.color}10`, padding: "4px 12px", borderRadius: 2, border: `1px solid ${ev.color}20` }}>{ev.tag}</span>
                     <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.58rem", fontWeight: 600, letterSpacing: "0.15em", textTransform: "uppercase" as const, color: "rgba(31,27,22,0.35)", background: "rgba(31,27,22,0.03)", padding: "4px 10px", borderRadius: 2 }}>{ev.badge}</span>
@@ -85,8 +85,8 @@ export default function EventsShowcaseSection({ sanity }: { sanity?: Record<stri
         </div>
       </div>
       <style>{`
-        @media (max-width: 1024px) { .events-wrapper { padding: 80px 5vw !important; } .event-card-grid { grid-template-columns: 1fr !important; } .event-card-image { order: 1 !important; min-height: 260px !important; } .event-card-content { order: 2 !important; padding: 36px 28px !important; } }
-        @media (max-width: 768px) { .events-wrapper { padding: 60px 20px !important; } .event-card-content { padding: 28px 18px !important; } }
+        @media (max-width: 1024px) { .events-wrapper { padding: 48px 5vw !important; } .event-card-grid { grid-template-columns: 1fr !important; } .event-card-image { order: 1 !important; min-height: 260px !important; } .event-card-content { order: 2 !important; padding: 28px 24px !important; } }
+        @media (max-width: 768px) { .events-wrapper { padding: 36px 20px !important; } .event-card-content { padding: 24px 16px !important; } }
       `}</style>
     </section>
   );

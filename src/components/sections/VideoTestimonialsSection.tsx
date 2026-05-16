@@ -125,7 +125,7 @@ export default function VideoTestimonialsSection({ sanity }: { sanity?: Record<s
     : defaultVideos;
 
   return (
-    <section style={{ background: "#FBF9F5", padding: "clamp(60px, 8vw, 100px) 0", ...sectionStyle }}>
+    <section style={{ background: "#FBF9F5", padding: "clamp(40px, 6vw, 72px) 0", ...sectionStyle }}>
       <div className={containerClass}>
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ textAlign: "center", marginBottom: 36 }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14, marginBottom: 14 }}>

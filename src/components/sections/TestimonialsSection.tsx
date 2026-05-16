@@ -40,7 +40,7 @@ export default function TestimonialsSection({ sanity }: { sanity?: Record<string
       <div style={{ position: "absolute", inset: 0, background: `radial-gradient(ellipse at 20% 80%, ${accentColor}0F 0%, transparent 50%)`, pointerEvents: "none" }} />
       <div style={{ position: "absolute", top: 40, left: 30, fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "18rem", color: `${accentColor}0D`, lineHeight: 1, userSelect: "none", pointerEvents: "none", fontWeight: 400 }}>&ldquo;</div>
 
-      <div className={containerClass} style={{ padding: "clamp(80px, 10vw, 140px) 24px", position: "relative" }}>
+      <div className={containerClass} style={{ padding: "clamp(48px, 7vw, 88px) 24px", position: "relative" }}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

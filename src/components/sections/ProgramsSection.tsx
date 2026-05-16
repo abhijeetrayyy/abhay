@@ -23,7 +23,7 @@ export default function ProgramsSection({ sanity }: { sanity?: Record<string, an
   if (programs.length === 0) return null;
 
   return (
-    <section style={{ background: '#FBF9F5', padding: 'clamp(80px, 10vw, 120px) 0', position: 'relative', ...sectionStyle }}>
+    <section style={{ background: '#FBF9F5', padding: 'clamp(48px, 7vw, 88px) 0', position: 'relative', ...sectionStyle }}>
       <div style={{ position: 'absolute', top: 0, right: 0, width: 500, height: 500, background: `radial-gradient(circle, ${accentColor}0F 0%, transparent 70%)`, pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', bottom: 0, left: 0, width: 400, height: 400, background: 'radial-gradient(circle, rgba(155,168,139,0.04) 0%, transparent 70%)', pointerEvents: 'none' }} />
       <div className={containerClass}>

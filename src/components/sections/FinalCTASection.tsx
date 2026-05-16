@@ -26,7 +26,7 @@ export default function FinalCTASection({ sanity }: { sanity?: Record<string, an
           <polygon points="100,10 120,70 180,70 130,105 150,170 100,135 50,170 70,105 20,70 80,70" />
         </svg>
       </div>
-      <div className={containerClass} style={{ padding: 'clamp(80px, 12vw, 140px) 24px', position: 'relative', textAlign: 'center' }}>
+      <div className={containerClass} style={{ padding: 'clamp(48px, 8vw, 88px) 24px', position: 'relative', textAlign: 'center' }}>
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
           style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 20, marginBottom: 44 }}>
           <div style={{ width: 64, height: 1, background: `linear-gradient(to right, transparent, ${accentColor})` }} />

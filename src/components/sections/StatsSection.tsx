@@ -65,7 +65,7 @@ export default function StatsSection({ sanity }: { sanity?: Record<string, any> 
   const items = sanity?.stats || defaultStats;
 
   return (
-    <section style={{ background: '#FBF9F5', padding: 'clamp(60px, 10vw, 100px) 0', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(31,27,22,0.04)', ...sectionStyle }}>
+    <section style={{ background: '#FBF9F5', padding: 'clamp(40px, 6vw, 72px) 0', position: 'relative', overflow: 'hidden', borderTop: '1px solid rgba(31,27,22,0.04)', ...sectionStyle }}>
       <div style={{ position: 'absolute', inset: 0, background: `radial-gradient(ellipse at 50% 0%, ${accentColor}0F 0%, transparent 60%)`, pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', top: '50%', left: '-5%', width: 350, height: 350, background: 'radial-gradient(circle, rgba(155,168,139,0.05) 0%, transparent 70%)', borderRadius: '50%', pointerEvents: 'none' }} />
       <div className={containerClass} style={{ position: 'relative' }}>

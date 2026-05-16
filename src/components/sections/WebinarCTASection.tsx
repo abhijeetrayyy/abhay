@@ -31,7 +31,7 @@ export default function WebinarCTASection({ sanity }: { sanity?: Record<string, 
   return (
     <section style={{ background: "#FBF9F5", position: "relative", marginTop: "-1px", zIndex: 20, ...sectionStyle }}>
       <div style={{ position: "absolute", inset: 0, background: `radial-gradient(ellipse 80% 60% at 70% 50%, ${accentColor}0F 0%, transparent 70%)`, pointerEvents: "none" }} />
-      <div className="webinar-wrapper" style={{ maxWidth: 1440, margin: "0 auto", padding: "clamp(60px, 10vw, 140px) clamp(20px, 7vw, 80px)", position: "relative", zIndex: 5 }}>
+      <div className="webinar-wrapper" style={{ maxWidth: 1440, margin: "0 auto", padding: "clamp(48px, 8vw, 88px) clamp(20px, 5vw, 7vw)", position: "relative", zIndex: 5 }}>
         <div className="webinar-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(40px, 6vw, 100px)", alignItems: "center" }}>
           <motion.div initial={{ opacity: 0, y: 36 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}>
             <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 32 }}>
@@ -55,7 +55,7 @@ export default function WebinarCTASection({ sanity }: { sanity?: Record<string, 
             </ul>
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 40, scale: 0.97 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}>
-            <div style={{ background: "#FDFCFA", border: "1px solid rgba(31,27,22,0.06)", borderRadius: 2, padding: "clamp(28px, 4vw, 48px)", position: "relative", overflow: "hidden", boxShadow: "0 30px 60px rgba(31,27,22,0.05)" }}>
+            <div style={{ background: "#FDFCFA", border: "1px solid rgba(31,27,22,0.06)", borderRadius: 2, padding: "clamp(20px, 4vw, 36px)", position: "relative", overflow: "hidden", boxShadow: "0 30px 60px rgba(31,27,22,0.05)" }}>
               <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 1, background: `linear-gradient(90deg, transparent, ${accentColor}66, transparent)` }} />
               <div style={{ position: "absolute", top: -60, left: "50%", transform: "translateX(-50%)", width: 280, height: 180, background: `radial-gradient(ellipse, ${accentColor}0F, transparent 70%)`, pointerEvents: "none" }} />
               <div style={{ position: "relative" }}>
@@ -82,7 +82,7 @@ export default function WebinarCTASection({ sanity }: { sanity?: Record<string, 
           </motion.div>
         </div>
       </div>
-      <style>{`@media (max-width: 900px) { .webinar-grid { grid-template-columns: 1fr !important; gap: 48px !important; } .webinar-wrapper { padding: 60px 24px !important; } } @media (max-width: 480px) { .webinar-wrapper { padding: 48px 16px !important; } }`}</style>
+      <style>{`@media (max-width: 900px) { .webinar-grid { grid-template-columns: 1fr !important; gap: 40px !important; } .webinar-wrapper { padding: 48px 24px !important; } } @media (max-width: 480px) { .webinar-wrapper { padding: 36px 16px !important; } }`}</style>
     </section>
   );
 }
