@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Lora, Cinzel } from "next/font/google";
+import { headers } from "next/headers";
 import "./globals.css";
 import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
@@ -47,6 +48,21 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const draft = await draftMode();
+  const pathname = (await headers()).get("x-nextjs-pathname") || "";
+  const isStudio = pathname.startsWith("/edit-here");
+
+  if (isStudio) {
+    return (
+      <html lang="en" className={`${cormorant.variable} ${lora.variable} ${cinzel.variable}`}>
+        <body className="antialiased" suppressHydrationWarning style={{ margin: 0, padding: 0 }}>
+          {children}
+          <SanityLive />
+          {draft.isEnabled && <VisualEditingWrapper />}
+        </body>
+      </html>
+    );
+  }
+
   return (
     <html lang="en" className={`${cormorant.variable} ${lora.variable} ${cinzel.variable}`}>
       <body className="antialiased" suppressHydrationWarning>
