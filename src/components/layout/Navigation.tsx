@@ -5,18 +5,80 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 
-const SOCIAL = [
-  { label: 'YouTube', href: 'https://www.youtube.com/@earthforpeace' },
-  { label: 'Instagram', href: 'https://www.instagram.com/earthforpeace' },
-  { label: 'Facebook', href: 'https://facebook.com/earthforpeace' },
-  { label: 'TikTok', href: 'https://tiktok.com/@earthforpeace' },
-  { label: 'WhatsApp', href: 'https://wa.me/12122561366' },
-];
+interface NavLink {
+  label: string;
+  href: string;
+  isExternal?: boolean;
+}
 
-export default function Navigation() {
+interface SocialLink {
+  platform: string;
+  url: string;
+  label?: string;
+}
+
+interface SiteSettings {
+  topBar?: {
+    email?: string;
+    phone?: string;
+    showTopBar?: boolean;
+    socialLinks?: SocialLink[];
+  };
+  navigation?: {
+    logoImage?: string | null;
+    logoText?: string;
+    links?: NavLink[];
+    ctaButton?: { label: string; url: string };
+  };
+}
+
+const PLATFORM_LABELS: Record<string, string> = {
+  youtube: 'YouTube',
+  instagram: 'Instagram',
+  facebook: 'Facebook',
+  tiktok: 'TikTok',
+  whatsapp: 'WhatsApp',
+  twitter: 'X',
+  linkedin: 'LinkedIn',
+  telegram: 'Telegram',
+};
+
+const DEFAULT_TOP_BAR = {
+  email: 'contact@earthforpeace.com',
+  phone: '+1 (212) 256 1366',
+  showTopBar: true,
+  socialLinks: [
+    { platform: 'youtube', url: 'https://www.youtube.com/@earthforpeace', label: 'YouTube' },
+    { platform: 'instagram', url: 'https://www.instagram.com/earthforpeace', label: 'Instagram' },
+    { platform: 'facebook', url: 'https://facebook.com/earthforpeace', label: 'Facebook' },
+    { platform: 'tiktok', url: 'https://tiktok.com/@earthforpeace', label: 'TikTok' },
+    { platform: 'whatsapp', url: 'https://wa.me/12122561366', label: 'WhatsApp' },
+  ],
+};
+
+const DEFAULT_NAV = {
+  logoText: 'Abhay Oyun',
+  links: [
+    { href: '/', label: 'Home' },
+    { href: '/gallery', label: 'Gallery' },
+    { href: '/events', label: 'Events' },
+    { href: '/teachings', label: 'Teachings' },
+    { href: '/contact', label: 'Contact' },
+  ],
+  ctaButton: { label: 'Begin Journey', url: '/contact' },
+};
+
+export default function Navigation({ siteSettings }: { siteSettings?: SiteSettings }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+
+  const topBar = siteSettings?.topBar || DEFAULT_TOP_BAR;
+  const nav = siteSettings?.navigation || DEFAULT_NAV;
+  const socialLinks = topBar.socialLinks || DEFAULT_TOP_BAR.socialLinks;
+  const navLinks = nav.links || DEFAULT_NAV.links;
+  const ctaButton = nav.ctaButton || DEFAULT_NAV.ctaButton;
+  const logoText = nav.logoText || DEFAULT_NAV.logoText;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
@@ -28,17 +90,10 @@ export default function Navigation() {
     setMenuOpen(false);
   }, [pathname]);
 
-  const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/gallery', label: 'Gallery' },
-    { href: '/events', label: 'Events' },
-    { href: '/teachings', label: 'Teachings' },
-    { href: '/contact', label: 'Contact' },
-  ];
-
   return (
     <>
       {/* ─── TOP BAR ─── */}
+      {topBar.showTopBar !== false && (
       <div style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 51,
         height: 38,
@@ -52,27 +107,28 @@ export default function Navigation() {
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         }}>
           <div className="top-bar-contact" style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
-            <a href="mailto:contact@earthforpeace.com"
+            <a href={`mailto:${topBar.email}`}
               style={{ fontFamily: "'Cinzel', serif", fontSize: '0.55rem', fontWeight: 500, letterSpacing: '0.06em', color: 'rgba(255,255,255,0.5)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 6 }}>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              contact@earthforpeace.com
+              {topBar.email}
             </a>
-            <a href="tel:+12122561366"
+            <a href={`tel:${topBar.phone}`}
                 style={{ fontFamily: "'Cinzel', serif", fontSize: '0.55rem', fontWeight: 500, letterSpacing: '0.06em', color: 'rgba(255,255,255,0.5)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 6 }}>
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              +1 (212) 256 1366
+              {topBar.phone}
             </a>
           </div>
           <div className="top-bar-social" style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-            {SOCIAL.map(s => (
-              <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
+            {socialLinks.map(s => (
+              <a key={s.platform} href={s.url} target="_blank" rel="noopener noreferrer"
                 style={{ fontFamily: "'Cinzel', serif", fontSize: '0.52rem', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}>
-                {s.label}
+                {s.label || PLATFORM_LABELS[s.platform] || s.platform}
               </a>
             ))}
           </div>
         </div>
       </div>
+      )}
 
       {/* ─── MAIN NAV ─── */}
       <nav style={{
@@ -88,7 +144,7 @@ export default function Navigation() {
             <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 10 }}>
               <Image src="/icon1.png" alt="" width={26} height={26} style={{ objectFit: 'contain' }} />
               <span style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: '1.2rem', color: '#1F1B16', fontWeight: 500, letterSpacing: '-0.01em' }}>
-                Abhay Oyun
+                {logoText}
               </span>
             </Link>
 
@@ -100,10 +156,10 @@ export default function Navigation() {
                   {link.label}
                 </Link>
               ))}
-              <Link href="/contact"
+              <Link href={ctaButton.url}
                 className="nav-cta"
                 style={{ background: 'linear-gradient(135deg, #C9A04A, #A07D2E)', color: '#FDFCFA', padding: '7px 18px', borderRadius: 2, fontSize: '0.68rem', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', textDecoration: 'none', fontFamily: "'Cinzel', serif", boxShadow: '0 4px 16px rgba(201,160,74,0.2)', transition: 'all 0.3s ease' }}>
-                Begin Journey
+                {ctaButton.label}
               </Link>
             </div>
 
@@ -137,28 +193,28 @@ export default function Navigation() {
               </Link>
             ))}
           </div>
-          <Link href="/contact"
+          <Link href={ctaButton.url}
             style={{ marginTop: 32, background: 'linear-gradient(135deg, #C9A04A, #A07D2E)', color: '#FDFCFA', padding: '14px 28px', borderRadius: 2, fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', textDecoration: 'none', fontFamily: "'Cinzel', serif", textAlign: 'center' }}>
-            Begin Journey
+            {ctaButton.label}
           </Link>
           <div style={{ marginTop: 40, paddingTop: 32, borderTop: '1px solid rgba(255,255,255,0.08)' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 28 }}>
-              <a href="mailto:contact@earthforpeace.com"
+              <a href={`mailto:${topBar.email}`}
                 style={{ fontFamily: "'Cinzel', serif", fontSize: '0.75rem', color: 'rgba(255,255,255,0.4)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 8 }}>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                contact@earthforpeace.com
+                {topBar.email}
               </a>
-              <a href="tel:+12122561366"
+              <a href={`tel:${topBar.phone}`}
                 style={{ fontFamily: "'Cinzel', serif", fontSize: '0.75rem', color: 'rgba(255,255,255,0.4)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 8 }}>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                +1 (212) 256 1366
+                {topBar.phone}
               </a>
             </div>
             <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap' }}>
-              {SOCIAL.map(s => (
-                <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
+              {socialLinks.map(s => (
+                <a key={s.platform} href={s.url} target="_blank" rel="noopener noreferrer"
                   style={{ fontFamily: "'Cinzel', serif", fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', textDecoration: 'none' }}>
-                  {s.label}
+                  {s.label || PLATFORM_LABELS[s.platform] || s.platform}
                 </a>
               ))}
             </div>

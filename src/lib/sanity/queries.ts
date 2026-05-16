@@ -334,3 +334,75 @@ export async function getTeachings(): Promise<SanityTeaching[]> {
 export async function getGallery(): Promise<SanityGallery[]> {
   return safeFetch<SanityGallery>(galleryQuery);
 }
+
+// ── SITE SETTINGS ──────────────────────────────────────────────
+export type SiteSettings = {
+  _id: string;
+  topBar: {
+    email: string;
+    phone: string;
+    showTopBar: boolean;
+    socialLinks: Array<{ platform: string; url: string; label?: string }>;
+  };
+  navigation: {
+    logoImage: string | null;
+    logoText: string;
+    links: Array<{ label: string; href: string; isExternal: boolean }>;
+    ctaButton: { label: string; url: string };
+  };
+  footer: {
+    brandDescription: string;
+    navigateLinks: Array<{ label: string; href: string; isExternal: boolean }>;
+    resourceLinks: Array<{ label: string; href: string; isExternal: boolean }>;
+    newsletter: {
+      enabled: boolean;
+      heading: string;
+      description: string;
+      placeholder: string;
+      successMessage: string;
+      buttonText: string;
+    };
+    copyrightText: string;
+    footerQuote: string;
+  };
+};
+
+const siteSettingsQuery = groq`*[_type == "siteSettings" && _id == "siteSettings"][0]{
+  _id,
+  topBar {
+    email,
+    phone,
+    showTopBar,
+    socialLinks[] { platform, url, label }
+  },
+  navigation {
+    logoImage,
+    logoText,
+    links[] { label, href, isExternal },
+    ctaButton { label, url }
+  },
+  footer {
+    brandDescription,
+    navigateLinks[] { label, href, isExternal },
+    resourceLinks[] { label, href, isExternal },
+    newsletter {
+      enabled,
+      heading,
+      description,
+      placeholder,
+      successMessage,
+      buttonText
+    },
+    copyrightText,
+    footerQuote
+  }
+}`;
+
+export async function getSiteSettings(): Promise<SiteSettings | null> {
+  if (!isSanityConfigured) return null;
+  try {
+    return (await client.fetch(siteSettingsQuery)) || null;
+  } catch {
+    return null;
+  }
+}

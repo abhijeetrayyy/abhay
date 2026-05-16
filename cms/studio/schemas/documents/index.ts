@@ -1,4 +1,5 @@
 import { blockContent } from './blockContent';
+import { siteSettings } from './siteSettings';
 
 const testimonial = {
   name: 'testimonial',
@@ -78,4 +79,4 @@ const gallery = {
   preview: { select: { title: 'title', subtitle: 'category', media: 'image' } },
 };
 
-export { blockContent, testimonial, event, teaching, gallery };
+export { blockContent, testimonial, event, teaching, gallery, siteSettings };
