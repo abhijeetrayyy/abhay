@@ -19,7 +19,7 @@ export default defineConfig({
       previewUrl: {
         origin: process.env.SANITY_STUDIO_PREVIEW_URL || 'https://abhay-kohl.vercel.app',
         previewMode: {
-          enable: '/api/draft/enable',
+          enable: '/api/draft-mode/enable',
         },
       },
     }),

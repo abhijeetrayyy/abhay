@@ -10,6 +10,7 @@ export const gallery = defineType({
     defineField({ name: 'subheading', title: 'Subheading', type: 'string', initialValue: 'shamanic family.' }),
     defineField({
       name: 'images', title: 'Images', type: 'array', of: [
+        { type: 'reference', to: [{ type: 'gallery' }] },
         {
           type: 'object',
           fields: [

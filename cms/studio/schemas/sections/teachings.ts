@@ -10,6 +10,7 @@ export const teachings = defineType({
     defineField({ name: 'subheading', title: 'Subheading', type: 'string', initialValue: 'Teachings' }),
     defineField({
       name: 'teachings', title: 'Teachings', type: 'array', of: [
+        { type: 'reference', to: [{ type: 'teaching' }] },
         {
           type: 'object',
           fields: [

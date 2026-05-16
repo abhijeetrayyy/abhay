@@ -1,7 +1,8 @@
 import { draftMode } from "next/headers";
-import { getHomepage } from "@/lib/sanity";
+import { sanityFetch } from "@/lib/sanity/live";
+import { homepageQuery } from "@/lib/sanity/queries";
+import type { SanitySection } from "@/lib/sanity";
 import SectionRenderer from "@/components/SectionRenderer";
-import VisualEditingWrapper from "@/components/VisualEditingWrapper";
 import HeroSection from "@/components/sections/HeroSection";
 import PathsSection from "@/components/sections/PathsSection";
 import StatsSection from "@/components/sections/StatsSection";
@@ -21,13 +22,21 @@ import FinalCTASection from "@/components/sections/FinalCTASection";
 
 export default async function Home() {
   const draft = await draftMode();
-  const page = await getHomepage();
+  const { data: page } = await sanityFetch<{
+    sections?: SanitySection[];
+    seoTitle?: string;
+    seoDescription?: string;
+    ogImage?: string;
+    noIndex?: boolean;
+  }>({
+    query: homepageQuery,
+    tags: ["page", "section"],
+  });
 
   if (page?.sections && page.sections.length > 0) {
     return (
       <main style={{ background: "var(--soft-sand)", minHeight: "100vh" }}>
         <SectionRenderer sections={page.sections} />
-        {draft.isEnabled && <VisualEditingWrapper />}
       </main>
     );
   }
@@ -50,7 +59,6 @@ export default async function Home() {
       <FAQSection />
       <WebinarCTASection />
       <FinalCTASection />
-      {draft.isEnabled && <VisualEditingWrapper />}
     </main>
   );
 }

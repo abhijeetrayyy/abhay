@@ -9,6 +9,7 @@ export const testimonials = defineType({
     defineField({ name: 'heading', title: 'Heading', type: 'string', initialValue: 'Stories of Transformation' }),
     defineField({
       name: 'testimonials', title: 'Testimonials', type: 'array', of: [
+        { type: 'reference', to: [{ type: 'testimonial' }] },
         {
           type: 'object',
           fields: [

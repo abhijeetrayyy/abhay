@@ -1,4 +1,4 @@
-import groq from "groq";
+import { defineQuery, groq } from "next-sanity";
 import { client, isSanityConfigured } from "./client";
 
 export type SanityTestimonial = {
@@ -58,6 +58,10 @@ export type SanityPage = {
   _id: string;
   _rev: string;
   title: string;
+  seoTitle?: string;
+  seoDescription?: string;
+  ogImage?: string;
+  noIndex?: boolean;
   sections: SanitySection[];
 };
 
@@ -70,7 +74,7 @@ export type SanitySection = {
 const GROUPS = {
   testimonial: groq`_id, clientName, clientLocation, content, shortQuote, serviceType, rating, order, featured, "clientImage": clientImage.asset->url`,
   event: groq`_id, title, slug, shortDescription, description, eventType, startDate, endDate, locationName, locationCity, locationCountry, online, maxParticipants, price, featured, status, "heroImage": heroImage.asset->url`,
-  teaching: groq`_id, title, slug, excerpt, category, readTime, featured, publishedAt, "featuredImage": featuredImage.asset->url`,
+  teaching: groq`_id, title, slug, excerpt, category, readTime, featured, publishedAt, "featuredImage": featuredImage.asset->url, content`,
   gallery: groq`_id, title, category, order, "image": image.asset->url`,
 };
 
@@ -87,35 +91,197 @@ export const eventBySlugQuery = groq`*[_type == "event" && slug.current == $slug
 export const teachingsQuery = groq`*[_type == "teaching" && status == "published"] | order(publishedAt desc) { ${GROUPS.teaching} }`;
 export const galleryQuery = groq`*[_type == "gallery"] | order(order asc) { ${GROUPS.gallery} }`;
 
-// Page builder query — fetches the homepage with all editable sections
-export const pageQuery = groq`*[_type == "page" && slug.current == $slug][0]`;
-export const homepageQuery = groq`*[_type == "page"][0]{
+export const pageQuery = defineQuery(`*[_type == "page" && slug.current == $slug][0]{
   ...,
+  "ogImage": ogImage.asset->url,
   sections[] {
     ...,
+    _type == "hero" => {
+      ...,
+      "backgroundImageUrl": backgroundImage.asset->url,
+      "shamanImageUrl": shamanImage.asset->url,
+    },
     _type == "paths" => {
       ...,
       paths[] {
         ...,
-        "previewVideoUrl": previewVideo.asset->url
+        "previewVideoUrl": previewVideo.asset->url,
       }
+    },
+    _type == "shamanIntro" => {
+      ...,
+      "imageUrl": image.asset->url,
     },
     _type == "socialReel" => {
       ...,
       reels[] {
         ...,
-        "videoUrl": video.asset->url
+        "videoUrl": video.asset->url,
+      }
+    },
+    _type == "programs" => {
+      ...,
+      programs[] {
+        ...,
+        "imageUrl": image.asset->url,
+      }
+    },
+    _type == "gallerySection" => {
+      ...,
+      images[] {
+        ...,
+        _type == "gallery" => @-> { "imageUrl": image.asset->url, title, category, alt, aspect },
+        _type != "gallery" => {
+          ...,
+          "imageUrl": image.asset->url,
+        }
+      }
+    },
+    _type == "testimonialsSection" => {
+      ...,
+      testimonials[] {
+        ...,
+        _type == "testimonial" => @-> { clientName, clientLocation, content, serviceType, rating, "clientImageUrl": clientImage.asset->url },
+        _type != "testimonial" => {
+          ...,
+          "clientImageUrl": clientImage.asset->url,
+        }
       }
     },
     _type == "videoTestimonials" => {
       ...,
       videos[] {
         ...,
-        "videoFileUrl": videoFile.asset->url
+        "videoFileUrl": videoFile.asset->url,
+      }
+    },
+    _type == "teachingsSection" => {
+      ...,
+      teachings[] {
+        ...,
+        _type == "teaching" => @-> { title, excerpt, category, readTime, "imageUrl": featuredImage.asset->url, content },
+        _type != "teaching" => {
+          ...,
+          "imageUrl": image.asset->url,
+        }
+      }
+    },
+    _type == "eventsSection" => {
+      ...,
+      events[] {
+        ...,
+        _type == "event" => @-> { title, shortDescription, startDate, endDate, locationName, locationCity, locationCountry, online, price, "imageUrl": heroImage.asset->url },
+        _type != "event" => {
+          ...,
+          "imageUrl": image.asset->url,
+        }
+      }
+    },
+    _type == "transformation" => {
+      ...,
+      milestones[] {
+        ...,
+        "imageUrl": image.asset->url,
       }
     },
   }
-}`;
+}`);
+
+export const homepageQuery = defineQuery(`*[_type == "page"][0]{
+  ...,
+  "ogImage": ogImage.asset->url,
+  sections[] {
+    ...,
+    _type == "hero" => {
+      ...,
+      "backgroundImageUrl": backgroundImage.asset->url,
+      "shamanImageUrl": shamanImage.asset->url,
+    },
+    _type == "paths" => {
+      ...,
+      paths[] {
+        ...,
+        "previewVideoUrl": previewVideo.asset->url,
+      }
+    },
+    _type == "shamanIntro" => {
+      ...,
+      "imageUrl": image.asset->url,
+    },
+    _type == "socialReel" => {
+      ...,
+      reels[] {
+        ...,
+        "videoUrl": video.asset->url,
+      }
+    },
+    _type == "programs" => {
+      ...,
+      programs[] {
+        ...,
+        "imageUrl": image.asset->url,
+      }
+    },
+    _type == "gallerySection" => {
+      ...,
+      images[] {
+        ...,
+        _type == "gallery" => @-> { "imageUrl": image.asset->url, title, category, alt, aspect },
+        _type != "gallery" => {
+          ...,
+          "imageUrl": image.asset->url,
+        }
+      }
+    },
+    _type == "testimonialsSection" => {
+      ...,
+      testimonials[] {
+        ...,
+        _type == "testimonial" => @-> { clientName, clientLocation, content, serviceType, rating, "clientImageUrl": clientImage.asset->url },
+        _type != "testimonial" => {
+          ...,
+          "clientImageUrl": clientImage.asset->url,
+        }
+      }
+    },
+    _type == "videoTestimonials" => {
+      ...,
+      videos[] {
+        ...,
+        "videoFileUrl": videoFile.asset->url,
+      }
+    },
+    _type == "teachingsSection" => {
+      ...,
+      teachings[] {
+        ...,
+        _type == "teaching" => @-> { title, excerpt, category, readTime, "imageUrl": featuredImage.asset->url, content },
+        _type != "teaching" => {
+          ...,
+          "imageUrl": image.asset->url,
+        }
+      }
+    },
+    _type == "eventsSection" => {
+      ...,
+      events[] {
+        ...,
+        _type == "event" => @-> { title, shortDescription, startDate, endDate, locationName, locationCity, locationCountry, online, price, "imageUrl": heroImage.asset->url },
+        _type != "event" => {
+          ...,
+          "imageUrl": image.asset->url,
+        }
+      }
+    },
+    _type == "transformation" => {
+      ...,
+      milestones[] {
+        ...,
+        "imageUrl": image.asset->url,
+      }
+    },
+  }
+}`);
 
 export async function getPage(slug: string): Promise<SanityPage | null> {
   if (!isSanityConfigured) return null;
@@ -168,4 +334,3 @@ export async function getTeachings(): Promise<SanityTeaching[]> {
 export async function getGallery(): Promise<SanityGallery[]> {
   return safeFetch<SanityGallery>(galleryQuery);
 }
-

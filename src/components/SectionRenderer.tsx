@@ -1,4 +1,3 @@
-"use client";
 import type { SanitySection } from "@/lib/sanity";
 import { urlFor } from "@/lib/sanity";
 import dynamic from "next/dynamic";
@@ -66,29 +65,29 @@ export default function SectionRenderer({ sections }: { sections: SanitySection[
 function SectionComponent({ section }: { section: SanitySection }) {
   switch (section._type) {
     case "hero":
-      return <HeroSection sanity={{ ...section, backgroundImage: img(section.backgroundImage), shamanImage: img(section.shamanImage) }} />;
+      return <HeroSection sanity={{ ...section, backgroundImage: section.backgroundImageUrl || img(section.backgroundImage), shamanImage: section.shamanImageUrl || img(section.shamanImage) }} />;
     case "paths":
       return <PathsSection sanity={section} />;
     case "stats":
       return <StatsSection sanity={section} />;
     case "shamanIntro":
-      return <ShamanIntroSection sanity={{ ...section, image: img(section.image) }} />;
+      return <ShamanIntroSection sanity={{ ...section, image: section.imageUrl || img(section.image) }} />;
     case "socialReel":
       return <SocialReelSection sanity={section} />;
     case "programs":
-      return <ProgramsSection sanity={{ ...section, programs: mapItems(section.programs as any[], ["image"]) }} />;
+      return <ProgramsSection sanity={{ ...section, programs: mapItems(section.programs as any[], ["image", "imageUrl"]) }} />;
     case "gallerySection":
-      return <GallerySection sanity={{ ...section, images: mapItems(section.images as any[], ["image"]) }} />;
+      return <GallerySection sanity={{ ...section, images: mapItems(section.images as any[], ["image", "imageUrl"]) }} />;
     case "testimonialsSection":
-      return <TestimonialsSection {...{ sanity: { ...section, testimonials: mapItems(section.testimonials as any[], ["clientImage"]) } } as any} />;
+      return <TestimonialsSection {...{ sanity: { ...section, testimonials: mapItems(section.testimonials as any[], ["clientImage", "clientImageUrl"]) } } as any} />;
     case "videoTestimonials":
       return <VideoTestimonialsSection sanity={section} />;
     case "teachingsSection":
-      return <TeachingsSection sanity={{ ...section, teachings: mapItems(section.teachings as any[], ["image"]) }} />;
+      return <TeachingsSection sanity={{ ...section, teachings: mapItems(section.teachings as any[], ["image", "imageUrl"]) }} />;
     case "eventsSection":
-      return <EventsShowcaseSection sanity={{ ...section, events: mapItems(section.events as any[], ["image"]) }} />;
+      return <EventsShowcaseSection sanity={{ ...section, events: mapItems(section.events as any[], ["image", "imageUrl"]) }} />;
     case "transformation":
-      return <TransformationSection sanity={{ ...section, milestones: mapItems(section.milestones as any[], ["image"]) }} />;
+      return <TransformationSection sanity={{ ...section, milestones: mapItems(section.milestones as any[], ["image", "imageUrl"]) }} />;
     case "youtubeSection":
       return <YouTubeSection sanity={section} />;
     case "faqSection":

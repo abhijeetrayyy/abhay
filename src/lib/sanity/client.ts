@@ -11,7 +11,7 @@ export const client = createClient({
   useCdn: process.env.NODE_ENV === "production",
   stega: {
     enabled: true,
-    studioUrl: "https://abhayoyun.sanity.studio",
+    studioUrl: "/studio",
   },
 });
 

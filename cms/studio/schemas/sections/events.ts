@@ -11,6 +11,7 @@ export const events = defineType({
     defineField({ name: 'description', title: 'Description', type: 'text', rows: 2, initialValue: 'Intimate gatherings designed for real transformation. No performance — only depth, ceremony, and direct energetic healing.' }),
     defineField({
       name: 'events', title: 'Event Cards', type: 'array', of: [
+        { type: 'reference', to: [{ type: 'event' }] },
         {
           type: 'object',
           fields: [

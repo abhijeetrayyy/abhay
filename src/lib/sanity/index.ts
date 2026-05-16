@@ -1,5 +1,6 @@
 export { client, isSanityConfigured, getServerClient } from "./client";
 export { urlFor, sanityImageLoader } from "./image";
+export { sanityFetch, SanityLive } from "./live";
 export {
   getTestimonials,
   getFeaturedTestimonials,
