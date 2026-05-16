@@ -31,8 +31,8 @@ export default function WebinarCTASection({ sanity }: { sanity?: Record<string, 
   return (
     <section style={{ background: "#FBF9F5", position: "relative", marginTop: "-1px", zIndex: 20, ...sectionStyle }}>
       <div style={{ position: "absolute", inset: 0, background: `radial-gradient(ellipse 80% 60% at 70% 50%, ${accentColor}0F 0%, transparent 70%)`, pointerEvents: "none" }} />
-      <div className="webinar-wrapper" style={{ maxWidth: 1440, margin: "0 auto", padding: "140px 80px", position: "relative", zIndex: 5 }}>
-        <div className="webinar-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 100, alignItems: "center" }}>
+      <div className="webinar-wrapper" style={{ maxWidth: 1440, margin: "0 auto", padding: "clamp(60px, 10vw, 140px) clamp(20px, 7vw, 80px)", position: "relative", zIndex: 5 }}>
+        <div className="webinar-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(40px, 6vw, 100px)", alignItems: "center" }}>
           <motion.div initial={{ opacity: 0, y: 36 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}>
             <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 32 }}>
               <div style={{ width: 32, height: 1, background: accentColor }} />
@@ -82,6 +82,7 @@ export default function WebinarCTASection({ sanity }: { sanity?: Record<string, 
           </motion.div>
         </div>
       </div>
+      <style>{`@media (max-width: 900px) { .webinar-grid { grid-template-columns: 1fr !important; gap: 48px !important; } .webinar-wrapper { padding: 60px 24px !important; } } @media (max-width: 480px) { .webinar-wrapper { padding: 48px 16px !important; } }`}</style>
     </section>
   );
 }
