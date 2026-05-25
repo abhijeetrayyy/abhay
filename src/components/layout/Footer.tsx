@@ -421,6 +421,14 @@ export default function Footer({ siteSettings }: { siteSettings?: { footer?: Foo
           </p>
           <p style={{
             color: 'rgba(31,27,22,0.25)',
+            fontSize: '0.65rem',
+            letterSpacing: '0.08em',
+            fontFamily: "'Cinzel', serif",
+          }}>
+            Design &amp; Developed by <a href="https://doondzn.com" target="_blank" rel="noopener noreferrer" style={{ color: '#C9A04A', textDecoration: 'none' }}>DoonDzn.com</a>
+          </p>
+          <p style={{
+            color: 'rgba(31,27,22,0.25)',
             fontSize: '0.9rem',
             fontStyle: 'italic',
             fontFamily: "'Cormorant Garamond', Georgia, serif",

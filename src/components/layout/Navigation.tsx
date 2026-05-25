@@ -125,6 +125,9 @@ export default function Navigation({ siteSettings }: { siteSettings?: SiteSettin
                 {s.label || PLATFORM_LABELS[s.platform] || s.platform}
               </a>
             ))}
+            <span style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.48rem', fontFamily: "'Cinzel', serif", letterSpacing: '0.06em', marginLeft: 8 }}>
+              Design by <a href="https://doondzn.com" target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}>DoonDzn.com</a>
+            </span>
           </div>
         </div>
       </div>
